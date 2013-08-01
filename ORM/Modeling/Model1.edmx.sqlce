@@ -1,0 +1,186 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 07/31/2013 13:19:52
+-- Generated from EDMX file: C:\Users\behnam\Documents\Visual Studio 2012\Projects\Login\Login\Model1.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    ALTER TABLE [UserRoles] DROP CONSTRAINT [FK_UserRoleUser];
+GO
+    ALTER TABLE [UserRoles_InternalRole] DROP CONSTRAINT [FK_InternalRole_inherits_UserRole];
+GO
+    ALTER TABLE [UserRoles_CustomerRole] DROP CONSTRAINT [FK_CustomerRole_inherits_UserRole];
+GO
+    ALTER TABLE [UserRoles_PublicRole] DROP CONSTRAINT [FK_PublicRole_inherits_UserRole];
+GO
+    ALTER TABLE [UserRoles_AdminRole] DROP CONSTRAINT [FK_AdminRole_inherits_InternalRole];
+GO
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [Users];
+GO
+    DROP TABLE [UserRoles];
+GO
+    DROP TABLE [UserRoles_InternalRole];
+GO
+    DROP TABLE [UserRoles_CustomerRole];
+GO
+    DROP TABLE [UserRoles_PublicRole];
+GO
+    DROP TABLE [UserRoles_AdminRole];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'Users'
+CREATE TABLE [Users] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [FirstName] nvarchar(4000)  NOT NULL,
+    [Username] nvarchar(4000)  NOT NULL,
+    [FamilyName] nvarchar(4000)  NOT NULL,
+    [PhoneNumber] bigint  NOT NULL,
+    [Password] nvarchar(4000)  NOT NULL
+);
+GO
+
+-- Creating table 'UserRoles'
+CREATE TABLE [UserRoles] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [User_Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'UserRoles_InternalRole'
+CREATE TABLE [UserRoles_InternalRole] (
+    [Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'UserRoles_CustomerRole'
+CREATE TABLE [UserRoles_CustomerRole] (
+    [Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'UserRoles_PublicRole'
+CREATE TABLE [UserRoles_PublicRole] (
+    [Id] int  NOT NULL
+);
+GO
+
+-- Creating table 'UserRoles_AdminRole'
+CREATE TABLE [UserRoles_AdminRole] (
+    [Id] int  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [Id] in table 'Users'
+ALTER TABLE [Users]
+ADD CONSTRAINT [PK_Users]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'UserRoles'
+ALTER TABLE [UserRoles]
+ADD CONSTRAINT [PK_UserRoles]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'UserRoles_InternalRole'
+ALTER TABLE [UserRoles_InternalRole]
+ADD CONSTRAINT [PK_UserRoles_InternalRole]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'UserRoles_CustomerRole'
+ALTER TABLE [UserRoles_CustomerRole]
+ADD CONSTRAINT [PK_UserRoles_CustomerRole]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'UserRoles_PublicRole'
+ALTER TABLE [UserRoles_PublicRole]
+ADD CONSTRAINT [PK_UserRoles_PublicRole]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'UserRoles_AdminRole'
+ALTER TABLE [UserRoles_AdminRole]
+ADD CONSTRAINT [PK_UserRoles_AdminRole]
+    PRIMARY KEY ([Id] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [User_Id] in table 'UserRoles'
+ALTER TABLE [UserRoles]
+ADD CONSTRAINT [FK_UserRoleUser]
+    FOREIGN KEY ([User_Id])
+    REFERENCES [Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserRoleUser'
+CREATE INDEX [IX_FK_UserRoleUser]
+ON [UserRoles]
+    ([User_Id]);
+GO
+
+-- Creating foreign key on [Id] in table 'UserRoles_InternalRole'
+ALTER TABLE [UserRoles_InternalRole]
+ADD CONSTRAINT [FK_InternalRole_inherits_UserRole]
+    FOREIGN KEY ([Id])
+    REFERENCES [UserRoles]
+        ([Id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Id] in table 'UserRoles_CustomerRole'
+ALTER TABLE [UserRoles_CustomerRole]
+ADD CONSTRAINT [FK_CustomerRole_inherits_UserRole]
+    FOREIGN KEY ([Id])
+    REFERENCES [UserRoles]
+        ([Id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Id] in table 'UserRoles_PublicRole'
+ALTER TABLE [UserRoles_PublicRole]
+ADD CONSTRAINT [FK_PublicRole_inherits_UserRole]
+    FOREIGN KEY ([Id])
+    REFERENCES [UserRoles]
+        ([Id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- Creating foreign key on [Id] in table 'UserRoles_AdminRole'
+ALTER TABLE [UserRoles_AdminRole]
+ADD CONSTRAINT [FK_AdminRole_inherits_InternalRole]
+    FOREIGN KEY ([Id])
+    REFERENCES [UserRoles_InternalRole]
+        ([Id])
+    ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------
