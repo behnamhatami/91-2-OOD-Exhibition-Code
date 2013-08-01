@@ -16,7 +16,7 @@ namespace Login.Modeling
     {
         public Exhibition()
         {
-            this.Users = new HashSet<User>();
+            this.UserExhibitionRoles = new HashSet<UserExhibitionRole>();
         }
     
         public int Id { get; set; }
@@ -25,9 +25,9 @@ namespace Login.Modeling
         public string FullDescription { get; set; }
         public string Owner { get; set; }
         public string State { get; set; }
-        public int UserId { get; set; }
         public System.DateTime CreationTime { get; set; }
     
-        public virtual ICollection<User> Users { get; set; }
+        public virtual Feature Feature { get; set; }
+        public virtual ICollection<UserExhibitionRole> UserExhibitionRoles { get; set; }
     }
 }

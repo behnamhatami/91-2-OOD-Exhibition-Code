@@ -67,81 +67,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logic\ExhibitionDefinition\ExhibitionState.cs" />
-    <Compile Include="Model\ExhibitionDefinition\Exhibition.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ExhibitionState.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Exhibition.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Feature.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\BoothManagerRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\ChairRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\ExecutionRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\ExhibitionRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\InspectorRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\PostKeeperRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\UserExhibitionRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\WareHouseKeeperRole.cs" />
     <Compile Include="Model\ModelContext\DatabaseInitializer.cs" />
     <Compile Include="Model\ModelContext\DataManager.cs" />
-    <Compile Include="Model\UserManaging\AdminRole.cs" />
-    <Compile Include="Model\UserManaging\CustomerRole.cs" />
-    <Compile Include="Model\UserManaging\InternalRole.cs" />
-    <Compile Include="Model\UserManaging\PublicRole.cs" />
-    <Compile Include="Model\UserManaging\User.cs" />
+    <Compile Include="Model\UserManagingPackage\AdminRole.cs" />
+    <Compile Include="Model\UserManagingPackage\CustomerRole.cs" />
+    <Compile Include="Model\UserManagingPackage\InternalRole.cs" />
+    <Compile Include="Model\UserManagingPackage\PublicRole.cs" />
+    <Compile Include="Model\UserManagingPackage\User.cs" />
     <Compile Include="Model\ModelContext\OodContext.cs" />
-    <Compile Include="Model\UserManaging\UserRole.cs" />
+    <Compile Include="Model\UserManagingPackage\UserRole.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\ExhibitionDefinition\CompatibilityRules.cs">
+    <Compile Include="UI\Utility\Base\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionDefinition\CompatibilityRules.Designer.cs">
-      <DependentUpon>CompatibilityRules.cs</DependentUpon>
+    <Compile Include="UI\Utility\Base\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionDefinition\Configuration.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\Configuration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionDefinition\Configuration.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\Configuration.Designer.cs">
       <DependentUpon>Configuration.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionDefinition\Consistency.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\CreateExhibition.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionDefinition\Consistency.Designer.cs">
-      <DependentUpon>Consistency.cs</DependentUpon>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\CreateExhibition.Designer.cs">
+      <DependentUpon>CreateExhibition.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionDefinition\Exhibition.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\ExhibitionSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionDefinition\Exhibition.Designer.cs">
-      <DependentUpon>Exhibition.cs</DependentUpon>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\ExhibitionSelector.Designer.cs">
+      <DependentUpon>ExhibitionSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionDefinition\ExhibitionSpecification.cs">
+    <Compile Include="UI\Utility\Interface\IReloadable.cs" />
+    <Compile Include="UI\Utility\Helper\ResetHelper.cs" />
+    <Compile Include="UI\Utility\Interface\IPreCondition.cs" />
+    <Compile Include="UI\Utility\PopUp\GeneralErrors.cs" />
+    <Compile Include="UI\Utility\PopUp\PopUp.cs" />
+    <Compile Include="UI\Utility\Base\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionDefinition\ExhibitionSpecification.Designer.cs">
-      <DependentUpon>ExhibitionSpecification.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ExhibitionDefinition\FreezePoll.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\ExhibitionDefinition\FreezePoll.Designer.cs">
-      <DependentUpon>FreezePoll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ExhibitionDefinition\ManagingRoles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\ExhibitionDefinition\ManagingRoles.Designer.cs">
-      <DependentUpon>ManagingRoles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Helper\ResetHelper.cs" />
-    <Compile Include="UI\PopUp\GeneralErrors.cs" />
-    <Compile Include="UI\PopUp\PopUp.cs" />
-    <Compile Include="UI\MainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\MainWindow.Designer.cs">
+    <Compile Include="UI\Utility\Base\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\PopUp\UserErrors.cs" />
-    <Compile Include="UI\UserManaging\Login.cs">
+    <Compile Include="UI\Utility\PopUp\UserErrors.cs" />
+    <Compile Include="UI\UserManagingPackage\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\UserManaging\Login.Designer.cs">
+    <Compile Include="UI\UserManagingPackage\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\UserManaging\UserCrud.cs">
+    <Compile Include="UI\UserManagingPackage\UserCrud.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\UserManaging\UserCrud.Designer.cs">
+    <Compile Include="UI\UserManagingPackage\UserCrud.Designer.cs">
       <DependentUpon>UserCrud.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -153,34 +146,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\ExhibitionDefinition\CompatibilityRules.resx">
-      <DependentUpon>CompatibilityRules.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Utility\Base\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionDefinition\Configuration.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\Configuration.resx">
       <DependentUpon>Configuration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionDefinition\Consistency.resx">
-      <DependentUpon>Consistency.cs</DependentUpon>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\CreateExhibition.resx">
+      <DependentUpon>CreateExhibition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionDefinition\Exhibition.resx">
-      <DependentUpon>Exhibition.cs</DependentUpon>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\ExhibitionSelector.resx">
+      <DependentUpon>ExhibitionSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionDefinition\ExhibitionSpecification.resx">
-      <DependentUpon>ExhibitionSpecification.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionDefinition\FreezePoll.resx">
-      <DependentUpon>FreezePoll.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionDefinition\ManagingRoles.resx">
-      <DependentUpon>ManagingRoles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\MainWindow.resx">
+    <EmbeddedResource Include="UI\Utility\Base\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\UserManaging\Login.resx">
+    <EmbeddedResource Include="UI\UserManagingPackage\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\UserManaging\UserCrud.resx">
+    <EmbeddedResource Include="UI\UserManagingPackage\UserCrud.resx">
       <DependentUpon>UserCrud.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -218,6 +202,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\ExhibitionPackage\ExhibitionConsistency\" />
+    <Folder Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\" />
+    <Folder Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\" />
+    <Folder Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\" />
+    <Folder Include="Model\ReportPackage\" />
+    <Folder Include="UI\ReportPackage\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

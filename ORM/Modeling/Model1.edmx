@@ -155,9 +155,24 @@
           </AssociationSet>
           <EntitySet Name="UserRoles" EntityType="Model1.UserRole" />
           <EntitySet Name="Exhibitions" EntityType="Model1.Exhibition" />
-          <AssociationSet Name="ExhibitionUser" Association="Model1.ExhibitionUser">
+          <EntitySet Name="Features" EntityType="Model1.Feature" />
+          <AssociationSet Name="ExhibitionFeature" Association="Model1.ExhibitionFeature">
             <End Role="Exhibition" EntitySet="Exhibitions" />
+            <End Role="Feature" EntitySet="Features" />
+          </AssociationSet>
+          <EntitySet Name="ExhibitionRoles" EntityType="Model1.ExhibitionRole" />
+          <EntitySet Name="UserExhibitionRoles" EntityType="Model1.UserExhibitionRole" />
+          <AssociationSet Name="UserExhibitionRoleExhibition" Association="Model1.UserExhibitionRoleExhibition">
+            <End Role="UserExhibitionRole" EntitySet="UserExhibitionRoles" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <AssociationSet Name="UserUserExhibitionRole" Association="Model1.UserUserExhibitionRole">
             <End Role="User" EntitySet="Users" />
+            <End Role="UserExhibitionRole" EntitySet="UserExhibitionRoles" />
+          </AssociationSet>
+          <AssociationSet Name="UserExhibitionRoleExhibitionRole" Association="Model1.UserExhibitionRoleExhibitionRole">
+            <End Role="UserExhibitionRole" EntitySet="UserExhibitionRoles" />
+            <End Role="ExhibitionRole" EntitySet="ExhibitionRoles" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
@@ -171,7 +186,7 @@
           <Property Type="Int64" Name="PhoneNumber" Nullable="false" />
           <Property Type="String" Name="Password" Nullable="false" />
           <NavigationProperty Name="UserRole" Relationship="Model1.UserRoleUser" FromRole="User" ToRole="UserRole" />
-          <NavigationProperty Name="Exhibitions" Relationship="Model1.ExhibitionUser" FromRole="User" ToRole="Exhibition" />
+          <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserUserExhibitionRole" FromRole="User" ToRole="UserExhibitionRole" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -199,13 +214,59 @@
           <Property Type="String" Name="FullDescription" Nullable="false" />
           <Property Type="String" Name="Owner" Nullable="false" />
           <Property Type="String" Name="State" Nullable="false" />
-          <Property Type="Int32" Name="UserId" Nullable="false" />
-          <NavigationProperty Name="Users" Relationship="Model1.ExhibitionUser" FromRole="Exhibition" ToRole="User" />
           <Property Type="DateTime" Name="CreationTime" Nullable="false" />
+          <NavigationProperty Name="Feature" Relationship="Model1.ExhibitionFeature" FromRole="Exhibition" ToRole="Feature" />
+          <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserExhibitionRoleExhibition" FromRole="Exhibition" ToRole="UserExhibitionRole" />
         </EntityType>
-        <Association Name="ExhibitionUser">
-          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="*" />
-          <End Type="Model1.User" Role="User" Multiplicity="*" />
+        <EntityType Name="Feature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Boolean" Name="HasWareHouse" Nullable="false" />
+          <Property Type="Boolean" Name="HasPostOffice" Nullable="false" />
+          <Property Type="Boolean" Name="HasSell" Nullable="false" />
+          <Property Type="Boolean" Name="HasDifferentBooth" Nullable="false" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.ExhibitionFeature" FromRole="Feature" ToRole="Exhibition" />
+        </EntityType>
+        <Association Name="ExhibitionFeature">
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+          <End Type="Model1.Feature" Role="Feature" Multiplicity="1" />
+        </Association>
+        <EntityType Name="ExhibitionRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserExhibitionRoleExhibitionRole" FromRole="ExhibitionRole" ToRole="UserExhibitionRole" />
+        </EntityType>
+        <EntityType Name="InspectorRole" BaseType="Model1.ExhibitionRole" />
+        <EntityType Name="ExecutionRole" BaseType="Model1.ExhibitionRole" >
+        </EntityType>
+        <EntityType Name="BoothManagerRole" BaseType="Model1.ExhibitionRole" />
+        <EntityType Name="ChairRole" BaseType="Model1.ExhibitionRole" />
+        <EntityType Name="PostKeeperRole" BaseType="Model1.ExhibitionRole" />
+        <EntityType Name="WareHouseKeeperRole" BaseType="Model1.ExhibitionRole" />
+        <EntityType Name="UserExhibitionRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.UserExhibitionRoleExhibition" FromRole="UserExhibitionRole" ToRole="Exhibition" />
+          <NavigationProperty Name="User" Relationship="Model1.UserUserExhibitionRole" FromRole="UserExhibitionRole" ToRole="User" />
+          <NavigationProperty Name="ExhibitionRole" Relationship="Model1.UserExhibitionRoleExhibitionRole" FromRole="UserExhibitionRole" ToRole="ExhibitionRole" />
+        </EntityType>
+        <Association Name="UserExhibitionRoleExhibition">
+          <End Type="Model1.UserExhibitionRole" Role="UserExhibitionRole" Multiplicity="*" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <Association Name="UserUserExhibitionRole">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.UserExhibitionRole" Role="UserExhibitionRole" Multiplicity="*" />
+        </Association>
+        <Association Name="UserExhibitionRoleExhibitionRole">
+          <End Type="Model1.UserExhibitionRole" Role="UserExhibitionRole" Multiplicity="*" />
+          <End Type="Model1.ExhibitionRole" Role="ExhibitionRole" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

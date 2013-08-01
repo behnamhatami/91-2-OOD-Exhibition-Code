@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ModelContext;
-using OOD.Model.UserManaging;
-using OOD.UI.UserManaging;
+using OOD.Model.UserManagingPackage;
+using OOD.UI.UserManagingPackage;
 
 namespace OOD
 {
@@ -21,5 +22,6 @@ namespace OOD
         }
 
         public static User User { get; set; }
+        public static Exhibition Exhibition { get; set; }
     }
 }

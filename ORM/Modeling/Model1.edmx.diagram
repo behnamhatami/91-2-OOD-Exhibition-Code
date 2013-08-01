@@ -17,10 +17,27 @@
         <EntityTypeShape EntityType="Model1.AdminRole" Width="1.5" PointX="0.625" PointY="5" />
         <InheritanceConnector EntityType="Model1.AdminRole" />
         <EntityTypeShape EntityType="Model1.Exhibition" Width="1.5" PointX="3.375" PointY="5" />
-        <AssociationConnector Association="Model1.ExhibitionUser" />
       </Diagram>
-      <Diagram DiagramId="c958b4f548a74ae193a20cc894897eeb" Name="Diagram2" >
-        <EntityTypeShape EntityType="Model1.Exhibition" Width="1.5" PointX="4.625" PointY="0.5" />
+      <Diagram DiagramId="c958b4f548a74ae193a20cc894897eeb" Name="Diagram2" ZoomLevel="85" >
+        <EntityTypeShape EntityType="Model1.Exhibition" Width="2" PointX="4" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.Feature" Width="1.5" PointX="0.5" PointY="1" />
+        <AssociationConnector Association="Model1.ExhibitionFeature" />
+        <EntityTypeShape EntityType="Model1.ExhibitionRole" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="Model1.InspectorRole" Width="1.5" PointX="4.625" PointY="4" />
+        <InheritanceConnector EntityType="Model1.InspectorRole" />
+        <EntityTypeShape EntityType="Model1.ExecutionRole" Width="1.5" PointX="4.625" PointY="5.625" />
+        <InheritanceConnector EntityType="Model1.ExecutionRole" />
+        <EntityTypeShape EntityType="Model1.BoothManagerRole" Width="1.5" PointX="4.625" PointY="7" />
+        <InheritanceConnector EntityType="Model1.BoothManagerRole" />
+        <EntityTypeShape EntityType="Model1.ChairRole" Width="1.5" PointX="7.375" PointY="7" />
+        <InheritanceConnector EntityType="Model1.ChairRole" />
+        <EntityTypeShape EntityType="Model1.PostKeeperRole" Width="1.5" PointX="10.125" PointY="4" />
+        <EntityTypeShape EntityType="Model1.WareHouseKeeperRole" Width="1.5" PointX="10.25" PointY="7" />
+        <InheritanceConnector EntityType="Model1.PostKeeperRole" />
+        <InheritanceConnector EntityType="Model1.WareHouseKeeperRole" />
+        <EntityTypeShape EntityType="Model1.UserExhibitionRole" Width="1.5" PointX="7.375" PointY="1.125" />
+        <AssociationConnector Association="Model1.UserExhibitionRoleExhibition" />
+        <AssociationConnector Association="Model1.UserExhibitionRoleExhibitionRole" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

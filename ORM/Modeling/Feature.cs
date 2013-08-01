@@ -12,21 +12,14 @@ namespace Login.Modeling
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Feature
     {
-        public User()
-        {
-            this.UserExhibitionRoles = new HashSet<UserExhibitionRole>();
-        }
-    
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string Username { get; set; }
-        public string FamilyName { get; set; }
-        public long PhoneNumber { get; set; }
-        public string Password { get; set; }
+        public bool HasWareHouse { get; set; }
+        public bool HasPostOffice { get; set; }
+        public bool HasSell { get; set; }
+        public bool HasDifferentBooth { get; set; }
     
-        public virtual UserRole UserRole { get; set; }
-        public virtual ICollection<UserExhibitionRole> UserExhibitionRoles { get; set; }
+        public virtual Exhibition Exhibition { get; set; }
     }
 }

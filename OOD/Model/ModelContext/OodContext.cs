@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
-using OOD.Model.ExhibitionDefinition;
-using OOD.Model.UserManaging;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+using OOD.Model.ExhibitionPackage.ExhibitionRole;
+using OOD.Model.UserManagingPackage;
 
 namespace OOD.Model.ModelContext
 {
@@ -8,11 +9,10 @@ namespace OOD.Model.ModelContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
-        public DbSet<InternalRole> InternalRoles { get; set; }
-        public DbSet<CustomerRole> CustomerRoles { get; set; }
-        public DbSet<PublicRole> PublicRoles { get; set; }
-        public DbSet<AdminRole> AdminRoles { get; set; }
         public DbSet<Exhibition> Exhibitions { get; set; }
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<ExhibitionRole> ExhibitionRoles { get; set; }
+        public DbSet<UserExhibitionRole> UserExhibitionRoles { get; set; }
 
         public OodContext()
             : base(ConnectionString)

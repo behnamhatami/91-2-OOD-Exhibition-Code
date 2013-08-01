@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using OOD.Model.UserManaging;
+using OOD.Model.UserManagingPackage;
 
 namespace OOD.Model.ModelContext
 {
@@ -28,8 +28,8 @@ namespace OOD.Model.ModelContext
             };
             context.Users.Add(user);
             context.Users.Add(guest);
-            context.AdminRoles.Add(adminRole);
-            context.PublicRoles.Add(publicRole);
+            context.UserRoles.Add(adminRole);
+            context.UserRoles.Add(publicRole);
             context.SaveChanges();
         }
     }

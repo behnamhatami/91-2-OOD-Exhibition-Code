@@ -28,5 +28,8 @@ namespace Login.Modeling
         public DbSet<User> Users { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Exhibition> Exhibitions { get; set; }
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<ExhibitionRole> ExhibitionRoles { get; set; }
+        public DbSet<UserExhibitionRole> UserExhibitionRoles { get; set; }
     }
 }
