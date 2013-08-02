@@ -1,53 +1,79 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 
 namespace OOD.UI.Utility.Helper
 {
     public static class ResetHelper
     {
-        public static void Empty(params Control[] controls)
-        {
-            foreach (var control in controls)
-                control.Text = "";
-        }
-
         public static void SetEnable(bool enable, params Control[] controls)
         {
             foreach (var control in controls)
                 control.Enabled = enable;
         }
 
-        public static void Empty(params ComboBox[] comboBoxes)
+        public static void Empty(params Control[] controls)
         {
-            foreach (var comboBox in comboBoxes)
+            foreach (var control in controls)
             {
-                comboBox.SelectedItem = null;
-                comboBox.SelectedText = "";
-                comboBox.SelectedIndex = -1;
+                var combobox = control as ComboBox;
+                if (combobox != null)
+                    EmptyComboBox(combobox);
+
+                var checkList = control as CheckedListBox;
+                if (checkList != null)
+                    EmptyCheckedListBox(checkList);
+
+                var checkBox = control as CheckBox;
+                if (checkBox != null)
+                    EmptyCheckBox(checkBox);
+
+                EmptyControl(control);
             }
         }
 
-        public static void Empty(params CheckedListBox[] checkListBoxes)
+        private static void EmptyControl(Control control)
         {
-            foreach (var checkListBox in checkListBoxes)
-            {
-                checkListBox.SelectedItems.Clear();
-                checkListBox.SelectedIndices.Clear();
-            }
+            control.Text = "";
         }
 
-        public static void Empty(params CheckBox[] checkBoxes)
+        private static void EmptyCheckBox(CheckBox checkBox)
         {
-            foreach (var checkBox in checkBoxes)
-                checkBox.Checked = false;
+            checkBox.Checked = false;
         }
 
-        public static void Empty(params ListBox[] listBoxes)
+        private static void EmptyComboBox(ComboBox comboBox)
         {
-            foreach (var listBox in listBoxes)
-            {
-                listBox.SelectedItems.Clear();
-                listBox.SelectedIndices.Clear();
-            }
+            comboBox.SelectedItem = null;
+            comboBox.SelectedIndex = -1;
+        }
+
+        private static void EmptyCheckedListBox(CheckedListBox checkListBox)
+        {
+            checkListBox.SelectedItems.Clear();
+            checkListBox.SelectedIndices.Clear();
+            checkListBox.ClearSelected();
+        }
+
+        public static void Refresh(ComboBox comboBox, Object[] init)
+        {
+            Empty(comboBox);
+            comboBox.Items.Clear();
+            comboBox.Items.AddRange(init);
+        }
+
+        public static void Refresh(CheckedListBox checkedListBox, Object[] init)
+        {
+            Empty(checkedListBox);
+            checkedListBox.Items.Clear();
+            checkedListBox.Items.AddRange(init);
+            checkedListBox.Refresh();
+        }
+
+        public static void Refresh(CheckBox checkBox, Boolean init)
+        {
+            Empty(checkBox);
+            checkBox.Checked = init;
         }
     }
 }

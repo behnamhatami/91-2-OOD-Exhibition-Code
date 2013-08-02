@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionRole;
+using OOD.Model.ModelContext;
+using OOD.Model.NotificationPackage;
 
 namespace OOD.Model.UserManagingPackage
 {
     public class User
     {
-        public User()
-        {
-            UserExhibitionRoles = new HashSet<UserExhibitionRole>();
-        }
-
         [Key]
         public int Id { get; set; }
 
@@ -25,7 +22,29 @@ namespace OOD.Model.UserManagingPackage
         public string Password { get; set; }
 
         public virtual UserRole UserRole { get; set; }
-        public virtual ICollection<UserExhibitionRole> UserExhibitionRoles { get; set; }
+
+        [NotMapped]
+        public IQueryable<UserExhibitionRole> UserExhibitionRoles
+        {
+            get
+            {
+                return DataManager.DataContext.UserExhibitionRoles
+                    .Where(role => role.User.Id == Id);
+            }
+        }
+
+        [NotMapped]
+        public virtual IQueryable<Poll> Polls
+        {
+            get
+            {
+                return
+                    DataManager.DataContext.PollUsers
+                        .Where(pollUser => pollUser.User.Id == Id)
+                        .Select(pollUser => pollUser.Poll);
+            }
+        }
+
 
         public bool ChangePassword(string oldPassword, string newPassword)
         {
@@ -57,6 +76,14 @@ namespace OOD.Model.UserManagingPackage
         public override int GetHashCode()
         {
             return Username.GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            var user = obj as User;
+            if (user == null || user.Username != Username)
+                return false;
+            return true;
         }
     }
 }

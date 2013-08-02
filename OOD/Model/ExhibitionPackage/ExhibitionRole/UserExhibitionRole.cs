@@ -21,5 +21,13 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionRole
         {
             return ToString().GetHashCode();
         }
+
+        public override bool Equals(object obj)
+        {
+            var role = obj as UserExhibitionRole;
+            if (role == null || role.Id != Id)
+                return false;
+            return true;
+        }
     }
 }

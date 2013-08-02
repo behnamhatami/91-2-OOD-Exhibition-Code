@@ -11,6 +11,45 @@ namespace OOD.UI.UserManagingPackage
             InitializeComponent();
         }
 
+        // IResetAble
+
+        public override void Reset()
+        {
+            PasswordTextBox.Text = "";
+        }
+
+        // IPrecondition
+
+        public override bool NeedUser()
+        {
+            return false;
+        }
+
+        public override bool NeedExhibition()
+        {
+            return false;
+        }
+
+        public override bool ValidatePreConditions()
+        {
+            return true;
+        }
+
+        //IReloadAble
+
+        public override int GetLevel()
+        {
+            return 1;
+        }
+
+        public override bool RestoreAble()
+        {
+            return true;
+        }
+
+        // Finish
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             var username = UsernameTextBox.Text;
@@ -23,11 +62,9 @@ namespace OOD.UI.UserManagingPackage
             if (UserErrors.AuthenticateIsNotValid(user, password))
                 return;
 
-            Hide();
-            PasswordTextBox.Text = "";
             Program.User = user;
-            new MainWindow().ShowDialog();
-            Show();
+            Reset();
+            GoNext(new MainWindow());
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,18 +75,15 @@ namespace OOD.UI.UserManagingPackage
             if (user == null)
                 return;
 
-            Hide();
-            PasswordTextBox.Text = "";
             Program.User = user;
-            using (var form = new MainWindow())
-                form.ShowDialog();
-            Show();
+            Reset();
+            GoNext(new MainWindow());
         }
 
         public static void ExitUser()
         {
             var user = Program.User;
-            Utility.PopUp.PopUp.ShowSuccess(String.Format("شما از کاربر {0} خارج شدید.", user));
+            PopUp.ShowSuccess(String.Format("شما از کاربر {0} خارج شدید.", user));
             Program.User = null;
         }
     }

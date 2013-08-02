@@ -3,6 +3,7 @@ using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionRole;
 using OOD.Model.ModelContext;
+using OOD.Model.NotificationPackage;
 using OOD.Model.UserManagingPackage;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.Helper;
@@ -17,25 +18,52 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             InitializeComponent();
         }
 
+        // IResetAble
+
+        public override void Reset()
+        {
+            ResetHelper.Empty(ExhibitionDescriptionTextBox, ExhibitionFullDescriptionTextBox, ExhibitionNameTextBox,
+                ExhibitionCreatorTextBox);
+            var db = DataManager.DataContext;
+            ResetHelper.Refresh(ExhibitionChairListBox, db.Users.ToArray());
+        }
+
+
+        // IPrecondition
+
+        public override bool NeedUser()
+        {
+            return true;
+        }
+
         public override bool NeedExhibition()
         {
             return false;
         }
 
-        private void Reset()
+        public override bool ValidatePreConditions()
         {
-            ResetHelper.Empty(ExhibitionDescriptionTextBox, ExhibitionFullDescriptionTextBox, ExhibitionNameTextBox,
-                ExhibitionCreatorTextBox);
-            ResetHelper.Empty(ExhibitionChairListBox);
-            var db = DataManager.DataContext;
-            ExhibitionChairListBox.Items.Clear();
-            ExhibitionChairListBox.Items.AddRange(db.Users.ToArray());
+            var user = Program.User;
+            if (user.UserRole is InternalRole)
+                return true;
+            GeneralErrors.AccessDenied();
+            return false;
         }
 
-        private void Exhibition_Load(object sender, EventArgs e)
+        //IReloadAble
+
+        public override int GetLevel()
         {
-            Reset();
+            return 3;
         }
+
+        public override bool RestoreAble()
+        {
+            return true;
+        }
+
+        // Finish
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -47,16 +75,19 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var fullDescription = ExhibitionFullDescriptionTextBox.Text;
             var owner = ExhibitionCreatorTextBox.Text;
 
-            if (GeneralErrors.IsZero(ExhibitionChairListBox.SelectedItems.Count, "کاربر را به عنوان عضو اعضای عالی"))
+            if (GeneralErrors.IsZero(ExhibitionChairListBox.CheckedItems.Count, "کاربر را به عنوان عضو اعضای عالی"))
                 return;
 
+
+            var db = DataManager.DataContext;
             var exhibition = new Exhibition
             {
                 Name = name,
                 Description = description,
                 FullDescription = fullDescription,
                 Owner = owner,
-                Feature = new Feature()
+                Feature = new Feature(),
+                Configuration = new Model.ExhibitionPackage.ExhibitionDefinition.Configuration()
             };
 
             foreach (var item in ExhibitionChairListBox.CheckedItems)
@@ -67,13 +98,36 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
                     ExhibitionRole = new ChairRole(),
                     Exhibition = exhibition
                 };
-                exhibition.UserExhibitionRoles.Add(userExhibitionRole);
+                db.UserExhibitionRoles.Add(userExhibitionRole);
+//                exhibition.UserExhibitionRoles.Add(userExhibitionRole);
             }
 
-            var db = DataManager.DataContext;
+            var poll = new Poll
+            {
+                Question = "آیا شما با پیکربندی موجود موافق هستید؟",
+                CreationDate = DateTime.Today,
+                Exhibition = exhibition
+            };
+
+            var pollChoice1 = new PollChoice
+            {
+                Content = "بلی",
+                Poll = poll
+            };
+            var pollChoice2 = new PollChoice
+            {
+                Content = "خیر",
+                Poll = poll
+            };
+
+
             db.Exhibitions.Add(exhibition);
+            db.Polls.Add(poll);
+            db.PollChoices.Add(pollChoice1);
+            db.PollChoices.Add(pollChoice2);
+
             db.SaveChanges();
-            Utility.PopUp.PopUp.ShowSuccess("نمایشگاه جدید  با موفقت ساخته شد.");
+            PopUp.ShowSuccess("نمایشگاه جدید  با موفقت ساخته شد.");
             ExhibitionSelector.EnterExhibition(exhibition);
             Reload();
             Reset();

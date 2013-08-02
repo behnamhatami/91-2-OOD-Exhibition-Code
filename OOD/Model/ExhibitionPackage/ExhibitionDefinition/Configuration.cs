@@ -1,19 +1,24 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using OOD.Model.ModelContext;
 
 namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 {
-    public class Feature
+    public class Configuration
     {
         [Key, ForeignKey("Exhibition")]
         public int Id { get; set; }
-        public bool HasWareHouse { get; set; }
-        public bool HasPostOffice { get; set; }
-        public bool HasSell { get; set; }
-        public bool HasDifferentBooth { get; set; }
 
         public virtual Exhibition Exhibition { get; set; }
-        
+
+        [NotMapped]
+        public IQueryable<Process> Processes
+        {
+            get { return DataManager.DataContext.Processes.Where(process => process.Configuration.Id == this.Id); }
+        }
+
         public override string ToString()
         {
             return Id + "";
@@ -26,8 +31,8 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 
         public override bool Equals(object obj)
         {
-            var feature = obj as Feature;
-            if (feature == null || feature.Id != Id)
+            var config = obj as Configuration;
+            if (config == null || config.Id != Id)
                 return false;
             return true;
         }

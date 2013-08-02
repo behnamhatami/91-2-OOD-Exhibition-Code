@@ -15,13 +15,55 @@ namespace OOD.UI.UserManagingPackage
             InitializeComponent();
         }
 
+        // IResetAble
+
+        public override void Reset()
+        {
+            CreateReset();
+            EditReset();
+            RemoveReset();
+        }
+
+        // IPrecondition
+
+        public override bool NeedUser()
+        {
+            return true;
+        }
+
+        public override bool NeedExhibition()
+        {
+            return false;
+        }
+
+        public override bool ValidatePreConditions()
+        {
+            var user = Program.User;
+            if (user.UserRole is AdminRole)
+                return true;
+            GeneralErrors.AccessDenied();
+            return false;
+        }
+
+        //IReloadAble
+
+        public override int GetLevel()
+        {
+            return 3;
+        }
+
+        public override bool RestoreAble()
+        {
+            return true;
+        }
+
+        // Finish
+
         private void CreateReset()
         {
             ResetHelper.Empty(CreateUsernameTextBox, CreateFirstNameTextBox, CreateFamilyNameTextBox,
                 CreateUserRoleComboBox, CreatePhoneTextBox, CreatePasswordTextBox, CreateRepeatPasswordTextBox);
-            ResetHelper.Empty(CreateUserRoleComboBox);
-            CreateUserRoleComboBox.Items.Clear();
-            CreateUserRoleComboBox.Items.AddRange(UserRole.GetChoices());
+            ResetHelper.Refresh(CreateUserRoleComboBox, UserRole.GetChoices());
         }
 
         private void EditReset()
@@ -47,18 +89,8 @@ namespace OOD.UI.UserManagingPackage
         private void RemoveReset()
         {
             var db = DataManager.DataContext;
-            ResetHelper.Empty(RemoveUsernameComboBox);
-            RemoveUsernameComboBox.Items.Clear();
-            RemoveUsernameComboBox.Items.AddRange(db.Users.ToArray());
+            ResetHelper.Refresh(RemoveUsernameComboBox, db.Users.ToArray());
         }
-
-        private void UserCrud_Load(object sender, EventArgs e)
-        {
-            CreateReset();
-            EditReset();
-            RemoveReset();
-        }
-
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -173,21 +205,5 @@ namespace OOD.UI.UserManagingPackage
             RemoveReset();
             Utility.PopUp.PopUp.ShowSuccess("حذف با موفقیت انجام شد.");
         }
-
-        private void CraetePage_Click(object sender, EventArgs e)
-        {
-            CreateReset();
-        }
-
-        private void EditPage_Click(object sender, EventArgs e)
-        {
-            EditReset();
-        }
-
-        private void RemovePage_Click(object sender, EventArgs e)
-        {
-            RemoveReset();
-        }
-
     }
 }

@@ -11,6 +11,24 @@ namespace OOD.Model.UserManagingPackage
 
         public virtual User User { get; set; }
 
+        public override string ToString()
+        {
+            return Id + "";
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var role = obj as UserRole;
+            if (role == null || role.Id != Id)
+                return false;
+            return true;
+        }
+
         public static Object[] GetChoices()
         {
             Object[] output = {new InternalRole(), new AdminRole(), new PublicRole(), new CustomerRole()};

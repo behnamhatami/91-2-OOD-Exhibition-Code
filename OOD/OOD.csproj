@@ -67,9 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Configuration.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ExhibitionState.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Exhibition.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Feature.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Process.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ProcessType.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRole\BoothManagerRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRole\ChairRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRole\ExecutionRole.cs" />
@@ -80,6 +83,9 @@
     <Compile Include="Model\ExhibitionPackage\ExhibitionRole\WareHouseKeeperRole.cs" />
     <Compile Include="Model\ModelContext\DatabaseInitializer.cs" />
     <Compile Include="Model\ModelContext\DataManager.cs" />
+    <Compile Include="Model\NotificationPackage\Poll.cs" />
+    <Compile Include="Model\NotificationPackage\PollChoice.cs" />
+    <Compile Include="Model\NotificationPackage\PollUser.cs" />
     <Compile Include="Model\UserManagingPackage\AdminRole.cs" />
     <Compile Include="Model\UserManagingPackage\CustomerRole.cs" />
     <Compile Include="Model\UserManagingPackage\InternalRole.cs" />
@@ -89,6 +95,18 @@
     <Compile Include="Model\UserManagingPackage\UserRole.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\PollForFreeze.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\PollForFreeze.Designer.cs">
+      <DependentUpon>PollForFreeze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.Designer.cs">
+      <DependentUpon>RequestForFreeze.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Utility\Base\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +134,7 @@
     <Compile Include="UI\Utility\Interface\IReloadable.cs" />
     <Compile Include="UI\Utility\Helper\ResetHelper.cs" />
     <Compile Include="UI\Utility\Interface\IPreCondition.cs" />
+    <Compile Include="UI\Utility\Interface\IResetAble.cs" />
     <Compile Include="UI\Utility\PopUp\GeneralErrors.cs" />
     <Compile Include="UI\Utility\PopUp\PopUp.cs" />
     <Compile Include="UI\Utility\Base\MainWindow.cs">
@@ -146,6 +165,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\PollForFreeze.resx">
+      <DependentUpon>PollForFreeze.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.resx">
+      <DependentUpon>RequestForFreeze.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Utility\Base\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,23 +1,36 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using OOD.Model.ModelContext;
 
 namespace OOD.Model.ExhibitionPackage.ExhibitionRole
 {
-    using System.Collections.Generic;
-
     public class ExhibitionRole
     {
-        public ExhibitionRole()
-        {
-            UserExhibitionRoles = new HashSet<UserExhibitionRole>();
-        }
-
         public int Id { get; set; }
 
-        public virtual ICollection<UserExhibitionRole> UserExhibitionRoles { get; set; }
+        [NotMapped]
+        public IQueryable<UserExhibitionRole> UserExhibitionRoles
+        {
+            get { return DataManager.DataContext.UserExhibitionRoles.Where(role => role.ExhibitionRole.Id == Id); }
+        }
 
         public override string ToString()
         {
-            return "";
+            return Id + "";
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var role = obj as ExhibitionRole;
+            if (role == null || role.Id != Id)
+                return false;
+            return true;
         }
 
 

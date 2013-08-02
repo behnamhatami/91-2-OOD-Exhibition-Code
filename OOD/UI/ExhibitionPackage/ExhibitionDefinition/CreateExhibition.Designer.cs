@@ -196,7 +196,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Exhibition";
             this.Text = "تعریف نمایشگاه";
-            this.Load += new System.EventHandler(this.Exhibition_Load);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

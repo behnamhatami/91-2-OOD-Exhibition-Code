@@ -117,7 +117,6 @@
             this.CraetePage.TabIndex = 0;
             this.CraetePage.Text = "ایجاد";
             this.CraetePage.UseVisualStyleBackColor = true;
-            this.CraetePage.Click += new System.EventHandler(this.CraetePage_Click);
             // 
             // label4
             // 
@@ -288,7 +287,6 @@
             this.EditPage.TabIndex = 1;
             this.EditPage.Text = "تغییر";
             this.EditPage.UseVisualStyleBackColor = true;
-            this.EditPage.Click += new System.EventHandler(this.EditPage_Click);
             // 
             // EditChangePasswordCheckBox
             // 
@@ -465,7 +463,6 @@
             this.RemovePage.TabIndex = 2;
             this.RemovePage.Text = "حذف";
             this.RemovePage.UseVisualStyleBackColor = true;
-            this.RemovePage.Click += new System.EventHandler(this.RemovePage_Click);
             // 
             // RemoveUsernameComboBox
             // 
@@ -512,7 +509,6 @@
             this.Controls.Add(this.TabControl1);
             this.Name = "UserCrud";
             this.Text = "مدیریت کاربران";
-            this.Load += new System.EventHandler(this.UserCrud_Load);
             this.Controls.SetChildIndex(this.TabControl1, 0);
             this.TabControl1.ResumeLayout(false);
             this.CraetePage.ResumeLayout(false);

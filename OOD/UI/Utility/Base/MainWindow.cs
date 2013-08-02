@@ -1,22 +1,27 @@
 ﻿using System;
-using System.Windows.Forms;
 using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
 using OOD.UI.UserManagingPackage;
-using OOD.UI.Utility.Interface;
 
 namespace OOD.UI.Utility.Base
 {
-    public partial class MainWindow : Form, IPreCondition, IReloadable
+    public partial class MainWindow : BaseForm
     {
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        public void Reload()
+        protected void MainWindow_Load(object sender, EventArgs e)
         {
-            if (NeedExhibition() && Program.Exhibition == null)
-                GoNext(new ExhibitionSelector());
+            Reload();
+        }
+
+        //IResetAble
+
+
+        //IReloadAble
+        public override void Reload()
+        {
             if (Program.User != null)
                 label2.Text = String.Format("شما با نام کاربری \"{0}\" وارد سیستم شده‌اید.", Program.User.FirstName);
 
@@ -32,40 +37,35 @@ namespace OOD.UI.Utility.Base
             else ExhibitionExitToolStripMenuItem.Enabled = true;
         }
 
-        public virtual bool NeedExhibition()
+
+        public override int GetLevel()
+        {
+            return 2;
+        }
+
+        public override bool RestoreAble()
+        {
+            return true;
+        }
+
+        //IPrecondition
+
+        public override bool NeedUser()
+        {
+            return true;
+        }
+
+        public override bool NeedExhibition()
         {
             return false;
         }
 
-        protected void MainWindow_Load(object sender, EventArgs e)
+        public override bool ValidatePreConditions()
         {
-            Reload();
+            return true;
         }
 
-        protected void GoNext(Form form)
-        {
-            if (form.GetType() == GetType()) return;
-            Hide();
-            form.ShowDialog();
-            form.Dispose();
-            Restore();
-        }
-
-        private void Restore()
-        {
-            if (NeedExhibition() && Program.Exhibition == null)
-            {
-                Close();
-                return;
-            }
-            if (Program.User == null)
-            {
-                Close();
-                return;
-            }
-            Reload();
-            Show();
-        }
+        // Finish
 
         private void UserManagingToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -102,6 +102,11 @@ namespace OOD.UI.Utility.Base
         {
             ExhibitionSelector.ExitExhibition();
             Restore();
+        }
+
+        private void ExhibitionFreezToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new RequestForFreeze());
         }
     }
 }

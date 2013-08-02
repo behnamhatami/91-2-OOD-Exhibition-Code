@@ -39,6 +39,18 @@
         <AssociationConnector Association="Model1.UserExhibitionRoleExhibition" />
         <AssociationConnector Association="Model1.UserExhibitionRoleExhibitionRole" />
       </Diagram>
+      <Diagram DiagramId="9b586e1c966e4bb5865617a5240d5263" Name="Diagram3" >
+        <EntityTypeShape EntityType="Model1.Configuration" Width="1.5" PointX="1.875" PointY="0.75" />
+        <EntityTypeShape EntityType="Model1.Process" Width="1.5" PointX="5.125" PointY="0.75" />
+        <AssociationConnector Association="Model1.ProcessConfiguration" />
+      </Diagram>
+      <Diagram DiagramId="9ee41dce9ee044c7b8e94a90e7c2dfda" Name="Diagram4" >
+        <EntityTypeShape EntityType="Model1.Poll" Width="1.5" PointX="1.25" PointY="0.75" />
+        <EntityTypeShape EntityType="Model1.PollChoice" Width="1.5" PointX="4.625" PointY="0.75" />
+        <AssociationConnector Association="Model1.PollPollChoice" />
+        <EntityTypeShape EntityType="Model1.PollUser" Width="1.5" PointX="1.25" PointY="3.625" />
+        <AssociationConnector Association="Model1.Voting" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

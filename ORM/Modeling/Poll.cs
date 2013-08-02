@@ -12,23 +12,20 @@ namespace Login.Modeling
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Poll
     {
-        public User()
+        public Poll()
         {
-            this.UserExhibitionRoles = new HashSet<UserExhibitionRole>();
+            this.PollChoices = new HashSet<PollChoice>();
             this.PollUsers = new HashSet<PollUser>();
         }
     
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string Username { get; set; }
-        public string FamilyName { get; set; }
-        public long PhoneNumber { get; set; }
-        public string Password { get; set; }
+        public string Question { get; set; }
+        public System.DateTime CreationDate { get; set; }
     
-        public virtual UserRole UserRole { get; set; }
-        public virtual ICollection<UserExhibitionRole> UserExhibitionRoles { get; set; }
+        public virtual ICollection<PollChoice> PollChoices { get; set; }
         public virtual ICollection<PollUser> PollUsers { get; set; }
+        public virtual Exhibition Exhibition { get; set; }
     }
 }

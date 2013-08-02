@@ -3,7 +3,8 @@
     public enum ExhibitionState
     {
         Created,
-        FeatureComplete,
+        Configuration,
+        FreezeStarted,
         Freezed,
         Started,
         Finished

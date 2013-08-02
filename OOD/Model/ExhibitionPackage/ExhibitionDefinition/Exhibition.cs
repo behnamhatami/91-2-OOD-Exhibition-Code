@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionRole;
-using OOD.Model.UserManagingPackage;
+using OOD.Model.ModelContext;
+using OOD.Model.NotificationPackage;
 
 namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 {
@@ -10,7 +11,6 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
     {
         public Exhibition()
         {
-            UserExhibitionRoles = new HashSet<UserExhibitionRole>();
             CreationTime = DateTime.Now;
             State = ExhibitionState.Created;
         }
@@ -24,8 +24,19 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
         public DateTime CreationTime { get; set; }
 
         public virtual Feature Feature { get; set; }
+        public virtual Configuration Configuration { get; set; }
 
-        public virtual ICollection<UserExhibitionRole> UserExhibitionRoles { get; set; }
+        [NotMapped]
+        public IQueryable<UserExhibitionRole> UserExhibitionRoles
+        {
+            get { return DataManager.DataContext.UserExhibitionRoles.Where(role => role.Exhibition.Id == Id); }
+        }
+
+        [NotMapped]
+        public IQueryable<Poll> Polls
+        {
+            get { return DataManager.DataContext.Polls.Where(poll => poll.Exhibition.Id == Id); }
+        }
 
         public override string ToString()
         {
@@ -34,7 +45,15 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 
         public override int GetHashCode()
         {
-            return Name.GetHashCode();
+            return Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var exhibition = obj as Exhibition;
+            if (exhibition == null || exhibition.Id != Id)
+                return false;
+            return true;
         }
     }
 }

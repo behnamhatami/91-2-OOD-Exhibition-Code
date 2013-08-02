@@ -13,6 +13,40 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             InitializeComponent();
         }
 
+        // IResetAble
+
+        // IPrecondition
+
+        public override bool NeedUser()
+        {
+            return true;
+        }
+
+        public override bool NeedExhibition()
+        {
+            return false;
+        }
+
+        public override bool ValidatePreConditions()
+        {
+            return true;
+        }
+
+        //IReloadAble
+
+        public override int GetLevel()
+        {
+            return 4;
+        }
+
+        public override bool RestoreAble()
+        {
+            return false;
+        }
+
+        // Finish
+
+
         private void ExhibitionSelector_Load(object sender, EventArgs e)
         {
             var db = DataManager.DataContext;
@@ -25,20 +59,20 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var exhibition = (Model.ExhibitionPackage.ExhibitionDefinition.Exhibition) ExhibitionComboBox.SelectedItem;
             if (GeneralErrors.IsNull(exhibition, "نمایشگاه"))
                 return;
-            Close();
             EnterExhibition(exhibition);
+            Close();
         }
 
         public static void EnterExhibition(Model.ExhibitionPackage.ExhibitionDefinition.Exhibition exhibition)
         {
             Program.Exhibition = exhibition;
-            Utility.PopUp.PopUp.ShowSuccess(String.Format("شما وارد نمایشگاه {0} شدید.", exhibition));
+            PopUp.ShowSuccess(String.Format("شما وارد نمایشگاه {0} شدید.", exhibition));
         }
 
         public static void ExitExhibition()
         {
             var exhibition = Program.Exhibition;
-            Utility.PopUp.PopUp.ShowSuccess(String.Format("شما از نمایشگاه {0} خارج شدید.", exhibition));
+            PopUp.ShowSuccess(String.Format("شما از نمایشگاه {0} خارج شدید.", exhibition));
             Program.Exhibition = null;
         }
     }

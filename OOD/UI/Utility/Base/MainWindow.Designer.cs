@@ -65,6 +65,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label0 = new System.Windows.Forms.Label();
+            this.ExhibitionFreezPollingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -157,6 +158,7 @@
             this.ExhibitionDefinitionToolStripMenuItem,
             this.ExhibitionConfigurtionToolStripMenuItem,
             this.ExhibitionFreezToolStripMenuItem,
+            this.ExhibitionFreezPollingToolStripMenuItem,
             this.ExhibitionDataEnteringToolStripMenuItem,
             this.ExhibitionConsistencyCrudToolStripMenuItem,
             this.ExhibitionReConfigurationToolStripMenuItem});
@@ -184,7 +186,8 @@
             // 
             this.ExhibitionFreezToolStripMenuItem.Name = "ExhibitionFreezToolStripMenuItem";
             this.ExhibitionFreezToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
-            this.ExhibitionFreezToolStripMenuItem.Text = "انجماد و رای گیری ";
+            this.ExhibitionFreezToolStripMenuItem.Text = "انجماد";
+            this.ExhibitionFreezToolStripMenuItem.Click += new System.EventHandler(this.ExhibitionFreezToolStripMenuItem_Click);
             // 
             // ExhibitionDataEnteringToolStripMenuItem
             // 
@@ -375,6 +378,12 @@
             this.label0.TabIndex = 0;
             this.label0.Text = "نمایشگاه کتاب (1391)";
             // 
+            // ExhibitionFreezPollingToolStripMenuItem
+            // 
+            this.ExhibitionFreezPollingToolStripMenuItem.Name = "ExhibitionFreezPollingToolStripMenuItem";
+            this.ExhibitionFreezPollingToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
+            this.ExhibitionFreezPollingToolStripMenuItem.Text = "رای گیری";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -385,12 +394,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "MainWindow";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "منوی اصلی";
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel1.ResumeLayout(false);
@@ -441,6 +446,7 @@
         private System.Windows.Forms.Label label0;
         private System.Windows.Forms.ToolStripMenuItem ExhitUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExhibitionExitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExhibitionFreezPollingToolStripMenuItem;
 
 
 

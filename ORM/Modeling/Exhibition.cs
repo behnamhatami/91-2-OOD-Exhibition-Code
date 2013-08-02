@@ -17,6 +17,7 @@ namespace Login.Modeling
         public Exhibition()
         {
             this.UserExhibitionRoles = new HashSet<UserExhibitionRole>();
+            this.Polls = new HashSet<Poll>();
         }
     
         public int Id { get; set; }
@@ -29,5 +30,7 @@ namespace Login.Modeling
     
         public virtual Feature Feature { get; set; }
         public virtual ICollection<UserExhibitionRole> UserExhibitionRoles { get; set; }
+        public virtual Configuration Configuration { get; set; }
+        public virtual ICollection<Poll> Polls { get; set; }
     }
 }

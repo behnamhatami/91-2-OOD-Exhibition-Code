@@ -30,39 +30,45 @@
         {
             this.panel2 = new System.Windows.Forms.Panel();
             this.TabControl1 = new System.Windows.Forms.TabControl();
-            this.FeaturePage = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.InitialConfigurationComboBox = new System.Windows.Forms.ComboBox();
+            this.featurePage = new System.Windows.Forms.TabPage();
+            this.featureCancelButton = new System.Windows.Forms.Button();
+            this.featureOkeyButton = new System.Windows.Forms.Button();
+            this.featureInitialConfigurationComboBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.DifferentBoothCheckBox = new System.Windows.Forms.CheckBox();
+            this.featureDifferentBoothCheckBox = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.SellRadioButton = new System.Windows.Forms.RadioButton();
-            this.NoSellRadioButton = new System.Windows.Forms.RadioButton();
-            this.WareHouseCheckBox = new System.Windows.Forms.CheckBox();
-            this.PostOfficeCheckBox = new System.Windows.Forms.CheckBox();
-            this.ProcessPage = new System.Windows.Forms.TabPage();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.featureSellRadioButton = new System.Windows.Forms.RadioButton();
+            this.featureNoSellRadioButton = new System.Windows.Forms.RadioButton();
+            this.featureWareHouseCheckBox = new System.Windows.Forms.CheckBox();
+            this.featurePostOfficeCheckBox = new System.Windows.Forms.CheckBox();
+            this.processPage = new System.Windows.Forms.TabPage();
+            this.processCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.processFinishNodeTextBox = new System.Windows.Forms.TextBox();
+            this.processStartNodeTextBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.processMaxLengthTextBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.processMinLengthTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.processRemoveButton = new System.Windows.Forms.Button();
+            this.processAddButton = new System.Windows.Forms.Button();
+            this.processProcessComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.RolePage = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
-            this.ExhibitionRoleUserlistBox = new System.Windows.Forms.ListBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.ExhibitionRoleUserComboBox = new System.Windows.Forms.ComboBox();
-            this.ExhibitionRoleComboBox = new System.Windows.Forms.ComboBox();
+            this.rolePage = new System.Windows.Forms.TabPage();
+            this.roleUserExhibitionRoleListBox = new System.Windows.Forms.CheckedListBox();
+            this.roleRemoveButton = new System.Windows.Forms.Button();
+            this.roleAddButton = new System.Windows.Forms.Button();
+            this.roleUserComboBox = new System.Windows.Forms.ComboBox();
+            this.roleChoicesComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.TabControl1.SuspendLayout();
-            this.FeaturePage.SuspendLayout();
-            this.ProcessPage.SuspendLayout();
-            this.RolePage.SuspendLayout();
+            this.featurePage.SuspendLayout();
+            this.processPage.SuspendLayout();
+            this.rolePage.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -78,9 +84,9 @@
             // 
             // TabControl1
             // 
-            this.TabControl1.Controls.Add(this.FeaturePage);
-            this.TabControl1.Controls.Add(this.ProcessPage);
-            this.TabControl1.Controls.Add(this.RolePage);
+            this.TabControl1.Controls.Add(this.featurePage);
+            this.TabControl1.Controls.Add(this.processPage);
+            this.TabControl1.Controls.Add(this.rolePage);
             this.TabControl1.Location = new System.Drawing.Point(3, 3);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.RightToLeftLayout = true;
@@ -88,60 +94,60 @@
             this.TabControl1.Size = new System.Drawing.Size(474, 373);
             this.TabControl1.TabIndex = 1;
             // 
-            // FeaturePage
+            // featurePage
             // 
-            this.FeaturePage.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.FeaturePage.Controls.Add(this.button2);
-            this.FeaturePage.Controls.Add(this.button1);
-            this.FeaturePage.Controls.Add(this.InitialConfigurationComboBox);
-            this.FeaturePage.Controls.Add(this.label6);
-            this.FeaturePage.Controls.Add(this.DifferentBoothCheckBox);
-            this.FeaturePage.Controls.Add(this.label5);
-            this.FeaturePage.Controls.Add(this.SellRadioButton);
-            this.FeaturePage.Controls.Add(this.NoSellRadioButton);
-            this.FeaturePage.Controls.Add(this.WareHouseCheckBox);
-            this.FeaturePage.Controls.Add(this.PostOfficeCheckBox);
-            this.FeaturePage.Location = new System.Drawing.Point(4, 23);
-            this.FeaturePage.Name = "FeaturePage";
-            this.FeaturePage.Padding = new System.Windows.Forms.Padding(3);
-            this.FeaturePage.Size = new System.Drawing.Size(466, 346);
-            this.FeaturePage.TabIndex = 0;
-            this.FeaturePage.Text = "ویژگی‌ها";
+            this.featurePage.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.featurePage.Controls.Add(this.featureCancelButton);
+            this.featurePage.Controls.Add(this.featureOkeyButton);
+            this.featurePage.Controls.Add(this.featureInitialConfigurationComboBox);
+            this.featurePage.Controls.Add(this.label6);
+            this.featurePage.Controls.Add(this.featureDifferentBoothCheckBox);
+            this.featurePage.Controls.Add(this.label5);
+            this.featurePage.Controls.Add(this.featureSellRadioButton);
+            this.featurePage.Controls.Add(this.featureNoSellRadioButton);
+            this.featurePage.Controls.Add(this.featureWareHouseCheckBox);
+            this.featurePage.Controls.Add(this.featurePostOfficeCheckBox);
+            this.featurePage.Location = new System.Drawing.Point(4, 23);
+            this.featurePage.Name = "featurePage";
+            this.featurePage.Padding = new System.Windows.Forms.Padding(3);
+            this.featurePage.Size = new System.Drawing.Size(466, 346);
+            this.featurePage.TabIndex = 0;
+            this.featurePage.Text = "ویژگی‌ها";
             // 
-            // button2
+            // featureCancelButton
             // 
-            this.button2.Location = new System.Drawing.Point(96, 243);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(71, 24);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "لغو";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.featureCancelButton.Location = new System.Drawing.Point(96, 243);
+            this.featureCancelButton.Name = "featureCancelButton";
+            this.featureCancelButton.Size = new System.Drawing.Size(71, 24);
+            this.featureCancelButton.TabIndex = 9;
+            this.featureCancelButton.Text = "لغو";
+            this.featureCancelButton.UseVisualStyleBackColor = true;
+            this.featureCancelButton.Click += new System.EventHandler(this.featureCancelButton_Click);
             // 
-            // button1
+            // featureOkeyButton
             // 
-            this.button1.Location = new System.Drawing.Point(22, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(71, 24);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "تایید";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.featureOkeyButton.Location = new System.Drawing.Point(22, 243);
+            this.featureOkeyButton.Name = "featureOkeyButton";
+            this.featureOkeyButton.Size = new System.Drawing.Size(71, 24);
+            this.featureOkeyButton.TabIndex = 8;
+            this.featureOkeyButton.Text = "تایید";
+            this.featureOkeyButton.UseVisualStyleBackColor = true;
+            this.featureOkeyButton.Click += new System.EventHandler(this.featureOkeyButton_Click);
             // 
-            // InitialConfigurationComboBox
+            // featureInitialConfigurationComboBox
             // 
-            this.InitialConfigurationComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.InitialConfigurationComboBox.FormattingEnabled = true;
-            this.InitialConfigurationComboBox.IntegralHeight = false;
-            this.InitialConfigurationComboBox.Items.AddRange(new object[] {
+            this.featureInitialConfigurationComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.featureInitialConfigurationComboBox.FormattingEnabled = true;
+            this.featureInitialConfigurationComboBox.IntegralHeight = false;
+            this.featureInitialConfigurationComboBox.Items.AddRange(new object[] {
             "نمایشگاه کتاب (1391)",
             "نمایشگاه کتاب (1392)",
             "نمایشگاه شیشه (1391)",
             "نمایشگاه شیشه (1392)"});
-            this.InitialConfigurationComboBox.Location = new System.Drawing.Point(22, 174);
-            this.InitialConfigurationComboBox.Name = "InitialConfigurationComboBox";
-            this.InitialConfigurationComboBox.Size = new System.Drawing.Size(201, 23);
-            this.InitialConfigurationComboBox.TabIndex = 7;
+            this.featureInitialConfigurationComboBox.Location = new System.Drawing.Point(22, 174);
+            this.featureInitialConfigurationComboBox.Name = "featureInitialConfigurationComboBox";
+            this.featureInitialConfigurationComboBox.Size = new System.Drawing.Size(201, 23);
+            this.featureInitialConfigurationComboBox.TabIndex = 7;
             // 
             // label6
             // 
@@ -152,15 +158,15 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "پیکربندی اولیه:";
             // 
-            // DifferentBoothCheckBox
+            // featureDifferentBoothCheckBox
             // 
-            this.DifferentBoothCheckBox.AutoSize = true;
-            this.DifferentBoothCheckBox.Location = new System.Drawing.Point(221, 135);
-            this.DifferentBoothCheckBox.Name = "DifferentBoothCheckBox";
-            this.DifferentBoothCheckBox.Size = new System.Drawing.Size(195, 18);
-            this.DifferentBoothCheckBox.TabIndex = 5;
-            this.DifferentBoothCheckBox.Text = "دارای غرفه های نمایشگاه متفاوت";
-            this.DifferentBoothCheckBox.UseVisualStyleBackColor = true;
+            this.featureDifferentBoothCheckBox.AutoSize = true;
+            this.featureDifferentBoothCheckBox.Location = new System.Drawing.Point(221, 135);
+            this.featureDifferentBoothCheckBox.Name = "featureDifferentBoothCheckBox";
+            this.featureDifferentBoothCheckBox.Size = new System.Drawing.Size(195, 18);
+            this.featureDifferentBoothCheckBox.TabIndex = 5;
+            this.featureDifferentBoothCheckBox.Text = "دارای غرفه های نمایشگاه متفاوت";
+            this.featureDifferentBoothCheckBox.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -171,213 +177,264 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "نوع نمایشگاه:";
             // 
-            // SellRadioButton
+            // featureSellRadioButton
             // 
-            this.SellRadioButton.AutoSize = true;
-            this.SellRadioButton.Location = new System.Drawing.Point(22, 98);
-            this.SellRadioButton.Name = "SellRadioButton";
-            this.SellRadioButton.Size = new System.Drawing.Size(120, 18);
-            this.SellRadioButton.TabIndex = 3;
-            this.SellRadioButton.TabStop = true;
-            this.SellRadioButton.Text = "برای بازدید و فروش";
-            this.SellRadioButton.UseVisualStyleBackColor = true;
+            this.featureSellRadioButton.AutoSize = true;
+            this.featureSellRadioButton.Location = new System.Drawing.Point(22, 98);
+            this.featureSellRadioButton.Name = "featureSellRadioButton";
+            this.featureSellRadioButton.Size = new System.Drawing.Size(120, 18);
+            this.featureSellRadioButton.TabIndex = 3;
+            this.featureSellRadioButton.TabStop = true;
+            this.featureSellRadioButton.Text = "برای بازدید و فروش";
+            this.featureSellRadioButton.UseVisualStyleBackColor = true;
             // 
-            // NoSellRadioButton
+            // featureNoSellRadioButton
             // 
-            this.NoSellRadioButton.AutoSize = true;
-            this.NoSellRadioButton.Location = new System.Drawing.Point(190, 100);
-            this.NoSellRadioButton.Name = "NoSellRadioButton";
-            this.NoSellRadioButton.Size = new System.Drawing.Size(100, 18);
-            this.NoSellRadioButton.TabIndex = 2;
-            this.NoSellRadioButton.TabStop = true;
-            this.NoSellRadioButton.Text = "فقط برای بازدید";
-            this.NoSellRadioButton.UseVisualStyleBackColor = true;
+            this.featureNoSellRadioButton.AutoSize = true;
+            this.featureNoSellRadioButton.Location = new System.Drawing.Point(190, 100);
+            this.featureNoSellRadioButton.Name = "featureNoSellRadioButton";
+            this.featureNoSellRadioButton.Size = new System.Drawing.Size(100, 18);
+            this.featureNoSellRadioButton.TabIndex = 2;
+            this.featureNoSellRadioButton.TabStop = true;
+            this.featureNoSellRadioButton.Text = "فقط برای بازدید";
+            this.featureNoSellRadioButton.UseVisualStyleBackColor = true;
             // 
-            // WareHouseCheckBox
+            // featureWareHouseCheckBox
             // 
-            this.WareHouseCheckBox.AutoSize = true;
-            this.WareHouseCheckBox.Location = new System.Drawing.Point(266, 55);
-            this.WareHouseCheckBox.Name = "WareHouseCheckBox";
-            this.WareHouseCheckBox.Size = new System.Drawing.Size(150, 18);
-            this.WareHouseCheckBox.TabIndex = 1;
-            this.WareHouseCheckBox.Text = "برخورداری از خدمات انبار ";
-            this.WareHouseCheckBox.UseVisualStyleBackColor = true;
+            this.featureWareHouseCheckBox.AutoSize = true;
+            this.featureWareHouseCheckBox.Location = new System.Drawing.Point(266, 55);
+            this.featureWareHouseCheckBox.Name = "featureWareHouseCheckBox";
+            this.featureWareHouseCheckBox.Size = new System.Drawing.Size(150, 18);
+            this.featureWareHouseCheckBox.TabIndex = 1;
+            this.featureWareHouseCheckBox.Text = "برخورداری از خدمات انبار ";
+            this.featureWareHouseCheckBox.UseVisualStyleBackColor = true;
             // 
-            // PostOfficeCheckBox
+            // featurePostOfficeCheckBox
             // 
-            this.PostOfficeCheckBox.AutoSize = true;
-            this.PostOfficeCheckBox.Location = new System.Drawing.Point(261, 17);
-            this.PostOfficeCheckBox.Name = "PostOfficeCheckBox";
-            this.PostOfficeCheckBox.Size = new System.Drawing.Size(155, 18);
-            this.PostOfficeCheckBox.TabIndex = 0;
-            this.PostOfficeCheckBox.Text = "برخورداری از خدمات پست";
-            this.PostOfficeCheckBox.UseVisualStyleBackColor = true;
+            this.featurePostOfficeCheckBox.AutoSize = true;
+            this.featurePostOfficeCheckBox.Location = new System.Drawing.Point(261, 17);
+            this.featurePostOfficeCheckBox.Name = "featurePostOfficeCheckBox";
+            this.featurePostOfficeCheckBox.Size = new System.Drawing.Size(155, 18);
+            this.featurePostOfficeCheckBox.TabIndex = 0;
+            this.featurePostOfficeCheckBox.Text = "برخورداری از خدمات پست";
+            this.featurePostOfficeCheckBox.UseVisualStyleBackColor = true;
             // 
-            // ProcessPage
+            // processPage
             // 
-            this.ProcessPage.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ProcessPage.Controls.Add(this.button6);
-            this.ProcessPage.Controls.Add(this.button5);
-            this.ProcessPage.Controls.Add(this.button4);
-            this.ProcessPage.Controls.Add(this.listBox1);
-            this.ProcessPage.Controls.Add(this.button3);
-            this.ProcessPage.Controls.Add(this.comboBox2);
-            this.ProcessPage.Controls.Add(this.label7);
-            this.ProcessPage.Location = new System.Drawing.Point(4, 23);
-            this.ProcessPage.Name = "ProcessPage";
-            this.ProcessPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ProcessPage.Size = new System.Drawing.Size(466, 346);
-            this.ProcessPage.TabIndex = 1;
-            this.ProcessPage.Text = "فرآیند برگزاری";
+            this.processPage.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.processPage.Controls.Add(this.processCheckedListBox);
+            this.processPage.Controls.Add(this.processFinishNodeTextBox);
+            this.processPage.Controls.Add(this.processStartNodeTextBox);
+            this.processPage.Controls.Add(this.label13);
+            this.processPage.Controls.Add(this.label12);
+            this.processPage.Controls.Add(this.processMaxLengthTextBox);
+            this.processPage.Controls.Add(this.label11);
+            this.processPage.Controls.Add(this.processMinLengthTextBox);
+            this.processPage.Controls.Add(this.label10);
+            this.processPage.Controls.Add(this.processRemoveButton);
+            this.processPage.Controls.Add(this.processAddButton);
+            this.processPage.Controls.Add(this.processProcessComboBox);
+            this.processPage.Controls.Add(this.label7);
+            this.processPage.Location = new System.Drawing.Point(4, 23);
+            this.processPage.Name = "processPage";
+            this.processPage.Padding = new System.Windows.Forms.Padding(3);
+            this.processPage.Size = new System.Drawing.Size(466, 346);
+            this.processPage.TabIndex = 1;
+            this.processPage.Text = "فرآیند برگزاری";
             // 
-            // button6
+            // processCheckedListBox
             // 
-            this.button6.Location = new System.Drawing.Point(105, 252);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(71, 24);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "لغو";
-            this.button6.UseVisualStyleBackColor = true;
+            this.processCheckedListBox.FormattingEnabled = true;
+            this.processCheckedListBox.Location = new System.Drawing.Point(16, 204);
+            this.processCheckedListBox.Name = "processCheckedListBox";
+            this.processCheckedListBox.Size = new System.Drawing.Size(425, 89);
+            this.processCheckedListBox.TabIndex = 13;
             // 
-            // button5
+            // processFinishNodeTextBox
             // 
-            this.button5.Location = new System.Drawing.Point(28, 252);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(71, 24);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "تایید";
-            this.button5.UseVisualStyleBackColor = true;
+            this.processFinishNodeTextBox.Location = new System.Drawing.Point(16, 115);
+            this.processFinishNodeTextBox.Name = "processFinishNodeTextBox";
+            this.processFinishNodeTextBox.Size = new System.Drawing.Size(100, 22);
+            this.processFinishNodeTextBox.TabIndex = 12;
             // 
-            // button4
+            // processStartNodeTextBox
             // 
-            this.button4.Location = new System.Drawing.Point(28, 129);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(71, 24);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "حذف";
-            this.button4.UseVisualStyleBackColor = true;
+            this.processStartNodeTextBox.Location = new System.Drawing.Point(250, 115);
+            this.processStartNodeTextBox.Name = "processStartNodeTextBox";
+            this.processStartNodeTextBox.Size = new System.Drawing.Size(100, 22);
+            this.processStartNodeTextBox.TabIndex = 11;
             // 
-            // listBox1
+            // label13
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 14;
-            this.listBox1.Items.AddRange(new object[] {
-            "فرآیند 5",
-            "فرآیند 6"});
-            this.listBox1.Location = new System.Drawing.Point(155, 80);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(196, 74);
-            this.listBox1.TabIndex = 3;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(142, 118);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(75, 14);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "نقطه ی پایان:";
             // 
-            // button3
+            // label12
             // 
-            this.button3.Location = new System.Drawing.Point(28, 25);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(71, 24);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "اضافه";
-            this.button3.UseVisualStyleBackColor = true;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(362, 118);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(82, 14);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "نقطه ی شروع:";
             // 
-            // comboBox2
+            // processMaxLengthTextBox
             // 
-            this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            this.processMaxLengthTextBox.Location = new System.Drawing.Point(16, 72);
+            this.processMaxLengthTextBox.Name = "processMaxLengthTextBox";
+            this.processMaxLengthTextBox.Size = new System.Drawing.Size(100, 22);
+            this.processMaxLengthTextBox.TabIndex = 8;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(122, 75);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(95, 14);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "بیشینه زمان اجرا:";
+            // 
+            // processMinLengthTextBox
+            // 
+            this.processMinLengthTextBox.Location = new System.Drawing.Point(250, 72);
+            this.processMinLengthTextBox.Name = "processMinLengthTextBox";
+            this.processMinLengthTextBox.Size = new System.Drawing.Size(100, 22);
+            this.processMinLengthTextBox.TabIndex = 6;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(356, 75);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 14);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "کمینه زمان اجرا:";
+            // 
+            // processRemoveButton
+            // 
+            this.processRemoveButton.Location = new System.Drawing.Point(16, 304);
+            this.processRemoveButton.Name = "processRemoveButton";
+            this.processRemoveButton.Size = new System.Drawing.Size(71, 24);
+            this.processRemoveButton.TabIndex = 4;
+            this.processRemoveButton.Text = "حذف";
+            this.processRemoveButton.UseVisualStyleBackColor = true;
+            this.processRemoveButton.Click += new System.EventHandler(this.processRemoveButton_Click);
+            // 
+            // processAddButton
+            // 
+            this.processAddButton.Location = new System.Drawing.Point(16, 143);
+            this.processAddButton.Name = "processAddButton";
+            this.processAddButton.Size = new System.Drawing.Size(71, 24);
+            this.processAddButton.TabIndex = 2;
+            this.processAddButton.Text = "اضافه";
+            this.processAddButton.UseVisualStyleBackColor = true;
+            this.processAddButton.Click += new System.EventHandler(this.processAddButton_Click);
+            // 
+            // processProcessComboBox
+            // 
+            this.processProcessComboBox.AutoCompleteCustomSource.AddRange(new string[] {
             "فرآیند 1",
             "فرآیند 2",
             "فرآیند 3",
             "فرآیند 4"});
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.processProcessComboBox.FormattingEnabled = true;
+            this.processProcessComboBox.Items.AddRange(new object[] {
             "فرآیند 1",
             "فرآیند 2",
             "فرآیند 3",
             "فرآیند 4"});
-            this.comboBox2.Location = new System.Drawing.Point(149, 25);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(203, 22);
-            this.comboBox2.TabIndex = 1;
+            this.processProcessComboBox.Location = new System.Drawing.Point(183, 25);
+            this.processProcessComboBox.Name = "processProcessComboBox";
+            this.processProcessComboBox.Size = new System.Drawing.Size(203, 22);
+            this.processProcessComboBox.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(378, 28);
+            this.label7.Location = new System.Drawing.Point(406, 28);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 14);
             this.label7.TabIndex = 0;
             this.label7.Text = "فرآیند:";
             // 
-            // RolePage
+            // rolePage
             // 
-            this.RolePage.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.RolePage.Controls.Add(this.button8);
-            this.RolePage.Controls.Add(this.ExhibitionRoleUserlistBox);
-            this.RolePage.Controls.Add(this.button7);
-            this.RolePage.Controls.Add(this.ExhibitionRoleUserComboBox);
-            this.RolePage.Controls.Add(this.ExhibitionRoleComboBox);
-            this.RolePage.Controls.Add(this.label9);
-            this.RolePage.Controls.Add(this.label8);
-            this.RolePage.Location = new System.Drawing.Point(4, 23);
-            this.RolePage.Name = "RolePage";
-            this.RolePage.Padding = new System.Windows.Forms.Padding(3);
-            this.RolePage.Size = new System.Drawing.Size(466, 346);
-            this.RolePage.TabIndex = 2;
-            this.RolePage.Text = "نقش‌ها";
+            this.rolePage.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.rolePage.Controls.Add(this.roleUserExhibitionRoleListBox);
+            this.rolePage.Controls.Add(this.roleRemoveButton);
+            this.rolePage.Controls.Add(this.roleAddButton);
+            this.rolePage.Controls.Add(this.roleUserComboBox);
+            this.rolePage.Controls.Add(this.roleChoicesComboBox);
+            this.rolePage.Controls.Add(this.label9);
+            this.rolePage.Controls.Add(this.label8);
+            this.rolePage.Location = new System.Drawing.Point(4, 23);
+            this.rolePage.Name = "rolePage";
+            this.rolePage.Padding = new System.Windows.Forms.Padding(3);
+            this.rolePage.Size = new System.Drawing.Size(466, 346);
+            this.rolePage.TabIndex = 2;
+            this.rolePage.Text = "نقش‌ها";
             // 
-            // button8
+            // roleUserExhibitionRoleListBox
             // 
-            this.button8.Location = new System.Drawing.Point(126, 238);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(71, 24);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "حذف";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // ExhibitionRoleUserlistBox
-            // 
-            this.ExhibitionRoleUserlistBox.FormattingEnabled = true;
-            this.ExhibitionRoleUserlistBox.ItemHeight = 14;
-            this.ExhibitionRoleUserlistBox.Items.AddRange(new object[] {
+            this.roleUserExhibitionRoleListBox.FormattingEnabled = true;
+            this.roleUserExhibitionRoleListBox.Items.AddRange(new object[] {
             "Rahmtin - پست چی",
             "Behnam - انباردار",
             "Raman - ناظر"});
-            this.ExhibitionRoleUserlistBox.Location = new System.Drawing.Point(126, 186);
-            this.ExhibitionRoleUserlistBox.Name = "ExhibitionRoleUserlistBox";
-            this.ExhibitionRoleUserlistBox.Size = new System.Drawing.Size(207, 46);
-            this.ExhibitionRoleUserlistBox.TabIndex = 5;
+            this.roleUserExhibitionRoleListBox.Location = new System.Drawing.Point(126, 194);
+            this.roleUserExhibitionRoleListBox.Name = "roleUserExhibitionRoleListBox";
+            this.roleUserExhibitionRoleListBox.Size = new System.Drawing.Size(208, 89);
+            this.roleUserExhibitionRoleListBox.TabIndex = 7;
             // 
-            // button7
+            // roleRemoveButton
             // 
-            this.button7.Location = new System.Drawing.Point(126, 113);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(71, 24);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "اضافه";
-            this.button7.UseVisualStyleBackColor = true;
+            this.roleRemoveButton.Location = new System.Drawing.Point(126, 289);
+            this.roleRemoveButton.Name = "roleRemoveButton";
+            this.roleRemoveButton.Size = new System.Drawing.Size(71, 24);
+            this.roleRemoveButton.TabIndex = 6;
+            this.roleRemoveButton.Text = "حذف";
+            this.roleRemoveButton.UseVisualStyleBackColor = true;
+            this.roleRemoveButton.Click += new System.EventHandler(this.roleRemoveButton_Click);
             // 
-            // ExhibitionRoleUserComboBox
+            // roleAddButton
             // 
-            this.ExhibitionRoleUserComboBox.FormattingEnabled = true;
-            this.ExhibitionRoleUserComboBox.Items.AddRange(new object[] {
+            this.roleAddButton.Location = new System.Drawing.Point(126, 113);
+            this.roleAddButton.Name = "roleAddButton";
+            this.roleAddButton.Size = new System.Drawing.Size(71, 24);
+            this.roleAddButton.TabIndex = 4;
+            this.roleAddButton.Text = "اضافه";
+            this.roleAddButton.UseVisualStyleBackColor = true;
+            this.roleAddButton.Click += new System.EventHandler(this.roleAddButton_Click);
+            // 
+            // roleUserComboBox
+            // 
+            this.roleUserComboBox.FormattingEnabled = true;
+            this.roleUserComboBox.Items.AddRange(new object[] {
             "Ramtin",
             "Behnam",
             "Raman",
             "Roxana",
             "Nooshin"});
-            this.ExhibitionRoleUserComboBox.Location = new System.Drawing.Point(126, 85);
-            this.ExhibitionRoleUserComboBox.Name = "ExhibitionRoleUserComboBox";
-            this.ExhibitionRoleUserComboBox.Size = new System.Drawing.Size(208, 22);
-            this.ExhibitionRoleUserComboBox.TabIndex = 3;
+            this.roleUserComboBox.Location = new System.Drawing.Point(126, 85);
+            this.roleUserComboBox.Name = "roleUserComboBox";
+            this.roleUserComboBox.Size = new System.Drawing.Size(208, 22);
+            this.roleUserComboBox.TabIndex = 3;
             // 
-            // ExhibitionRoleComboBox
+            // roleChoicesComboBox
             // 
-            this.ExhibitionRoleComboBox.FormattingEnabled = true;
-            this.ExhibitionRoleComboBox.Items.AddRange(new object[] {
+            this.roleChoicesComboBox.FormattingEnabled = true;
+            this.roleChoicesComboBox.Items.AddRange(new object[] {
             "پست چی",
             "انباردار",
             "ناظر"});
-            this.ExhibitionRoleComboBox.Location = new System.Drawing.Point(126, 36);
-            this.ExhibitionRoleComboBox.Name = "ExhibitionRoleComboBox";
-            this.ExhibitionRoleComboBox.Size = new System.Drawing.Size(208, 22);
-            this.ExhibitionRoleComboBox.TabIndex = 2;
+            this.roleChoicesComboBox.Location = new System.Drawing.Point(126, 36);
+            this.roleChoicesComboBox.Name = "roleChoicesComboBox";
+            this.roleChoicesComboBox.Size = new System.Drawing.Size(208, 22);
+            this.roleChoicesComboBox.TabIndex = 2;
             // 
             // label9
             // 
@@ -415,16 +472,15 @@
             this.Controls.Add(this.panel2);
             this.Name = "Configuration";
             this.Text = "پیکربندی";
-            this.Load += new System.EventHandler(this.Configuration_Load);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel2.ResumeLayout(false);
             this.TabControl1.ResumeLayout(false);
-            this.FeaturePage.ResumeLayout(false);
-            this.FeaturePage.PerformLayout();
-            this.ProcessPage.ResumeLayout(false);
-            this.ProcessPage.PerformLayout();
-            this.RolePage.ResumeLayout(false);
-            this.RolePage.PerformLayout();
+            this.featurePage.ResumeLayout(false);
+            this.featurePage.PerformLayout();
+            this.processPage.ResumeLayout(false);
+            this.processPage.PerformLayout();
+            this.rolePage.ResumeLayout(false);
+            this.rolePage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,32 +491,38 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabControl TabControl1;
-        private System.Windows.Forms.TabPage FeaturePage;
-        private System.Windows.Forms.TabPage ProcessPage;
-        private System.Windows.Forms.CheckBox PostOfficeCheckBox;
-        private System.Windows.Forms.CheckBox WareHouseCheckBox;
-        private System.Windows.Forms.RadioButton NoSellRadioButton;
-        private System.Windows.Forms.RadioButton SellRadioButton;
+        private System.Windows.Forms.TabPage featurePage;
+        private System.Windows.Forms.TabPage processPage;
+        private System.Windows.Forms.CheckBox featurePostOfficeCheckBox;
+        private System.Windows.Forms.CheckBox featureWareHouseCheckBox;
+        private System.Windows.Forms.RadioButton featureNoSellRadioButton;
+        private System.Windows.Forms.RadioButton featureSellRadioButton;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox DifferentBoothCheckBox;
+        private System.Windows.Forms.CheckBox featureDifferentBoothCheckBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox InitialConfigurationComboBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox featureInitialConfigurationComboBox;
+        private System.Windows.Forms.Button featureOkeyButton;
+        private System.Windows.Forms.Button featureCancelButton;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TabPage RolePage;
+        private System.Windows.Forms.ComboBox processProcessComboBox;
+        private System.Windows.Forms.Button processAddButton;
+        private System.Windows.Forms.Button processRemoveButton;
+        private System.Windows.Forms.TabPage rolePage;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox ExhibitionRoleUserComboBox;
-        private System.Windows.Forms.ComboBox ExhibitionRoleComboBox;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.ListBox ExhibitionRoleUserlistBox;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ComboBox roleUserComboBox;
+        private System.Windows.Forms.ComboBox roleChoicesComboBox;
+        private System.Windows.Forms.Button roleAddButton;
+        private System.Windows.Forms.Button roleRemoveButton;
+        private System.Windows.Forms.CheckedListBox roleUserExhibitionRoleListBox;
+        private System.Windows.Forms.TextBox processMinLengthTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox processMaxLengthTextBox;
+        private System.Windows.Forms.TextBox processFinishNodeTextBox;
+        private System.Windows.Forms.TextBox processStartNodeTextBox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckedListBox processCheckedListBox;
     }
 }

@@ -174,6 +174,35 @@
             <End Role="UserExhibitionRole" EntitySet="UserExhibitionRoles" />
             <End Role="ExhibitionRole" EntitySet="ExhibitionRoles" />
           </AssociationSet>
+          <EntitySet Name="Configurations" EntityType="Model1.Configuration" />
+          <AssociationSet Name="ConfigurationExhibition" Association="Model1.ConfigurationExhibition">
+            <End Role="Configuration" EntitySet="Configurations" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <EntitySet Name="Processes" EntityType="Model1.Process" />
+          <AssociationSet Name="ProcessConfiguration" Association="Model1.ProcessConfiguration">
+            <End Role="Process" EntitySet="Processes" />
+            <End Role="Configuration" EntitySet="Configurations" />
+          </AssociationSet>
+          <EntitySet Name="Polls" EntityType="Model1.Poll" />
+          <EntitySet Name="PollChoices" EntityType="Model1.PollChoice" />
+          <AssociationSet Name="PollPollChoice" Association="Model1.PollPollChoice">
+            <End Role="Poll" EntitySet="Polls" />
+            <End Role="PollChoice" EntitySet="PollChoices" />
+          </AssociationSet>
+          <EntitySet Name="PollUsers" EntityType="Model1.PollUser" />
+          <AssociationSet Name="Voting" Association="Model1.Voting">
+            <End Role="PollUser" EntitySet="PollUsers" />
+            <End Role="Poll" EntitySet="Polls" />
+          </AssociationSet>
+          <AssociationSet Name="PollUserUser" Association="Model1.PollUserUser">
+            <End Role="PollUser" EntitySet="PollUsers" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="PollExhibition" Association="Model1.PollExhibition">
+            <End Role="Poll" EntitySet="Polls" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -187,6 +216,7 @@
           <Property Type="String" Name="Password" Nullable="false" />
           <NavigationProperty Name="UserRole" Relationship="Model1.UserRoleUser" FromRole="User" ToRole="UserRole" />
           <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserUserExhibitionRole" FromRole="User" ToRole="UserExhibitionRole" />
+          <NavigationProperty Name="PollUsers" Relationship="Model1.PollUserUser" FromRole="User" ToRole="PollUser" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -217,6 +247,8 @@
           <Property Type="DateTime" Name="CreationTime" Nullable="false" />
           <NavigationProperty Name="Feature" Relationship="Model1.ExhibitionFeature" FromRole="Exhibition" ToRole="Feature" />
           <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserExhibitionRoleExhibition" FromRole="Exhibition" ToRole="UserExhibitionRole" />
+          <NavigationProperty Name="Configuration" Relationship="Model1.ConfigurationExhibition" FromRole="Exhibition" ToRole="Configuration" />
+          <NavigationProperty Name="Polls" Relationship="Model1.PollExhibition" FromRole="Exhibition" ToRole="Poll" />
         </EntityType>
         <EntityType Name="Feature">
           <Key>
@@ -267,6 +299,87 @@
         <Association Name="UserExhibitionRoleExhibitionRole">
           <End Type="Model1.UserExhibitionRole" Role="UserExhibitionRole" Multiplicity="*" />
           <End Type="Model1.ExhibitionRole" Role="ExhibitionRole" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.ConfigurationExhibition" FromRole="Configuration" ToRole="Exhibition" />
+          <NavigationProperty Name="Processes" Relationship="Model1.ProcessConfiguration" FromRole="Configuration" ToRole="Process" />
+        </EntityType>
+        <Association Name="ConfigurationExhibition">
+          <End Type="Model1.Configuration" Role="Configuration" Multiplicity="1" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Process">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Type" Nullable="false" />
+          <Property Type="Int32" Name="MinLength" Nullable="false" />
+          <Property Type="Int32" Name="MaxLength" Nullable="false" cg:SetterAccess="Internal" />
+          <NavigationProperty Name="Configuration" Relationship="Model1.ProcessConfiguration" FromRole="Process" ToRole="Configuration" />
+          <Property Type="Int32" Name="StartNode" Nullable="false" />
+          <Property Type="Int32" Name="FinishNode" Nullable="false" />
+        </EntityType>
+        <Association Name="ProcessConfiguration">
+          <End Type="Model1.Process" Role="Process" Multiplicity="*" />
+          <End Type="Model1.Configuration" Role="Configuration" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Poll">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PollChoices" Relationship="Model1.PollPollChoice" FromRole="Poll" ToRole="PollChoice" />
+          <Property Type="String" Name="Question" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <NavigationProperty Name="PollUsers" Relationship="Model1.Voting" FromRole="Poll" ToRole="PollUser" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.PollExhibition" FromRole="Poll" ToRole="Exhibition" />
+        </EntityType>
+        <EntityType Name="PollChoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Poll" Relationship="Model1.PollPollChoice" FromRole="PollChoice" ToRole="Poll" />
+          <Property Type="Int32" Name="PollId" Nullable="false" />
+          <Property Type="String" Name="Content" Nullable="false" />
+          <Property Type="Int32" Name="Hit" Nullable="false" />
+        </EntityType>
+        <Association Name="PollPollChoice">
+          <End Type="Model1.Poll" Role="Poll" Multiplicity="1" />
+          <End Type="Model1.PollChoice" Role="PollChoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poll">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PollChoice">
+              <PropertyRef Name="PollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PollUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Poll" Relationship="Model1.Voting" FromRole="PollUser" ToRole="Poll" />
+          <NavigationProperty Name="User" Relationship="Model1.PollUserUser" FromRole="PollUser" ToRole="User" />
+        </EntityType>
+        <Association Name="Voting">
+          <End Type="Model1.PollUser" Role="PollUser" Multiplicity="*" />
+          <End Type="Model1.Poll" Role="Poll" Multiplicity="1" />
+        </Association>
+        <Association Name="PollUserUser">
+          <End Type="Model1.PollUser" Role="PollUser" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+        </Association>
+        <Association Name="PollExhibition">
+          <End Type="Model1.Poll" Role="Poll" Multiplicity="*" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
