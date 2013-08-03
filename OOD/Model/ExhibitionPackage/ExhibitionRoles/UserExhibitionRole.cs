@@ -1,8 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿#region
+
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.UserManagingPackage;
 
-namespace OOD.Model.ExhibitionPackage.ExhibitionRole
+#endregion
+
+namespace OOD.Model.ExhibitionPackage.ExhibitionRoles
 {
     public class UserExhibitionRole
     {

@@ -1,6 +1,6 @@
 ﻿namespace OOD.UI.Utility.Interface
 {
-    interface IResetAble
+    internal interface IResetAble
     {
         void Reset();
     }

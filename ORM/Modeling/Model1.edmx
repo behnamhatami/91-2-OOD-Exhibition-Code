@@ -1,152 +1,168 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="Model1StoreContainer">
-    <EntitySet Name="Users" EntityType="Model1.Store.Users" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserRoles" EntityType="Model1.Store.UserRoles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserRoles_InternalRole" EntityType="Model1.Store.UserRoles_InternalRole" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserRoles_CustomerRole" EntityType="Model1.Store.UserRoles_CustomerRole" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserRoles_PublicRole" EntityType="Model1.Store.UserRoles_PublicRole" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserRoles_AdminRole" EntityType="Model1.Store.UserRoles_AdminRole" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="UserRoleUser" Association="Model1.Store.UserRoleUser">
-      <End Role="UserRole" EntitySet="UserRoles" />
-      <End Role="User" EntitySet="Users" />
-    </AssociationSet>
-    <AssociationSet Name="FK_InternalRole_inherits_UserRole" Association="Model1.Store.FK_InternalRole_inherits_UserRole">
-      <End Role="UserRole" EntitySet="UserRoles" />
-      <End Role="InternalRole" EntitySet="UserRoles_InternalRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CustomerRole_inherits_UserRole" Association="Model1.Store.FK_CustomerRole_inherits_UserRole">
-      <End Role="UserRole" EntitySet="UserRoles" />
-      <End Role="CustomerRole" EntitySet="UserRoles_CustomerRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PublicRole_inherits_UserRole" Association="Model1.Store.FK_PublicRole_inherits_UserRole">
-      <End Role="UserRole" EntitySet="UserRoles" />
-      <End Role="PublicRole" EntitySet="UserRoles_PublicRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AdminRole_inherits_InternalRole" Association="Model1.Store.FK_AdminRole_inherits_InternalRole">
-      <End Role="InternalRole" EntitySet="UserRoles_InternalRole" />
-      <End Role="AdminRole" EntitySet="UserRoles_AdminRole" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Users">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FirstName" Type="nvarchar" Nullable="false" />
-    <Property Name="Username" Type="nvarchar" Nullable="false" />
-    <Property Name="FamilyName" Type="nvarchar" Nullable="false" />
-    <Property Name="PhoneNumber" Type="bigint" Nullable="false" />
-    <Property Name="Password" Type="nvarchar" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UserRoles">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="User_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UserRoles_InternalRole">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UserRoles_CustomerRole">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UserRoles_PublicRole">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UserRoles_AdminRole">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="UserRoleUser">
-    <End Role="UserRole" Type="Model1.Store.UserRoles" Multiplicity="*" />
-    <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserRole">
-        <PropertyRef Name="User_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_InternalRole_inherits_UserRole">
-    <End Role="UserRole" Type="Model1.Store.UserRoles" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="InternalRole" Type="Model1.Store.UserRoles_InternalRole" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="UserRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="InternalRole">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_CustomerRole_inherits_UserRole">
-    <End Role="UserRole" Type="Model1.Store.UserRoles" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="CustomerRole" Type="Model1.Store.UserRoles_CustomerRole" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="UserRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CustomerRole">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PublicRole_inherits_UserRole">
-    <End Role="UserRole" Type="Model1.Store.UserRoles" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="PublicRole" Type="Model1.Store.UserRoles_PublicRole" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="UserRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PublicRole">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AdminRole_inherits_InternalRole">
-    <End Role="InternalRole" Type="Model1.Store.UserRoles_InternalRole" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AdminRole" Type="Model1.Store.UserRoles_AdminRole" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="InternalRole">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AdminRole">
-        <PropertyRef Name="Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+      <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0"
+              xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"
+              xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="Users" EntityType="Model1.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRoles" EntityType="Model1.Store.UserRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserRoles_InternalRole" EntityType="Model1.Store.UserRoles_InternalRole" store:Type="Tables"
+                     Schema="dbo" />
+          <EntitySet Name="UserRoles_CustomerRole" EntityType="Model1.Store.UserRoles_CustomerRole" store:Type="Tables"
+                     Schema="dbo" />
+          <EntitySet Name="UserRoles_PublicRole" EntityType="Model1.Store.UserRoles_PublicRole" store:Type="Tables"
+                     Schema="dbo" />
+          <EntitySet Name="UserRoles_AdminRole" EntityType="Model1.Store.UserRoles_AdminRole" store:Type="Tables"
+                     Schema="dbo" />
+          <AssociationSet Name="UserRoleUser" Association="Model1.Store.UserRoleUser">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InternalRole_inherits_UserRole"
+                          Association="Model1.Store.FK_InternalRole_inherits_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="InternalRole" EntitySet="UserRoles_InternalRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerRole_inherits_UserRole"
+                          Association="Model1.Store.FK_CustomerRole_inherits_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="CustomerRole" EntitySet="UserRoles_CustomerRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PublicRole_inherits_UserRole"
+                          Association="Model1.Store.FK_PublicRole_inherits_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="PublicRole" EntitySet="UserRoles_PublicRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminRole_inherits_InternalRole"
+                          Association="Model1.Store.FK_AdminRole_inherits_InternalRole">
+            <End Role="InternalRole" EntitySet="UserRoles_InternalRole" />
+            <End Role="AdminRole" EntitySet="UserRoles_AdminRole" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" Nullable="false" />
+          <Property Name="FamilyName" Type="nvarchar" Nullable="false" />
+          <Property Name="PhoneNumber" Type="bigint" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoles_InternalRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoles_CustomerRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoles_PublicRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRoles_AdminRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="UserRoleUser">
+          <End Role="UserRole" Type="Model1.Store.UserRoles" Multiplicity="*" />
+          <End Role="User" Type="Model1.Store.Users" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InternalRole_inherits_UserRole">
+          <End Role="UserRole" Type="Model1.Store.UserRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InternalRole" Type="Model1.Store.UserRoles_InternalRole" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="InternalRole">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerRole_inherits_UserRole">
+          <End Role="UserRole" Type="Model1.Store.UserRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CustomerRole" Type="Model1.Store.UserRoles_CustomerRole" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerRole">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PublicRole_inherits_UserRole">
+          <End Role="UserRole" Type="Model1.Store.UserRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PublicRole" Type="Model1.Store.UserRoles_PublicRole" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PublicRole">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminRole_inherits_InternalRole">
+          <End Role="InternalRole" Type="Model1.Store.UserRoles_InternalRole" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AdminRole" Type="Model1.Store.UserRoles_AdminRole" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="InternalRole">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AdminRole">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm"
+              xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration"
+              xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1"
+              Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+              annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Model1.User" />
           <AssociationSet Name="UserRoleUser" Association="Model1.UserRoleUser">
@@ -215,7 +231,8 @@
           <Property Type="Int64" Name="PhoneNumber" Nullable="false" />
           <Property Type="String" Name="Password" Nullable="false" />
           <NavigationProperty Name="UserRole" Relationship="Model1.UserRoleUser" FromRole="User" ToRole="UserRole" />
-          <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserUserExhibitionRole" FromRole="User" ToRole="UserExhibitionRole" />
+          <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserUserExhibitionRole" FromRole="User"
+                              ToRole="UserExhibitionRole" />
           <NavigationProperty Name="PollUsers" Relationship="Model1.PollUserUser" FromRole="User" ToRole="PollUser" />
         </EntityType>
         <EntityType Name="UserRole">
@@ -230,7 +247,7 @@
           <End Type="Model1.User" Role="User" Multiplicity="1" />
         </Association>
         <EntityType Name="InternalRole" BaseType="Model1.UserRole">
-          </EntityType>
+        </EntityType>
         <EntityType Name="CustomerRole" BaseType="Model1.UserRole" />
         <EntityType Name="PublicRole" BaseType="Model1.UserRole" />
         <EntityType Name="AdminRole" BaseType="Model1.InternalRole" />
@@ -245,9 +262,12 @@
           <Property Type="String" Name="Owner" Nullable="false" />
           <Property Type="String" Name="State" Nullable="false" />
           <Property Type="DateTime" Name="CreationTime" Nullable="false" />
-          <NavigationProperty Name="Feature" Relationship="Model1.ExhibitionFeature" FromRole="Exhibition" ToRole="Feature" />
-          <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserExhibitionRoleExhibition" FromRole="Exhibition" ToRole="UserExhibitionRole" />
-          <NavigationProperty Name="Configuration" Relationship="Model1.ConfigurationExhibition" FromRole="Exhibition" ToRole="Configuration" />
+          <NavigationProperty Name="Feature" Relationship="Model1.ExhibitionFeature" FromRole="Exhibition"
+                              ToRole="Feature" />
+          <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserExhibitionRoleExhibition"
+                              FromRole="Exhibition" ToRole="UserExhibitionRole" />
+          <NavigationProperty Name="Configuration" Relationship="Model1.ConfigurationExhibition" FromRole="Exhibition"
+                              ToRole="Configuration" />
           <NavigationProperty Name="Polls" Relationship="Model1.PollExhibition" FromRole="Exhibition" ToRole="Poll" />
         </EntityType>
         <EntityType Name="Feature">
@@ -259,7 +279,8 @@
           <Property Type="Boolean" Name="HasPostOffice" Nullable="false" />
           <Property Type="Boolean" Name="HasSell" Nullable="false" />
           <Property Type="Boolean" Name="HasDifferentBooth" Nullable="false" />
-          <NavigationProperty Name="Exhibition" Relationship="Model1.ExhibitionFeature" FromRole="Feature" ToRole="Exhibition" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.ExhibitionFeature" FromRole="Feature"
+                              ToRole="Exhibition" />
         </EntityType>
         <Association Name="ExhibitionFeature">
           <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
@@ -270,10 +291,11 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserExhibitionRoleExhibitionRole" FromRole="ExhibitionRole" ToRole="UserExhibitionRole" />
+          <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserExhibitionRoleExhibitionRole"
+                              FromRole="ExhibitionRole" ToRole="UserExhibitionRole" />
         </EntityType>
         <EntityType Name="InspectorRole" BaseType="Model1.ExhibitionRole" />
-        <EntityType Name="ExecutionRole" BaseType="Model1.ExhibitionRole" >
+        <EntityType Name="ExecutionRole" BaseType="Model1.ExhibitionRole">
         </EntityType>
         <EntityType Name="BoothManagerRole" BaseType="Model1.ExhibitionRole" />
         <EntityType Name="ChairRole" BaseType="Model1.ExhibitionRole" />
@@ -284,9 +306,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Exhibition" Relationship="Model1.UserExhibitionRoleExhibition" FromRole="UserExhibitionRole" ToRole="Exhibition" />
-          <NavigationProperty Name="User" Relationship="Model1.UserUserExhibitionRole" FromRole="UserExhibitionRole" ToRole="User" />
-          <NavigationProperty Name="ExhibitionRole" Relationship="Model1.UserExhibitionRoleExhibitionRole" FromRole="UserExhibitionRole" ToRole="ExhibitionRole" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.UserExhibitionRoleExhibition"
+                              FromRole="UserExhibitionRole" ToRole="Exhibition" />
+          <NavigationProperty Name="User" Relationship="Model1.UserUserExhibitionRole" FromRole="UserExhibitionRole"
+                              ToRole="User" />
+          <NavigationProperty Name="ExhibitionRole" Relationship="Model1.UserExhibitionRoleExhibitionRole"
+                              FromRole="UserExhibitionRole" ToRole="ExhibitionRole" />
         </EntityType>
         <Association Name="UserExhibitionRoleExhibition">
           <End Type="Model1.UserExhibitionRole" Role="UserExhibitionRole" Multiplicity="*" />
@@ -305,8 +330,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Exhibition" Relationship="Model1.ConfigurationExhibition" FromRole="Configuration" ToRole="Exhibition" />
-          <NavigationProperty Name="Processes" Relationship="Model1.ProcessConfiguration" FromRole="Configuration" ToRole="Process" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.ConfigurationExhibition" FromRole="Configuration"
+                              ToRole="Exhibition" />
+          <NavigationProperty Name="Processes" Relationship="Model1.ProcessConfiguration" FromRole="Configuration"
+                              ToRole="Process" />
         </EntityType>
         <Association Name="ConfigurationExhibition">
           <End Type="Model1.Configuration" Role="Configuration" Multiplicity="1" />
@@ -320,7 +347,8 @@
           <Property Type="String" Name="Type" Nullable="false" />
           <Property Type="Int32" Name="MinLength" Nullable="false" />
           <Property Type="Int32" Name="MaxLength" Nullable="false" cg:SetterAccess="Internal" />
-          <NavigationProperty Name="Configuration" Relationship="Model1.ProcessConfiguration" FromRole="Process" ToRole="Configuration" />
+          <NavigationProperty Name="Configuration" Relationship="Model1.ProcessConfiguration" FromRole="Process"
+                              ToRole="Configuration" />
           <Property Type="Int32" Name="StartNode" Nullable="false" />
           <Property Type="Int32" Name="FinishNode" Nullable="false" />
         </EntityType>
@@ -333,11 +361,13 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="PollChoices" Relationship="Model1.PollPollChoice" FromRole="Poll" ToRole="PollChoice" />
+          <NavigationProperty Name="PollChoices" Relationship="Model1.PollPollChoice" FromRole="Poll"
+                              ToRole="PollChoice" />
           <Property Type="String" Name="Question" Nullable="false" />
           <Property Type="DateTime" Name="CreationDate" Nullable="false" />
           <NavigationProperty Name="PollUsers" Relationship="Model1.Voting" FromRole="Poll" ToRole="PollUser" />
-          <NavigationProperty Name="Exhibition" Relationship="Model1.PollExhibition" FromRole="Poll" ToRole="Exhibition" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.PollExhibition" FromRole="Poll"
+                              ToRole="Exhibition" />
         </EntityType>
         <EntityType Name="PollChoice">
           <Key>
@@ -385,57 +415,58 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.User)">
-        <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="FamilyName" ColumnName="FamilyName" />
-          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="UserRoles">
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.UserRole)">
-        <MappingFragment StoreEntitySet="UserRoles">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.InternalRole)">
-        <MappingFragment StoreEntitySet="UserRoles_InternalRole">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.CustomerRole)">
-        <MappingFragment StoreEntitySet="UserRoles_CustomerRole">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.PublicRole)">
-        <MappingFragment StoreEntitySet="UserRoles_PublicRole">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(Model1.AdminRole)">
-        <MappingFragment StoreEntitySet="UserRoles_AdminRole">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <AssociationSetMapping Name="UserRoleUser" TypeName="Model1.UserRoleUser" StoreEntitySet="UserRoles">
-      <EndProperty Name="User">
-        <ScalarProperty Name="Id" ColumnName="User_Id" />
-      </EndProperty>
-      <EndProperty Name="UserRole">
-        <ScalarProperty Name="Id" ColumnName="Id" />
-      </EndProperty>
-    </AssociationSetMapping>
-  </EntityContainerMapping>
-</Mapping></edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IsTypeOf(Model1.User)">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="FamilyName" ColumnName="FamilyName" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="IsTypeOf(Model1.UserRole)">
+              <MappingFragment StoreEntitySet="UserRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Model1.InternalRole)">
+              <MappingFragment StoreEntitySet="UserRoles_InternalRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Model1.CustomerRole)">
+              <MappingFragment StoreEntitySet="UserRoles_CustomerRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Model1.PublicRole)">
+              <MappingFragment StoreEntitySet="UserRoles_PublicRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(Model1.AdminRole)">
+              <MappingFragment StoreEntitySet="UserRoles_AdminRole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserRoleUser" TypeName="Model1.UserRoleUser" StoreEntitySet="UserRoles">
+            <EndProperty Name="User">
+              <ScalarProperty Name="Id" ColumnName="User_Id" />
+            </EndProperty>
+            <EndProperty Name="UserRole">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">

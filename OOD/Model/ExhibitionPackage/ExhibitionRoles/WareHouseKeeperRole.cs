@@ -1,4 +1,4 @@
-﻿namespace OOD.Model.ExhibitionPackage.ExhibitionRole
+﻿namespace OOD.Model.ExhibitionPackage.ExhibitionRoles
 {
     public class WareHouseKeeperRole : ExhibitionRole
     {

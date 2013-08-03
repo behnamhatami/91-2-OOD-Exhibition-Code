@@ -1,6 +1,9 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows.Forms;
-using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+
+#endregion
 
 namespace OOD.UI.Utility.Helper
 {
@@ -28,6 +31,10 @@ namespace OOD.UI.Utility.Helper
                 if (checkBox != null)
                     EmptyCheckBox(checkBox);
 
+                var listBox = control as ListBox;
+                if (listBox != null)
+                    EmptyListBox(listBox);
+
                 EmptyControl(control);
             }
         }
@@ -42,6 +49,13 @@ namespace OOD.UI.Utility.Helper
             checkBox.Checked = false;
         }
 
+        private static void EmptyListBox(ListBox listBox)
+        {
+            listBox.SelectedItems.Clear();
+            listBox.SelectedIndices.Clear();
+            listBox.ClearSelected();
+        }
+
         private static void EmptyComboBox(ComboBox comboBox)
         {
             comboBox.SelectedItem = null;
@@ -53,6 +67,13 @@ namespace OOD.UI.Utility.Helper
             checkListBox.SelectedItems.Clear();
             checkListBox.SelectedIndices.Clear();
             checkListBox.ClearSelected();
+        }
+
+        public static void Refresh(ListBox listBox, Object[] init)
+        {
+            Empty(listBox);
+            listBox.Items.Clear();
+            listBox.Items.AddRange(init);
         }
 
         public static void Refresh(ComboBox comboBox, Object[] init)

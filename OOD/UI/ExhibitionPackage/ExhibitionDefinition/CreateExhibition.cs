@@ -1,13 +1,17 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
-using OOD.Model.ExhibitionPackage.ExhibitionRole;
+using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
 using OOD.Model.UserManagingPackage;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.Helper;
 using OOD.UI.Utility.PopUp;
+
+#endregion
 
 namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 {
@@ -45,6 +49,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
         {
             if (!base.ValidatePreConditions())
                 return false;
+
             var user = Program.User;
             if (user.UserRole is InternalRole)
                 return true;

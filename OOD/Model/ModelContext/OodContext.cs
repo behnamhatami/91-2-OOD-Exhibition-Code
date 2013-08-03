@@ -1,14 +1,24 @@
-﻿using System.Configuration;
+﻿#region
+
+using System;
 using System.Data.Entity;
+using System.Reflection;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
-using OOD.Model.ExhibitionPackage.ExhibitionRole;
+using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.NotificationPackage;
 using OOD.Model.UserManagingPackage;
+
+#endregion
 
 namespace OOD.Model.ModelContext
 {
     public class OodContext : DbContext
     {
+        public OodContext()
+            : base(ConnectionString)
+        {
+        }
+
         public DbSet<User> Users { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Exhibition> Exhibitions { get; set; }
@@ -21,23 +31,17 @@ namespace OOD.Model.ModelContext
         public DbSet<PollChoice> PollChoices { get; set; }
         public DbSet<PollUser> PollUsers { get; set; }
 
-        public OodContext()
-            : base(ConnectionString)
-        {
-        }
-
         public static string ConnectionString
         {
             get
             {
                 return @"Data Source=" +
-                       System.Reflection
-                           .Assembly
+                       Assembly
                            .GetExecutingAssembly()
                            .Location
                            .Substring(0,
-                               System.Reflection.Assembly.GetExecutingAssembly()
-                                   .Location.LastIndexOf("\\", System.StringComparison.Ordinal) + 1)
+                               Assembly.GetExecutingAssembly()
+                                   .Location.LastIndexOf("\\", StringComparison.Ordinal) + 1)
                        + @"ood.sdf";
             }
         }

@@ -1,12 +1,16 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using OOD.Model.ExhibitionPackage.ExhibitionRole;
+using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
+
+#endregion
 
 namespace OOD.Model.UserManagingPackage
 {
@@ -45,7 +49,6 @@ namespace OOD.Model.UserManagingPackage
             }
         }
 
-
         public bool ChangePassword(string oldPassword, string newPassword)
         {
             if (!Authenticate(oldPassword))
@@ -63,7 +66,7 @@ namespace OOD.Model.UserManagingPackage
         public static string Encrypt(string text)
         {
             var enc = new UTF8Encoding();
-            byte[] buffer = enc.GetBytes(text);
+            var buffer = enc.GetBytes(text);
             var cryptoTransformSha1 = new SHA1CryptoServiceProvider();
             return BitConverter.ToString(cryptoTransformSha1.ComputeHash(buffer)).Replace("-", "");
         }

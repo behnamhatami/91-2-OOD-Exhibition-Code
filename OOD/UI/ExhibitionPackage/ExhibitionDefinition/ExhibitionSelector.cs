@@ -1,8 +1,13 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Linq;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ModelContext;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.PopUp;
+
+#endregion
 
 namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 {
@@ -51,14 +56,14 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 
         private void selectButton_Click(object sender, EventArgs e)
         {
-            var exhibition = (Model.ExhibitionPackage.ExhibitionDefinition.Exhibition) ExhibitionComboBox.SelectedItem;
+            var exhibition = (Exhibition) ExhibitionComboBox.SelectedItem;
             if (GeneralErrors.IsNull(exhibition, "نمایشگاه"))
                 return;
             EnterExhibition(exhibition);
             Close();
         }
 
-        public static void EnterExhibition(Model.ExhibitionPackage.ExhibitionDefinition.Exhibition exhibition)
+        public static void EnterExhibition(Exhibition exhibition)
         {
             Program.Exhibition = exhibition;
             PopUp.ShowSuccess(String.Format("شما وارد نمایشگاه {0} شدید.", exhibition));

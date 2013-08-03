@@ -42,9 +42,9 @@
             this.ExhibitionConfigurtionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionFreezToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionFreezPollingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExhibitionStartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionDataEnteringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionConsistencyCrudToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExhibitionReConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionProcessProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionBaseProcessProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,8 +56,6 @@
             this.TimeReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SaloonReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserManagmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UserManagingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UserAuthenticationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhitUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +64,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label0 = new System.Windows.Forms.Label();
+            this.FinilizeExhibitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -159,9 +158,10 @@
             this.ExhibitionConfigurtionToolStripMenuItem,
             this.ExhibitionFreezToolStripMenuItem,
             this.ExhibitionFreezPollingToolStripMenuItem,
+            this.ExhibitionStartToolStripMenuItem,
+            this.FinilizeExhibitionToolStripMenuItem,
             this.ExhibitionDataEnteringToolStripMenuItem,
-            this.ExhibitionConsistencyCrudToolStripMenuItem,
-            this.ExhibitionReConfigurationToolStripMenuItem});
+            this.ExhibitionConsistencyCrudToolStripMenuItem});
             this.ExhibitionCreationToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExhibitionCreationToolStripMenuItem.Name = "ExhibitionCreationToolStripMenuItem";
             this.ExhibitionCreationToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 10, 4, 0);
@@ -171,48 +171,49 @@
             // ExhibitionDefinitionToolStripMenuItem
             // 
             this.ExhibitionDefinitionToolStripMenuItem.Name = "ExhibitionDefinitionToolStripMenuItem";
-            this.ExhibitionDefinitionToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
+            this.ExhibitionDefinitionToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
             this.ExhibitionDefinitionToolStripMenuItem.Text = "ایجاد و تعریف اولیه نمایشگاه";
             this.ExhibitionDefinitionToolStripMenuItem.Click += new System.EventHandler(this.ExhibitionDefinitionToolStripMenuItem_Click);
             // 
             // ExhibitionConfigurtionToolStripMenuItem
             // 
             this.ExhibitionConfigurtionToolStripMenuItem.Name = "ExhibitionConfigurtionToolStripMenuItem";
-            this.ExhibitionConfigurtionToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
+            this.ExhibitionConfigurtionToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
             this.ExhibitionConfigurtionToolStripMenuItem.Text = "پیکربندی نمایشگاه";
             this.ExhibitionConfigurtionToolStripMenuItem.Click += new System.EventHandler(this.ExhibitionConfigurtionToolStripMenuItem_Click);
             // 
             // ExhibitionFreezToolStripMenuItem
             // 
             this.ExhibitionFreezToolStripMenuItem.Name = "ExhibitionFreezToolStripMenuItem";
-            this.ExhibitionFreezToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
+            this.ExhibitionFreezToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
             this.ExhibitionFreezToolStripMenuItem.Text = "انجماد";
             this.ExhibitionFreezToolStripMenuItem.Click += new System.EventHandler(this.ExhibitionFreezToolStripMenuItem_Click);
             // 
             // ExhibitionFreezPollingToolStripMenuItem
             // 
             this.ExhibitionFreezPollingToolStripMenuItem.Name = "ExhibitionFreezPollingToolStripMenuItem";
-            this.ExhibitionFreezPollingToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
+            this.ExhibitionFreezPollingToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
             this.ExhibitionFreezPollingToolStripMenuItem.Text = "رای گیری";
             this.ExhibitionFreezPollingToolStripMenuItem.Click += new System.EventHandler(this.ExhibitionFreezPollingToolStripMenuItem_Click);
+            // 
+            // ExhibitionStartToolStripMenuItem
+            // 
+            this.ExhibitionStartToolStripMenuItem.Name = "ExhibitionStartToolStripMenuItem";
+            this.ExhibitionStartToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
+            this.ExhibitionStartToolStripMenuItem.Text = "آغاز نمایشگاه";
+            this.ExhibitionStartToolStripMenuItem.Click += new System.EventHandler(this.ExhibitionStartToolStripMenuItem_Click);
             // 
             // ExhibitionDataEnteringToolStripMenuItem
             // 
             this.ExhibitionDataEnteringToolStripMenuItem.Name = "ExhibitionDataEnteringToolStripMenuItem";
-            this.ExhibitionDataEnteringToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
+            this.ExhibitionDataEnteringToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
             this.ExhibitionDataEnteringToolStripMenuItem.Text = "مشاهده و ویرایش داده های مربوط به یک نمایشگاه";
             // 
             // ExhibitionConsistencyCrudToolStripMenuItem
             // 
             this.ExhibitionConsistencyCrudToolStripMenuItem.Name = "ExhibitionConsistencyCrudToolStripMenuItem";
-            this.ExhibitionConsistencyCrudToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
+            this.ExhibitionConsistencyCrudToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
             this.ExhibitionConsistencyCrudToolStripMenuItem.Text = "تعریف و ویرایش و حذف قوانین سازگاری فرآیند ";
-            // 
-            // ExhibitionReConfigurationToolStripMenuItem
-            // 
-            this.ExhibitionReConfigurationToolStripMenuItem.Name = "ExhibitionReConfigurationToolStripMenuItem";
-            this.ExhibitionReConfigurationToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
-            this.ExhibitionReConfigurationToolStripMenuItem.Text = "بازیابی و تغییر و ذخیره پیکربندی نمایشگاه ها برای استفاده مجدد ";
             // 
             // ExhibitionProgressToolStripMenuItem
             // 
@@ -290,27 +291,12 @@
             // 
             // UserManagmentToolStripMenuItem
             // 
-            this.UserManagmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.UserManagingToolStripMenuItem,
-            this.UserAuthenticationToolStripMenuItem});
             this.UserManagmentToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserManagmentToolStripMenuItem.Name = "UserManagmentToolStripMenuItem";
             this.UserManagmentToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 10, 4, 0);
             this.UserManagmentToolStripMenuItem.Size = new System.Drawing.Size(114, 30);
             this.UserManagmentToolStripMenuItem.Text = "مدیریت کاربران";
-            // 
-            // UserManagingToolStripMenuItem
-            // 
-            this.UserManagingToolStripMenuItem.Name = "UserManagingToolStripMenuItem";
-            this.UserManagingToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.UserManagingToolStripMenuItem.Text = "مدیریت کاربران سیستم ";
-            this.UserManagingToolStripMenuItem.Click += new System.EventHandler(this.UserManagingToolStripMenuItem_Click);
-            // 
-            // UserAuthenticationToolStripMenuItem
-            // 
-            this.UserAuthenticationToolStripMenuItem.Name = "UserAuthenticationToolStripMenuItem";
-            this.UserAuthenticationToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.UserAuthenticationToolStripMenuItem.Text = "احراز هویت";
+            this.UserManagmentToolStripMenuItem.Click += new System.EventHandler(this.UserManagmentToolStripMenuItem_Click);
             // 
             // BackToolStripMenuItem
             // 
@@ -385,6 +371,13 @@
             this.label0.TabIndex = 0;
             this.label0.Text = "نمایشگاه کتاب (1391)";
             // 
+            // FinilizeExhibitionToolStripMenuItem
+            // 
+            this.FinilizeExhibitionToolStripMenuItem.Name = "FinilizeExhibitionToolStripMenuItem";
+            this.FinilizeExhibitionToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
+            this.FinilizeExhibitionToolStripMenuItem.Text = "اتمام نمایشگاه";
+            this.FinilizeExhibitionToolStripMenuItem.Click += new System.EventHandler(this.FinilizeExhibitionToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -432,7 +425,6 @@
         private System.Windows.Forms.ToolStripMenuItem ExhibitionFreezToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExhibitionDataEnteringToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExhibitionConsistencyCrudToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ExhibitionReConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExhibitionProcessProgressToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExhibitionBaseProcessProgressToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExhibitionFinalizationToolStripMenuItem;
@@ -441,13 +433,13 @@
         private System.Windows.Forms.ToolStripMenuItem ProgressReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem TimeReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SaloonReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem UserManagingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem UserAuthenticationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem BackToolStripMenuItem;
         private System.Windows.Forms.Label label0;
         private System.Windows.Forms.ToolStripMenuItem ExhitUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExhibitionExitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExhibitionFreezPollingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ExhibitionStartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FinilizeExhibitionToolStripMenuItem;
 
 
 

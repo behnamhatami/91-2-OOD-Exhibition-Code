@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
@@ -12,9 +11,9 @@ using OOD.UI.Utility.PopUp;
 
 namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 {
-    public partial class RequestForFreeze : BaseForm
+    public partial class RequestForStart : BaseForm
     {
-        public RequestForFreeze()
+        public RequestForStart()
         {
             InitializeComponent();
         }
@@ -33,6 +32,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             return true;
         }
 
+
         public override bool ValidatePreConditions()
         {
             if (!base.ValidatePreConditions())
@@ -42,9 +42,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var exhibition = Program.Exhibition;
             if (exhibition.HasRole<ChairRole>(user))
             {
-                if (exhibition.State == ExhibitionState.Configuration)
+                if (exhibition.State == ExhibitionState.Freezed)
                     return true;
-                PopUp.ShowError("قسمت درخواست انجماد بسته شده است.");
+                PopUp.ShowError("قسمت آغاز بسته شده است.");
                 return false;
             }
             GeneralErrors.AccessDenied();
@@ -55,7 +55,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 
         public override int GetLevel()
         {
-            return 3;
+            return 4;
         }
 
         public override bool RestoreAble()
@@ -63,16 +63,15 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             return false;
         }
 
+        // Finish
+
         private void button1_Click(object sender, EventArgs e)
         {
             var exhibition = Program.Exhibition;
-            exhibition.Polls.First().Reset();
-            exhibition.State = ExhibitionState.FreezeStarted;
+            exhibition.State = ExhibitionState.Started;
             DataManager.DataContext.SaveChanges();
-            PopUp.ShowSuccess("رای گیری آغاز گردید.");
+            PopUp.ShowSuccess(string.Format("نمایشگاه {0} آغاز گردید", exhibition));
             Close();
         }
-
-        // Finish
     }
 }

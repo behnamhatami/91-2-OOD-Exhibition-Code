@@ -1,10 +1,14 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using OOD.Model.ExhibitionPackage.ExhibitionRole;
+using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
 using OOD.Model.UserManagingPackage;
+
+#endregion
 
 namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 {
@@ -52,6 +56,15 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
         {
             get { return DataManager.DataContext.Polls.Where(poll => poll.Exhibition.Id == Id); }
         }
+
+
+        public bool HasRole<T>(User user)
+        {
+            return UserExhibitionRoles
+                .Where(role1 => role1.User.Id == user.Id)
+                .Count(role1 => role1.ExhibitionRole is T) > 0;
+        }
+
 
         public override string ToString()
         {

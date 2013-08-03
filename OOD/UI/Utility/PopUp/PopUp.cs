@@ -1,4 +1,8 @@
-﻿using System.Windows.Forms;
+﻿#region
+
+using System.Windows.Forms;
+
+#endregion
 
 namespace OOD.UI.Utility.PopUp
 {
@@ -12,13 +16,15 @@ namespace OOD.UI.Utility.PopUp
 
         public static void ShowWarning(string message)
         {
-            MessageBox.Show(message, "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1,
+            MessageBox.Show(message, "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button1,
                 MessageBoxOptions.RtlReading);
         }
 
         public static void ShowSuccess(string message)
         {
-            MessageBox.Show(message, "اطلاع", MessageBoxButtons.OK, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1,
+            MessageBox.Show(message, "اطلاع", MessageBoxButtons.OK, MessageBoxIcon.Asterisk,
+                MessageBoxDefaultButton.Button1,
                 MessageBoxOptions.RtlReading);
         }
     }

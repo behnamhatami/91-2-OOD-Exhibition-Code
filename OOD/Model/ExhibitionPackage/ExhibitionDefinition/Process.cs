@@ -1,4 +1,8 @@
-﻿using System;
+﻿#region
+
+using System;
+
+#endregion
 
 namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 {
@@ -12,6 +16,19 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
         public int FinishNode { get; set; }
 
         public virtual Configuration Configuration { get; set; }
+
+        public Process Clone(Configuration newConfiguration)
+        {
+            return new Process
+            {
+                Type = Type,
+                MinLength = MinLength,
+                MaxLength = MaxLength,
+                StartNode = StartNode,
+                FinishNode = FinishNode,
+                Configuration = newConfiguration
+            };
+        }
 
         public static Object[] GetChoices()
         {

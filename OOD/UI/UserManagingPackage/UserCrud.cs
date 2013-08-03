@@ -1,10 +1,14 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Linq;
 using OOD.Model.ModelContext;
 using OOD.Model.UserManagingPackage;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.Helper;
 using OOD.UI.Utility.PopUp;
+
+#endregion
 
 namespace OOD.UI.UserManagingPackage
 {
@@ -139,7 +143,7 @@ namespace OOD.UI.UserManagingPackage
             db.Users.Add(user);
             db.SaveChanges();
             CreateReset();
-            Utility.PopUp.PopUp.ShowSuccess("کاربر با موفقیت ساخته شد.");
+            PopUp.ShowSuccess("کاربر با موفقیت ساخته شد.");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -185,7 +189,7 @@ namespace OOD.UI.UserManagingPackage
             var db = DataManager.DataContext;
             db.SaveChanges();
             EditReset();
-            Utility.PopUp.PopUp.ShowSuccess("تغییرات با موفقیت انجام شد.");
+            PopUp.ShowSuccess("تغییرات با موفقیت انجام شد.");
         }
 
         private void EditChangePasswordCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -206,7 +210,7 @@ namespace OOD.UI.UserManagingPackage
             db.Users.Remove(user);
             db.SaveChanges();
             RemoveReset();
-            Utility.PopUp.PopUp.ShowSuccess("حذف با موفقیت انجام شد.");
+            PopUp.ShowSuccess("حذف با موفقیت انجام شد.");
         }
     }
 }

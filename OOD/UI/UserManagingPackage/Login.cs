@@ -1,6 +1,11 @@
-﻿using System;
+﻿#region
+
+using System;
+using OOD.UI.Notification;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.PopUp;
+
+#endregion
 
 namespace OOD.UI.UserManagingPackage
 {
@@ -59,7 +64,7 @@ namespace OOD.UI.UserManagingPackage
 
             Program.User = user;
             Reset();
-            GoNext(new MainWindow());
+            GoNext(new Home());
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -72,7 +77,7 @@ namespace OOD.UI.UserManagingPackage
 
             Program.User = user;
             Reset();
-            GoNext(new MainWindow());
+            GoNext(new Home());
         }
 
         public static void ExitUser()

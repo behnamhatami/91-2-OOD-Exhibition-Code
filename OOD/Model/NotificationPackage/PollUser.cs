@@ -1,4 +1,8 @@
-﻿using OOD.Model.UserManagingPackage;
+﻿#region
+
+using OOD.Model.UserManagingPackage;
+
+#endregion
 
 namespace OOD.Model.NotificationPackage
 {

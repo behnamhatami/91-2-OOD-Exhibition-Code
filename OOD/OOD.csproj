@@ -73,14 +73,26 @@
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Feature.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Process.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ProcessType.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\BoothManagerRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\ChairRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\ExecutionRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\ExhibitionRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\InspectorRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\PostKeeperRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\UserExhibitionRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRole\WareHouseKeeperRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\BoothManagerRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ChairRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ExecutionRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ExhibitionRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\InspectorRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\PostKeeperRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\UserExhibitionRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\WareHouseKeeperRole.cs" />
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFinish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFinish.Designer.cs">
+      <DependentUpon>RequestForFinish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForStart.Designer.cs">
+      <DependentUpon>RequestForStart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\ModelContext\DatabaseInitializer.cs" />
     <Compile Include="Model\ModelContext\DataManager.cs" />
     <Compile Include="Model\NotificationPackage\Poll.cs" />
@@ -106,6 +118,12 @@
     </Compile>
     <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.Designer.cs">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notification\Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Utility\Base\BaseForm.cs">
       <SubType>Form</SubType>
@@ -156,6 +174,12 @@
     <Compile Include="UI\UserManagingPackage\UserCrud.Designer.cs">
       <DependentUpon>UserCrud.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFinish.resx">
+      <DependentUpon>RequestForFinish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForStart.resx">
+      <DependentUpon>RequestForStart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -170,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.resx">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Utility\Base\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>

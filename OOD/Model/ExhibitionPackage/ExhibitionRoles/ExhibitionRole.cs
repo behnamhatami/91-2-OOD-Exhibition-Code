@@ -1,9 +1,13 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using OOD.Model.ModelContext;
 
-namespace OOD.Model.ExhibitionPackage.ExhibitionRole
+#endregion
+
+namespace OOD.Model.ExhibitionPackage.ExhibitionRoles
 {
     public class ExhibitionRole
     {

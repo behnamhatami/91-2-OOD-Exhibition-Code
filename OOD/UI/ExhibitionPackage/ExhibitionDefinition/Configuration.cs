@@ -1,11 +1,16 @@
-﻿using System.Linq;
+﻿#region
+
+using System;
+using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
-using OOD.Model.ExhibitionPackage.ExhibitionRole;
+using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.UserManagingPackage;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.Helper;
 using OOD.UI.Utility.PopUp;
+
+#endregion
 
 namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 {
@@ -46,7 +51,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 
             var user = Program.User;
             var exhibition = Program.Exhibition;
-            if (user.UserExhibitionRoles.Count(role => role.Exhibition.Id == Program.Exhibition.Id) > 0)
+            if (exhibition.HasRole<ChairRole>(user))
             {
                 if (exhibition.State == ExhibitionState.Created
                     || exhibition.State == ExhibitionState.Configuration)
@@ -97,22 +102,33 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             }
         }
 
-        private void featureCancelButton_Click(object sender, System.EventArgs e)
+        private void featureCancelButton_Click(object sender, EventArgs e)
         {
             FeaturePageReset();
         }
 
-        private void featureOkeyButton_Click(object sender, System.EventArgs e)
+        private void featureOkeyButton_Click(object sender, EventArgs e)
         {
-            var feature = Program.Exhibition.Feature;
+            var db = DataManager.DataContext;
+            var exhibition = Program.Exhibition;
+            var feature = exhibition.Feature;
             feature.HasPostOffice = featurePostOfficeCheckBox.Checked;
             feature.HasWareHouse = featureWareHouseCheckBox.Checked;
             feature.HasSell = featureSellRadioButton.Checked;
             feature.HasDifferentBooth = featureDifferentBoothCheckBox.Checked;
-            var db = DataManager.DataContext;
+
+            var newExhibition = featureInitialConfigurationComboBox.SelectedItem as Exhibition;
+            if (newExhibition != null)
+            {
+                var configuration = exhibition.Configuration;
+                configuration.Reset();
+                foreach (var process in newExhibition.Configuration.Processes)
+                    db.Processes.Add(process.Clone(configuration));
+            }
             db.SaveChanges();
             PopUp.ShowSuccess("تغییرات مد نظر با موفقیت اعمال گردید.");
             FeaturePageReset();
+            ProcessPageReset();
         }
 
         // Rolls
@@ -126,7 +142,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             ResetHelper.Refresh(roleUserExhibitionRoleListBox, Program.Exhibition.UserExhibitionRoles.ToArray());
         }
 
-        private void roleAddButton_Click(object sender, System.EventArgs e)
+        private void roleAddButton_Click(object sender, EventArgs e)
         {
             var user = (User) roleUserComboBox.SelectedItem;
             var role = (ExhibitionRole) roleChoicesComboBox.SelectedItem;
@@ -147,7 +163,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             PopUp.ShowSuccess("نقش جدید ساخته شد.");
         }
 
-        private void roleRemoveButton_Click(object sender, System.EventArgs e)
+        private void roleRemoveButton_Click(object sender, EventArgs e)
         {
             if (GeneralErrors.IsZero(roleUserExhibitionRoleListBox.CheckedItems.Count, "تخصیص"))
                 return;
@@ -175,7 +191,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             ResetHelper.Refresh(processCheckedListBox, exhibition.Configuration.Processes.ToArray());
         }
 
-        private void processAddButton_Click(object sender, System.EventArgs e)
+        private void processAddButton_Click(object sender, EventArgs e)
         {
             var processType = processProcessComboBox.SelectedItem;
             var minLengthText = processMinLengthTextBox.Text;
@@ -214,7 +230,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             PopUp.ShowSuccess("فرآیند خواسته شده به پیکربندی اضافه شد.");
         }
 
-        private void processRemoveButton_Click(object sender, System.EventArgs e)
+        private void processRemoveButton_Click(object sender, EventArgs e)
         {
             if (GeneralErrors.IsZero(processCheckedListBox.CheckedItems.Count, "فرآیند"))
                 return;

@@ -1,10 +1,16 @@
-﻿using System.Data.Entity;
+﻿#region
+
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+
+#endregion
 
 namespace OOD.Model.ModelContext
 {
     public class DataManager
     {
+        private static OodContext _dataContext;
+
         public static OodContext DataContext
         {
             get
@@ -26,7 +32,5 @@ namespace OOD.Model.ModelContext
                 return _dataContext;
             }
         }
-
-        private static OodContext _dataContext = null;
     }
 }

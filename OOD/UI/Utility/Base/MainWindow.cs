@@ -1,6 +1,11 @@
-﻿using System;
+﻿#region
+
+using System;
 using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
+using OOD.UI.Notification;
 using OOD.UI.UserManagingPackage;
+
+#endregion
 
 namespace OOD.UI.Utility.Base
 {
@@ -62,11 +67,6 @@ namespace OOD.UI.Utility.Base
 
         // Finish
 
-        private void UserManagingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GoNext(new UserCrud());
-        }
-
         private void ExhibitionDefinitionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GoNext(new CreateExhibition());
@@ -79,7 +79,7 @@ namespace OOD.UI.Utility.Base
 
         private void HomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GoNext(new MainWindow());
+            GoNext(new Home());
         }
 
         private void ExhibitionConfigurtionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,6 +107,21 @@ namespace OOD.UI.Utility.Base
         private void ExhibitionFreezPollingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GoNext(new PollForFreeze());
+        }
+
+        private void UserManagmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new UserCrud());
+        }
+
+        private void ExhibitionStartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new RequestForStart());
+        }
+
+        private void FinilizeExhibitionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new RequestForFinish());
         }
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace OOD.Model.ExhibitionPackage.ExhibitionRole
+﻿namespace OOD.Model.ExhibitionPackage.ExhibitionRoles
 {
-    class BoothManagerRole : ExhibitionRole
+    internal class BoothManagerRole : ExhibitionRole
     {
         public override string ToString()
         {

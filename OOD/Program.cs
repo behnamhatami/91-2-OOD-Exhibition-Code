@@ -1,18 +1,22 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Windows.Forms;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
-using OOD.Model.ModelContext;
-using OOD.Model.NotificationPackage;
 using OOD.Model.UserManagingPackage;
-using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
 using OOD.UI.UserManagingPackage;
+
+#endregion
 
 namespace OOD
 {
     internal static class Program
     {
+        public static User User { get; set; }
+        public static Exhibition Exhibition { get; set; }
+
         /// <summary>
-        /// The main entry point for the application.
+        ///     The main entry point for the application.
         /// </summary>
         [STAThread]
         private static void Main()
@@ -22,8 +26,5 @@ namespace OOD
 
             Application.Run(new Login());
         }
-
-        public static User User { get; set; }
-        public static Exhibition Exhibition { get; set; }
     }
 }

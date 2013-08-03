@@ -1,6 +1,11 @@
-﻿using System.Windows.Forms;
+﻿#region
+
+using System;
+using System.Windows.Forms;
 using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
 using OOD.UI.Utility.Interface;
+
+#endregion
 
 namespace OOD.UI.Utility.Base
 {
@@ -12,10 +17,6 @@ namespace OOD.UI.Utility.Base
         }
 
         // IResetAble
-
-        public virtual void Reset()
-        {
-        }
 
         // IPrecondition
 
@@ -47,7 +48,7 @@ namespace OOD.UI.Utility.Base
         public void PreConditionResolver()
         {
             if (NeedExhibition() && Program.Exhibition == null)
-                GoNext(new ExhibitionSelector(), redirection: true);
+                GoNext(new ExhibitionSelector(), true);
         }
 
         //IReloadAble
@@ -84,6 +85,10 @@ namespace OOD.UI.Utility.Base
             Show();
         }
 
+        public virtual void Reset()
+        {
+        }
+
         protected void GoNext(BaseForm form, bool redirection = false)
         {
             form.PreConditionResolver();
@@ -107,7 +112,7 @@ namespace OOD.UI.Utility.Base
                 Restore();
         }
 
-        private void BaseForm_Load(object sender, System.EventArgs e)
+        private void BaseForm_Load(object sender, EventArgs e)
         {
             Reset();
         }

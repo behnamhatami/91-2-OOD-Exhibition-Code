@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿#region
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using OOD.Model.ModelContext;
+
+#endregion
 
 namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 {
@@ -16,7 +19,13 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
         [NotMapped]
         public IQueryable<Process> Processes
         {
-            get { return DataManager.DataContext.Processes.Where(process => process.Configuration.Id == this.Id); }
+            get { return DataManager.DataContext.Processes.Where(process => process.Configuration.Id == Id); }
+        }
+
+        public void Reset()
+        {
+            foreach (var process in Processes)
+                DataManager.DataContext.Processes.Remove(process);
         }
 
         public override string ToString()

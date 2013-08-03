@@ -1,9 +1,13 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ModelContext;
 using OOD.Model.UserManagingPackage;
+
+#endregion
 
 namespace OOD.Model.NotificationPackage
 {

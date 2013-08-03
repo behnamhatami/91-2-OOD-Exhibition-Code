@@ -1,5 +1,9 @@
-﻿using System.Data.Entity;
+﻿#region
+
+using System.Data.Entity;
 using OOD.Model.UserManagingPackage;
+
+#endregion
 
 namespace OOD.Model.ModelContext
 {

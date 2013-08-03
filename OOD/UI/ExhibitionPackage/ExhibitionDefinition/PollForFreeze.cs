@@ -1,10 +1,15 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.PopUp;
+
+#endregion
 
 namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 {
@@ -38,7 +43,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var user = Program.User;
             var exhibition = Program.Exhibition;
             var poll = exhibition.Polls.First();
-            if (user.UserExhibitionRoles.Count(role => role.Exhibition.Id == Program.Exhibition.Id) > 0)
+            if (exhibition.HasRole<ChairRole>(user))
             {
                 if (exhibition.State == ExhibitionState.FreezeStarted)
                 {
@@ -69,10 +74,10 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             return true;
         }
 
-        private void button2_Click(object sender, System.EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             var index = -1;
-            for (var i = 0; index == -1 && i < this.radioButtons.Length; i++)
+            for (var i = 0; index == -1 && i < radioButtons.Length; i++)
                 if (radioButtons[i].Checked)
                     index = i;
             if (index == -1)
