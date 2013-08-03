@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
@@ -47,6 +48,29 @@ namespace OOD.Model.UserManagingPackage
                         .Where(pollUser => pollUser.User.Id == Id)
                         .Select(pollUser => pollUser.Poll);
             }
+        }
+
+        [NotMapped]
+        public IQueryable<Notification> Notifications
+        {
+            get
+            {
+                return
+                    DataManager.DataContext.Notifications
+                        .Where(notification => notification.User != null && notification.User.Id == Id);
+            }
+        }
+
+        public void RecieveNotification(String title, String content, Exhibition exhibition)
+        {
+            DataManager.DataContext.Notifications.Add(new Notification
+            {
+                Content = content,
+                Title = title,
+                CreationDate = DateTime.Now,
+                Exhibition = exhibition,
+                User = this
+            });
         }
 
         public bool ChangePassword(string oldPassword, string newPassword)

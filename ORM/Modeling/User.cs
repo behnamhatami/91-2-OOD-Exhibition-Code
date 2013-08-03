@@ -18,6 +18,7 @@ namespace Login.Modeling
         {
             this.UserExhibitionRoles = new HashSet<UserExhibitionRole>();
             this.PollUsers = new HashSet<PollUser>();
+            this.Notifications = new HashSet<Notification>();
         }
     
         public int Id { get; set; }
@@ -30,5 +31,6 @@ namespace Login.Modeling
         public virtual UserRole UserRole { get; set; }
         public virtual ICollection<UserExhibitionRole> UserExhibitionRoles { get; set; }
         public virtual ICollection<PollUser> PollUsers { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
     }
 }

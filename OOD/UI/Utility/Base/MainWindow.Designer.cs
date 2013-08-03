@@ -43,6 +43,7 @@
             this.ExhibitionFreezToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionFreezPollingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionStartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FinilizeExhibitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionDataEnteringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionConsistencyCrudToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label0 = new System.Windows.Forms.Label();
-            this.FinilizeExhibitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifcationCenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -114,7 +115,8 @@
             this.NotificationToolStripMenuItem,
             this.ParticipationToolStripMenuItem,
             this.NewsCreationToolStripMenuItem,
-            this.PollCreationToolStripMenuItem});
+            this.PollCreationToolStripMenuItem,
+            this.NotifcationCenterToolStripMenuItem});
             this.InformationToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InformationToolStripMenuItem.Name = "InformationToolStripMenuItem";
             this.InformationToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 10, 4, 0);
@@ -202,6 +204,13 @@
             this.ExhibitionStartToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
             this.ExhibitionStartToolStripMenuItem.Text = "آغاز نمایشگاه";
             this.ExhibitionStartToolStripMenuItem.Click += new System.EventHandler(this.ExhibitionStartToolStripMenuItem_Click);
+            // 
+            // FinilizeExhibitionToolStripMenuItem
+            // 
+            this.FinilizeExhibitionToolStripMenuItem.Name = "FinilizeExhibitionToolStripMenuItem";
+            this.FinilizeExhibitionToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
+            this.FinilizeExhibitionToolStripMenuItem.Text = "اتمام نمایشگاه";
+            this.FinilizeExhibitionToolStripMenuItem.Click += new System.EventHandler(this.FinilizeExhibitionToolStripMenuItem_Click);
             // 
             // ExhibitionDataEnteringToolStripMenuItem
             // 
@@ -371,12 +380,12 @@
             this.label0.TabIndex = 0;
             this.label0.Text = "نمایشگاه کتاب (1391)";
             // 
-            // FinilizeExhibitionToolStripMenuItem
+            // NotifcationCenterToolStripMenuItem
             // 
-            this.FinilizeExhibitionToolStripMenuItem.Name = "FinilizeExhibitionToolStripMenuItem";
-            this.FinilizeExhibitionToolStripMenuItem.Size = new System.Drawing.Size(389, 22);
-            this.FinilizeExhibitionToolStripMenuItem.Text = "اتمام نمایشگاه";
-            this.FinilizeExhibitionToolStripMenuItem.Click += new System.EventHandler(this.FinilizeExhibitionToolStripMenuItem_Click);
+            this.NotifcationCenterToolStripMenuItem.Name = "NotifcationCenterToolStripMenuItem";
+            this.NotifcationCenterToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
+            this.NotifcationCenterToolStripMenuItem.Text = "سیستم مرکزی رخدادها";
+            this.NotifcationCenterToolStripMenuItem.Click += new System.EventHandler(this.NotifcationCenterToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -440,6 +449,7 @@
         private System.Windows.Forms.ToolStripMenuItem ExhibitionFreezPollingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ExhibitionStartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FinilizeExhibitionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NotifcationCenterToolStripMenuItem;
 
 
 

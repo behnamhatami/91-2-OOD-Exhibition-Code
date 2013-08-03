@@ -106,8 +106,13 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
                     Exhibition = exhibition
                 };
                 db.UserExhibitionRoles.Add(userExhibitionRole);
-//                exhibition.UserExhibitionRoles.Add(userExhibitionRole);
+                userExhibitionRole.User.RecieveNotification(NotificationFactory.ExhibitionRoleAddedTitle,
+                    NotificationFactory.ExhibitionRoleAddedContent(exhibition, userExhibitionRole.ExhibitionRole),
+                    exhibition);
             }
+
+            exhibition.RecieveNotification(NotificationFactory.ExhibitionCreationTitle,
+                NotificationFactory.ExhibitionCreationContent(exhibition));
 
             var poll = new Poll
             {

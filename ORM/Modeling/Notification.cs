@@ -12,21 +12,14 @@ namespace Login.Modeling
     using System;
     using System.Collections.Generic;
     
-    public partial class Poll
+    public partial class Notification
     {
-        public Poll()
-        {
-            this.PollChoices = new HashSet<PollChoice>();
-            this.PollUsers = new HashSet<PollUser>();
-        }
-    
         public int Id { get; set; }
-        public string Question { get; set; }
+        public string Title { get; set; }
         public System.DateTime CreationDate { get; set; }
-        public System.DateTime FinishDate { get; set; }
+        public string Content { get; set; }
     
-        public virtual ICollection<PollChoice> PollChoices { get; set; }
-        public virtual ICollection<PollUser> PollUsers { get; set; }
         public virtual Exhibition Exhibition { get; set; }
+        public virtual User User { get; set; }
     }
 }

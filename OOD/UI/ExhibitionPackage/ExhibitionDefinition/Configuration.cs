@@ -146,18 +146,21 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
         {
             var user = (User) roleUserComboBox.SelectedItem;
             var role = (ExhibitionRole) roleChoicesComboBox.SelectedItem;
+            var exhibition = Program.Exhibition;
 
             if (GeneralErrors.IsNull(user, "نام کاربری") || GeneralErrors.IsNull(role, "نقش"))
                 return;
 
             var userExhibitionRole = new UserExhibitionRole
             {
-                Exhibition = Program.Exhibition,
+                Exhibition = exhibition,
                 ExhibitionRole = role,
                 User = user
             };
             var db = DataManager.DataContext;
             db.UserExhibitionRoles.Add(userExhibitionRole);
+            user.RecieveNotification(NotificationFactory.ExhibitionRoleAddedTitle,
+                NotificationFactory.ExhibitionRoleAddedContent(exhibition, role), exhibition);
             db.SaveChanges();
             RolePageReset();
             PopUp.ShowSuccess("نقش جدید ساخته شد.");
@@ -171,9 +174,12 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var db = DataManager.DataContext;
             foreach (var userExhibitionRole in roleUserExhibitionRoleListBox.CheckedItems.Cast<UserExhibitionRole>())
             {
-//                Program.Exhibition.UserExhibitionRoles.Remove(userExhibitionRole);
                 db.UserExhibitionRoles.Remove(userExhibitionRole);
+                userExhibitionRole.User.RecieveNotification(NotificationFactory.ExhibitionRoleRemovedTitle,
+                    NotificationFactory.ExhibitionRoleRemovedContent(userExhibitionRole.Exhibition,
+                        userExhibitionRole.ExhibitionRole), userExhibitionRole.Exhibition);
             }
+
 
             db.SaveChanges();
             RolePageReset();

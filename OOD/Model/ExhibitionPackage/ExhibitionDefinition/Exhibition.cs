@@ -58,6 +58,29 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
         }
 
 
+        [NotMapped]
+        public IQueryable<Notification> Notifications
+        {
+            get
+            {
+                return DataManager.DataContext.Notifications.Where(notification => notification.Exhibition.Id == Id);
+            }
+        }
+
+        public void RecieveNotification(String title, String content)
+        {
+            var db = DataManager.DataContext;
+            db.Notifications.Add(new Notification
+            {
+                Content = content,
+                Title = title,
+                CreationDate = DateTime.Now,
+                Exhibition = this,
+                User = Program.System
+            });
+        }
+
+
         public bool HasRole<T>(User user)
         {
             return UserExhibitionRoles

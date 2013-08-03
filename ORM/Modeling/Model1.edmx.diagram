@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b06d502db40f473aaab975287f62a743" Name="Diagram1" >
+      <Diagram DiagramId="b06d502db40f473aaab975287f62a743" Name="UserManaging" >
         <EntityTypeShape EntityType="Model1.User" Width="1.5" PointX="7.25" PointY="0.5" />
         <EntityTypeShape EntityType="Model1.UserRole" Width="1.5" PointX="2.625" PointY="0.5" />
         <AssociationConnector Association="Model1.UserRoleUser" />
@@ -18,7 +18,7 @@
         <InheritanceConnector EntityType="Model1.AdminRole" />
         <EntityTypeShape EntityType="Model1.Exhibition" Width="1.5" PointX="3.375" PointY="5" />
       </Diagram>
-      <Diagram DiagramId="c958b4f548a74ae193a20cc894897eeb" Name="Diagram2" ZoomLevel="85" >
+      <Diagram DiagramId="c958b4f548a74ae193a20cc894897eeb" Name="Exhibition" ZoomLevel="85" >
         <EntityTypeShape EntityType="Model1.Exhibition" Width="2" PointX="4" PointY="0.5" />
         <EntityTypeShape EntityType="Model1.Feature" Width="1.5" PointX="0.5" PointY="1" />
         <AssociationConnector Association="Model1.ExhibitionFeature" />
@@ -39,17 +39,20 @@
         <AssociationConnector Association="Model1.UserExhibitionRoleExhibition" />
         <AssociationConnector Association="Model1.UserExhibitionRoleExhibitionRole" />
       </Diagram>
-      <Diagram DiagramId="9b586e1c966e4bb5865617a5240d5263" Name="Diagram3" >
+      <Diagram DiagramId="9b586e1c966e4bb5865617a5240d5263" Name="Configuration" >
         <EntityTypeShape EntityType="Model1.Configuration" Width="1.5" PointX="1.875" PointY="0.75" />
         <EntityTypeShape EntityType="Model1.Process" Width="1.5" PointX="5.125" PointY="0.75" />
         <AssociationConnector Association="Model1.ProcessConfiguration" />
       </Diagram>
-      <Diagram DiagramId="9ee41dce9ee044c7b8e94a90e7c2dfda" Name="Diagram4" >
+      <Diagram DiagramId="9ee41dce9ee044c7b8e94a90e7c2dfda" Name="Poll" >
         <EntityTypeShape EntityType="Model1.Poll" Width="1.5" PointX="1.25" PointY="0.75" />
         <EntityTypeShape EntityType="Model1.PollChoice" Width="1.5" PointX="4.625" PointY="0.75" />
         <AssociationConnector Association="Model1.PollPollChoice" />
         <EntityTypeShape EntityType="Model1.PollUser" Width="1.5" PointX="1.25" PointY="3.625" />
         <AssociationConnector Association="Model1.Voting" />
+      </Diagram>
+      <Diagram DiagramId="69e80fdc3e674714839fb10fd468ad1c" Name="Notification" >
+        <EntityTypeShape EntityType="Model1.Notification" Width="1.5" PointX="1.125" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

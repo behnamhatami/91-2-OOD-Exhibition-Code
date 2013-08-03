@@ -123,5 +123,10 @@ namespace OOD.UI.Utility.Base
         {
             GoNext(new RequestForFinish());
         }
+
+        private void NotifcationCenterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new NotificationCenter());
+        }
     }
 }

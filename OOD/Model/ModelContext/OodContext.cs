@@ -30,6 +30,7 @@ namespace OOD.Model.ModelContext
         public DbSet<Poll> Polls { get; set; }
         public DbSet<PollChoice> PollChoices { get; set; }
         public DbSet<PollUser> PollUsers { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
         public static string ConnectionString
         {

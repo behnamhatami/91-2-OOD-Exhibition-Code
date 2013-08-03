@@ -219,6 +219,15 @@
             <End Role="Poll" EntitySet="Polls" />
             <End Role="Exhibition" EntitySet="Exhibitions" />
           </AssociationSet>
+          <EntitySet Name="Notifications" EntityType="Model1.Notification" />
+          <AssociationSet Name="NotificationExhibition" Association="Model1.NotificationExhibition">
+            <End Role="Notification" EntitySet="Notifications" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <AssociationSet Name="NotificationUser" Association="Model1.NotificationUser">
+            <End Role="Notification" EntitySet="Notifications" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -234,6 +243,7 @@
           <NavigationProperty Name="UserExhibitionRoles" Relationship="Model1.UserUserExhibitionRole" FromRole="User"
                               ToRole="UserExhibitionRole" />
           <NavigationProperty Name="PollUsers" Relationship="Model1.PollUserUser" FromRole="User" ToRole="PollUser" />
+          <NavigationProperty Name="Notifications" Relationship="Model1.NotificationUser" FromRole="User" ToRole="Notification" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -269,6 +279,7 @@
           <NavigationProperty Name="Configuration" Relationship="Model1.ConfigurationExhibition" FromRole="Exhibition"
                               ToRole="Configuration" />
           <NavigationProperty Name="Polls" Relationship="Model1.PollExhibition" FromRole="Exhibition" ToRole="Poll" />
+          <NavigationProperty Name="Notifications" Relationship="Model1.NotificationExhibition" FromRole="Exhibition" ToRole="Notification" />
         </EntityType>
         <EntityType Name="Feature">
           <Key>
@@ -368,6 +379,7 @@
           <NavigationProperty Name="PollUsers" Relationship="Model1.Voting" FromRole="Poll" ToRole="PollUser" />
           <NavigationProperty Name="Exhibition" Relationship="Model1.PollExhibition" FromRole="Poll"
                               ToRole="Exhibition" />
+          <Property Type="DateTime" Name="FinishDate" Nullable="false" />
         </EntityType>
         <EntityType Name="PollChoice">
           <Key>
@@ -410,6 +422,25 @@
         <Association Name="PollExhibition">
           <End Type="Model1.Poll" Role="Poll" Multiplicity="*" />
           <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="String" Name="Content" Nullable="false" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.NotificationExhibition" FromRole="Notification" ToRole="Exhibition" />
+          <NavigationProperty Name="User" Relationship="Model1.NotificationUser" FromRole="Notification" ToRole="User" />
+        </EntityType>
+        <Association Name="NotificationExhibition">
+          <End Type="Model1.Notification" Role="Notification" Multiplicity="*" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <Association Name="NotificationUser">
+          <End Type="Model1.Notification" Role="Notification" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

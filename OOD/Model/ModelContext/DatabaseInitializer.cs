@@ -13,6 +13,7 @@ namespace OOD.Model.ModelContext
         {
             var adminRole = new AdminRole();
             var publicRole = new PublicRole();
+            var systemRole = new AdminRole();
             var user = new User
             {
                 Username = "behnam",
@@ -22,6 +23,7 @@ namespace OOD.Model.ModelContext
                 UserRole = adminRole,
                 Password = User.Encrypt("ensaniat")
             };
+
             var guest = new User
             {
                 Username = "guest",
@@ -30,8 +32,19 @@ namespace OOD.Model.ModelContext
                 UserRole = publicRole,
                 Password = User.Encrypt("guest")
             };
+
+            var system = new User
+            {
+                Username = "System",
+                FirstName = "System",
+                FamilyName = "System",
+                UserRole = systemRole,
+                Password = ""
+            };
+
             context.Users.Add(user);
             context.Users.Add(guest);
+            context.Users.Add(system);
             context.UserRoles.Add(adminRole);
             context.UserRoles.Add(publicRole);
             context.SaveChanges();

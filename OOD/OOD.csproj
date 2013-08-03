@@ -81,6 +81,7 @@
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\PostKeeperRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\UserExhibitionRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\WareHouseKeeperRole.cs" />
+    <Compile Include="Model\NotificationPackage\Notification.cs" />
     <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFinish.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +126,12 @@
     <Compile Include="UI\Notification\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Notification\NotificationCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\NotificationCenter.Designer.cs">
+      <DependentUpon>NotificationCenter.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Utility\Base\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +156,7 @@
     <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\ExhibitionSelector.Designer.cs">
       <DependentUpon>ExhibitionSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Utility\Helper\NotificationFactory.cs" />
     <Compile Include="UI\Utility\Interface\IReloadable.cs" />
     <Compile Include="UI\Utility\Helper\ResetHelper.cs" />
     <Compile Include="UI\Utility\Interface\IPreCondition.cs" />
@@ -197,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\NotificationCenter.resx">
+      <DependentUpon>NotificationCenter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Utility\Base\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
