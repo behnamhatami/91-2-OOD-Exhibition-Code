@@ -43,6 +43,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 
         public override bool ValidatePreConditions()
         {
+            if (!base.ValidatePreConditions())
+                return false;
             var user = Program.User;
             if (user.UserRole is InternalRole)
                 return true;
@@ -106,18 +108,21 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             {
                 Question = "آیا شما با پیکربندی موجود موافق هستید؟",
                 CreationDate = DateTime.Today,
-                Exhibition = exhibition
+                Exhibition = exhibition,
+                FinishDate = DateTime.Today.AddYears(1)
             };
 
             var pollChoice1 = new PollChoice
             {
                 Content = "بلی",
-                Poll = poll
+                Poll = poll,
+                Hit = 0,
             };
             var pollChoice2 = new PollChoice
             {
                 Content = "خیر",
-                Poll = poll
+                Poll = poll,
+                Hit = 0,
             };
 
 

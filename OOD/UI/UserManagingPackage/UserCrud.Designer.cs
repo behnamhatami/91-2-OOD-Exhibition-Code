@@ -83,12 +83,12 @@
             this.TabControl1.Controls.Add(this.EditPage);
             this.TabControl1.Controls.Add(this.RemovePage);
             this.TabControl1.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.TabControl1.Location = new System.Drawing.Point(28, 66);
+            this.TabControl1.Location = new System.Drawing.Point(144, 70);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TabControl1.RightToLeftLayout = true;
             this.TabControl1.SelectedIndex = 0;
-            this.TabControl1.Size = new System.Drawing.Size(483, 381);
+            this.TabControl1.Size = new System.Drawing.Size(502, 381);
             this.TabControl1.TabIndex = 6;
             this.TabControl1.Tag = "";
             // 
@@ -113,7 +113,7 @@
             this.CraetePage.Location = new System.Drawing.Point(4, 23);
             this.CraetePage.Name = "CraetePage";
             this.CraetePage.Padding = new System.Windows.Forms.Padding(3);
-            this.CraetePage.Size = new System.Drawing.Size(475, 354);
+            this.CraetePage.Size = new System.Drawing.Size(494, 354);
             this.CraetePage.TabIndex = 0;
             this.CraetePage.Text = "ایجاد";
             this.CraetePage.UseVisualStyleBackColor = true;
@@ -283,7 +283,7 @@
             this.EditPage.Location = new System.Drawing.Point(4, 23);
             this.EditPage.Name = "EditPage";
             this.EditPage.Padding = new System.Windows.Forms.Padding(3);
-            this.EditPage.Size = new System.Drawing.Size(475, 354);
+            this.EditPage.Size = new System.Drawing.Size(490, 354);
             this.EditPage.TabIndex = 1;
             this.EditPage.Text = "تغییر";
             this.EditPage.UseVisualStyleBackColor = true;
@@ -459,7 +459,7 @@
             this.RemovePage.Location = new System.Drawing.Point(4, 23);
             this.RemovePage.Name = "RemovePage";
             this.RemovePage.Padding = new System.Windows.Forms.Padding(3);
-            this.RemovePage.Size = new System.Drawing.Size(475, 354);
+            this.RemovePage.Size = new System.Drawing.Size(490, 354);
             this.RemovePage.TabIndex = 2;
             this.RemovePage.Text = "حذف";
             this.RemovePage.UseVisualStyleBackColor = true;

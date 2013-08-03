@@ -27,11 +27,6 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             return false;
         }
 
-        public override bool ValidatePreConditions()
-        {
-            return true;
-        }
-
         //IReloadAble
 
         public override int GetLevel()

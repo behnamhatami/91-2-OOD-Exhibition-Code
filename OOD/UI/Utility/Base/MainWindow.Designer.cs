@@ -41,6 +41,7 @@
             this.ExhibitionDefinitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionConfigurtionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionFreezToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExhibitionFreezPollingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionDataEnteringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionConsistencyCrudToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionReConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label0 = new System.Windows.Forms.Label();
-            this.ExhibitionFreezPollingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.menuStrip1);
-            this.panel1.Location = new System.Drawing.Point(516, 66);
+            this.panel1.Location = new System.Drawing.Point(12, 70);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(126, 381);
             this.panel1.TabIndex = 0;
@@ -188,6 +188,13 @@
             this.ExhibitionFreezToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
             this.ExhibitionFreezToolStripMenuItem.Text = "انجماد";
             this.ExhibitionFreezToolStripMenuItem.Click += new System.EventHandler(this.ExhibitionFreezToolStripMenuItem_Click);
+            // 
+            // ExhibitionFreezPollingToolStripMenuItem
+            // 
+            this.ExhibitionFreezPollingToolStripMenuItem.Name = "ExhibitionFreezPollingToolStripMenuItem";
+            this.ExhibitionFreezPollingToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
+            this.ExhibitionFreezPollingToolStripMenuItem.Text = "رای گیری";
+            this.ExhibitionFreezPollingToolStripMenuItem.Click += new System.EventHandler(this.ExhibitionFreezPollingToolStripMenuItem_Click);
             // 
             // ExhibitionDataEnteringToolStripMenuItem
             // 
@@ -343,7 +350,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label1.Location = new System.Drawing.Point(545, 43);
+            this.label1.Location = new System.Drawing.Point(32, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 1;
@@ -353,7 +360,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label2.Location = new System.Drawing.Point(356, 10);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(247, 18);
             this.label2.TabIndex = 4;
@@ -363,7 +370,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label3.Location = new System.Drawing.Point(28, 11);
+            this.label3.Location = new System.Drawing.Point(549, 11);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 16);
             this.label3.TabIndex = 5;
@@ -372,17 +379,11 @@
             // label0
             // 
             this.label0.AutoSize = true;
-            this.label0.Location = new System.Drawing.Point(209, 43);
+            this.label0.Location = new System.Drawing.Point(299, 47);
             this.label0.Name = "label0";
             this.label0.Size = new System.Drawing.Size(123, 14);
             this.label0.TabIndex = 0;
             this.label0.Text = "نمایشگاه کتاب (1391)";
-            // 
-            // ExhibitionFreezPollingToolStripMenuItem
-            // 
-            this.ExhibitionFreezPollingToolStripMenuItem.Name = "ExhibitionFreezPollingToolStripMenuItem";
-            this.ExhibitionFreezPollingToolStripMenuItem.Size = new System.Drawing.Size(472, 22);
-            this.ExhibitionFreezPollingToolStripMenuItem.Text = "رای گیری";
             // 
             // MainWindow
             // 

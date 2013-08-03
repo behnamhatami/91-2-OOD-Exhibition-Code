@@ -36,7 +36,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(271, 43);
+            this.label1.Location = new System.Drawing.Point(56, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 14);
             this.label1.TabIndex = 0;
@@ -45,14 +45,14 @@
             // ExhibitionComboBox
             // 
             this.ExhibitionComboBox.FormattingEnabled = true;
-            this.ExhibitionComboBox.Location = new System.Drawing.Point(42, 40);
+            this.ExhibitionComboBox.Location = new System.Drawing.Point(134, 45);
             this.ExhibitionComboBox.Name = "ExhibitionComboBox";
             this.ExhibitionComboBox.Size = new System.Drawing.Size(170, 22);
             this.ExhibitionComboBox.TabIndex = 1;
             // 
             // selectButton
             // 
-            this.selectButton.Location = new System.Drawing.Point(42, 83);
+            this.selectButton.Location = new System.Drawing.Point(233, 87);
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(71, 24);
             this.selectButton.TabIndex = 2;

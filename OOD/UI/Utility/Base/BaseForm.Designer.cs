@@ -40,7 +40,8 @@
             this.MinimizeBox = false;
             this.Name = "BaseForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Text = "BaseForm";
+            this.RightToLeftLayout = true;
+            this.Text = "فرم پایه";
             this.Load += new System.EventHandler(this.BaseForm_Load);
             this.ResumeLayout(false);
 

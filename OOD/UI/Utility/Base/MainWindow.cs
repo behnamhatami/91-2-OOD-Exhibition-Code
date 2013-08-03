@@ -60,11 +60,6 @@ namespace OOD.UI.Utility.Base
             return false;
         }
 
-        public override bool ValidatePreConditions()
-        {
-            return true;
-        }
-
         // Finish
 
         private void UserManagingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,6 +102,11 @@ namespace OOD.UI.Utility.Base
         private void ExhibitionFreezToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GoNext(new RequestForFreeze());
+        }
+
+        private void ExhibitionFreezPollingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new PollForFreeze());
         }
     }
 }

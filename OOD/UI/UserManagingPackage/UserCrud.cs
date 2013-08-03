@@ -38,6 +38,9 @@ namespace OOD.UI.UserManagingPackage
 
         public override bool ValidatePreConditions()
         {
+            if (!base.ValidatePreConditions())
+                return false;
+
             var user = Program.User;
             if (user.UserRole is AdminRole)
                 return true;

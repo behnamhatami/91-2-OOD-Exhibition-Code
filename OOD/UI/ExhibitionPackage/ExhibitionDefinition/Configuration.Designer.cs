@@ -76,10 +76,10 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.TabControl1);
             this.panel2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.panel2.Location = new System.Drawing.Point(28, 66);
+            this.panel2.Location = new System.Drawing.Point(144, 71);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel2.Size = new System.Drawing.Size(482, 381);
+            this.panel2.Size = new System.Drawing.Size(502, 381);
             this.panel2.TabIndex = 6;
             // 
             // TabControl1
@@ -91,7 +91,7 @@
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.RightToLeftLayout = true;
             this.TabControl1.SelectedIndex = 0;
-            this.TabControl1.Size = new System.Drawing.Size(474, 373);
+            this.TabControl1.Size = new System.Drawing.Size(494, 373);
             this.TabControl1.TabIndex = 1;
             // 
             // featurePage
@@ -110,7 +110,7 @@
             this.featurePage.Location = new System.Drawing.Point(4, 23);
             this.featurePage.Name = "featurePage";
             this.featurePage.Padding = new System.Windows.Forms.Padding(3);
-            this.featurePage.Size = new System.Drawing.Size(466, 346);
+            this.featurePage.Size = new System.Drawing.Size(486, 346);
             this.featurePage.TabIndex = 0;
             this.featurePage.Text = "ویژگی‌ها";
             // 

@@ -11,12 +11,13 @@ namespace OOD.Model.NotificationPackage
     {
         public int Id { get; set; }
         public string Question { get; set; }
+        public bool Closed { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime FinishDate { get; set; }
-        public Exhibition Exhibition { get; set; }
+        public virtual Exhibition Exhibition { get; set; }
 
         [NotMapped]
-        public virtual IQueryable<PollChoice> PollChoices
+        public IQueryable<PollChoice> PollChoices
         {
             get
             {
@@ -26,7 +27,7 @@ namespace OOD.Model.NotificationPackage
         }
 
         [NotMapped]
-        public virtual IQueryable<User> Voters
+        public IQueryable<User> Voters
         {
             get
             {
@@ -37,6 +38,7 @@ namespace OOD.Model.NotificationPackage
             }
         }
 
+        [NotMapped]
         public int Hit
         {
             get { return Enumerable.Sum(PollChoices, pollChoice => pollChoice.Hit); }
@@ -54,6 +56,25 @@ namespace OOD.Model.NotificationPackage
                 pollChoice.Hit = 0;
 
             db.SaveChanges();
+        }
+
+
+        public override string ToString()
+        {
+            return Question;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var poll = obj as Poll;
+            if (poll == null || poll.Id != Id)
+                return false;
+            return true;
         }
     }
 }

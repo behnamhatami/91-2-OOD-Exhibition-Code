@@ -41,6 +41,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 
         public override bool ValidatePreConditions()
         {
+            if (!base.ValidatePreConditions())
+                return false;
+
             var user = Program.User;
             var exhibition = Program.Exhibition;
             if (user.UserExhibitionRoles.Count(role => role.Exhibition.Id == Program.Exhibition.Id) > 0)

@@ -12,5 +12,23 @@
         {
             Hit++;
         }
+
+        public override string ToString()
+        {
+            return Content;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var pollChoice = obj as PollChoice;
+            if (pollChoice == null || pollChoice.Id != Id)
+                return false;
+            return true;
+        }
     }
 }

@@ -34,7 +34,7 @@ namespace OOD.Model.UserManagingPackage
         }
 
         [NotMapped]
-        public virtual IQueryable<Poll> Polls
+        public IQueryable<Poll> Polls
         {
             get
             {

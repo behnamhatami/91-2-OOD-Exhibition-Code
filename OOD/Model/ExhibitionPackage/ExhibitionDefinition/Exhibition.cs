@@ -4,6 +4,7 @@ using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionRole;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
+using OOD.Model.UserManagingPackage;
 
 namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 {
@@ -31,6 +32,20 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
         {
             get { return DataManager.DataContext.UserExhibitionRoles.Where(role => role.Exhibition.Id == Id); }
         }
+
+        [NotMapped]
+        public IQueryable<User> ChairUsers
+        {
+            get
+            {
+                return
+                    DataManager.DataContext.UserExhibitionRoles
+                        .Where(role => role.Exhibition.Id == Id)
+                        .Where(role => role.ExhibitionRole is ChairRole)
+                        .Select(role => role.User);
+            }
+        }
+
 
         [NotMapped]
         public IQueryable<Poll> Polls

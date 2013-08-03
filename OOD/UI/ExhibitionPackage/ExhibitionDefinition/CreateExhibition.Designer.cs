@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.ExhibitionChairListBox = new System.Windows.Forms.CheckedListBox();
@@ -40,7 +41,6 @@
             this.ExhibitionDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ExhibitionNameTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,12 +60,21 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.ExhibitionNameTextBox);
             this.panel2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.panel2.Location = new System.Drawing.Point(28, 67);
+            this.panel2.Location = new System.Drawing.Point(145, 71);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel2.Size = new System.Drawing.Size(481, 380);
+            this.panel2.Size = new System.Drawing.Size(501, 380);
             this.panel2.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(375, 21);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 14);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "نام نمایشگاه: ";
             // 
             // button2
             // 
@@ -178,23 +187,14 @@
             this.ExhibitionNameTextBox.Size = new System.Drawing.Size(228, 22);
             this.ExhibitionNameTextBox.TabIndex = 1;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(375, 21);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 14);
-            this.label9.TabIndex = 12;
-            this.label9.Text = "نام نمایشگاه: ";
-            // 
-            // Exhibition
+            // CreateExhibition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 463);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Exhibition";
+            this.Name = "CreateExhibition";
             this.Text = "تعریف نمایشگاه";
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel2.ResumeLayout(false);

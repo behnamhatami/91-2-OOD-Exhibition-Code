@@ -31,6 +31,16 @@ namespace OOD.UI.Utility.Base
 
         public virtual bool ValidatePreConditions()
         {
+            if (NeedExhibition() && Program.Exhibition == null)
+            {
+                PopUp.PopUp.ShowError(" قبل از ورود به این قسمت شما باید به یک نمایشگاه وارد شوید.");
+                return false;
+            }
+            if (NeedUser() && Program.User == null)
+            {
+                PopUp.PopUp.ShowError(" قبل از ورود به این قسمت شما باید به یک حساب کاربری وارد شوید.");
+                return false;
+            }
             return true;
         }
 
