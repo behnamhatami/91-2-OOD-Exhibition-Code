@@ -22,17 +22,17 @@
         <EntityTypeShape EntityType="Model1.Exhibition" Width="2" PointX="4" PointY="0.5" />
         <EntityTypeShape EntityType="Model1.Feature" Width="1.5" PointX="0.5" PointY="1" />
         <AssociationConnector Association="Model1.ExhibitionFeature" />
-        <EntityTypeShape EntityType="Model1.ExhibitionRole" Width="1.5" PointX="7.375" PointY="3.75" />
-        <EntityTypeShape EntityType="Model1.InspectorRole" Width="1.5" PointX="4.625" PointY="4" />
+        <EntityTypeShape EntityType="Model1.ExhibitionRole" Width="1.5" PointX="7.375" PointY="4.25" />
+        <EntityTypeShape EntityType="Model1.InspectorRole" Width="1.5" PointX="4.625" PointY="4.875" />
         <InheritanceConnector EntityType="Model1.InspectorRole" />
-        <EntityTypeShape EntityType="Model1.ExecutionRole" Width="1.5" PointX="4.625" PointY="5.625" />
+        <EntityTypeShape EntityType="Model1.ExecutionRole" Width="1.5" PointX="4.625" PointY="6.25" />
         <InheritanceConnector EntityType="Model1.ExecutionRole" />
-        <EntityTypeShape EntityType="Model1.BoothManagerRole" Width="1.5" PointX="4.625" PointY="7" />
+        <EntityTypeShape EntityType="Model1.BoothManagerRole" Width="1.5" PointX="4.625" PointY="8" />
         <InheritanceConnector EntityType="Model1.BoothManagerRole" />
-        <EntityTypeShape EntityType="Model1.ChairRole" Width="1.5" PointX="7.375" PointY="7" />
+        <EntityTypeShape EntityType="Model1.ChairRole" Width="1.5" PointX="7.375" PointY="8" />
         <InheritanceConnector EntityType="Model1.ChairRole" />
-        <EntityTypeShape EntityType="Model1.PostKeeperRole" Width="1.5" PointX="10.125" PointY="4" />
-        <EntityTypeShape EntityType="Model1.WareHouseKeeperRole" Width="1.5" PointX="10.25" PointY="7" />
+        <EntityTypeShape EntityType="Model1.PostKeeperRole" Width="1.5" PointX="10.125" PointY="4.75" />
+        <EntityTypeShape EntityType="Model1.WareHouseKeeperRole" Width="1.5" PointX="10.25" PointY="8" />
         <InheritanceConnector EntityType="Model1.PostKeeperRole" />
         <InheritanceConnector EntityType="Model1.WareHouseKeeperRole" />
         <EntityTypeShape EntityType="Model1.UserExhibitionRole" Width="1.5" PointX="7.375" PointY="1.125" />
@@ -48,11 +48,21 @@
         <EntityTypeShape EntityType="Model1.Poll" Width="1.5" PointX="1.25" PointY="0.75" />
         <EntityTypeShape EntityType="Model1.PollChoice" Width="1.5" PointX="4.625" PointY="0.75" />
         <AssociationConnector Association="Model1.PollPollChoice" />
-        <EntityTypeShape EntityType="Model1.PollUser" Width="1.5" PointX="1.25" PointY="3.625" />
+        <EntityTypeShape EntityType="Model1.PollUser" Width="1.5" PointX="1.25" PointY="4.375" />
         <AssociationConnector Association="Model1.Voting" />
       </Diagram>
       <Diagram DiagramId="69e80fdc3e674714839fb10fd468ad1c" Name="Notification" >
         <EntityTypeShape EntityType="Model1.Notification" Width="1.5" PointX="1.125" PointY="0.75" />
+      </Diagram>
+      <Diagram DiagramId="3f7bb978bc054f91b133d0d6a00c5051" Name="Post" >
+        <EntityTypeShape EntityType="Model1.PostOffice" Width="1.5" PointX="0.875" PointY="2.625" />
+        <EntityTypeShape EntityType="Model1.PostItem" Width="1.5" PointX="3.625" PointY="2.625" />
+        <AssociationConnector Association="Model1.PostItemPostOffice" />
+      </Diagram>
+      <Diagram DiagramId="645616d309954ae3b3a73176d942c280" Name="WareHouse" >
+        <EntityTypeShape EntityType="Model1.WareHouse" Width="1.5" PointX="1.75" PointY="1.25" />
+        <EntityTypeShape EntityType="Model1.WareHouseItem" Width="1.5" PointX="4.75" PointY="1.25" />
+        <AssociationConnector Association="Model1.WareHouseItemWareHouse" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

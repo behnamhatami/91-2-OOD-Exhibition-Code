@@ -73,6 +73,10 @@
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Feature.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Process.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ProcessType.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostItem.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOffice.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouse.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseItem.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\BoothManagerRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ChairRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ExecutionRole.cs" />
@@ -119,6 +123,18 @@
     </Compile>
     <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.Designer.cs">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOfficeManaging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOfficeManaging.Designer.cs">
+      <DependentUpon>PostOfficeManaging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseManaging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseManaging.Designer.cs">
+      <DependentUpon>WareHouseManaging.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Notification\Home.cs">
       <SubType>Form</SubType>
@@ -203,6 +219,9 @@
     <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.resx">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOfficeManaging.resx">
+      <DependentUpon>PostOfficeManaging.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,7 +288,6 @@
   <ItemGroup>
     <Folder Include="Model\ExhibitionPackage\ExhibitionConsistency\" />
     <Folder Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\" />
-    <Folder Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\" />
     <Folder Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\" />
     <Folder Include="Model\ReportPackage\" />
     <Folder Include="UI\ReportPackage\" />

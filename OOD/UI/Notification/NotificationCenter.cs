@@ -31,12 +31,12 @@ namespace OOD.UI.Notification
                 ResetHelper.Refresh(userNotificationListBox,
                     user.Notifications
                         .Where(notification => notification.Exhibition.Id == exhibition.Id)
-                        .OrderBy(notification => notification.CreationDate).ToArray());
+                        .OrderByDescending(notification => notification.CreationDate).ToArray());
 
                 ResetHelper.Refresh(exhibitionNotificationListBox,
                     exhibition.Notifications
                         .Where(notification => notification.User.Id == Program.System.Id)
-                        .OrderBy(notification => notification.CreationDate).ToArray());
+                        .OrderByDescending(notification => notification.CreationDate).ToArray());
 
                 tabControl1.Controls.Add(exhibitionNotificationPage);
             }
@@ -44,7 +44,7 @@ namespace OOD.UI.Notification
             {
                 ResetHelper.Refresh(userNotificationListBox,
                     user.Notifications
-                        .OrderBy(notification => notification.CreationDate)
+                        .OrderByDescending(notification => notification.CreationDate)
                         .ToArray());
             }
             tabControl1.Controls.Add(userNotificationPage);

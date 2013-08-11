@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
 using OOD.UI.Notification;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.PopUp;
@@ -82,6 +83,7 @@ namespace OOD.UI.UserManagingPackage
 
         public static void ExitUser()
         {
+            ExhibitionSelector.ExitExhibition();
             var user = Program.User;
             PopUp.ShowSuccess(String.Format("شما از کاربر {0} خارج شدید.", user));
             Program.User = null;

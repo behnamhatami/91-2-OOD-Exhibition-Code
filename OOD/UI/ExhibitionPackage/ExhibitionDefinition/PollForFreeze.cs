@@ -45,7 +45,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var poll = exhibition.Polls.First();
             if (exhibition.HasRole<ChairRole>(user))
             {
-                if (exhibition.State == ExhibitionState.FreezeStarted)
+                if (exhibition.State == ExhibitionState.FreezeStarted && poll.Closed == false)
                 {
                     if (poll.Voters.Count(user1 => user1.Id == user.Id) == 0)
                     {

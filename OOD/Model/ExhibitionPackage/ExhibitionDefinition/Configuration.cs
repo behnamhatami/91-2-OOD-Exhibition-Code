@@ -28,6 +28,12 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
                 DataManager.DataContext.Processes.Remove(process);
         }
 
+        public void AddFromConfiguration(Configuration configuration)
+        {
+            foreach (var process in configuration.Processes)
+                DataManager.DataContext.Processes.Add(process.Clone(this));
+        }
+
         public override string ToString()
         {
             return Id + "";

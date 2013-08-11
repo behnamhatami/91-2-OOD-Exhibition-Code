@@ -93,6 +93,7 @@
             this.TabControl1.SelectedIndex = 0;
             this.TabControl1.Size = new System.Drawing.Size(494, 373);
             this.TabControl1.TabIndex = 1;
+            this.TabControl1.TabStop = false;
             // 
             // featurePage
             // 
@@ -238,7 +239,7 @@
             this.processPage.Location = new System.Drawing.Point(4, 23);
             this.processPage.Name = "processPage";
             this.processPage.Padding = new System.Windows.Forms.Padding(3);
-            this.processPage.Size = new System.Drawing.Size(466, 346);
+            this.processPage.Size = new System.Drawing.Size(486, 346);
             this.processPage.TabIndex = 1;
             this.processPage.Text = "فرآیند برگزاری";
             // 
@@ -374,7 +375,7 @@
             this.rolePage.Location = new System.Drawing.Point(4, 23);
             this.rolePage.Name = "rolePage";
             this.rolePage.Padding = new System.Windows.Forms.Padding(3);
-            this.rolePage.Size = new System.Drawing.Size(466, 346);
+            this.rolePage.Size = new System.Drawing.Size(486, 346);
             this.rolePage.TabIndex = 2;
             this.rolePage.Text = "نقش‌ها";
             // 

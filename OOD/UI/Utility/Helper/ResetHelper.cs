@@ -35,6 +35,10 @@ namespace OOD.UI.Utility.Helper
                 if (listBox != null)
                     EmptyListBox(listBox);
 
+                var dateTimePicker = control as DateTimePicker;
+                if (dateTimePicker != null)
+                    EmptyDateTimePicker(dateTimePicker);
+
                 EmptyControl(control);
             }
         }
@@ -69,6 +73,12 @@ namespace OOD.UI.Utility.Helper
             checkListBox.ClearSelected();
         }
 
+        private static void EmptyDateTimePicker(DateTimePicker dateTimePicker)
+        {
+            dateTimePicker.Checked = false;
+            dateTimePicker.Value = DateTime.Now;
+        }
+
         public static void Refresh(ListBox listBox, Object[] init)
         {
             Empty(listBox);
@@ -95,6 +105,12 @@ namespace OOD.UI.Utility.Helper
         {
             Empty(checkBox);
             checkBox.Checked = init;
+        }
+
+        public static void Refresh(DateTimePicker timePicker, DateTime dateTime)
+        {
+            Empty(timePicker);
+            timePicker.Value = dateTime;
         }
     }
 }

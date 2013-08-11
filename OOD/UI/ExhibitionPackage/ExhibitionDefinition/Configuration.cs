@@ -122,13 +122,11 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             {
                 var configuration = exhibition.Configuration;
                 configuration.Reset();
-                foreach (var process in newExhibition.Configuration.Processes)
-                    db.Processes.Add(process.Clone(configuration));
+                configuration.AddFromConfiguration(newExhibition.Configuration);
             }
             db.SaveChanges();
             PopUp.ShowSuccess("تغییرات مد نظر با موفقیت اعمال گردید.");
-            FeaturePageReset();
-            ProcessPageReset();
+            Reset();
         }
 
         // Rolls
@@ -174,10 +172,10 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var db = DataManager.DataContext;
             foreach (var userExhibitionRole in roleUserExhibitionRoleListBox.CheckedItems.Cast<UserExhibitionRole>())
             {
-                db.UserExhibitionRoles.Remove(userExhibitionRole);
                 userExhibitionRole.User.RecieveNotification(NotificationFactory.ExhibitionRoleRemovedTitle,
                     NotificationFactory.ExhibitionRoleRemovedContent(userExhibitionRole.Exhibition,
                         userExhibitionRole.ExhibitionRole), userExhibitionRole.Exhibition);
+                db.UserExhibitionRoles.Remove(userExhibitionRole);
             }
 
 

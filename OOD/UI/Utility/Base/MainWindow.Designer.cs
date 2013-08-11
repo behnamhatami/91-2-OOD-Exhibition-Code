@@ -37,6 +37,7 @@
             this.ParticipationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewsCreationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PollCreationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NotifcationCenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionCreationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionDefinitionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionConfigurtionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label0 = new System.Windows.Forms.Label();
-            this.NotifcationCenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PostOfficeManagmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WareHouseManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PaymentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -153,6 +156,13 @@
             this.PollCreationToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
             this.PollCreationToolStripMenuItem.Text = "تعریف نظر سنجی ";
             // 
+            // NotifcationCenterToolStripMenuItem
+            // 
+            this.NotifcationCenterToolStripMenuItem.Name = "NotifcationCenterToolStripMenuItem";
+            this.NotifcationCenterToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
+            this.NotifcationCenterToolStripMenuItem.Text = "سیستم مرکزی رخدادها";
+            this.NotifcationCenterToolStripMenuItem.Click += new System.EventHandler(this.NotifcationCenterToolStripMenuItem_Click);
+            // 
             // ExhibitionCreationToolStripMenuItem
             // 
             this.ExhibitionCreationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -230,7 +240,10 @@
             this.ExhibitionProcessProgressToolStripMenuItem,
             this.ExhibitionBaseProcessProgressToolStripMenuItem,
             this.ExhibitionFinalizationToolStripMenuItem,
-            this.ExhibitionConsistencyCheckToolStripMenuItem1});
+            this.ExhibitionConsistencyCheckToolStripMenuItem1,
+            this.PostOfficeManagmentToolStripMenuItem,
+            this.WareHouseManagementToolStripMenuItem,
+            this.PaymentManagementToolStripMenuItem});
             this.ExhibitionProgressToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExhibitionProgressToolStripMenuItem.Name = "ExhibitionProgressToolStripMenuItem";
             this.ExhibitionProgressToolStripMenuItem.Padding = new System.Windows.Forms.Padding(4, 10, 4, 0);
@@ -380,12 +393,24 @@
             this.label0.TabIndex = 0;
             this.label0.Text = "نمایشگاه کتاب (1391)";
             // 
-            // NotifcationCenterToolStripMenuItem
+            // PostOfficeManagmentToolStripMenuItem
             // 
-            this.NotifcationCenterToolStripMenuItem.Name = "NotifcationCenterToolStripMenuItem";
-            this.NotifcationCenterToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
-            this.NotifcationCenterToolStripMenuItem.Text = "سیستم مرکزی رخدادها";
-            this.NotifcationCenterToolStripMenuItem.Click += new System.EventHandler(this.NotifcationCenterToolStripMenuItem_Click);
+            this.PostOfficeManagmentToolStripMenuItem.Name = "PostOfficeManagmentToolStripMenuItem";
+            this.PostOfficeManagmentToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.PostOfficeManagmentToolStripMenuItem.Text = "مدیریت پست";
+            this.PostOfficeManagmentToolStripMenuItem.Click += new System.EventHandler(this.PostOfficeManagmentToolStripMenuItem_Click);
+            // 
+            // WareHouseManagementToolStripMenuItem
+            // 
+            this.WareHouseManagementToolStripMenuItem.Name = "WareHouseManagementToolStripMenuItem";
+            this.WareHouseManagementToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.WareHouseManagementToolStripMenuItem.Text = "مدیریت انبار";
+            // 
+            // PaymentManagementToolStripMenuItem
+            // 
+            this.PaymentManagementToolStripMenuItem.Name = "PaymentManagementToolStripMenuItem";
+            this.PaymentManagementToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.PaymentManagementToolStripMenuItem.Text = "مدیریت امور مالی";
             // 
             // MainWindow
             // 
@@ -450,6 +475,9 @@
         private System.Windows.Forms.ToolStripMenuItem ExhibitionStartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FinilizeExhibitionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem NotifcationCenterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PostOfficeManagmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem WareHouseManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PaymentManagementToolStripMenuItem;
 
 
 

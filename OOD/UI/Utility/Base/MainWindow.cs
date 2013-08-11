@@ -2,6 +2,7 @@
 
 using System;
 using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
+using OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
 using OOD.UI.Notification;
 using OOD.UI.UserManagingPackage;
 
@@ -127,6 +128,11 @@ namespace OOD.UI.Utility.Base
         private void NotifcationCenterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GoNext(new NotificationCenter());
+        }
+
+        private void PostOfficeManagmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new PostOfficeManaging());
         }
     }
 }

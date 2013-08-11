@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
@@ -59,6 +60,18 @@ namespace OOD.Model.UserManagingPackage
                     DataManager.DataContext.Notifications
                         .Where(notification => notification.User != null && notification.User.Id == Id);
             }
+        }
+
+        [NotMapped]
+        public IQueryable<PostItem> PostItems
+        {
+            get { return DataManager.DataContext.PostItems.Where(item => item.User.Id == Id); }
+        }
+
+        [NotMapped]
+        public IQueryable<WareHouseItem> WareHouseItems
+        {
+            get { return DataManager.DataContext.WareHouseItems.Where(item => item.User.Id == Id); }
         }
 
         public void RecieveNotification(String title, String content, Exhibition exhibition)

@@ -18,6 +18,7 @@ namespace OOD.Model.NotificationPackage
         public bool Closed { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime FinishDate { get; set; }
+        public bool FinishByDate { get; set; }
         public virtual Exhibition Exhibition { get; set; }
 
         [NotMapped]
@@ -46,6 +47,12 @@ namespace OOD.Model.NotificationPackage
         public int Hit
         {
             get { return Enumerable.Sum(PollChoices, pollChoice => pollChoice.Hit); }
+        }
+
+        public void CheckClosed()
+        {
+            if (FinishByDate && DateTime.Now > FinishDate)
+                Closed = true;
         }
 
         public void Reset()

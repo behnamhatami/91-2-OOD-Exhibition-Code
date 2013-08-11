@@ -228,6 +228,42 @@
             <End Role="Notification" EntitySet="Notifications" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="PostOffices" EntityType="Model1.PostOffice" />
+          <AssociationSet Name="PostOfficeExhibition" Association="Model1.PostOfficeExhibition">
+            <End Role="PostOffice" EntitySet="PostOffices" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <EntitySet Name="PostItems" EntityType="Model1.PostItem" />
+          <AssociationSet Name="PostItemPostOffice" Association="Model1.PostItemPostOffice">
+            <End Role="PostItem" EntitySet="PostItems" />
+            <End Role="PostOffice" EntitySet="PostOffices" />
+          </AssociationSet>
+          <EntitySet Name="WareHouses" EntityType="Model1.WareHouse" />
+          <EntitySet Name="WareHouseItems" EntityType="Model1.WareHouseItem" />
+          <AssociationSet Name="WareHouseItemUser" Association="Model1.WareHouseItemUser">
+            <End Role="WareHouseItem" EntitySet="WareHouseItems" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="WareHouseItemWareHouse" Association="Model1.WareHouseItemWareHouse">
+            <End EntitySet="WareHouseItems" Role="WareHouseItem" />
+            <End EntitySet="WareHouses" Role="WareHouse" />
+          </AssociationSet>
+          <AssociationSet Name="PostItemUser" Association="Model1.PostItemUser">
+            <End Role="PostItem" EntitySet="PostItems" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="ExhibitionWareHouse" Association="Model1.ExhibitionWareHouse">
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+            <End Role="WareHouse" EntitySet="WareHouses" />
+          </AssociationSet>
+          <AssociationSet Name="WareHouseExhibition" Association="Model1.WareHouseExhibition">
+            <End Role="WareHouse" EntitySet="WareHouses" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <AssociationSet Name="PostOfficeExhibition1" Association="Model1.PostOfficeExhibition1">
+            <End Role="PostOffice" EntitySet="PostOffices" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -244,6 +280,8 @@
                               ToRole="UserExhibitionRole" />
           <NavigationProperty Name="PollUsers" Relationship="Model1.PollUserUser" FromRole="User" ToRole="PollUser" />
           <NavigationProperty Name="Notifications" Relationship="Model1.NotificationUser" FromRole="User" ToRole="Notification" />
+          <NavigationProperty Name="WareHouseItems" Relationship="Model1.WareHouseItemUser" FromRole="User" ToRole="WareHouseItem" />
+          <NavigationProperty Name="PostItems" Relationship="Model1.PostItemUser" FromRole="User" ToRole="PostItem" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -280,6 +318,11 @@
                               ToRole="Configuration" />
           <NavigationProperty Name="Polls" Relationship="Model1.PollExhibition" FromRole="Exhibition" ToRole="Poll" />
           <NavigationProperty Name="Notifications" Relationship="Model1.NotificationExhibition" FromRole="Exhibition" ToRole="Notification" />
+          <NavigationProperty Name="PostOffices" Relationship="Model1.PostOfficeExhibition" FromRole="Exhibition" ToRole="PostOffice" />
+          <NavigationProperty Name="WareHouses" Relationship="Model1.ExhibitionWareHouse" FromRole="Exhibition" ToRole="WareHouse" />
+          <NavigationProperty Name="WareHouse" Relationship="Model1.WareHouseExhibition" FromRole="Exhibition" ToRole="WareHouse" />
+          <NavigationProperty Name="PostOffice" Relationship="Model1.PostOfficeExhibition1" FromRole="Exhibition" ToRole="PostOffice" />
+          <Property Type="DateTime" Name="LastEnter" Nullable="false" cg:SetterAccess="Public" />
         </EntityType>
         <EntityType Name="Feature">
           <Key>
@@ -380,6 +423,8 @@
           <NavigationProperty Name="Exhibition" Relationship="Model1.PollExhibition" FromRole="Poll"
                               ToRole="Exhibition" />
           <Property Type="DateTime" Name="FinishDate" Nullable="false" />
+          <Property Type="Boolean" Name="Closed" Nullable="false" />
+          <Property Type="Boolean" Name="FinishByDate" Nullable="false" />
         </EntityType>
         <EntityType Name="PollChoice">
           <Key>
@@ -441,6 +486,86 @@
         <Association Name="NotificationUser">
           <End Type="Model1.Notification" Role="Notification" Multiplicity="*" />
           <End Type="Model1.User" Role="User" Multiplicity="1" />
+        </Association>
+        <EntityType Name="PostOffice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PostItems" Relationship="Model1.PostItemPostOffice" FromRole="PostOffice" ToRole="PostItem" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.PostOfficeExhibition1" FromRole="PostOffice" ToRole="Exhibition" />
+        </EntityType>
+        <Association Name="PostOfficeExhibition">
+          <End Type="Model1.PostOffice" Role="PostOffice" Multiplicity="*" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <EntityType Name="PostItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PostOffice" Relationship="Model1.PostItemPostOffice" FromRole="PostItem" ToRole="PostOffice" />
+          <Property Type="String" Name="Type" Nullable="false" />
+          <Property Type="DateTime" Name="ReleaseDate" Nullable="false" />
+          <Property Type="String" Name="Destination" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Model1.PostItemUser" FromRole="PostItem" ToRole="User" />
+        </EntityType>
+        <Association Name="PostItemPostOffice">
+          <End Type="Model1.PostItem" Role="PostItem" Multiplicity="*" />
+          <End Type="Model1.PostOffice" Role="PostOffice" Multiplicity="1" />
+        </Association>
+        <EntityType Name="WareHouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CreationDate" Nullable="false" />
+          <NavigationProperty Name="WareHouseItems" Relationship="Model1.WareHouseItemWareHouse" FromRole="WareHouse" ToRole="WareHouseItem" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.WareHouseExhibition" FromRole="WareHouse" ToRole="Exhibition" />
+        </EntityType>
+        <EntityType Name="WareHouseItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Model1.WareHouseItemUser" FromRole="WareHouseItem" ToRole="User" />
+          <NavigationProperty Name="WareHouse" Relationship="Model1.WareHouseItemWareHouse" FromRole="WareHouseItem" ToRole="WareHouse" />
+          <Property Type="DateTime" Name="EntranceDate" Nullable="false" />
+          <Property Type="DateTime" Name="ReleaseDate" Nullable="false" />
+        </EntityType>
+        <Association Name="WareHouseItemUser">
+          <End Type="Model1.WareHouseItem" Role="WareHouseItem" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+        </Association>
+        <Association Name="WareHouseItemWareHouse">
+          <End Type="Model1.WareHouseItem" Multiplicity="*" Role="WareHouseItem" />
+          <End Type="Model1.WareHouse" Multiplicity="1" Role="WareHouse" />
+        </Association>
+        <Association Name="PostItemUser">
+          <End Type="Model1.PostItem" Role="PostItem" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+        </Association>
+        <Association Name="ExhibitionWareHouse">
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+          <End Type="Model1.WareHouse" Role="WareHouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exhibition">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WareHouse">
+              <PropertyRef Name="ExhibitionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="WareHouseExhibition">
+          <End Type="Model1.WareHouse" Role="WareHouse" Multiplicity="1" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <Association Name="PostOfficeExhibition1">
+          <End Type="Model1.PostOffice" Role="PostOffice" Multiplicity="1" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

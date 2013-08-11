@@ -3,6 +3,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
@@ -14,22 +15,19 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 {
     public class Exhibition
     {
-        public Exhibition()
-        {
-            CreationTime = DateTime.Now;
-            State = ExhibitionState.Created;
-        }
-
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string FullDescription { get; set; }
         public string Owner { get; set; }
         public ExhibitionState State { get; set; }
-        public DateTime CreationTime { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime LastEnter { get; set; }
 
         public virtual Feature Feature { get; set; }
         public virtual Configuration Configuration { get; set; }
+        public virtual PostOffice PostOffice { get; set; }
+        public virtual WareHouse WareHouse { get; set; }
 
         [NotMapped]
         public IQueryable<UserExhibitionRole> UserExhibitionRoles

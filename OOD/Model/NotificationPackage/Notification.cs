@@ -17,5 +17,24 @@ namespace OOD.Model.NotificationPackage
 
         public virtual Exhibition Exhibition { get; set; }
         public virtual User User { get; set; }
+
+
+        public override string ToString()
+        {
+            return String.Format("رخداد: [تیتر: {0}، تاریخ: {1}]", Title, CreationDate);
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var notification = obj as Notification;
+            if (notification == null || notification.Id != Id)
+                return false;
+            return true;
+        }
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Data.Entity;
 using System.Reflection;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.NotificationPackage;
 using OOD.Model.UserManagingPackage;
@@ -31,6 +32,10 @@ namespace OOD.Model.ModelContext
         public DbSet<PollChoice> PollChoices { get; set; }
         public DbSet<PollUser> PollUsers { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<PostOffice> PostOffices { get; set; }
+        public DbSet<PostItem> PostItems { get; set; }
+        public DbSet<WareHouse> WareHouses { get; set; }
+        public DbSet<WareHouseItem> WareHouseItems { get; set; }
 
         public static string ConnectionString
         {

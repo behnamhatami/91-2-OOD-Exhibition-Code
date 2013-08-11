@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
@@ -94,6 +95,17 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
                 FullDescription = fullDescription,
                 Owner = owner,
                 Feature = new Feature(),
+                PostOffice = new PostOffice
+                {
+                    CreationDate = DateTime.Now
+                },
+                WareHouse = new WareHouse
+                {
+                    CreationDate = DateTime.Now
+                },
+                LastEnter = DateTime.Now,
+                CreationDate = DateTime.Now,
+                State = ExhibitionState.Created,
                 Configuration = new Model.ExhibitionPackage.ExhibitionDefinition.Configuration()
             };
 
@@ -117,9 +129,11 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var poll = new Poll
             {
                 Question = "آیا شما با پیکربندی موجود موافق هستید؟",
-                CreationDate = DateTime.Today,
+                CreationDate = DateTime.Now,
                 Exhibition = exhibition,
-                FinishDate = DateTime.Today.AddYears(1)
+                FinishDate = DateTime.Now,
+                FinishByDate = false,
+                Closed = true
             };
 
             var pollChoice1 = new PollChoice

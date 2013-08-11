@@ -66,7 +66,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
         private void button1_Click(object sender, EventArgs e)
         {
             var exhibition = Program.Exhibition;
-            exhibition.Polls.First().Reset();
+            var poll = exhibition.Polls.First();
+            poll.Reset();
+            poll.Closed = false;
             exhibition.State = ExhibitionState.FreezeStarted;
             DataManager.DataContext.SaveChanges();
             PopUp.ShowSuccess("رای گیری آغاز گردید.");
