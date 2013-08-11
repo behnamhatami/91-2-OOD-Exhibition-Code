@@ -142,8 +142,8 @@ namespace OOD.UI.UserManagingPackage
             var db = DataManager.DataContext;
             db.Users.Add(user);
             db.SaveChanges();
-            CreateReset();
             PopUp.ShowSuccess("کاربر با موفقیت ساخته شد.");
+            Reset();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -188,7 +188,7 @@ namespace OOD.UI.UserManagingPackage
 
             var db = DataManager.DataContext;
             db.SaveChanges();
-            EditReset();
+            Reset();
             PopUp.ShowSuccess("تغییرات با موفقیت انجام شد.");
         }
 
@@ -209,7 +209,7 @@ namespace OOD.UI.UserManagingPackage
             var db = DataManager.DataContext;
             db.Users.Remove(user);
             db.SaveChanges();
-            RemoveReset();
+            Reset();
             PopUp.ShowSuccess("حذف با موفقیت انجام شد.");
         }
     }

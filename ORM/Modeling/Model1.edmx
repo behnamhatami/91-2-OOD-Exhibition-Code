@@ -252,17 +252,22 @@
             <End Role="PostItem" EntitySet="PostItems" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="ExhibitionWareHouse" Association="Model1.ExhibitionWareHouse">
-            <End Role="Exhibition" EntitySet="Exhibitions" />
-            <End Role="WareHouse" EntitySet="WareHouses" />
-          </AssociationSet>
-          <AssociationSet Name="WareHouseExhibition" Association="Model1.WareHouseExhibition">
-            <End Role="WareHouse" EntitySet="WareHouses" />
-            <End Role="Exhibition" EntitySet="Exhibitions" />
-          </AssociationSet>
           <AssociationSet Name="PostOfficeExhibition1" Association="Model1.PostOfficeExhibition1">
             <End Role="PostOffice" EntitySet="PostOffices" />
             <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <EntitySet Name="Payments" EntityType="Model1.Payment" />
+          <AssociationSet Name="PaymentExhibition" Association="Model1.PaymentExhibition">
+            <End Role="Payment" EntitySet="Payments" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <AssociationSet Name="UserPayment" Association="Model1.UserPayment">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="ExhibitionWareHouse" Association="Model1.ExhibitionWareHouse">
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+            <End Role="WareHouse" EntitySet="WareHouses" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
@@ -282,6 +287,7 @@
           <NavigationProperty Name="Notifications" Relationship="Model1.NotificationUser" FromRole="User" ToRole="Notification" />
           <NavigationProperty Name="WareHouseItems" Relationship="Model1.WareHouseItemUser" FromRole="User" ToRole="WareHouseItem" />
           <NavigationProperty Name="PostItems" Relationship="Model1.PostItemUser" FromRole="User" ToRole="PostItem" />
+          <NavigationProperty Name="Payments" Relationship="Model1.UserPayment" FromRole="User" ToRole="Payment" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -319,10 +325,10 @@
           <NavigationProperty Name="Polls" Relationship="Model1.PollExhibition" FromRole="Exhibition" ToRole="Poll" />
           <NavigationProperty Name="Notifications" Relationship="Model1.NotificationExhibition" FromRole="Exhibition" ToRole="Notification" />
           <NavigationProperty Name="PostOffices" Relationship="Model1.PostOfficeExhibition" FromRole="Exhibition" ToRole="PostOffice" />
-          <NavigationProperty Name="WareHouses" Relationship="Model1.ExhibitionWareHouse" FromRole="Exhibition" ToRole="WareHouse" />
-          <NavigationProperty Name="WareHouse" Relationship="Model1.WareHouseExhibition" FromRole="Exhibition" ToRole="WareHouse" />
           <NavigationProperty Name="PostOffice" Relationship="Model1.PostOfficeExhibition1" FromRole="Exhibition" ToRole="PostOffice" />
           <Property Type="DateTime" Name="LastEnter" Nullable="false" cg:SetterAccess="Public" />
+          <NavigationProperty Name="Payments" Relationship="Model1.PaymentExhibition" FromRole="Exhibition" ToRole="Payment" />
+          <NavigationProperty Name="WareHouse" Relationship="Model1.ExhibitionWareHouse" FromRole="Exhibition" ToRole="WareHouse" />
         </EntityType>
         <EntityType Name="Feature">
           <Key>
@@ -522,7 +528,7 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="CreationDate" Nullable="false" />
           <NavigationProperty Name="WareHouseItems" Relationship="Model1.WareHouseItemWareHouse" FromRole="WareHouse" ToRole="WareHouseItem" />
-          <NavigationProperty Name="Exhibition" Relationship="Model1.WareHouseExhibition" FromRole="WareHouse" ToRole="Exhibition" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.ExhibitionWareHouse" FromRole="WareHouse" ToRole="Exhibition" />
         </EntityType>
         <EntityType Name="WareHouseItem">
           <Key>
@@ -547,25 +553,40 @@
           <End Type="Model1.PostItem" Role="PostItem" Multiplicity="*" />
           <End Type="Model1.User" Role="User" Multiplicity="1" />
         </Association>
-        <Association Name="ExhibitionWareHouse">
-          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
-          <End Type="Model1.WareHouse" Role="WareHouse" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Exhibition">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="WareHouse">
-              <PropertyRef Name="ExhibitionId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="WareHouseExhibition">
-          <End Type="Model1.WareHouse" Role="WareHouse" Multiplicity="1" />
-          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
-        </Association>
         <Association Name="PostOfficeExhibition1">
           <End Type="Model1.PostOffice" Role="PostOffice" Multiplicity="1" />
           <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Amount" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="false" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.PaymentExhibition" FromRole="Payment" ToRole="Exhibition" />
+          <NavigationProperty Name="User" Relationship="Model1.UserPayment" FromRole="Payment" ToRole="User" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
+        </EntityType>
+        <Association Name="PaymentExhibition">
+          <End Type="Model1.Payment" Role="Payment" Multiplicity="*" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <Association Name="UserPayment">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.Payment" Role="Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ExhibitionWareHouse">
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+          <End Type="Model1.WareHouse" Role="WareHouse" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

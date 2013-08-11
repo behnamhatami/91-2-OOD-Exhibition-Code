@@ -65,6 +65,12 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
             }
         }
 
+        [NotMapped]
+        public IQueryable<Payment> Payments
+        {
+            get { return DataManager.DataContext.Payments.Where(payment => payment.Exhibition.Id == Id); }
+        }
+
         public void RecieveNotification(String title, String content)
         {
             var db = DataManager.DataContext;

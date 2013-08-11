@@ -52,6 +52,9 @@
             this.ExhibitionBaseProcessProgressToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionFinalizationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionConsistencyCheckToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.PostOfficeManagmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.WareHouseManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PaymentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReportingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OldExhibitionsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ProgressReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,9 +69,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label0 = new System.Windows.Forms.Label();
-            this.PostOfficeManagmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.WareHouseManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PaymentManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -274,6 +274,27 @@
             this.ExhibitionConsistencyCheckToolStripMenuItem1.Size = new System.Drawing.Size(300, 22);
             this.ExhibitionConsistencyCheckToolStripMenuItem1.Text = "ارزیابی رعایت قوانین سازگاری";
             // 
+            // PostOfficeManagmentToolStripMenuItem
+            // 
+            this.PostOfficeManagmentToolStripMenuItem.Name = "PostOfficeManagmentToolStripMenuItem";
+            this.PostOfficeManagmentToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.PostOfficeManagmentToolStripMenuItem.Text = "مدیریت پست";
+            this.PostOfficeManagmentToolStripMenuItem.Click += new System.EventHandler(this.PostOfficeManagmentToolStripMenuItem_Click);
+            // 
+            // WareHouseManagementToolStripMenuItem
+            // 
+            this.WareHouseManagementToolStripMenuItem.Name = "WareHouseManagementToolStripMenuItem";
+            this.WareHouseManagementToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.WareHouseManagementToolStripMenuItem.Text = "مدیریت انبار";
+            this.WareHouseManagementToolStripMenuItem.Click += new System.EventHandler(this.WareHouseManagementToolStripMenuItem_Click);
+            // 
+            // PaymentManagementToolStripMenuItem
+            // 
+            this.PaymentManagementToolStripMenuItem.Name = "PaymentManagementToolStripMenuItem";
+            this.PaymentManagementToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
+            this.PaymentManagementToolStripMenuItem.Text = "مدیریت امور مالی";
+            this.PaymentManagementToolStripMenuItem.Click += new System.EventHandler(this.PaymentManagementToolStripMenuItem_Click);
+            // 
             // ReportingToolStripMenuItem
             // 
             this.ReportingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -392,25 +413,6 @@
             this.label0.Size = new System.Drawing.Size(123, 14);
             this.label0.TabIndex = 0;
             this.label0.Text = "نمایشگاه کتاب (1391)";
-            // 
-            // PostOfficeManagmentToolStripMenuItem
-            // 
-            this.PostOfficeManagmentToolStripMenuItem.Name = "PostOfficeManagmentToolStripMenuItem";
-            this.PostOfficeManagmentToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
-            this.PostOfficeManagmentToolStripMenuItem.Text = "مدیریت پست";
-            this.PostOfficeManagmentToolStripMenuItem.Click += new System.EventHandler(this.PostOfficeManagmentToolStripMenuItem_Click);
-            // 
-            // WareHouseManagementToolStripMenuItem
-            // 
-            this.WareHouseManagementToolStripMenuItem.Name = "WareHouseManagementToolStripMenuItem";
-            this.WareHouseManagementToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
-            this.WareHouseManagementToolStripMenuItem.Text = "مدیریت انبار";
-            // 
-            // PaymentManagementToolStripMenuItem
-            // 
-            this.PaymentManagementToolStripMenuItem.Name = "PaymentManagementToolStripMenuItem";
-            this.PaymentManagementToolStripMenuItem.Size = new System.Drawing.Size(300, 22);
-            this.PaymentManagementToolStripMenuItem.Text = "مدیریت امور مالی";
             // 
             // MainWindow
             // 

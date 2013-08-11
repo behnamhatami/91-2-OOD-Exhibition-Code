@@ -74,6 +74,12 @@ namespace OOD.Model.UserManagingPackage
             get { return DataManager.DataContext.WareHouseItems.Where(item => item.User.Id == Id); }
         }
 
+        [NotMapped]
+        public IQueryable<Payment> Payments
+        {
+            get { return DataManager.DataContext.Payments.Where(payment => payment.User.Id == Id); }
+        }
+
         public void RecieveNotification(String title, String content, Exhibition exhibition)
         {
             DataManager.DataContext.Notifications.Add(new Notification

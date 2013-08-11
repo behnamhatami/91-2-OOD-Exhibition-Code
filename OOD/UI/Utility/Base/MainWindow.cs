@@ -134,5 +134,15 @@ namespace OOD.UI.Utility.Base
         {
             GoNext(new PostOfficeManaging());
         }
+
+        private void WareHouseManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new WareHouseManaging());
+        }
+
+        private void PaymentManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new PaymentManagemenet());
+        }
     }
 }

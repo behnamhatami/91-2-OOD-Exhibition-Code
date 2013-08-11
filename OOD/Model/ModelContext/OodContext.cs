@@ -36,6 +36,7 @@ namespace OOD.Model.ModelContext
         public DbSet<PostItem> PostItems { get; set; }
         public DbSet<WareHouse> WareHouses { get; set; }
         public DbSet<WareHouseItem> WareHouseItems { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         public static string ConnectionString
         {

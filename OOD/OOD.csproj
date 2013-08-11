@@ -73,6 +73,7 @@
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Feature.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Process.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ProcessType.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\Payment.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostItem.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOffice.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouse.cs" />
@@ -123,6 +124,12 @@
     </Compile>
     <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.Designer.cs">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.Designer.cs">
+      <DependentUpon>PaymentManagemenet.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOfficeManaging.cs">
       <SubType>Form</SubType>
@@ -219,8 +226,14 @@
     <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.resx">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.resx">
+      <DependentUpon>PaymentManagemenet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOfficeManaging.resx">
       <DependentUpon>PostOfficeManaging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseManaging.resx">
+      <DependentUpon>WareHouseManaging.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

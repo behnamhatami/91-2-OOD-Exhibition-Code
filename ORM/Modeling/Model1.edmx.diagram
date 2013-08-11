@@ -59,10 +59,15 @@
         <EntityTypeShape EntityType="Model1.PostItem" Width="1.5" PointX="3.625" PointY="2.625" />
         <AssociationConnector Association="Model1.PostItemPostOffice" />
       </Diagram>
-      <Diagram DiagramId="645616d309954ae3b3a73176d942c280" Name="WareHouse" >
+      <Diagram DiagramId="645616d309954ae3b3a73176d942c280" Name="WareHouse" ZoomLevel="93" >
         <EntityTypeShape EntityType="Model1.WareHouse" Width="1.5" PointX="1.75" PointY="1.25" />
         <EntityTypeShape EntityType="Model1.WareHouseItem" Width="1.5" PointX="4.75" PointY="1.25" />
         <AssociationConnector Association="Model1.WareHouseItemWareHouse" />
+        <EntityTypeShape EntityType="Model1.Exhibition" Width="1.5" PointX="4" PointY="7.25" />
+        <AssociationConnector Association="Model1.ExhibitionWareHouse" />
+      </Diagram>
+      <Diagram DiagramId="2d7e0c4a06bb4fc78ece9389e48f8b16" Name="Payment" >
+        <EntityTypeShape EntityType="Model1.Payment" Width="1.5" PointX="2.375" PointY="1.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
