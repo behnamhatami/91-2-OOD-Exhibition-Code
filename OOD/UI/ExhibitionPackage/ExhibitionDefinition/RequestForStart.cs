@@ -44,7 +44,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             {
                 if (exhibition.State == ExhibitionState.Freezed)
                     return true;
-                PopUp.ShowError("قسمت آغاز بسته شده است.");
+                GeneralErrors.Closed("درخواست آغاز نمایشگاه");
                 return false;
             }
             GeneralErrors.AccessDenied();

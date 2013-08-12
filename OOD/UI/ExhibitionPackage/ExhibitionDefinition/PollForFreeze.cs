@@ -55,7 +55,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
                     PopUp.ShowError("شما قبلا در این نظرسنجی شرکت کرده اید.");
                     return false;
                 }
-                PopUp.ShowError("قسمت نظرسنجی برای انجماد بسته شده است.");
+                GeneralErrors.Closed("انجماد");
                 return false;
             }
             GeneralErrors.AccessDenied();

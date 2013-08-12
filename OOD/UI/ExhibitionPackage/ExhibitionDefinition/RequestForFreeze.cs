@@ -44,7 +44,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             {
                 if (exhibition.State == ExhibitionState.Configuration)
                     return true;
-                PopUp.ShowError("قسمت درخواست انجماد بسته شده است.");
+                GeneralErrors.Closed("درخواست انجماد");
                 return false;
             }
             GeneralErrors.AccessDenied();

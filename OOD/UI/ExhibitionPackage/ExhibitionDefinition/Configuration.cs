@@ -56,7 +56,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
                 if (exhibition.State == ExhibitionState.Created
                     || exhibition.State == ExhibitionState.Configuration)
                     return true;
-                PopUp.ShowError("قسمت پیکربندی بسته شده است.");
+                GeneralErrors.Closed("پیکربندی");
                 return false;
             }
             GeneralErrors.AccessDenied();
@@ -191,7 +191,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var exhibition = Program.Exhibition;
             ResetHelper.Empty(processMaxLengthTextBox, processMinLengthTextBox, processStartNodeTextBox,
                 processFinishNodeTextBox);
-            ResetHelper.Refresh(processProcessComboBox, Process.GetChoices());
+            ResetHelper.Refresh(processProcessComboBox, ProcessType.GetAllTypes());
             ResetHelper.Refresh(processCheckedListBox, exhibition.Configuration.Processes.ToArray());
         }
 

@@ -144,5 +144,10 @@ namespace OOD.UI.Utility.Base
         {
             GoNext(new PaymentManagemenet());
         }
+
+        private void PollCreationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new PollCrud());
+        }
     }
 }

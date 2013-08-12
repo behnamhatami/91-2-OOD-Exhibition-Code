@@ -25,12 +25,15 @@ namespace OOD.UI.Utility.Helper
 
                 var checkList = control as CheckedListBox;
                 if (checkList != null)
+                {
                     EmptyCheckedListBox(checkList);
-
+                }
                 var checkBox = control as CheckBox;
                 if (checkBox != null)
+                {
                     EmptyCheckBox(checkBox);
-
+                    continue;
+                }
                 var listBox = control as ListBox;
                 if (listBox != null)
                     EmptyListBox(listBox);
@@ -90,7 +93,8 @@ namespace OOD.UI.Utility.Helper
         {
             Empty(comboBox);
             comboBox.Items.Clear();
-            comboBox.Items.AddRange(init);
+            if (init != null && init.Length != 0)
+                comboBox.Items.AddRange(init);
         }
 
         public static void Refresh(CheckedListBox checkedListBox, Object[] init)

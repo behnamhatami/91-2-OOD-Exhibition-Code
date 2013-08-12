@@ -53,5 +53,21 @@ namespace OOD.UI.Utility.PopUp
         {
             PopUp.ShowError("شما حق دسترسی به این قسمت را ندارید.");
         }
+
+        public static void ClosedAfter(string place)
+        {
+            PopUp.ShowError(string.Format("صفحه ی {0} بسته شده است.", place));
+        }
+
+        public static void ClosedBefore(string place)
+        {
+            PopUp.ShowError(string.Format("صفحه ی {0} هنوز باز نشده است.", place));
+        }
+
+
+        public static void Closed(string place)
+        {
+            PopUp.ShowError(string.Format("صفحه ی {0} هنوز باز نمی باشد.", place));
+        }
     }
 }

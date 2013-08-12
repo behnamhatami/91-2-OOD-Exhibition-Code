@@ -60,7 +60,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral
             {
                 if (exhibition.State == ExhibitionState.Started)
                     return true;
-                PopUp.ShowError("قسمت پست بسته شده است.");
+                GeneralErrors.Closed("انبار");
                 return false;
             }
             GeneralErrors.AccessDenied();

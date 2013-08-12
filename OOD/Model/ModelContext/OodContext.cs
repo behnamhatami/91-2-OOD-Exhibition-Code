@@ -28,6 +28,7 @@ namespace OOD.Model.ModelContext
         public DbSet<UserExhibitionRole> UserExhibitionRoles { get; set; }
         public DbSet<Configuration> Configurations { get; set; }
         public DbSet<Process> Processes { get; set; }
+        public DbSet<ProcessType> ProcessTypes { get; set; }
         public DbSet<Poll> Polls { get; set; }
         public DbSet<PollChoice> PollChoices { get; set; }
         public DbSet<PollUser> PollUsers { get; set; }

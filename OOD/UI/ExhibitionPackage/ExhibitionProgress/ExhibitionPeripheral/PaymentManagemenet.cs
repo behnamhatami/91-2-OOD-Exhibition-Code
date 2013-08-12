@@ -55,7 +55,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral
             {
                 if (exhibition.State == ExhibitionState.Started)
                     return true;
-                PopUp.ShowError("قسمت مالی بسته شده است.");
+                GeneralErrors.Closed("مالی");
                 return false;
             }
             GeneralErrors.AccessDenied();

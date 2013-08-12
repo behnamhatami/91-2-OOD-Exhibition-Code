@@ -155,6 +155,7 @@
             this.PollCreationToolStripMenuItem.Name = "PollCreationToolStripMenuItem";
             this.PollCreationToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
             this.PollCreationToolStripMenuItem.Text = "تعریف نظر سنجی ";
+            this.PollCreationToolStripMenuItem.Click += new System.EventHandler(this.PollCreationToolStripMenuItem_Click);
             // 
             // NotifcationCenterToolStripMenuItem
             // 
