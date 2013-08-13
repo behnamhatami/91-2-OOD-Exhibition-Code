@@ -4,7 +4,9 @@ using System;
 using System.Data.Entity;
 using System.Reflection;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.NotificationPackage;
 using OOD.Model.UserManagingPackage;
@@ -28,7 +30,6 @@ namespace OOD.Model.ModelContext
         public DbSet<UserExhibitionRole> UserExhibitionRoles { get; set; }
         public DbSet<Configuration> Configurations { get; set; }
         public DbSet<Process> Processes { get; set; }
-        public DbSet<ProcessType> ProcessTypes { get; set; }
         public DbSet<Poll> Polls { get; set; }
         public DbSet<PollChoice> PollChoices { get; set; }
         public DbSet<PollUser> PollUsers { get; set; }
@@ -38,6 +39,12 @@ namespace OOD.Model.ModelContext
         public DbSet<WareHouse> WareHouses { get; set; }
         public DbSet<WareHouseItem> WareHouseItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Attachment> Attachments { get; set; }
+        public DbSet<PhoneInformation> PhoneInformations { get; set; }
+        public DbSet<Saloon> Saloons { get; set; }
+        public DbSet<Map> Maps { get; set; }
+        public DbSet<Booth> Booths { get; set; }
+        public DbSet<Request> Requests { get; set; }
 
         public static string ConnectionString
         {

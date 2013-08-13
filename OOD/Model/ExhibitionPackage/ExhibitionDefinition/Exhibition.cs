@@ -3,7 +3,9 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
@@ -69,6 +71,18 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
         public IQueryable<Payment> Payments
         {
             get { return DataManager.DataContext.Payments.Where(payment => payment.Exhibition.Id == Id); }
+        }
+
+        [NotMapped]
+        public IQueryable<Saloon> Saloons
+        {
+            get { return DataManager.DataContext.Saloons.Where(saloon => saloon.Exhibition.Id == Id); }
+        }
+
+        [NotMapped]
+        public IQueryable<Request> Requests
+        {
+            get { return DataManager.DataContext.Requests.Where(request => request.Exhibition.Id == Id); }
         }
 
         public void RecieveNotification(String title, String content)

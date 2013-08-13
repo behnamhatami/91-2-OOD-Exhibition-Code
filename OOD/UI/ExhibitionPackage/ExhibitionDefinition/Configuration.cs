@@ -21,7 +21,6 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             InitializeComponent();
         }
 
-
         // IResetAble
 
         public override void Reset()
@@ -155,10 +154,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
                 ExhibitionRole = role,
                 User = user
             };
+            userExhibitionRole.NotifyAdd();
             var db = DataManager.DataContext;
             db.UserExhibitionRoles.Add(userExhibitionRole);
-            user.RecieveNotification(NotificationFactory.ExhibitionRoleAddedTitle,
-                NotificationFactory.ExhibitionRoleAddedContent(exhibition, role), exhibition);
             db.SaveChanges();
             RolePageReset();
             PopUp.ShowSuccess("نقش جدید ساخته شد.");
@@ -172,12 +170,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var db = DataManager.DataContext;
             foreach (var userExhibitionRole in roleUserExhibitionRoleListBox.CheckedItems.Cast<UserExhibitionRole>())
             {
-                userExhibitionRole.User.RecieveNotification(NotificationFactory.ExhibitionRoleRemovedTitle,
-                    NotificationFactory.ExhibitionRoleRemovedContent(userExhibitionRole.Exhibition,
-                        userExhibitionRole.ExhibitionRole), userExhibitionRole.Exhibition);
+                userExhibitionRole.NotifyRemove();
                 db.UserExhibitionRoles.Remove(userExhibitionRole);
             }
-
 
             db.SaveChanges();
             RolePageReset();
@@ -191,13 +186,13 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var exhibition = Program.Exhibition;
             ResetHelper.Empty(processMaxLengthTextBox, processMinLengthTextBox, processStartNodeTextBox,
                 processFinishNodeTextBox);
-            ResetHelper.Refresh(processProcessComboBox, ProcessType.GetAllTypes());
+            ResetHelper.Refresh(processProcessComboBox, ProcessTypeWrapper.ProcessTypes);
             ResetHelper.Refresh(processCheckedListBox, exhibition.Configuration.Processes.ToArray());
         }
 
         private void processAddButton_Click(object sender, EventArgs e)
         {
-            var processType = processProcessComboBox.SelectedItem;
+            var processType = processProcessComboBox.SelectedItem as ProcessTypeWrapper;
             var minLengthText = processMinLengthTextBox.Text;
             var maxLengthText = processMaxLengthTextBox.Text;
             var startNodeText = processStartNodeTextBox.Text;
@@ -219,7 +214,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var process = new Process
             {
                 Configuration = exhibition.Configuration,
-                Type = (ProcessType) processType,
+                Type = processType.ProcessType,
                 MinLength = int.Parse(minLengthText),
                 MaxLength = int.Parse(maxLengthText),
                 StartNode = int.Parse(startNodeText),

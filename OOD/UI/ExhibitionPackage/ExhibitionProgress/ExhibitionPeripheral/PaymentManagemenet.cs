@@ -51,7 +51,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral
             var user = Program.User;
             var exhibition = Program.Exhibition;
 
-            if (user.UserRole is CustomerRole)
+            if (exhibition.HasRole<CustomerRole>(user))
             {
                 if (exhibition.State == ExhibitionState.Started)
                     return true;

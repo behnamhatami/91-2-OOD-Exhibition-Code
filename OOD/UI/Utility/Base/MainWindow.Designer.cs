@@ -36,6 +36,7 @@
             this.NotificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ParticipationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewsCreationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PollingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PollCreationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NotifcationCenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExhibitionCreationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +70,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label0 = new System.Windows.Forms.Label();
-            this.PollingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -151,6 +151,14 @@
             this.NewsCreationToolStripMenuItem.Name = "NewsCreationToolStripMenuItem";
             this.NewsCreationToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
             this.NewsCreationToolStripMenuItem.Text = "ارسال خبر و رخداد ";
+            this.NewsCreationToolStripMenuItem.Click += new System.EventHandler(this.NewsCreationToolStripMenuItem_Click);
+            // 
+            // PollingToolStripMenuItem
+            // 
+            this.PollingToolStripMenuItem.Name = "PollingToolStripMenuItem";
+            this.PollingToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
+            this.PollingToolStripMenuItem.Text = "شرکت در نظرسنجی";
+            this.PollingToolStripMenuItem.Click += new System.EventHandler(this.PollingToolStripMenuItem_Click);
             // 
             // PollCreationToolStripMenuItem
             // 
@@ -416,13 +424,6 @@
             this.label0.Size = new System.Drawing.Size(123, 14);
             this.label0.TabIndex = 0;
             this.label0.Text = "نمایشگاه کتاب (1391)";
-            // 
-            // PollingToolStripMenuItem
-            // 
-            this.PollingToolStripMenuItem.Name = "PollingToolStripMenuItem";
-            this.PollingToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
-            this.PollingToolStripMenuItem.Text = "شرکت در نظرسنجی";
-            this.PollingToolStripMenuItem.Click += new System.EventHandler(this.PollingToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

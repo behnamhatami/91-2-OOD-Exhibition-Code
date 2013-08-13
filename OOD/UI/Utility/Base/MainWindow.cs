@@ -127,7 +127,7 @@ namespace OOD.UI.Utility.Base
 
         private void NotifcationCenterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GoNext(new NotificationCenter());
+            GoNext(new NotificationInbox());
         }
 
         private void PostOfficeManagmentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -153,6 +153,11 @@ namespace OOD.UI.Utility.Base
         private void PollingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GoNext(new Polling());
+        }
+
+        private void NewsCreationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new NewsCreation());
         }
     }
 }

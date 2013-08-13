@@ -32,7 +32,8 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 
         public override string ToString()
         {
-            return String.Format("{0}({1}): [کمینه: {2}, بیشینه: {3}, شروع: {4}, پایان: {5}]", Id, Type, MinLength,
+            return String.Format("{0}({1}): [کمینه: {2}, بیشینه: {3}, شروع: {4}, پایان: {5}]", Id,
+                ProcessTypeWrapper.GetWrapper(Type), MinLength,
                 MaxLength,
                 StartNode, FinishNode);
         }

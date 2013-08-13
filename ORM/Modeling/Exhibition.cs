@@ -21,6 +21,9 @@ namespace Login.Modeling
             this.Notifications = new HashSet<Notification>();
             this.PostOffices = new HashSet<PostOffice>();
             this.Payments = new HashSet<Payment>();
+            this.Saloons = new HashSet<Saloon>();
+            this.ExhibitionRequests = new HashSet<ExhibitionRequest>();
+            this.Requests = new HashSet<Request>();
         }
     
         public int Id { get; set; }
@@ -41,5 +44,8 @@ namespace Login.Modeling
         public virtual PostOffice PostOffice { get; set; }
         public virtual ICollection<Payment> Payments { get; set; }
         public virtual WareHouse WareHouse { get; set; }
+        public virtual ICollection<Saloon> Saloons { get; set; }
+        public virtual ICollection<ExhibitionRequest> ExhibitionRequests { get; set; }
+        public virtual ICollection<Request> Requests { get; set; }
     }
 }

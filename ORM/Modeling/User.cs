@@ -22,6 +22,8 @@ namespace Login.Modeling
             this.WareHouseItems = new HashSet<WareHouseItem>();
             this.PostItems = new HashSet<PostItem>();
             this.Payments = new HashSet<Payment>();
+            this.Booths = new HashSet<Booth>();
+            this.Requests = new HashSet<Request>();
         }
     
         public int Id { get; set; }
@@ -38,5 +40,7 @@ namespace Login.Modeling
         public virtual ICollection<WareHouseItem> WareHouseItems { get; set; }
         public virtual ICollection<PostItem> PostItems { get; set; }
         public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<Booth> Booths { get; set; }
+        public virtual ICollection<Request> Requests { get; set; }
     }
 }

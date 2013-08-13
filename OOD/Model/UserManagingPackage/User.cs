@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
@@ -78,6 +79,12 @@ namespace OOD.Model.UserManagingPackage
         public IQueryable<Payment> Payments
         {
             get { return DataManager.DataContext.Payments.Where(payment => payment.User.Id == Id); }
+        }
+
+        [NotMapped]
+        public IQueryable<Request> Requests
+        {
+            get { return DataManager.DataContext.Requests.Where(request => request.User.Id == Id); }
         }
 
         public void RecieveNotification(String title, String content, Exhibition exhibition)

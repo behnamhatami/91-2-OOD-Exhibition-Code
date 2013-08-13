@@ -42,5 +42,11 @@ namespace Login.Modeling
         public DbSet<WareHouse> WareHouses { get; set; }
         public DbSet<WareHouseItem> WareHouseItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
+        public DbSet<Attachment> Attachments { get; set; }
+        public DbSet<PhoneInformation> PhoneInformations { get; set; }
+        public DbSet<Saloon> Saloons { get; set; }
+        public DbSet<Map> Maps { get; set; }
+        public DbSet<Booth> Booths { get; set; }
+        public DbSet<Request> Requests { get; set; }
     }
 }

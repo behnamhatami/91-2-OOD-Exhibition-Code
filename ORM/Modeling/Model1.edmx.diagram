@@ -69,6 +69,32 @@
       <Diagram DiagramId="2d7e0c4a06bb4fc78ece9389e48f8b16" Name="Payment" >
         <EntityTypeShape EntityType="Model1.Payment" Width="1.5" PointX="2.375" PointY="1.25" />
       </Diagram>
+      <Diagram DiagramId="f88f5e5173cb4a7188931678f21dc311" Name="News" >
+        <EntityTypeShape EntityType="Model1.News" Width="1.5" PointX="1.125" PointY="0.75" />
+        <EntityTypeShape EntityType="Model1.Attachment" Width="1.5" PointX="4" PointY="0.75" />
+        <AssociationConnector Association="Model1.NewsAttachment" />
+        <EntityTypeShape EntityType="Model1.PhoneInformation" Width="1.5" PointX="4" PointY="2.75" />
+        <EntityTypeShape EntityType="Model1.PhoneNews" Width="1.5" PointX="1.125" PointY="2.75" />
+        <AssociationConnector Association="Model1.PhoneNewsPhoneInformation" />
+      </Diagram>
+      <Diagram DiagramId="f34b8db3446b458284b9a725339c3c99" Name="Booth" >
+        <EntityTypeShape EntityType="Model1.Saloon" Width="1.5" PointX="1.125" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.Map" Width="1.5" PointX="4.25" PointY="0.625" />
+        <EntityTypeShape EntityType="Model1.Booth" Width="1.5" PointX="4.25" PointY="3.25" />
+        <AssociationConnector Association="Model1.SaloonMap" />
+        <AssociationConnector Association="Model1.BoothMap" />
+      </Diagram>
+      <Diagram DiagramId="04057abbcfb64b6488caa1ee4f69d2c4" Name="Request" ZoomLevel="95" >
+        <EntityTypeShape EntityType="Model1.SaloonRequest" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model1.BoothRequest" Width="1.5" PointX="2.75" PointY="3.625" />
+        <EntityTypeShape EntityType="Model1.ExhibitionRequest" Width="1.5" PointX="4.875" PointY="3.625" />
+        <EntityTypeShape EntityType="Model1.Request" Width="1.5" PointX="2.75" PointY="0.5" />
+        <InheritanceConnector EntityType="Model1.SaloonRequest" />
+        <InheritanceConnector EntityType="Model1.BoothRequest" />
+        <InheritanceConnector EntityType="Model1.ExhibitionRequest" />
+        <EntityTypeShape EntityType="Model1.InspectionRequest" Width="1.5" PointX="7.25" PointY="3.625" />
+        <InheritanceConnector EntityType="Model1.InspectionRequest" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -10,9 +10,9 @@ using OOD.UI.Utility.PopUp;
 
 namespace OOD.UI.Notification
 {
-    public partial class NotificationCenter : MainWindow
+    public partial class NotificationInbox : MainWindow
     {
-        public NotificationCenter()
+        public NotificationInbox()
         {
             InitializeComponent();
         }

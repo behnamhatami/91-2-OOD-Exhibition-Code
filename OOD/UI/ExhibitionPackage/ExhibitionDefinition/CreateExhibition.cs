@@ -118,9 +118,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
                     Exhibition = exhibition
                 };
                 db.UserExhibitionRoles.Add(userExhibitionRole);
-                userExhibitionRole.User.RecieveNotification(NotificationFactory.ExhibitionRoleAddedTitle,
-                    NotificationFactory.ExhibitionRoleAddedContent(exhibition, userExhibitionRole.ExhibitionRole),
-                    exhibition);
+                userExhibitionRole.NotifyAdd();
             }
 
             exhibition.RecieveNotification(NotificationFactory.ExhibitionCreationTitle,

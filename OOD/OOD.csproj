@@ -73,20 +73,35 @@
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Feature.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Process.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ProcessType.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Booth.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothQuality.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Map.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Saloon.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\Payment.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostItem.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOffice.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouse.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseItem.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\BoothRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\ExhibitionRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\InspectionRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\JudgeType.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\Request.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\SaloonRequest.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\BoothManagerRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ChairRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ECustomerRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ExecutionRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ExhibitionRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\InspectorRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\PostKeeperRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\UserExhibitionRole.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\WareHouseKeeperRole.cs" />
+    <Compile Include="Model\NotificationPackage\Attachment.cs" />
+    <Compile Include="Model\NotificationPackage\News.cs" />
     <Compile Include="Model\NotificationPackage\Notification.cs" />
+    <Compile Include="Model\NotificationPackage\PhoneInformation.cs" />
+    <Compile Include="Model\NotificationPackage\PhoneNews.cs" />
     <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFinish.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +140,12 @@
     <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.Designer.cs">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothCrud.Designer.cs">
+      <DependentUpon>BoothCrud.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +164,18 @@
     <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseManaging.Designer.cs">
       <DependentUpon>WareHouseManaging.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Notification\NewsCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\NewsCreation.Designer.cs">
+      <DependentUpon>NewsCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notification\RequestOutbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\RequestOutbox.Designer.cs">
+      <DependentUpon>RequestOutbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Notification\Polling.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,17 +188,23 @@
     <Compile Include="UI\Notification\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Notification\NotificationCenter.cs">
+    <Compile Include="UI\Notification\NotificationInbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Notification\NotificationCenter.Designer.cs">
-      <DependentUpon>NotificationCenter.cs</DependentUpon>
+    <Compile Include="UI\Notification\NotificationInbox.Designer.cs">
+      <DependentUpon>NotificationInbox.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Notification\PollCrud.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Notification\PollCrud.Designer.cs">
       <DependentUpon>PollCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notification\RequestInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\RequestInbox.Designer.cs">
+      <DependentUpon>RequestInbox.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Utility\Base\BaseForm.cs">
       <SubType>Form</SubType>
@@ -238,6 +277,9 @@
     <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.resx">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothCrud.resx">
+      <DependentUpon>BoothCrud.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.resx">
       <DependentUpon>PaymentManagemenet.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,14 +292,23 @@
     <EmbeddedResource Include="UI\Notification\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\NotificationCenter.resx">
-      <DependentUpon>NotificationCenter.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Notification\NewsCreation.resx">
+      <DependentUpon>NewsCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\RequestOutbox.resx">
+      <DependentUpon>RequestOutbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\NotificationInbox.resx">
+      <DependentUpon>NotificationInbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\Polling.resx">
       <DependentUpon>Polling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\PollCrud.resx">
       <DependentUpon>PollCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\RequestInbox.resx">
+      <DependentUpon>RequestInbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Utility\Base\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
@@ -318,9 +369,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\ExhibitionPackage\ExhibitionConsistency\" />
-    <Folder Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\" />
-    <Folder Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\" />
-    <Folder Include="Model\ReportPackage\" />
     <Folder Include="UI\ReportPackage\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -48,8 +48,6 @@ namespace OOD.Model.ModelContext
             context.Users.Add(system);
             context.UserRoles.Add(adminRole);
             context.UserRoles.Add(publicRole);
-            foreach (var processType in ProcessType.GetAllTypes())
-                context.ProcessTypes.Add(processType);
             context.SaveChanges();
         }
     }

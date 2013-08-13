@@ -1,0 +1,37 @@
+﻿#region
+
+using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+
+#endregion
+
+namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth
+{
+    public class Saloon
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Size { get; set; }
+
+        public virtual Map Map { get; set; }
+        public virtual Exhibition Exhibition { get; set; }
+
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var saloon = obj as Saloon;
+            if (saloon == null || saloon.Id != Id)
+                return false;
+            return true;
+        }
+    }
+}

@@ -30,7 +30,6 @@ namespace OOD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ProcessType.SyncWithDB();
             Application.Run(new Login());
         }
     }

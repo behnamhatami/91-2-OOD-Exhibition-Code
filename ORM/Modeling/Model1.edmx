@@ -269,6 +269,52 @@
             <End Role="Exhibition" EntitySet="Exhibitions" />
             <End Role="WareHouse" EntitySet="WareHouses" />
           </AssociationSet>
+          <EntitySet Name="Attachments" EntityType="Model1.Attachment" />
+          <AssociationSet Name="NewsAttachment" Association="Model1.NewsAttachment">
+            <End Role="News" EntitySet="Notifications" />
+            <End Role="Attachment" EntitySet="Attachments" />
+          </AssociationSet>
+          <EntitySet Name="PhoneInformations" EntityType="Model1.PhoneInformation" />
+          <AssociationSet Name="PhoneNewsPhoneInformation" Association="Model1.PhoneNewsPhoneInformation">
+            <End Role="PhoneNews" EntitySet="Notifications" />
+            <End Role="PhoneInformation" EntitySet="PhoneInformations" />
+          </AssociationSet>
+          <EntitySet Name="Saloons" EntityType="Model1.Saloon" />
+          <EntitySet Name="Maps" EntityType="Model1.Map" />
+          <EntitySet Name="Booths" EntityType="Model1.Booth" />
+          <AssociationSet Name="SaloonMap" Association="Model1.SaloonMap">
+            <End Role="Saloon" EntitySet="Saloons" />
+            <End Role="Map" EntitySet="Maps" />
+          </AssociationSet>
+          <AssociationSet Name="BoothMap" Association="Model1.BoothMap">
+            <End Role="Booth" EntitySet="Booths" />
+            <End Role="Map" EntitySet="Maps" />
+          </AssociationSet>
+          <AssociationSet Name="ExhibitionSaloon" Association="Model1.ExhibitionSaloon">
+            <End Role="Saloon" EntitySet="Saloons" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <AssociationSet Name="BoothUser" Association="Model1.BoothUser">
+            <End Role="Booth" EntitySet="Booths" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Requests" EntityType="Model1.Request" />
+          <AssociationSet Name="ExhibitionRequestExhibition" Association="Model1.ExhibitionRequestExhibition">
+            <End Role="ExhibitionRequest" EntitySet="Requests" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <AssociationSet Name="RequestExhibition" Association="Model1.RequestExhibition">
+            <End Role="Request" EntitySet="Requests" />
+            <End Role="Exhibition" EntitySet="Exhibitions" />
+          </AssociationSet>
+          <AssociationSet Name="UserRequest" Association="Model1.UserRequest">
+            <End Role="Request" EntitySet="Requests" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="InspectionRequestBooth" Association="Model1.InspectionRequestBooth">
+            <End Role="InspectionRequest" EntitySet="Requests" />
+            <End Role="Booth" EntitySet="Booths" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -288,6 +334,8 @@
           <NavigationProperty Name="WareHouseItems" Relationship="Model1.WareHouseItemUser" FromRole="User" ToRole="WareHouseItem" />
           <NavigationProperty Name="PostItems" Relationship="Model1.PostItemUser" FromRole="User" ToRole="PostItem" />
           <NavigationProperty Name="Payments" Relationship="Model1.UserPayment" FromRole="User" ToRole="Payment" />
+          <NavigationProperty Name="Booths" Relationship="Model1.BoothUser" FromRole="User" ToRole="Booth" />
+          <NavigationProperty Name="Requests" Relationship="Model1.UserRequest" FromRole="User" ToRole="Request" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -329,6 +377,9 @@
           <Property Type="DateTime" Name="LastEnter" Nullable="false" cg:SetterAccess="Public" />
           <NavigationProperty Name="Payments" Relationship="Model1.PaymentExhibition" FromRole="Exhibition" ToRole="Payment" />
           <NavigationProperty Name="WareHouse" Relationship="Model1.ExhibitionWareHouse" FromRole="Exhibition" ToRole="WareHouse" />
+          <NavigationProperty Name="Saloons" Relationship="Model1.ExhibitionSaloon" FromRole="Exhibition" ToRole="Saloon" />
+          <NavigationProperty Name="ExhibitionRequests" Relationship="Model1.ExhibitionRequestExhibition" FromRole="Exhibition" ToRole="ExhibitionRequest" />
+          <NavigationProperty Name="Requests" Relationship="Model1.RequestExhibition" FromRole="Exhibition" ToRole="Request" />
         </EntityType>
         <EntityType Name="Feature">
           <Key>
@@ -587,6 +638,141 @@
         <Association Name="ExhibitionWareHouse">
           <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
           <End Type="Model1.WareHouse" Role="WareHouse" Multiplicity="1" />
+        </Association>
+        <EntityType Name="News" BaseType="Model1.Notification">
+          <Property Type="String" Name="Image" Nullable="false" />
+          <NavigationProperty Name="Attachments" Relationship="Model1.NewsAttachment" FromRole="News" ToRole="Attachment" />
+        </EntityType>
+        <EntityType Name="Attachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Path" Nullable="false" />
+          <NavigationProperty Name="News" Relationship="Model1.NewsAttachment" FromRole="Attachment" ToRole="News" />
+        </EntityType>
+        <Association Name="NewsAttachment">
+          <End Type="Model1.News" Role="News" Multiplicity="1" />
+          <End Type="Model1.Attachment" Role="Attachment" Multiplicity="*" />
+        </Association>
+        <EntityType Name="PhoneInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Phone" Nullable="false" />
+          <NavigationProperty Name="PhoneNew" Relationship="Model1.PhoneNewsPhoneInformation" FromRole="PhoneInformation" ToRole="PhoneNews" />
+        </EntityType>
+        <EntityType Name="PhoneNews" BaseType="Model1.Notification" >
+          <NavigationProperty Name="PhoneInformations" Relationship="Model1.PhoneNewsPhoneInformation" FromRole="PhoneNews" ToRole="PhoneInformation" />
+        </EntityType>
+        <Association Name="PhoneNewsPhoneInformation">
+          <End Type="Model1.PhoneNews" Role="PhoneNews" Multiplicity="1" />
+          <End Type="Model1.PhoneInformation" Role="PhoneInformation" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Saloon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Map" Relationship="Model1.SaloonMap" FromRole="Saloon" ToRole="Map" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.ExhibitionSaloon" FromRole="Saloon" ToRole="Exhibition" />
+          <Property Type="Int32" Name="Size" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Map">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Saloon" Relationship="Model1.SaloonMap" FromRole="Map" ToRole="Saloon" />
+          <Property Type="Int32" Name="Height" Nullable="false" />
+          <Property Type="Int32" Name="Width" Nullable="false" />
+          <NavigationProperty Name="Booths" Relationship="Model1.BoothMap" FromRole="Map" ToRole="Booth" />
+        </EntityType>
+        <EntityType Name="Booth">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Map" Relationship="Model1.BoothMap" FromRole="Booth" ToRole="Map" />
+          <NavigationProperty Name="User" Relationship="Model1.BoothUser" FromRole="Booth" ToRole="User" />
+          <Property Type="Int32" Name="Index" Nullable="false" cg:SetterAccess="Public" />
+          <Property Type="String" Name="Quality" Nullable="false" />
+          <Property Type="Int32" Name="OperatorCount" Nullable="false" />
+          <Property Type="Boolean" Name="ForSell" Nullable="false" />
+          <Property Type="Boolean" Name="ForVitrin" Nullable="false" />
+          <Property Type="Boolean" Name="ForCommision" Nullable="false" />
+          <Property Type="Boolean" Name="HasPhone" Nullable="false" />
+          <Property Type="Boolean" Name="HasCardReader" Nullable="false" />
+          <NavigationProperty Name="InspectionRequests" Relationship="Model1.InspectionRequestBooth" FromRole="Booth" ToRole="InspectionRequest" />
+        </EntityType>
+        <Association Name="SaloonMap">
+          <End Type="Model1.Saloon" Role="Saloon" Multiplicity="1" />
+          <End Type="Model1.Map" Role="Map" Multiplicity="1" />
+        </Association>
+        <Association Name="BoothMap">
+          <End Type="Model1.Booth" Role="Booth" Multiplicity="*" />
+          <End Type="Model1.Map" Role="Map" Multiplicity="1" />
+        </Association>
+        <Association Name="ExhibitionSaloon">
+          <End Type="Model1.Saloon" Role="Saloon" Multiplicity="*" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <Association Name="BoothUser">
+          <End Type="Model1.Booth" Role="Booth" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+        </Association>
+        <EntityType Name="SaloonRequest" BaseType="Model1.Request">
+          <Property Type="Int32" Name="Area" Nullable="false" />
+          <Property Type="Int32" Name="Width" Nullable="false" />
+          <Property Type="Int32" Name="Length" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BoothRequest" BaseType="Model1.Request">
+          <Property Type="String" Name="Quality" Nullable="false" />
+          <Property Type="Int32" Name="OperatorCount" Nullable="false" />
+          <Property Type="Boolean" Name="ForSell" Nullable="false" />
+          <Property Type="Boolean" Name="ForVitrin" Nullable="false" />
+          <Property Type="Boolean" Name="ForCommision" Nullable="false" />
+          <Property Type="Boolean" Name="HasPhone" Nullable="false" />
+          <Property Type="Boolean" Name="HasCardReader" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExhibitionRequest" BaseType="Model1.Request">
+        </EntityType>
+        <EntityType Name="Request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Title" Nullable="false" />
+          <Property Type="String" Name="Content" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <NavigationProperty Name="Exhibition" Relationship="Model1.RequestExhibition" FromRole="Request" ToRole="Exhibition" />
+          <NavigationProperty Name="User" Relationship="Model1.UserRequest" FromRole="Request" ToRole="User" />
+          <Property Type="String" Name="Response" Nullable="false" />
+          <Property Type="Boolean" Name="Closed" Nullable="false" />
+        </EntityType>
+        <Association Name="ExhibitionRequestExhibition">
+          <End Type="Model1.ExhibitionRequest" Role="ExhibitionRequest" Multiplicity="*" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <Association Name="RequestExhibition">
+          <End Type="Model1.Request" Role="Request" Multiplicity="*" />
+          <End Type="Model1.Exhibition" Role="Exhibition" Multiplicity="1" />
+        </Association>
+        <Association Name="UserRequest">
+          <End Type="Model1.Request" Role="Request" Multiplicity="*" />
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+        </Association>
+        <EntityType Name="InspectionRequest" BaseType="Model1.Request" >
+          <NavigationProperty Name="Booth" Relationship="Model1.InspectionRequestBooth" FromRole="InspectionRequest" ToRole="Booth" />
+          <Property Type="String" Name="Fine" Nullable="false" />
+          <Property Type="String" Name="ResponseType" Nullable="false" />
+        </EntityType>
+        <Association Name="InspectionRequestBooth">
+          <End Type="Model1.InspectionRequest" Role="InspectionRequest" Multiplicity="*" />
+          <End Type="Model1.Booth" Role="Booth" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
