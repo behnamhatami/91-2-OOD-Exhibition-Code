@@ -69,6 +69,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label0 = new System.Windows.Forms.Label();
+            this.PollingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -118,6 +119,7 @@
             this.NotificationToolStripMenuItem,
             this.ParticipationToolStripMenuItem,
             this.NewsCreationToolStripMenuItem,
+            this.PollingToolStripMenuItem,
             this.PollCreationToolStripMenuItem,
             this.NotifcationCenterToolStripMenuItem});
             this.InformationToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,7 +156,7 @@
             // 
             this.PollCreationToolStripMenuItem.Name = "PollCreationToolStripMenuItem";
             this.PollCreationToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
-            this.PollCreationToolStripMenuItem.Text = "تعریف نظر سنجی ";
+            this.PollCreationToolStripMenuItem.Text = "مدیریت نظرسنجی";
             this.PollCreationToolStripMenuItem.Click += new System.EventHandler(this.PollCreationToolStripMenuItem_Click);
             // 
             // NotifcationCenterToolStripMenuItem
@@ -415,6 +417,13 @@
             this.label0.TabIndex = 0;
             this.label0.Text = "نمایشگاه کتاب (1391)";
             // 
+            // PollingToolStripMenuItem
+            // 
+            this.PollingToolStripMenuItem.Name = "PollingToolStripMenuItem";
+            this.PollingToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
+            this.PollingToolStripMenuItem.Text = "شرکت در نظرسنجی";
+            this.PollingToolStripMenuItem.Click += new System.EventHandler(this.PollingToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -481,6 +490,7 @@
         private System.Windows.Forms.ToolStripMenuItem PostOfficeManagmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem WareHouseManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem PaymentManagementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem PollingToolStripMenuItem;
 
 
 

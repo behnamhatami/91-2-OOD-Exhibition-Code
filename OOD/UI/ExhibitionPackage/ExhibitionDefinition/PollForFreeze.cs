@@ -20,7 +20,6 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             InitializeComponent();
         }
 
-
         // IResetAble
 
         // IPrecondition

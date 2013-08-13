@@ -149,5 +149,10 @@ namespace OOD.UI.Utility.Base
         {
             GoNext(new PollCrud());
         }
+
+        private void PollingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new Polling());
+        }
     }
 }

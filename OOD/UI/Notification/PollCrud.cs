@@ -18,7 +18,7 @@ namespace OOD.UI.Notification
     public partial class PollCrud : MainWindow
     {
         private List<String> _choices;
-        private Poll _poll;
+        private Polling _poll;
 
         public PollCrud()
         {
@@ -81,7 +81,7 @@ namespace OOD.UI.Notification
         // Create Poll
         public void CreatePollTabPageReset()
         {
-            _poll = new Poll();
+            _poll = new Polling();
             _choices = new List<string>();
             ResetHelper.Empty(createPollQuestionTextBox, createPollFinishByDateCheckBox, createPollDateTimePicker,
                 createPollNewPollChoiceTextBox, createPollPollChoiceListBox);

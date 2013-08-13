@@ -143,6 +143,12 @@
     <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseManaging.Designer.cs">
       <DependentUpon>WareHouseManaging.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Notification\Polling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\Polling.Designer.cs">
+      <DependentUpon>Polling.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Notification\Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\NotificationCenter.resx">
       <DependentUpon>NotificationCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\Polling.resx">
+      <DependentUpon>Polling.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\PollCrud.resx">
       <DependentUpon>PollCrud.cs</DependentUpon>
