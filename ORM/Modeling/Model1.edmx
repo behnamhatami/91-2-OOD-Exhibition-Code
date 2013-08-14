@@ -767,7 +767,7 @@
         </Association>
         <EntityType Name="InspectionRequest" BaseType="Model1.Request" >
           <NavigationProperty Name="Booth" Relationship="Model1.InspectionRequestBooth" FromRole="InspectionRequest" ToRole="Booth" />
-          <Property Type="String" Name="Fine" Nullable="false" />
+          <Property Type="Int32" Name="Fine" Nullable="false" />
           <Property Type="String" Name="ResponseType" Nullable="false" />
         </EntityType>
         <Association Name="InspectionRequestBooth">

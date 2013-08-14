@@ -8,7 +8,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest
 {
     public class InspectionRequest : Request
     {
-        public string Fine { get; set; }
+        public int Fine { get; set; }
         public JudgeType JudgeType { get; set; }
 
         public virtual Booth Booth { get; set; }
