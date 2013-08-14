@@ -85,6 +85,13 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
             get { return DataManager.DataContext.Requests.Where(request => request.Exhibition.Id == Id); }
         }
 
+        public IQueryable<Request> GetSpecialRequests<T>()
+        {
+            return Requests.Where(request => request is T)
+                .OrderBy(request => request.Responsed)
+                .ThenBy(request => request.CreationDate);
+        }
+
         public void RecieveNotification(String title, String content)
         {
             var db = DataManager.DataContext;
@@ -99,7 +106,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
         }
 
 
-        public bool HasRole<T>(User user)
+        public bool HasRole<T>(User user) where T : ExhibitionRole
         {
             return UserExhibitionRoles
                 .Where(role1 => role1.User.Id == user.Id)

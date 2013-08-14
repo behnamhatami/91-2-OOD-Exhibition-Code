@@ -1,4 +1,11 @@
-﻿using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
+﻿#region
+
+using System;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
+using OOD.Model.ModelContext;
+using OOD.Model.NotificationPackage;
+
+#endregion
 
 namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest
 {

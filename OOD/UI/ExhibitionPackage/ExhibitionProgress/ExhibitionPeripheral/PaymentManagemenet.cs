@@ -4,8 +4,8 @@ using System;
 using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
+using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
-using OOD.Model.UserManagingPackage;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.Helper;
 using OOD.UI.Utility.PopUp;
@@ -51,7 +51,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral
             var user = Program.User;
             var exhibition = Program.Exhibition;
 
-            if (exhibition.HasRole<CustomerRole>(user))
+            if (exhibition.HasRole<ECustomerRole>(user))
             {
                 if (exhibition.State == ExhibitionState.Started)
                     return true;

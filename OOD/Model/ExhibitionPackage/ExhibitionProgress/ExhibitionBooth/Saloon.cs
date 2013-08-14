@@ -10,7 +10,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Size { get; set; }
+        public int Area { get; set; }
 
         public virtual Map Map { get; set; }
         public virtual Exhibition Exhibition { get; set; }

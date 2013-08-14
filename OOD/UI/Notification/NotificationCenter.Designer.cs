@@ -1,6 +1,6 @@
 ﻿namespace OOD.UI.Notification
 {
-    partial class NotificationInbox
+    partial class NotificationCenter
     {
         /// <summary>
         /// Required designer variable.

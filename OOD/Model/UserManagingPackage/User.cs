@@ -99,6 +99,19 @@ namespace OOD.Model.UserManagingPackage
             });
         }
 
+        public void Fine(InspectionRequest request)
+        {
+            var title = "شما به علت تخلف جریمه شدید.";
+            var content =
+                String.Format("شما به علت تخلف در غرفه ی {0} در سالن {1} در نمایشگاه {2} به میزان {3} جریمه شدید.",
+                    request.Booth,
+                    request.Booth.Map.Saloon,
+                    request.Exhibition,
+                    request.Fine)
+                ;
+            RecieveNotification(title, content, request.Exhibition);
+        }
+
         public bool ChangePassword(string oldPassword, string newPassword)
         {
             if (!Authenticate(oldPassword))

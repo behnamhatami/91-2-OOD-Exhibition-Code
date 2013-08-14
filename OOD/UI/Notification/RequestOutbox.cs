@@ -134,7 +134,8 @@ namespace OOD.UI.Notification
 
             var request = new ExhibitionRequest
             {
-                Closed = false,
+                Agreed = false,
+                Responsed = false,
                 Content = content,
                 CreationDate = DateTime.Today,
                 Exhibition = exhibition,
@@ -148,7 +149,7 @@ namespace OOD.UI.Notification
         // Saloon Request
         private bool HasSaloonRequestPreCondition()
         {
-            return Program.Exhibition != null && Program.Exhibition.HasRole<ECustomerRole>(Program.User);
+            return Program.Exhibition != null && (Program.Exhibition.HasRole<ECustomerRole>(Program.User) || Program.Exhibition.HasRole<ExecutionRole>(Program.User));
         }
 
         private void SaloonRequestReset()
@@ -181,8 +182,9 @@ namespace OOD.UI.Notification
 
             var request = new SaloonRequest
             {
+                Agreed = false,
                 Area = int.Parse(area),
-                Closed = false,
+                Responsed = false,
                 Content = content,
                 CreationDate = DateTime.Today,
                 Exhibition = Program.Exhibition,
@@ -231,7 +233,8 @@ namespace OOD.UI.Notification
 
             var request = new BoothRequest
             {
-                Closed = false,
+                Agreed = false,
+                Responsed = false,
                 Content = content,
                 CreationDate = DateTime.Today,
                 Exhibition = Program.Exhibition,
@@ -289,8 +292,9 @@ namespace OOD.UI.Notification
 
             var request = new InspectionRequest
             {
+                Agreed = false,
                 Booth = booth,
-                Closed = false,
+                Responsed = false,
                 Content = content,
                 CreationDate = DateTime.Today,
                 Exhibition = Program.Exhibition,

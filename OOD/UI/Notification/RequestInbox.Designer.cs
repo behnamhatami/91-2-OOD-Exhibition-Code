@@ -32,7 +32,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.exhibitionRequestTabPage = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.exhibitionRequestResponse = new System.Windows.Forms.Button();
+            this.exhibitionAgreeButton = new System.Windows.Forms.Button();
+            this.exhibitionRequestResponseButton = new System.Windows.Forms.Button();
             this.exhibitionRequestResponseTextBox = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.exhibitionRequestContentTextBox = new System.Windows.Forms.TextBox();
@@ -44,6 +45,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.saloonRequestTabPage = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.saloonAgreeButton = new System.Windows.Forms.Button();
             this.saloonRequestHeightTextBox = new System.Windows.Forms.TextBox();
             this.saloonRequestWidthTextBox = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -60,24 +62,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.saloonShowButton = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.saloonCreateLengthTextBox = new System.Windows.Forms.TextBox();
-            this.SaloonWidthTextBox = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.saloonCreateAreaTextBox = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.saloonCreateNameTextBox = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.saloonRequestComboBox = new System.Windows.Forms.ComboBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -86,6 +71,7 @@
             this.boothRequestComboBox = new System.Windows.Forms.ComboBox();
             this.label31 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.boothAgreeButton = new System.Windows.Forms.Button();
             this.boothRequestQualityTextBox = new System.Windows.Forms.TextBox();
             this.boothResponseButton = new System.Windows.Forms.Button();
             this.boothRequestResponseTextBox = new System.Windows.Forms.TextBox();
@@ -126,7 +112,6 @@
             this.groupBox2.SuspendLayout();
             this.saloonRequestTabPage.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.boothRequestTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.InspectionRequestTabPage.SuspendLayout();
@@ -171,7 +156,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.exhibitionRequestResponse);
+            this.groupBox2.Controls.Add(this.exhibitionAgreeButton);
+            this.groupBox2.Controls.Add(this.exhibitionRequestResponseButton);
             this.groupBox2.Controls.Add(this.exhibitionRequestResponseTextBox);
             this.groupBox2.Controls.Add(this.label24);
             this.groupBox2.Controls.Add(this.exhibitionRequestContentTextBox);
@@ -185,14 +171,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "درخواست";
             // 
-            // exhibitionRequestResponse
+            // exhibitionAgreeButton
             // 
-            this.exhibitionRequestResponse.Location = new System.Drawing.Point(6, 233);
-            this.exhibitionRequestResponse.Name = "exhibitionRequestResponse";
-            this.exhibitionRequestResponse.Size = new System.Drawing.Size(71, 24);
-            this.exhibitionRequestResponse.TabIndex = 22;
-            this.exhibitionRequestResponse.Text = "ارسال";
-            this.exhibitionRequestResponse.UseVisualStyleBackColor = true;
+            this.exhibitionAgreeButton.Location = new System.Drawing.Point(83, 233);
+            this.exhibitionAgreeButton.Name = "exhibitionAgreeButton";
+            this.exhibitionAgreeButton.Size = new System.Drawing.Size(71, 24);
+            this.exhibitionAgreeButton.TabIndex = 23;
+            this.exhibitionAgreeButton.Text = "موافقت";
+            this.exhibitionAgreeButton.UseVisualStyleBackColor = true;
+            this.exhibitionAgreeButton.Click += new System.EventHandler(this.exhibitionAgreeButton_Click);
+            // 
+            // exhibitionRequestResponseButton
+            // 
+            this.exhibitionRequestResponseButton.Location = new System.Drawing.Point(6, 233);
+            this.exhibitionRequestResponseButton.Name = "exhibitionRequestResponseButton";
+            this.exhibitionRequestResponseButton.Size = new System.Drawing.Size(71, 24);
+            this.exhibitionRequestResponseButton.TabIndex = 22;
+            this.exhibitionRequestResponseButton.Text = "ارسال";
+            this.exhibitionRequestResponseButton.UseVisualStyleBackColor = true;
+            this.exhibitionRequestResponseButton.Click += new System.EventHandler(this.exhibitionRequestResponse_Click);
             // 
             // exhibitionRequestResponseTextBox
             // 
@@ -277,9 +274,7 @@
             // 
             this.saloonRequestTabPage.Controls.Add(this.groupBox4);
             this.saloonRequestTabPage.Controls.Add(this.saloonShowButton);
-            this.saloonRequestTabPage.Controls.Add(this.groupBox3);
             this.saloonRequestTabPage.Controls.Add(this.saloonRequestComboBox);
-            this.saloonRequestTabPage.Controls.Add(this.button6);
             this.saloonRequestTabPage.Controls.Add(this.label8);
             this.saloonRequestTabPage.Controls.Add(this.comboBox1);
             this.saloonRequestTabPage.Controls.Add(this.label27);
@@ -293,6 +288,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.saloonAgreeButton);
             this.groupBox4.Controls.Add(this.saloonRequestHeightTextBox);
             this.groupBox4.Controls.Add(this.saloonRequestWidthTextBox);
             this.groupBox4.Controls.Add(this.label19);
@@ -308,12 +304,22 @@
             this.groupBox4.Controls.Add(this.saloonRequestTitleTextBox);
             this.groupBox4.Controls.Add(this.label29);
             this.groupBox4.Controls.Add(this.label30);
-            this.groupBox4.Location = new System.Drawing.Point(28, 69);
+            this.groupBox4.Location = new System.Drawing.Point(28, 70);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(428, 272);
             this.groupBox4.TabIndex = 31;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "درخواست";
+            // 
+            // saloonAgreeButton
+            // 
+            this.saloonAgreeButton.Location = new System.Drawing.Point(83, 243);
+            this.saloonAgreeButton.Name = "saloonAgreeButton";
+            this.saloonAgreeButton.Size = new System.Drawing.Size(71, 24);
+            this.saloonAgreeButton.TabIndex = 36;
+            this.saloonAgreeButton.Text = "موافقت";
+            this.saloonAgreeButton.UseVisualStyleBackColor = true;
+            this.saloonAgreeButton.Click += new System.EventHandler(this.saloonAgreeButton_Click);
             // 
             // saloonRequestHeightTextBox
             // 
@@ -368,7 +374,7 @@
             // 
             // saloonRequestNameTextBox
             // 
-            this.saloonRequestNameTextBox.Location = new System.Drawing.Point(4, 86);
+            this.saloonRequestNameTextBox.Location = new System.Drawing.Point(6, 86);
             this.saloonRequestNameTextBox.Name = "saloonRequestNameTextBox";
             this.saloonRequestNameTextBox.ReadOnly = true;
             this.saloonRequestNameTextBox.Size = new System.Drawing.Size(294, 22);
@@ -391,6 +397,7 @@
             this.saloonRequestResponseButton.TabIndex = 22;
             this.saloonRequestResponseButton.Text = "ارسال";
             this.saloonRequestResponseButton.UseVisualStyleBackColor = true;
+            this.saloonRequestResponseButton.Click += new System.EventHandler(this.saloonRequestResponseButton_Click);
             // 
             // saloonRequestResponseTextBox
             // 
@@ -452,159 +459,7 @@
             this.saloonShowButton.TabIndex = 30;
             this.saloonShowButton.Text = "مشاهده";
             this.saloonShowButton.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.saloonCreateLengthTextBox);
-            this.groupBox3.Controls.Add(this.SaloonWidthTextBox);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.saloonCreateAreaTextBox);
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.saloonCreateNameTextBox);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.button5);
-            this.groupBox3.Controls.Add(this.textBox12);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.textBox13);
-            this.groupBox3.Controls.Add(this.textBox14);
-            this.groupBox3.Controls.Add(this.label25);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Location = new System.Drawing.Point(28, 69);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(428, 272);
-            this.groupBox3.TabIndex = 31;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "درخواست";
-            // 
-            // saloonCreateLengthTextBox
-            // 
-            this.saloonCreateLengthTextBox.Location = new System.Drawing.Point(198, 142);
-            this.saloonCreateLengthTextBox.Name = "saloonCreateLengthTextBox";
-            this.saloonCreateLengthTextBox.ReadOnly = true;
-            this.saloonCreateLengthTextBox.Size = new System.Drawing.Size(100, 22);
-            this.saloonCreateLengthTextBox.TabIndex = 35;
-            // 
-            // SaloonWidthTextBox
-            // 
-            this.SaloonWidthTextBox.Location = new System.Drawing.Point(4, 142);
-            this.SaloonWidthTextBox.Name = "SaloonWidthTextBox";
-            this.SaloonWidthTextBox.ReadOnly = true;
-            this.SaloonWidthTextBox.Size = new System.Drawing.Size(100, 22);
-            this.SaloonWidthTextBox.TabIndex = 34;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(123, 145);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(72, 14);
-            this.label9.TabIndex = 33;
-            this.label9.Text = "ستون سالن:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(352, 145);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 14);
-            this.label10.TabIndex = 32;
-            this.label10.Text = "ردیف سالن:";
-            // 
-            // saloonCreateAreaTextBox
-            // 
-            this.saloonCreateAreaTextBox.Location = new System.Drawing.Point(4, 114);
-            this.saloonCreateAreaTextBox.Name = "saloonCreateAreaTextBox";
-            this.saloonCreateAreaTextBox.ReadOnly = true;
-            this.saloonCreateAreaTextBox.Size = new System.Drawing.Size(294, 22);
-            this.saloonCreateAreaTextBox.TabIndex = 31;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(337, 117);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 14);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "مساحت سالن:";
-            // 
-            // saloonCreateNameTextBox
-            // 
-            this.saloonCreateNameTextBox.Location = new System.Drawing.Point(4, 86);
-            this.saloonCreateNameTextBox.Name = "saloonCreateNameTextBox";
-            this.saloonCreateNameTextBox.ReadOnly = true;
-            this.saloonCreateNameTextBox.Size = new System.Drawing.Size(294, 22);
-            this.saloonCreateNameTextBox.TabIndex = 29;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(365, 89);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 14);
-            this.label12.TabIndex = 28;
-            this.label12.Text = "نام سالن:";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(6, 243);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 22;
-            this.button5.Text = "ارسال";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(4, 170);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(294, 67);
-            this.textBox12.TabIndex = 21;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(384, 179);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 14);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "پاسخ:";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(4, 48);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(294, 32);
-            this.textBox13.TabIndex = 5;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(4, 21);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(294, 22);
-            this.textBox14.TabIndex = 4;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(385, 51);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(37, 14);
-            this.label25.TabIndex = 3;
-            this.label25.Text = "محتوا:";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(342, 21);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(80, 14);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "تیتر درخواست:";
+            this.saloonShowButton.Click += new System.EventHandler(this.saloonShowButton_Click);
             // 
             // saloonRequestComboBox
             // 
@@ -613,15 +468,6 @@
             this.saloonRequestComboBox.Name = "saloonRequestComboBox";
             this.saloonRequestComboBox.Size = new System.Drawing.Size(300, 22);
             this.saloonRequestComboBox.TabIndex = 29;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(28, 40);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 30;
-            this.button6.Text = "مشاهده";
-            this.button6.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -671,6 +517,7 @@
             this.boothShowButton.TabIndex = 33;
             this.boothShowButton.Text = "مشاهده";
             this.boothShowButton.UseVisualStyleBackColor = true;
+            this.boothShowButton.Click += new System.EventHandler(this.boothShowButton_Click);
             // 
             // boothRequestComboBox
             // 
@@ -691,6 +538,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.boothAgreeButton);
             this.groupBox1.Controls.Add(this.boothRequestQualityTextBox);
             this.groupBox1.Controls.Add(this.boothResponseButton);
             this.groupBox1.Controls.Add(this.boothRequestResponseTextBox);
@@ -716,6 +564,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "درخواست";
             // 
+            // boothAgreeButton
+            // 
+            this.boothAgreeButton.Location = new System.Drawing.Point(87, 241);
+            this.boothAgreeButton.Name = "boothAgreeButton";
+            this.boothAgreeButton.Size = new System.Drawing.Size(71, 24);
+            this.boothAgreeButton.TabIndex = 37;
+            this.boothAgreeButton.Text = "موافقت";
+            this.boothAgreeButton.UseVisualStyleBackColor = true;
+            this.boothAgreeButton.Click += new System.EventHandler(this.boothAgreeButton_Click);
+            // 
             // boothRequestQualityTextBox
             // 
             this.boothRequestQualityTextBox.Location = new System.Drawing.Point(10, 95);
@@ -732,6 +590,7 @@
             this.boothResponseButton.TabIndex = 34;
             this.boothResponseButton.Text = "ارسال";
             this.boothResponseButton.UseVisualStyleBackColor = true;
+            this.boothResponseButton.Click += new System.EventHandler(this.boothResponseButton_Click);
             // 
             // boothRequestResponseTextBox
             // 
@@ -926,6 +785,7 @@
             this.inspectionRequestResponseButton.TabIndex = 37;
             this.inspectionRequestResponseButton.Text = "ارسال";
             this.inspectionRequestResponseButton.UseVisualStyleBackColor = true;
+            this.inspectionRequestResponseButton.Click += new System.EventHandler(this.inspectionRequestResponseButton_Click);
             // 
             // inspectionRequestResponseTextBox
             // 
@@ -967,6 +827,7 @@
             this.inspectionRequestJudgeTypeComboBox.Name = "inspectionRequestJudgeTypeComboBox";
             this.inspectionRequestJudgeTypeComboBox.Size = new System.Drawing.Size(110, 22);
             this.inspectionRequestJudgeTypeComboBox.TabIndex = 5;
+            this.inspectionRequestJudgeTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.inspectionRequestJudgeTypeComboBox_SelectedIndexChanged);
             // 
             // label35
             // 
@@ -1019,6 +880,7 @@
             this.inspectionShowButton.TabIndex = 36;
             this.inspectionShowButton.Text = "مشاهده";
             this.inspectionShowButton.UseVisualStyleBackColor = true;
+            this.inspectionShowButton.Click += new System.EventHandler(this.inspectionShowButton_Click);
             // 
             // inspectionRequestsComboBox
             // 
@@ -1056,8 +918,6 @@
             this.saloonRequestTabPage.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.boothRequestTabPage.ResumeLayout(false);
             this.boothRequestTabPage.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1101,25 +961,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox exhibitionRequestResponseTextBox;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button exhibitionRequestResponse;
+        private System.Windows.Forms.Button exhibitionRequestResponseButton;
         private System.Windows.Forms.TabPage saloonRequestTabPage;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox saloonCreateLengthTextBox;
-        private System.Windows.Forms.TextBox SaloonWidthTextBox;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox saloonCreateAreaTextBox;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox saloonCreateNameTextBox;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox boothRequestResponseTextBox;
@@ -1165,6 +1008,9 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Button inspectionRequestResponseButton;
         private System.Windows.Forms.TextBox inspectionRequestResponseTextBox;
+        private System.Windows.Forms.Button exhibitionAgreeButton;
+        private System.Windows.Forms.Button saloonAgreeButton;
+        private System.Windows.Forms.Button boothAgreeButton;
 
     }
 }

@@ -127,7 +127,7 @@ namespace OOD.UI.Utility.Base
 
         private void NotifcationCenterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GoNext(new NotificationInbox());
+            GoNext(new NotificationCenter());
         }
 
         private void PostOfficeManagmentToolStripMenuItem_Click(object sender, EventArgs e)
