@@ -45,13 +45,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.listShowButton = new System.Windows.Forms.Button();
             this.recieveTabPage = new System.Windows.Forms.TabPage();
+            this.recieveDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.recieveItemUserListComboBox = new System.Windows.Forms.ComboBox();
             this.recieveItemNameTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.createButton = new System.Windows.Forms.Button();
-            this.recieveDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.listTabPage.SuspendLayout();
@@ -234,6 +234,13 @@
             this.recieveTabPage.Text = "دریافت کالا";
             this.recieveTabPage.UseVisualStyleBackColor = true;
             // 
+            // recieveDateTimePicker
+            // 
+            this.recieveDateTimePicker.Location = new System.Drawing.Point(107, 59);
+            this.recieveDateTimePicker.Name = "recieveDateTimePicker";
+            this.recieveDateTimePicker.Size = new System.Drawing.Size(200, 22);
+            this.recieveDateTimePicker.TabIndex = 58;
+            // 
             // recieveItemUserListComboBox
             // 
             this.recieveItemUserListComboBox.FormattingEnabled = true;
@@ -286,13 +293,6 @@
             this.createButton.UseVisualStyleBackColor = true;
             this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
-            // recieveDateTimePicker
-            // 
-            this.recieveDateTimePicker.Location = new System.Drawing.Point(107, 59);
-            this.recieveDateTimePicker.Name = "recieveDateTimePicker";
-            this.recieveDateTimePicker.Size = new System.Drawing.Size(200, 22);
-            this.recieveDateTimePicker.TabIndex = 58;
-            // 
             // WareHouseManaging
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -300,7 +300,7 @@
             this.ClientSize = new System.Drawing.Size(654, 463);
             this.Controls.Add(this.panel2);
             this.Name = "WareHouseManaging";
-            this.Text = "WareHouseManaging";
+            this.Text = "مدیریت امور انبارداری";
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel2.ResumeLayout(false);
             this.tabControl.ResumeLayout(false);

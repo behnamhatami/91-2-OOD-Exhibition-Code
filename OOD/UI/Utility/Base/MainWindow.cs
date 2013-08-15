@@ -2,6 +2,7 @@
 
 using System;
 using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
+using OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
 using OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
 using OOD.UI.Notification;
 using OOD.UI.UserManagingPackage;
@@ -15,11 +16,6 @@ namespace OOD.UI.Utility.Base
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        protected void MainWindow_Load(object sender, EventArgs e)
-        {
-            Reload();
         }
 
         //IResetAble
@@ -157,7 +153,27 @@ namespace OOD.UI.Utility.Base
 
         private void NewsCreationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GoNext(new NewsCreation());
+            GoNext(new CallCreation());
+        }
+
+        private void RequestInboxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new RequestInbox());
+        }
+
+        private void RequestOutboxToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new RequestOutbox());
+        }
+
+        private void CallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new CallCreation());
+        }
+
+        private void BoothManagementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new BoothCrud());
         }
     }
 }

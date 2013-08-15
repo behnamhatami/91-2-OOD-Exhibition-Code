@@ -1,9 +1,6 @@
 ﻿#region
 
-using System;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
-using OOD.Model.ModelContext;
-using OOD.Model.NotificationPackage;
 
 #endregion
 
@@ -18,5 +15,6 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest
         public bool ForCommision { get; set; }
         public bool HasPhone { get; set; }
         public bool HasCardReader { get; set; }
+        public int Count { get; set; }
     }
 }

@@ -15,11 +15,11 @@ using OOD.UI.Utility.PopUp;
 
 namespace OOD.UI.Notification
 {
-    public partial class NewsCreation : MainWindow
+    public partial class CallCreation : MainWindow
     {
         private List<String> _attachments;
 
-        public NewsCreation()
+        public CallCreation()
         {
             InitializeComponent();
         }

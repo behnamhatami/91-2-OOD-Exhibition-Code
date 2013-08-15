@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 #endregion
@@ -89,12 +90,25 @@ namespace OOD.UI.Utility.Helper
             listBox.Items.AddRange(init);
         }
 
+        public static void Refresh(ListBox listBox, IQueryable<Object> queryable)
+        {
+            if (queryable != null)
+                Refresh(listBox, queryable.ToArray());
+        }
+
+
         public static void Refresh(ComboBox comboBox, Object[] init)
         {
             Empty(comboBox);
             comboBox.Items.Clear();
             if (init != null && init.Length != 0)
                 comboBox.Items.AddRange(init);
+        }
+
+        public static void Refresh(ComboBox comboBox, IQueryable<Object> queryable)
+        {
+            if (queryable != null)
+                Refresh(comboBox, queryable.ToArray());
         }
 
         public static void Refresh(CheckedListBox checkedListBox, Object[] init)

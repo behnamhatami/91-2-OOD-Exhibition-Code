@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
@@ -160,7 +159,8 @@ namespace OOD.UI.Notification
         {
             ResetHelper.Empty(listPollQuestionTextBox, listPollStateTextBox, listPollFinishDateTextBox,
                 listPollPollChoiceListBox);
-            ResetHelper.Refresh(listPollListComboBox, Program.Exhibition.Polls.ToArray());
+            ResetHelper.Refresh(listPollListComboBox, Program.Exhibition.Polls);
+            listPollPollChoiceListBox.Items.Clear();
             listPollFinishButton.Enabled = false;
         }
 
@@ -173,7 +173,7 @@ namespace OOD.UI.Notification
             listPollFinishDateTextBox.Text = poll.FinishDate.ToString();
             listPollStateTextBox.Text = poll.Closed ? "بسته شده" : "باز";
             listPollFinishButton.Enabled = poll.FinishByDate == false && poll.Closed == false;
-            ResetHelper.Refresh(listPollPollChoiceListBox, poll.PollChoices.ToArray());
+            ResetHelper.Refresh(listPollPollChoiceListBox, poll.PollChoices);
         }
 
         private void listPollFinishButton_Click(object sender, EventArgs e)

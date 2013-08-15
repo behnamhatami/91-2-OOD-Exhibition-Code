@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Linq;
 using OOD.Model.ModelContext;
 using OOD.Model.UserManagingPackage;
 using OOD.UI.Utility.Base;
@@ -96,7 +95,7 @@ namespace OOD.UI.UserManagingPackage
         private void RemoveReset()
         {
             var db = DataManager.DataContext;
-            ResetHelper.Refresh(RemoveUsernameComboBox, db.Users.ToArray());
+            ResetHelper.Refresh(RemoveUsernameComboBox, db.Users);
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
@@ -90,7 +89,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral
         {
             ResetHelper.Empty(listIdTextBox, listTypeTextBox, listDestinationTextBox, listReleaseDateTextBox);
             var post = Program.Exhibition.PostOffice;
-            ResetHelper.Refresh(listListBox, post.PostItems.ToArray());
+            ResetHelper.Refresh(listListBox, post.PostItems);
         }
 
         private void createItemButton_Click(object sender, EventArgs e)

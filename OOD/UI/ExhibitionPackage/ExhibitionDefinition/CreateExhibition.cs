@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
@@ -30,7 +29,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             ResetHelper.Empty(ExhibitionDescriptionTextBox, ExhibitionFullDescriptionTextBox, ExhibitionNameTextBox,
                 ExhibitionCreatorTextBox);
             var db = DataManager.DataContext;
-            ResetHelper.Refresh(ExhibitionChairListBox, db.Users.ToArray());
+            ResetHelper.Refresh(ExhibitionChairListBox, db.Users);
         }
 
 

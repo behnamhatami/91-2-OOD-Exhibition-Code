@@ -86,7 +86,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral
             ResetHelper.Empty(listAmountTextBox, listDateTextBox, listIdTextBox);
             ResetHelper.Refresh(listListBox,
                 Program.Exhibition.Payments
-                    .Where(payment => payment.User.Id == Program.User.Id).ToArray());
+                    .Where(payment => payment.User.Id == Program.User.Id));
         }
 
         private void createItemButton_Click(object sender, EventArgs e)

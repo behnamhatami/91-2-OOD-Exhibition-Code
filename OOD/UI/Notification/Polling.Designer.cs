@@ -152,7 +152,7 @@ namespace OOD.UI.Notification
             this.ClientSize = new System.Drawing.Size(654, 463);
             this.Controls.Add(this.panel2);
             this.Name = "Polling";
-            this.Text = "Poll";
+            this.Text = "نظرسنجی";
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

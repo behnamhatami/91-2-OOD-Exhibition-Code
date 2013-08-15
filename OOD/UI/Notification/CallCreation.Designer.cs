@@ -1,6 +1,6 @@
 ﻿namespace OOD.UI.Notification
 {
-    partial class NewsCreation
+    partial class CallCreation
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.newsPublicNotificationCheckBox = new System.Windows.Forms.CheckBox();
             this.newsCancelButton = new System.Windows.Forms.Button();
             this.newsCreationButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.newsPhoneTextBox = new System.Windows.Forms.TextBox();
             this.newsRemoveAttachmentButton = new System.Windows.Forms.Button();
             this.newsAddAttachmentButton = new System.Windows.Forms.Button();
             this.newsAttachmentListBox = new System.Windows.Forms.ListBox();
@@ -44,9 +47,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.newsPublicNotificationCheckBox = new System.Windows.Forms.CheckBox();
-            this.newsPhoneTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +69,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(498, 381);
             this.panel2.TabIndex = 6;
+            // 
+            // newsPublicNotificationCheckBox
+            // 
+            this.newsPublicNotificationCheckBox.AutoSize = true;
+            this.newsPublicNotificationCheckBox.Location = new System.Drawing.Point(187, 136);
+            this.newsPublicNotificationCheckBox.Name = "newsPublicNotificationCheckBox";
+            this.newsPublicNotificationCheckBox.Size = new System.Drawing.Size(98, 18);
+            this.newsPublicNotificationCheckBox.TabIndex = 10;
+            this.newsPublicNotificationCheckBox.Text = "ارسال عمومی";
+            this.newsPublicNotificationCheckBox.UseVisualStyleBackColor = true;
+            this.newsPublicNotificationCheckBox.CheckedChanged += new System.EventHandler(this.newsPublicNotificationCheckBox_CheckedChanged);
             // 
             // newsCancelButton
             // 
@@ -104,6 +115,22 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "الحاقات";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(305, 118);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 14);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "شماره تلفن جدید:";
+            // 
+            // newsPhoneTextBox
+            // 
+            this.newsPhoneTextBox.Location = new System.Drawing.Point(6, 115);
+            this.newsPhoneTextBox.Name = "newsPhoneTextBox";
+            this.newsPhoneTextBox.Size = new System.Drawing.Size(284, 22);
+            this.newsPhoneTextBox.TabIndex = 9;
             // 
             // newsRemoveAttachmentButton
             // 
@@ -206,41 +233,14 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // newsPublicNotificationCheckBox
-            // 
-            this.newsPublicNotificationCheckBox.AutoSize = true;
-            this.newsPublicNotificationCheckBox.Location = new System.Drawing.Point(187, 136);
-            this.newsPublicNotificationCheckBox.Name = "newsPublicNotificationCheckBox";
-            this.newsPublicNotificationCheckBox.Size = new System.Drawing.Size(98, 18);
-            this.newsPublicNotificationCheckBox.TabIndex = 10;
-            this.newsPublicNotificationCheckBox.Text = "ارسال عمومی";
-            this.newsPublicNotificationCheckBox.UseVisualStyleBackColor = true;
-            this.newsPublicNotificationCheckBox.CheckedChanged += new System.EventHandler(this.newsPublicNotificationCheckBox_CheckedChanged);
-            // 
-            // newsPhoneTextBox
-            // 
-            this.newsPhoneTextBox.Location = new System.Drawing.Point(6, 115);
-            this.newsPhoneTextBox.Name = "newsPhoneTextBox";
-            this.newsPhoneTextBox.Size = new System.Drawing.Size(284, 22);
-            this.newsPhoneTextBox.TabIndex = 9;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(305, 118);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 14);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "شماره تلفن جدید:";
-            // 
-            // NewsCreation
+            // CallCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 463);
             this.Controls.Add(this.panel2);
-            this.Name = "NewsCreation";
-            this.Text = "NewsCreation";
+            this.Name = "CallCreation";
+            this.Text = "فراخوان و ارسال خبر";
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

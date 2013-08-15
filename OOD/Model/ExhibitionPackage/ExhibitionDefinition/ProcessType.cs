@@ -1,10 +1,4 @@
-﻿#region
-
-
-
-#endregion
-
-namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
+﻿namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
 {
     public enum ProcessType
 

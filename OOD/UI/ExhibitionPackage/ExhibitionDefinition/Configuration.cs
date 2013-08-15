@@ -82,7 +82,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
         {
             var exhibition = Program.Exhibition;
             var db = DataManager.DataContext;
-            ResetHelper.Refresh(featureInitialConfigurationComboBox, db.Exhibitions.ToArray());
+            ResetHelper.Refresh(featureInitialConfigurationComboBox, db.Exhibitions);
 
             if (exhibition != null)
             {
@@ -135,8 +135,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var db = DataManager.DataContext;
 
             ResetHelper.Refresh(roleChoicesComboBox, ExhibitionRole.GetChoices());
-            ResetHelper.Refresh(roleUserComboBox, db.Users.ToArray());
-            ResetHelper.Refresh(roleUserExhibitionRoleListBox, Program.Exhibition.UserExhibitionRoles.ToArray());
+            ResetHelper.Refresh(roleUserComboBox, db.Users);
+            ResetHelper.Refresh(roleUserExhibitionRoleListBox, Program.Exhibition.UserExhibitionRoles);
         }
 
         private void roleAddButton_Click(object sender, EventArgs e)
@@ -187,7 +187,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             ResetHelper.Empty(processMaxLengthTextBox, processMinLengthTextBox, processStartNodeTextBox,
                 processFinishNodeTextBox);
             ResetHelper.Refresh(processProcessComboBox, ProcessTypeWrapper.ProcessTypes);
-            ResetHelper.Refresh(processCheckedListBox, exhibition.Configuration.Processes.ToArray());
+            ResetHelper.Refresh(processCheckedListBox, exhibition.Configuration.Processes);
         }
 
         private void processAddButton_Click(object sender, EventArgs e)

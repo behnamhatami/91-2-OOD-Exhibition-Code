@@ -7,6 +7,7 @@ using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
+using OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.Helper;
 using OOD.UI.Utility.PopUp;
@@ -22,27 +23,36 @@ namespace OOD.UI.Notification
             InitializeComponent();
         }
 
+
         // IResetAble
 
         public override void Reset()
         {
             tabControl1.Controls.Clear();
 
-            ExhibitionRequestReset();
             if (HasExhibitionRequestPreCondition())
+            {
                 tabControl1.Controls.Add(exhibitionRequestTabPage);
+                ExhibitionRequestReset();
+            }
 
-            SaloonRequestReset();
             if (HasSaloonRequestPreCondition())
+            {
                 tabControl1.Controls.Add(saloonRequestTabPage);
+                SaloonRequestReset();
+            }
 
-            BoothRequestReset();
             if (HasBoothRequestPreCondition())
+            {
                 tabControl1.Controls.Add(boothRequestTabPage);
+                BoothRequestReset();
+            }
 
-            InspectionRequestReset();
             if (HasInspectionRequestPreCondition())
+            {
                 tabControl1.Controls.Add(InspectionRequestTabPage);
+                InspectionRequestReset();
+            }
         }
 
         // IPrecondition
@@ -118,17 +128,18 @@ namespace OOD.UI.Notification
 
         private void ExhibitionRequestReset()
         {
-            ResetHelper.Empty(exhibitionRequestsComboBox, exhibitionRequestTitleTextBox, exhibitionRequestContentTextBox,
+            ResetHelper.Empty(exhibitionRequestTitleTextBox, exhibitionRequestContentTextBox,
                 exhibitionRequestResponseTextBox);
-            ResetHelper.Refresh(exhibitionRequestsComboBox,
-                Program.Exhibition.GetSpecialRequests<ExhibitionRequest>().ToArray());
+
+            ResetHelper.Refresh(exhibitionRequestListComboBox,
+                Program.Exhibition.GetSpecialRequests<ExhibitionRequest>());
             exhibitionRequestResponseButton.Enabled = false;
             exhibitionAgreeButton.Enabled = false;
         }
 
         private void exhibitionShowButton_Click(object sender, EventArgs e)
         {
-            var request = exhibitionRequestsComboBox.SelectedItem as ExhibitionRequest;
+            var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
             if (GeneralErrors.IsNull(request, "درخواست"))
                 return;
 
@@ -140,9 +151,9 @@ namespace OOD.UI.Notification
             exhibitionAgreeButton.Enabled = !request.Agreed;
         }
 
-        private void exhibitionRequestResponse_Click(object sender, EventArgs e)
+        private void exhibitionRequestResponseButton_Click(object sender, EventArgs e)
         {
-            var request = exhibitionRequestsComboBox.SelectedItem as ExhibitionRequest;
+            var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
             var response = exhibitionRequestResponseTextBox.Text;
             if (GeneralErrors.IsEmptyField(response, "پاسخ"))
                 return;
@@ -153,7 +164,7 @@ namespace OOD.UI.Notification
 
         private void exhibitionAgreeButton_Click(object sender, EventArgs e)
         {
-            var request = exhibitionRequestsComboBox.SelectedItem as ExhibitionRequest;
+            var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
             var user = request.User;
             var exhibition = request.Exhibition;
             var userExhibitionRole = new UserExhibitionRole
@@ -165,6 +176,7 @@ namespace OOD.UI.Notification
             DataManager.DataContext.UserExhibitionRoles.Add(userExhibitionRole);
             userExhibitionRole.NotifyAdd();
             AgreeResponse(request);
+            ExhibitionRequestReset();
         }
 
         // Saloon Request
@@ -179,11 +191,12 @@ namespace OOD.UI.Notification
             ResetHelper.Empty(saloonRequestComboBox, saloonRequestTitleTextBox, saloonRequestContentTextBox,
                 saloonRequestNameTextBox, saloonRequestAreaTextBox, saloonRequestHeightTextBox,
                 saloonRequestWidthTextBox, saloonRequestResponseTextBox);
-            ResetHelper.Refresh(exhibitionRequestsComboBox,
-                Program.Exhibition.GetSpecialRequests<SaloonRequest>().ToArray());
+            ResetHelper.Refresh(saloonRequestComboBox,
+                Program.Exhibition.GetSpecialRequests<SaloonRequest>());
 
             saloonAgreeButton.Enabled = false;
             saloonRequestResponseButton.Enabled = false;
+            saloonRequestResponseTextBox.ReadOnly = true;
         }
 
         private void saloonShowButton_Click(object sender, EventArgs e)
@@ -228,8 +241,22 @@ namespace OOD.UI.Notification
                 Name = request.Name,
                 Area = request.Area
             };
-            DataManager.DataContext.Saloons.Add(saloon);
+            var db = DataManager.DataContext;
+
+            for (var i = 0; i < saloon.Map.Width*saloon.Map.Height; i++)
+            {
+                db.Booths.Add(new Booth
+                {
+                    Enabled = true,
+                    Index = i,
+                    Map = saloon.Map,
+                    Quality = BoothQuality.High,
+                    OperatorCount = 1,
+                });
+            }
+            db.Saloons.Add(saloon);
             AgreeResponse(request);
+            SaloonRequestReset();
         }
 
         // Booth Request
@@ -244,9 +271,9 @@ namespace OOD.UI.Notification
             ResetHelper.Empty(boothRequestComboBox, boothRequestTitleTextBox, boothRequestContentTextBox,
                 boothRequestOperatorTextBox, boothRequestQualityTextBox, boothRequestForSellCheckBox,
                 boothRequestForVitrinCheckBox, boothRequestForCommisionCheckBox, boothRequestHasPhoneCheckBox,
-                boothRequestHasCardReaderCheckBox, boothRequestResponseTextBox);
+                boothRequestHasCardReaderCheckBox, boothRequestResponseTextBox, boothRequestCountTextBox);
 
-            ResetHelper.Refresh(boothRequestComboBox, Program.Exhibition.GetSpecialRequests<BoothRequest>().ToArray());
+            ResetHelper.Refresh(boothRequestComboBox, Program.Exhibition.GetSpecialRequests<BoothRequest>());
 
             boothResponseButton.Enabled = false;
             boothAgreeButton.Enabled = false;
@@ -268,6 +295,7 @@ namespace OOD.UI.Notification
             boothRequestHasPhoneCheckBox.Checked = request.HasPhone;
             boothRequestHasCardReaderCheckBox.Checked = request.HasCardReader;
             boothRequestResponseTextBox.Text = request.Response;
+            boothRequestCountTextBox.Text = request.Count + "";
 
             boothRequestResponseTextBox.ReadOnly = request.Responsed;
             boothResponseButton.Enabled = !request.Responsed;
@@ -287,8 +315,11 @@ namespace OOD.UI.Notification
         private void boothAgreeButton_Click(object sender, EventArgs e)
         {
             var request = boothRequestComboBox.SelectedItem as BoothRequest;
-
-            throw new Exception("Not Yet Implemented.");
+            GoNext(new BoothSelector(request));
+            if (request.Agreed)
+                AgreeResponse(request);
+            DataManager.DataContext.SaveChanges();
+            BoothRequestReset();
         }
 
         // Inspection Request
@@ -303,7 +334,7 @@ namespace OOD.UI.Notification
                 inspectionRequestJudgeTypeComboBox, inspectionRequestFineTextBox, inspectionRequestResponseTextBox);
 
             ResetHelper.Refresh(inspectionRequestsComboBox,
-                Program.Exhibition.GetSpecialRequests<InspectionRequest>().ToArray());
+                Program.Exhibition.GetSpecialRequests<InspectionRequest>());
             ResetHelper.Refresh(inspectionRequestJudgeTypeComboBox, JudgeTypeWrapper.JudgeTypes);
 
             inspectionRequestResponseButton.Enabled = false;
@@ -321,15 +352,22 @@ namespace OOD.UI.Notification
             inspectionRequestJudgeTypeComboBox.Text = JudgeTypeWrapper.GetWrapper(request.JudgeType).ToString();
             inspectionRequestJudgeTypeComboBox.Enabled = !request.Responsed;
             inspectionRequestFineTextBox.Visible = request.JudgeType == JudgeType.Fine;
+            inspectionRequestFineTextBox.Text = request.Fine + "";
+            label28.Visible = request.JudgeType == JudgeType.Fine;
             inspectionRequestFineTextBox.Enabled = !request.Responsed;
             inspectionRequestResponseButton.Enabled = !request.Responsed;
             inspectionRequestResponseTextBox.ReadOnly = request.Responsed;
+            inspectionRequestResponseTextBox.Text = request.Response;
         }
 
         private void inspectionRequestJudgeTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var judgeType = (inspectionRequestJudgeTypeComboBox.SelectedItem as JudgeTypeWrapper).Type;
+            var isNull = inspectionRequestJudgeTypeComboBox.SelectedItem as JudgeTypeWrapper == null;
+            var judgeType = isNull
+                ? JudgeType.NothingImportant
+                : (inspectionRequestJudgeTypeComboBox.SelectedItem as JudgeTypeWrapper).Type;
             inspectionRequestFineTextBox.Visible = judgeType == JudgeType.Fine;
+            label28.Visible = judgeType == JudgeType.Fine;
         }
 
         private void inspectionRequestResponseButton_Click(object sender, EventArgs e)
@@ -338,6 +376,7 @@ namespace OOD.UI.Notification
             var response = inspectionRequestResponseTextBox.Text;
             var fine = inspectionRequestFineTextBox.Text;
             var judgeType = inspectionRequestJudgeTypeComboBox.SelectedItem as JudgeTypeWrapper;
+
             if (GeneralErrors.IsEmptyField(response, "پاسخ")
                 || GeneralErrors.IsNull(judgeType, "نوع قضاوت")
                 || (judgeType.Type == JudgeType.Fine && GeneralErrors.IsNotValidInt(fine, 0, "هیزان جریمه")))
@@ -348,7 +387,6 @@ namespace OOD.UI.Notification
                 request.Fine = int.Parse(fine);
             SendResponse(request, response);
             InspectionRequestReset();
-
 
             switch (request.JudgeType)
             {
@@ -368,6 +406,12 @@ namespace OOD.UI.Notification
                         .First(role => role.ExhibitionRole is ECustomerRole);
                     userExhibitionRole.NotifyRemove();
                     db.UserExhibitionRoles.Remove(userExhibitionRole);
+                    var booths = db.Booths
+                        .Where(booth => booth.Map.Saloon.Exhibition.Id == exhibition.Id)
+                        .Where(booth => booth.Request != null && booth.Request.User.Id == user.Id);
+
+                    foreach (var booth in booths)
+                        booth.Request = null;
                     db.SaveChanges();
                     return;
             }

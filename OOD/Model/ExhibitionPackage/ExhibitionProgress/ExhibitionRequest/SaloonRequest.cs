@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest
+﻿namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest
 {
     public class SaloonRequest : Request
     {

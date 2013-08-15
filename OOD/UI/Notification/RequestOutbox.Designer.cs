@@ -37,8 +37,6 @@
             this.exhibitionRequestButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.exhibitionRequestExhibitionComboBox = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.saloonRequestTabPage = new System.Windows.Forms.TabPage();
             this.saloonRequestHeightTextBox = new System.Windows.Forms.TextBox();
             this.SaloonRequestWidthTextBox = new System.Windows.Forms.TextBox();
@@ -83,7 +81,8 @@
             this.inspectionRequestSaloonComboBox = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.requestListTabPage = new System.Windows.Forms.TabPage();
+            this.listRequestTabPage = new System.Windows.Forms.TabPage();
+            this.requestListComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.requestResponseTextBox = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -92,15 +91,16 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.requestListShowButton = new System.Windows.Forms.Button();
-            this.requestListComboBox = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.boothRequestCountTextBox = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.exhibitionRequestTabPage.SuspendLayout();
             this.saloonRequestTabPage.SuspendLayout();
             this.boothRequestTabPage.SuspendLayout();
             this.InspectionRequestTabPage.SuspendLayout();
-            this.requestListTabPage.SuspendLayout();
+            this.listRequestTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -119,7 +119,7 @@
             this.TabControl.Controls.Add(this.saloonRequestTabPage);
             this.TabControl.Controls.Add(this.boothRequestTabPage);
             this.TabControl.Controls.Add(this.InspectionRequestTabPage);
-            this.TabControl.Controls.Add(this.requestListTabPage);
+            this.TabControl.Controls.Add(this.listRequestTabPage);
             this.TabControl.Location = new System.Drawing.Point(3, 3);
             this.TabControl.Name = "TabControl";
             this.TabControl.RightToLeftLayout = true;
@@ -135,8 +135,6 @@
             this.exhibitionRequestTabPage.Controls.Add(this.exhibitionRequestButton);
             this.exhibitionRequestTabPage.Controls.Add(this.label6);
             this.exhibitionRequestTabPage.Controls.Add(this.label5);
-            this.exhibitionRequestTabPage.Controls.Add(this.exhibitionRequestExhibitionComboBox);
-            this.exhibitionRequestTabPage.Controls.Add(this.label4);
             this.exhibitionRequestTabPage.Location = new System.Drawing.Point(4, 23);
             this.exhibitionRequestTabPage.Name = "exhibitionRequestTabPage";
             this.exhibitionRequestTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -162,7 +160,7 @@
             // 
             // exhibitionCancelButton
             // 
-            this.exhibitionCancelButton.Location = new System.Drawing.Point(129, 146);
+            this.exhibitionCancelButton.Location = new System.Drawing.Point(129, 118);
             this.exhibitionCancelButton.Name = "exhibitionCancelButton";
             this.exhibitionCancelButton.Size = new System.Drawing.Size(71, 24);
             this.exhibitionCancelButton.TabIndex = 7;
@@ -172,7 +170,7 @@
             // 
             // exhibitionRequestButton
             // 
-            this.exhibitionRequestButton.Location = new System.Drawing.Point(52, 146);
+            this.exhibitionRequestButton.Location = new System.Drawing.Point(52, 118);
             this.exhibitionRequestButton.Name = "exhibitionRequestButton";
             this.exhibitionRequestButton.Size = new System.Drawing.Size(71, 24);
             this.exhibitionRequestButton.TabIndex = 6;
@@ -197,23 +195,6 @@
             this.label5.Size = new System.Drawing.Size(80, 14);
             this.label5.TabIndex = 2;
             this.label5.Text = "تیتر درخواست:";
-            // 
-            // exhibitionRequestExhibitionComboBox
-            // 
-            this.exhibitionRequestExhibitionComboBox.FormattingEnabled = true;
-            this.exhibitionRequestExhibitionComboBox.Location = new System.Drawing.Point(52, 118);
-            this.exhibitionRequestExhibitionComboBox.Name = "exhibitionRequestExhibitionComboBox";
-            this.exhibitionRequestExhibitionComboBox.Size = new System.Drawing.Size(294, 22);
-            this.exhibitionRequestExhibitionComboBox.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(379, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 14);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "لیست نمایشگاه:";
             // 
             // saloonRequestTabPage
             // 
@@ -358,6 +339,8 @@
             // 
             // boothRequestTabPage
             // 
+            this.boothRequestTabPage.Controls.Add(this.boothRequestCountTextBox);
+            this.boothRequestTabPage.Controls.Add(this.label4);
             this.boothRequestTabPage.Controls.Add(this.boothRequestOperatorTextBox);
             this.boothRequestTabPage.Controls.Add(this.boothRequestContentTextBox);
             this.boothRequestTabPage.Controls.Add(this.boothRequestTitleTextBox);
@@ -407,7 +390,7 @@
             // 
             // boothCancelButton
             // 
-            this.boothCancelButton.Location = new System.Drawing.Point(109, 236);
+            this.boothCancelButton.Location = new System.Drawing.Point(111, 264);
             this.boothCancelButton.Name = "boothCancelButton";
             this.boothCancelButton.Size = new System.Drawing.Size(71, 24);
             this.boothCancelButton.TabIndex = 26;
@@ -417,7 +400,7 @@
             // 
             // boothRequestButton
             // 
-            this.boothRequestButton.Location = new System.Drawing.Point(32, 236);
+            this.boothRequestButton.Location = new System.Drawing.Point(34, 264);
             this.boothRequestButton.Name = "boothRequestButton";
             this.boothRequestButton.Size = new System.Drawing.Size(71, 24);
             this.boothRequestButton.TabIndex = 25;
@@ -645,19 +628,27 @@
             this.label33.TabIndex = 2;
             this.label33.Text = "سالن: ";
             // 
-            // requestListTabPage
+            // listRequestTabPage
             // 
-            this.requestListTabPage.Controls.Add(this.groupBox1);
-            this.requestListTabPage.Controls.Add(this.requestListShowButton);
-            this.requestListTabPage.Controls.Add(this.requestListComboBox);
-            this.requestListTabPage.Controls.Add(this.label19);
-            this.requestListTabPage.Location = new System.Drawing.Point(4, 23);
-            this.requestListTabPage.Name = "requestListTabPage";
-            this.requestListTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.requestListTabPage.Size = new System.Drawing.Size(486, 345);
-            this.requestListTabPage.TabIndex = 5;
-            this.requestListTabPage.Text = "لیست درخواست ها";
-            this.requestListTabPage.UseVisualStyleBackColor = true;
+            this.listRequestTabPage.Controls.Add(this.requestListComboBox);
+            this.listRequestTabPage.Controls.Add(this.groupBox1);
+            this.listRequestTabPage.Controls.Add(this.requestListShowButton);
+            this.listRequestTabPage.Controls.Add(this.label19);
+            this.listRequestTabPage.Location = new System.Drawing.Point(4, 23);
+            this.listRequestTabPage.Name = "listRequestTabPage";
+            this.listRequestTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.listRequestTabPage.Size = new System.Drawing.Size(486, 345);
+            this.listRequestTabPage.TabIndex = 5;
+            this.listRequestTabPage.Text = "لیست درخواست ها";
+            this.listRequestTabPage.UseVisualStyleBackColor = true;
+            // 
+            // requestListComboBox
+            // 
+            this.requestListComboBox.FormattingEnabled = true;
+            this.requestListComboBox.Location = new System.Drawing.Point(32, 22);
+            this.requestListComboBox.Name = "requestListComboBox";
+            this.requestListComboBox.Size = new System.Drawing.Size(325, 22);
+            this.requestListComboBox.TabIndex = 4;
             // 
             // groupBox1
             // 
@@ -737,22 +728,30 @@
             this.requestListShowButton.UseVisualStyleBackColor = true;
             this.requestListShowButton.Click += new System.EventHandler(this.requestListShowButton_Click);
             // 
-            // requestListComboBox
-            // 
-            this.requestListComboBox.FormattingEnabled = true;
-            this.requestListComboBox.Location = new System.Drawing.Point(32, 22);
-            this.requestListComboBox.Name = "requestListComboBox";
-            this.requestListComboBox.Size = new System.Drawing.Size(325, 22);
-            this.requestListComboBox.TabIndex = 1;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(354, 25);
+            this.label19.Location = new System.Drawing.Point(363, 25);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(111, 14);
             this.label19.TabIndex = 0;
             this.label19.Text = "لیست درخواست ها:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(389, 235);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 14);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "تعداد غرفه:";
+            // 
+            // boothRequestCountTextBox
+            // 
+            this.boothRequestCountTextBox.Location = new System.Drawing.Point(234, 232);
+            this.boothRequestCountTextBox.Name = "boothRequestCountTextBox";
+            this.boothRequestCountTextBox.Size = new System.Drawing.Size(120, 22);
+            this.boothRequestCountTextBox.TabIndex = 28;
             // 
             // RequestOutbox
             // 
@@ -761,7 +760,7 @@
             this.ClientSize = new System.Drawing.Size(654, 463);
             this.Controls.Add(this.panel2);
             this.Name = "RequestOutbox";
-            this.Text = "RequestCenter";
+            this.Text = "درخواست های ارسال شده";
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel2.ResumeLayout(false);
             this.TabControl.ResumeLayout(false);
@@ -773,8 +772,8 @@
             this.boothRequestTabPage.PerformLayout();
             this.InspectionRequestTabPage.ResumeLayout(false);
             this.InspectionRequestTabPage.PerformLayout();
-            this.requestListTabPage.ResumeLayout(false);
-            this.requestListTabPage.PerformLayout();
+            this.listRequestTabPage.ResumeLayout(false);
+            this.listRequestTabPage.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -793,8 +792,6 @@
         private System.Windows.Forms.Button exhibitionRequestButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox exhibitionRequestExhibitionComboBox;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage saloonRequestTabPage;
         private System.Windows.Forms.TextBox saloonRequestHeightTextBox;
         private System.Windows.Forms.TextBox SaloonRequestWidthTextBox;
@@ -829,7 +826,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage InspectionRequestTabPage;
-        private System.Windows.Forms.TabPage requestListTabPage;
+        private System.Windows.Forms.TabPage listRequestTabPage;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox requestResponseTextBox;
         private System.Windows.Forms.Label label22;
@@ -838,7 +835,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button requestListShowButton;
-        private System.Windows.Forms.ComboBox requestListComboBox;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox inspectionRequestBoothComboBox;
         private System.Windows.Forms.ComboBox inspectionRequestSaloonComboBox;
@@ -850,6 +846,9 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button inspectionCancelButton;
         private System.Windows.Forms.Button inspectionRequestButton;
+        private System.Windows.Forms.ComboBox requestListComboBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox boothRequestCountTextBox;
 
     }
 }

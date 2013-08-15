@@ -13,7 +13,10 @@ namespace OOD.Model.NotificationPackage
         [NotMapped]
         public IQueryable<PhoneInformation> PhoneInformations
         {
-            get { return DataManager.DataContext.PhoneInformations.Where(information => information.PhoneNews.Id == Id); }
+            get
+            {
+                return DataManager.DataContext.PhoneInformations.Where(information => information.PhoneNews.Id == Id);
+            }
         }
     }
 }

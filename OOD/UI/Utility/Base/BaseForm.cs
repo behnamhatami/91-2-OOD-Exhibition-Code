@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using System.Windows.Forms;
 using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
 using OOD.UI.Utility.Interface;
@@ -105,16 +104,13 @@ namespace OOD.UI.Utility.Base
                     Close();
             }
 
+            form.Reset();
+            form.Reload();
             form.ShowDialog();
             form.Dispose();
 
             if (!redirection && RestoreAble() && form.GetLevel() > GetLevel())
                 Restore();
-        }
-
-        private void BaseForm_Load(object sender, EventArgs e)
-        {
-            Reset();
         }
     }
 }

@@ -26,6 +26,7 @@ namespace OOD.UI.Notification
 
         public override void Reset()
         {
+            base.Reset();
             TabControl.Controls.Clear();
 
             ExhibitionRequestReset();
@@ -43,6 +44,10 @@ namespace OOD.UI.Notification
             InspectionRequestReset();
             if (HasInspectionRequestPreCondition())
                 TabControl.Controls.Add(InspectionRequestTabPage);
+
+            ListRequestReset();
+            if (HasListRequestPreCondition())
+                TabControl.Controls.Add(listRequestTabPage);
         }
 
         // IPrecondition
@@ -98,23 +103,19 @@ namespace OOD.UI.Notification
             db.Requests.Add(request);
             db.SaveChanges();
             PopUp.ShowSuccess("درخواست جدید ارسال گردید.");
+            ListRequestReset();
         }
 
         // Exhibition Request
 
         private bool HasExhibitionRequestPreCondition()
         {
-            return Program.Exhibition == null;
+            return true;
         }
 
         private void ExhibitionRequestReset()
         {
-            ResetHelper.Empty(exhibitionRequestTitleTextBox, exhibitionRequestContentTextBox,
-                exhibitionRequestExhibitionComboBox);
-            ResetHelper.Refresh(exhibitionRequestExhibitionComboBox,
-                DataManager.DataContext.Exhibitions
-                    .Where(exhibition => exhibition.State == ExhibitionState.Started)
-                    .ToArray());
+            ResetHelper.Empty(exhibitionRequestTitleTextBox, exhibitionRequestContentTextBox);
         }
 
         private void exhibitionCancelButton_Click(object sender, EventArgs e)
@@ -126,10 +127,9 @@ namespace OOD.UI.Notification
         {
             var title = exhibitionRequestTitleTextBox.Text;
             var content = exhibitionRequestContentTextBox.Text;
-            var exhibition = exhibitionRequestExhibitionComboBox.SelectedItem as Exhibition;
+            var exhibition = Program.Exhibition;
             if (GeneralErrors.IsEmptyField(title, "تیتر درخواست")
-                || GeneralErrors.IsEmptyField(content, "محتوای درخواست")
-                || GeneralErrors.IsNull(exhibition, "نمایشگاه"))
+                || GeneralErrors.IsEmptyField(content, "محتوای درخواست"))
                 return;
 
             var request = new ExhibitionRequest
@@ -149,7 +149,8 @@ namespace OOD.UI.Notification
         // Saloon Request
         private bool HasSaloonRequestPreCondition()
         {
-            return Program.Exhibition != null && (Program.Exhibition.HasRole<ECustomerRole>(Program.User) || Program.Exhibition.HasRole<ExecutionRole>(Program.User));
+            return Program.Exhibition.HasRole<ECustomerRole>(Program.User) ||
+                   Program.Exhibition.HasRole<ExecutionRole>(Program.User);
         }
 
         private void SaloonRequestReset()
@@ -209,7 +210,8 @@ namespace OOD.UI.Notification
         {
             ResetHelper.Empty(boothRequestTitleTextBox, boothRequestContentTextBox, boothRequestOperatorTextBox,
                 boothRequestQualityComboBox, boothRequestForSellCheckBox, boothRequestForVitrinCheckBox,
-                boothRequestForCommisionCheckBox, boothRequestPhoneCheckBox, boothRequestCardReaderCheckBox);
+                boothRequestForCommisionCheckBox, boothRequestPhoneCheckBox, boothRequestCardReaderCheckBox,
+                boothRequestCountTextBox);
             ResetHelper.Refresh(boothRequestQualityComboBox, BoothQualityWrapper.BoothQualities);
         }
 
@@ -224,17 +226,20 @@ namespace OOD.UI.Notification
             var content = boothRequestContentTextBox.Text;
             var operatorCount = boothRequestOperatorTextBox.Text;
             var quality = boothRequestQualityComboBox.SelectedItem as BoothQualityWrapper;
+            var count = boothRequestCountTextBox.Text;
 
             if (GeneralErrors.IsEmptyField(title, "تیتر درخواست")
                 || GeneralErrors.IsEmptyField(content, "محتوای درخواست")
                 || GeneralErrors.IsNotValidInt(operatorCount, 1, "تعداد متصدیان")
-                || GeneralErrors.IsNull(quality, "کیفیت"))
+                || GeneralErrors.IsNull(quality, "کیفیت")
+                || GeneralErrors.IsNotValidInt(count, 1, "تعداد غرفه"))
                 return;
 
             var request = new BoothRequest
             {
                 Agreed = false,
                 Responsed = false,
+                Count = int.Parse(count),
                 Content = content,
                 CreationDate = DateTime.Today,
                 Exhibition = Program.Exhibition,
@@ -255,15 +260,14 @@ namespace OOD.UI.Notification
         // Inspection Request
         private bool HasInspectionRequestPreCondition()
         {
-            return Program.Exhibition != null;
+            return true;
         }
 
         private void InspectionRequestReset()
         {
             ResetHelper.Empty(inspectionRequestTitleTextBox, inspectionRequestContentTextBox,
                 inspectionRequestSaloonComboBox, inspectionRequestBoothComboBox);
-            inspectionRequestBoothComboBox.Items.Clear();
-            ResetHelper.Refresh(inspectionRequestSaloonComboBox, Program.Exhibition.Saloons.ToArray());
+            ResetHelper.Refresh(inspectionRequestSaloonComboBox, Program.Exhibition.Saloons);
         }
 
         private void inspectionCancelButton_Click(object sender, EventArgs e)
@@ -275,7 +279,14 @@ namespace OOD.UI.Notification
         {
             ResetHelper.Empty(inspectionRequestBoothComboBox);
             var saloon = inspectionRequestSaloonComboBox.SelectedItem as Saloon;
-            ResetHelper.Refresh(inspectionRequestBoothComboBox, saloon.Map.Booths.ToArray());
+            if (saloon != null)
+                ResetHelper.Refresh(inspectionRequestBoothComboBox,
+                    saloon.Map.Booths.Where(booth => booth.Enabled && booth.Request != null));
+            else
+            {
+                ResetHelper.Empty(inspectionRequestBoothComboBox);
+                inspectionRequestBoothComboBox.Items.Clear();
+            }
         }
 
         private void inspectionRequestButton_Click(object sender, EventArgs e)
@@ -311,7 +322,7 @@ namespace OOD.UI.Notification
 
         private bool HasListRequestPreCondition()
         {
-            return Program.Exhibition != null;
+            return true;
         }
 
         private void ListRequestReset()
@@ -319,8 +330,7 @@ namespace OOD.UI.Notification
             ResetHelper.Empty(requestListComboBox, requestTitleTextBox, requestContentTextBox, requestResponseTextBox);
             ResetHelper.Refresh(requestListComboBox,
                 Program.Exhibition.Requests
-                    .Where(request => request.User.Id == Program.User.Id)
-                    .ToArray());
+                    .Where(request => request.User.Id == Program.User.Id));
         }
 
         private void requestListShowButton_Click(object sender, EventArgs e)

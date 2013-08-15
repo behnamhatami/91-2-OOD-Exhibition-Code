@@ -1,7 +1,6 @@
 ﻿#region
 
 using System.Data.Entity;
-using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.UserManagingPackage;
 
 #endregion

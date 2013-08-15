@@ -42,7 +42,6 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "فرم پایه";
-            this.Load += new System.EventHandler(this.BaseForm_Load);
             this.ResumeLayout(false);
 
         }

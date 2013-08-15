@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
@@ -85,13 +84,13 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral
         {
             ResetHelper.Empty(recieveItemNameTextBox, recieveDateTimePicker);
             var db = DataManager.DataContext;
-            ResetHelper.Refresh(recieveItemUserListComboBox, db.Users.ToArray());
+            ResetHelper.Refresh(recieveItemUserListComboBox, db.Users);
         }
 
         public void listTabPageReset()
         {
             ResetHelper.Empty(listItemIdTextBox, listItemNameTextBox, listItemUserTextBox, listItemEntranceDateTextBox);
-            ResetHelper.Refresh(listItemListBox, Program.Exhibition.WareHouse.WareHouseItems.ToArray());
+            ResetHelper.Refresh(listItemListBox, Program.Exhibition.WareHouse.WareHouseItems);
             listReleaseButton.Enabled = false;
         }
 

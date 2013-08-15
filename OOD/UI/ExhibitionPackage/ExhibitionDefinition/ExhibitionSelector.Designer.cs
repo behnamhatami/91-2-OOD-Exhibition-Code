@@ -69,7 +69,7 @@
             this.Controls.Add(this.ExhibitionComboBox);
             this.Controls.Add(this.label1);
             this.Name = "ExhibitionSelector";
-            this.Text = "ExhibitionSelector";
+            this.Text = "انتخاب نمایشگاه";
             this.Load += new System.EventHandler(this.ExhibitionSelector_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

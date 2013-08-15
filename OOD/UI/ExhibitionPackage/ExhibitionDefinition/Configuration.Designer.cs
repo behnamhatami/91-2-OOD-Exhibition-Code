@@ -117,7 +117,7 @@
             // 
             // featureCancelButton
             // 
-            this.featureCancelButton.Location = new System.Drawing.Point(96, 243);
+            this.featureCancelButton.Location = new System.Drawing.Point(143, 244);
             this.featureCancelButton.Name = "featureCancelButton";
             this.featureCancelButton.Size = new System.Drawing.Size(71, 24);
             this.featureCancelButton.TabIndex = 9;
@@ -127,7 +127,7 @@
             // 
             // featureOkeyButton
             // 
-            this.featureOkeyButton.Location = new System.Drawing.Point(22, 243);
+            this.featureOkeyButton.Location = new System.Drawing.Point(69, 244);
             this.featureOkeyButton.Name = "featureOkeyButton";
             this.featureOkeyButton.Size = new System.Drawing.Size(71, 24);
             this.featureOkeyButton.TabIndex = 8;
@@ -145,7 +145,7 @@
             "نمایشگاه کتاب (1392)",
             "نمایشگاه شیشه (1391)",
             "نمایشگاه شیشه (1392)"});
-            this.featureInitialConfigurationComboBox.Location = new System.Drawing.Point(22, 174);
+            this.featureInitialConfigurationComboBox.Location = new System.Drawing.Point(69, 175);
             this.featureInitialConfigurationComboBox.Name = "featureInitialConfigurationComboBox";
             this.featureInitialConfigurationComboBox.Size = new System.Drawing.Size(201, 23);
             this.featureInitialConfigurationComboBox.TabIndex = 7;
@@ -153,7 +153,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(340, 178);
+            this.label6.Location = new System.Drawing.Point(387, 179);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 14);
             this.label6.TabIndex = 6;
@@ -162,7 +162,7 @@
             // featureDifferentBoothCheckBox
             // 
             this.featureDifferentBoothCheckBox.AutoSize = true;
-            this.featureDifferentBoothCheckBox.Location = new System.Drawing.Point(221, 135);
+            this.featureDifferentBoothCheckBox.Location = new System.Drawing.Point(268, 136);
             this.featureDifferentBoothCheckBox.Name = "featureDifferentBoothCheckBox";
             this.featureDifferentBoothCheckBox.Size = new System.Drawing.Size(195, 18);
             this.featureDifferentBoothCheckBox.TabIndex = 5;
@@ -172,7 +172,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(343, 100);
+            this.label5.Location = new System.Drawing.Point(390, 101);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 14);
             this.label5.TabIndex = 4;
@@ -181,7 +181,7 @@
             // featureSellRadioButton
             // 
             this.featureSellRadioButton.AutoSize = true;
-            this.featureSellRadioButton.Location = new System.Drawing.Point(22, 98);
+            this.featureSellRadioButton.Location = new System.Drawing.Point(69, 99);
             this.featureSellRadioButton.Name = "featureSellRadioButton";
             this.featureSellRadioButton.Size = new System.Drawing.Size(120, 18);
             this.featureSellRadioButton.TabIndex = 3;
@@ -192,7 +192,7 @@
             // featureNoSellRadioButton
             // 
             this.featureNoSellRadioButton.AutoSize = true;
-            this.featureNoSellRadioButton.Location = new System.Drawing.Point(190, 100);
+            this.featureNoSellRadioButton.Location = new System.Drawing.Point(237, 101);
             this.featureNoSellRadioButton.Name = "featureNoSellRadioButton";
             this.featureNoSellRadioButton.Size = new System.Drawing.Size(100, 18);
             this.featureNoSellRadioButton.TabIndex = 2;
@@ -203,7 +203,7 @@
             // featureWareHouseCheckBox
             // 
             this.featureWareHouseCheckBox.AutoSize = true;
-            this.featureWareHouseCheckBox.Location = new System.Drawing.Point(266, 55);
+            this.featureWareHouseCheckBox.Location = new System.Drawing.Point(313, 56);
             this.featureWareHouseCheckBox.Name = "featureWareHouseCheckBox";
             this.featureWareHouseCheckBox.Size = new System.Drawing.Size(150, 18);
             this.featureWareHouseCheckBox.TabIndex = 1;
@@ -213,7 +213,7 @@
             // featurePostOfficeCheckBox
             // 
             this.featurePostOfficeCheckBox.AutoSize = true;
-            this.featurePostOfficeCheckBox.Location = new System.Drawing.Point(261, 17);
+            this.featurePostOfficeCheckBox.Location = new System.Drawing.Point(308, 18);
             this.featurePostOfficeCheckBox.Name = "featurePostOfficeCheckBox";
             this.featurePostOfficeCheckBox.Size = new System.Drawing.Size(155, 18);
             this.featurePostOfficeCheckBox.TabIndex = 0;
@@ -246,21 +246,21 @@
             // processCheckedListBox
             // 
             this.processCheckedListBox.FormattingEnabled = true;
-            this.processCheckedListBox.Location = new System.Drawing.Point(16, 204);
+            this.processCheckedListBox.Location = new System.Drawing.Point(36, 199);
             this.processCheckedListBox.Name = "processCheckedListBox";
             this.processCheckedListBox.Size = new System.Drawing.Size(425, 89);
             this.processCheckedListBox.TabIndex = 13;
             // 
             // processFinishNodeTextBox
             // 
-            this.processFinishNodeTextBox.Location = new System.Drawing.Point(16, 115);
+            this.processFinishNodeTextBox.Location = new System.Drawing.Point(36, 110);
             this.processFinishNodeTextBox.Name = "processFinishNodeTextBox";
             this.processFinishNodeTextBox.Size = new System.Drawing.Size(100, 22);
             this.processFinishNodeTextBox.TabIndex = 12;
             // 
             // processStartNodeTextBox
             // 
-            this.processStartNodeTextBox.Location = new System.Drawing.Point(250, 115);
+            this.processStartNodeTextBox.Location = new System.Drawing.Point(270, 110);
             this.processStartNodeTextBox.Name = "processStartNodeTextBox";
             this.processStartNodeTextBox.Size = new System.Drawing.Size(100, 22);
             this.processStartNodeTextBox.TabIndex = 11;
@@ -268,7 +268,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(142, 118);
+            this.label13.Location = new System.Drawing.Point(162, 113);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(75, 14);
             this.label13.TabIndex = 10;
@@ -277,7 +277,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(362, 118);
+            this.label12.Location = new System.Drawing.Point(382, 113);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(82, 14);
             this.label12.TabIndex = 9;
@@ -285,7 +285,7 @@
             // 
             // processMaxLengthTextBox
             // 
-            this.processMaxLengthTextBox.Location = new System.Drawing.Point(16, 72);
+            this.processMaxLengthTextBox.Location = new System.Drawing.Point(36, 67);
             this.processMaxLengthTextBox.Name = "processMaxLengthTextBox";
             this.processMaxLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.processMaxLengthTextBox.TabIndex = 8;
@@ -293,7 +293,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(122, 75);
+            this.label11.Location = new System.Drawing.Point(142, 70);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(95, 14);
             this.label11.TabIndex = 7;
@@ -301,7 +301,7 @@
             // 
             // processMinLengthTextBox
             // 
-            this.processMinLengthTextBox.Location = new System.Drawing.Point(250, 72);
+            this.processMinLengthTextBox.Location = new System.Drawing.Point(270, 67);
             this.processMinLengthTextBox.Name = "processMinLengthTextBox";
             this.processMinLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.processMinLengthTextBox.TabIndex = 6;
@@ -309,7 +309,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(356, 75);
+            this.label10.Location = new System.Drawing.Point(376, 70);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 14);
             this.label10.TabIndex = 5;
@@ -317,7 +317,7 @@
             // 
             // processRemoveButton
             // 
-            this.processRemoveButton.Location = new System.Drawing.Point(16, 304);
+            this.processRemoveButton.Location = new System.Drawing.Point(36, 299);
             this.processRemoveButton.Name = "processRemoveButton";
             this.processRemoveButton.Size = new System.Drawing.Size(71, 24);
             this.processRemoveButton.TabIndex = 4;
@@ -327,7 +327,7 @@
             // 
             // processAddButton
             // 
-            this.processAddButton.Location = new System.Drawing.Point(16, 143);
+            this.processAddButton.Location = new System.Drawing.Point(36, 138);
             this.processAddButton.Name = "processAddButton";
             this.processAddButton.Size = new System.Drawing.Size(71, 24);
             this.processAddButton.TabIndex = 2;
@@ -348,7 +348,7 @@
             "فرآیند 2",
             "فرآیند 3",
             "فرآیند 4"});
-            this.processProcessComboBox.Location = new System.Drawing.Point(183, 25);
+            this.processProcessComboBox.Location = new System.Drawing.Point(203, 20);
             this.processProcessComboBox.Name = "processProcessComboBox";
             this.processProcessComboBox.Size = new System.Drawing.Size(203, 22);
             this.processProcessComboBox.TabIndex = 1;
@@ -356,7 +356,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(406, 28);
+            this.label7.Location = new System.Drawing.Point(426, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 14);
             this.label7.TabIndex = 0;
@@ -386,14 +386,14 @@
             "Rahmtin - پست چی",
             "Behnam - انباردار",
             "Raman - ناظر"});
-            this.roleUserExhibitionRoleListBox.Location = new System.Drawing.Point(126, 194);
+            this.roleUserExhibitionRoleListBox.Location = new System.Drawing.Point(43, 154);
             this.roleUserExhibitionRoleListBox.Name = "roleUserExhibitionRoleListBox";
-            this.roleUserExhibitionRoleListBox.Size = new System.Drawing.Size(208, 89);
+            this.roleUserExhibitionRoleListBox.Size = new System.Drawing.Size(350, 157);
             this.roleUserExhibitionRoleListBox.TabIndex = 7;
             // 
             // roleRemoveButton
             // 
-            this.roleRemoveButton.Location = new System.Drawing.Point(126, 289);
+            this.roleRemoveButton.Location = new System.Drawing.Point(43, 316);
             this.roleRemoveButton.Name = "roleRemoveButton";
             this.roleRemoveButton.Size = new System.Drawing.Size(71, 24);
             this.roleRemoveButton.TabIndex = 6;
@@ -403,7 +403,7 @@
             // 
             // roleAddButton
             // 
-            this.roleAddButton.Location = new System.Drawing.Point(126, 113);
+            this.roleAddButton.Location = new System.Drawing.Point(43, 95);
             this.roleAddButton.Name = "roleAddButton";
             this.roleAddButton.Size = new System.Drawing.Size(71, 24);
             this.roleAddButton.TabIndex = 4;
@@ -420,9 +420,9 @@
             "Raman",
             "Roxana",
             "Nooshin"});
-            this.roleUserComboBox.Location = new System.Drawing.Point(126, 85);
+            this.roleUserComboBox.Location = new System.Drawing.Point(43, 67);
             this.roleUserComboBox.Name = "roleUserComboBox";
-            this.roleUserComboBox.Size = new System.Drawing.Size(208, 22);
+            this.roleUserComboBox.Size = new System.Drawing.Size(350, 22);
             this.roleUserComboBox.TabIndex = 3;
             // 
             // roleChoicesComboBox
@@ -432,15 +432,15 @@
             "پست چی",
             "انباردار",
             "ناظر"});
-            this.roleChoicesComboBox.Location = new System.Drawing.Point(126, 36);
+            this.roleChoicesComboBox.Location = new System.Drawing.Point(43, 18);
             this.roleChoicesComboBox.Name = "roleChoicesComboBox";
-            this.roleChoicesComboBox.Size = new System.Drawing.Size(208, 22);
+            this.roleChoicesComboBox.Size = new System.Drawing.Size(350, 22);
             this.roleChoicesComboBox.TabIndex = 2;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(378, 88);
+            this.label9.Location = new System.Drawing.Point(437, 70);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(33, 14);
             this.label9.TabIndex = 1;
@@ -449,7 +449,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(371, 39);
+            this.label8.Location = new System.Drawing.Point(430, 21);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(40, 14);
             this.label8.TabIndex = 0;

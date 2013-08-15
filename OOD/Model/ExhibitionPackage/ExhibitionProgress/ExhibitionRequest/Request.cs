@@ -50,7 +50,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest
 
         public override string ToString()
         {
-            return String.Format("[از طرف: {0}، موضوع: {1}]", User, Title);
+            return String.Format("[شماره: {0}, از طرف: {1}، موضوع: {2}]", Id, User, Title);
         }
 
         public override int GetHashCode()

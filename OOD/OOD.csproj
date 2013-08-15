@@ -146,6 +146,12 @@
     <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothCrud.Designer.cs">
       <DependentUpon>BoothCrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothSelector.Designer.cs">
+      <DependentUpon>BoothSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,17 +170,11 @@
     <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseManaging.Designer.cs">
       <DependentUpon>WareHouseManaging.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Notification\NewsCreation.cs">
+    <Compile Include="UI\Notification\CallCreation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Notification\NewsCreation.Designer.cs">
-      <DependentUpon>NewsCreation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Notification\RequestInbox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Notification\RequestInbox.Designer.cs">
-      <DependentUpon>RequestInbox.cs</DependentUpon>
+    <Compile Include="UI\Notification\CallCreation.Designer.cs">
+      <DependentUpon>CallCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Notification\Polling.cs">
       <SubType>Form</SubType>
@@ -199,6 +199,12 @@
     </Compile>
     <Compile Include="UI\Notification\PollCrud.Designer.cs">
       <DependentUpon>PollCrud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notification\RequestInbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notification\RequestInbox.Designer.cs">
+      <DependentUpon>RequestInbox.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Notification\RequestOutbox.cs">
       <SubType>Form</SubType>
@@ -280,6 +286,9 @@
     <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothCrud.resx">
       <DependentUpon>BoothCrud.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothSelector.resx">
+      <DependentUpon>BoothSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.resx">
       <DependentUpon>PaymentManagemenet.cs</DependentUpon>
     </EmbeddedResource>
@@ -292,11 +301,8 @@
     <EmbeddedResource Include="UI\Notification\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\NewsCreation.resx">
-      <DependentUpon>NewsCreation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\RequestInbox.resx">
-      <DependentUpon>RequestInbox.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Notification\CallCreation.resx">
+      <DependentUpon>CallCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\NotificationCenter.resx">
       <DependentUpon>NotificationCenter.cs</DependentUpon>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\PollCrud.resx">
       <DependentUpon>PollCrud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Notification\RequestInbox.resx">
+      <DependentUpon>RequestInbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Notification\RequestOutbox.resx">
       <DependentUpon>RequestOutbox.cs</DependentUpon>

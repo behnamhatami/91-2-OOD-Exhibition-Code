@@ -4,6 +4,7 @@ using System;
 using System.Windows.Forms;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
+using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.UI.Utility.Base;
@@ -14,22 +15,26 @@ using OOD.UI.Utility.PopUp;
 
 namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth
 {
-    public partial class BoothCrud : MainWindow
+    public partial class BoothSelector : BaseForm
     {
-        public BoothCrud()
+        private readonly BoothRequest _request;
+
+        public BoothSelector()
         {
             InitializeComponent();
+        }
+
+        public BoothSelector(BoothRequest request)
+        {
+            InitializeComponent();
+            _request = request;
         }
 
         // IResetAble
 
         public override void Reset()
         {
-            tabControl1.Controls.Clear();
-
-            EditSaloonReset();
-            if (HasEditSaloonPreCondition())
-                tabControl1.Controls.Add(editSaloonTabPage);
+            ResetHelper.Refresh(saloonListComboBox, Program.Exhibition.Saloons);
         }
 
         // IPrecondition
@@ -38,7 +43,6 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth
         {
             return true;
         }
-
 
         public override bool NeedExhibition()
         {
@@ -67,7 +71,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth
 
         public override int GetLevel()
         {
-            return 3;
+            return 4;
         }
 
         public override bool RestoreAble()
@@ -78,34 +82,21 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth
         private void boothActionButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
-            var booth = GetBooth(button, editSaloonListComboBox.SelectedItem as Saloon);
-            booth.SwitchState();
-            ButtonReDraw(booth, button);
+            var booth = BoothCrud.GetBooth(button, saloonListComboBox.SelectedItem as Saloon);
+            booth.Register(_request);
+            BoothCrud.ButtonReDraw(booth, button);
             DataManager.DataContext.SaveChanges();
         }
 
         // Finish
 
-        // Edit Saloon
-
-        private bool HasEditSaloonPreCondition()
+        private void saloonShowButton_Click(object sender, EventArgs e)
         {
-            return Program.Exhibition.HasRole<BoothManagerRole>(Program.User);
-        }
-
-        private void EditSaloonReset()
-        {
-            ResetHelper.Empty(editSaloonListComboBox);
-            ResetHelper.Refresh(editSaloonListComboBox, Program.Exhibition.Saloons);
-            flowLayoutPanel1.Controls.Clear();
-        }
-
-        private void editSaloonShowButton_Click(object sender, EventArgs e)
-        {
-            var saloon = editSaloonListComboBox.SelectedItem as Saloon;
+            var saloon = saloonListComboBox.SelectedItem as Saloon;
             if (GeneralErrors.IsNull(saloon, "سالن"))
                 return;
-            DrawSaloon(saloon, flowLayoutPanel1);
+
+            BoothCrud.DrawSaloon(saloon, flowLayoutPanel1);
             foreach (var control in flowLayoutPanel1.Controls)
                 (control as Button).Click += boothActionButton_Click;
         }

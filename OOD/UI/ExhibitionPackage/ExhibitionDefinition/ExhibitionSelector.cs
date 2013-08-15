@@ -1,10 +1,10 @@
 ﻿#region
 
 using System;
-using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ModelContext;
 using OOD.UI.Utility.Base;
+using OOD.UI.Utility.Helper;
 using OOD.UI.Utility.PopUp;
 
 #endregion
@@ -49,9 +49,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
 
         private void ExhibitionSelector_Load(object sender, EventArgs e)
         {
-            var db = DataManager.DataContext;
-            ExhibitionComboBox.Items.Clear();
-            ExhibitionComboBox.Items.AddRange(db.Exhibitions.ToArray());
+            ResetHelper.Refresh(ExhibitionComboBox, DataManager.DataContext.Exhibitions);
         }
 
         private void selectButton_Click(object sender, EventArgs e)

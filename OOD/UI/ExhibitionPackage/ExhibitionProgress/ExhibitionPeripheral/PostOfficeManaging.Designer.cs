@@ -287,7 +287,7 @@
             this.ClientSize = new System.Drawing.Size(654, 463);
             this.Controls.Add(this.panel2);
             this.Name = "PostOfficeManaging";
-            this.Text = "PostOfficeManaging";
+            this.Text = "مدیریت امور پستی";
             this.Controls.SetChildIndex(this.panel2, 0);
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
