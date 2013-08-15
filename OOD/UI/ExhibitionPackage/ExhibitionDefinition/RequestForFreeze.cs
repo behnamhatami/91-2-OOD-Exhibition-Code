@@ -69,6 +69,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
             var poll = exhibition.Polls.First();
             poll.Reset();
             poll.Closed = false;
+            poll.Started = true;
             exhibition.State = ExhibitionState.FreezeStarted;
             DataManager.DataContext.SaveChanges();
             PopUp.ShowSuccess("رای گیری آغاز گردید.");

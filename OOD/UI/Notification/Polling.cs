@@ -26,7 +26,7 @@ namespace OOD.UI.Notification
         public override void Reset()
         {
             var exhibition = Program.Exhibition;
-            ResetHelper.Refresh(pollListComboBox, exhibition.Polls.Where(poll => !poll.Closed));
+            ResetHelper.Refresh(pollListComboBox, exhibition.Polls.Where(poll => !poll.Closed && poll.Started));
             resetPoll();
         }
 

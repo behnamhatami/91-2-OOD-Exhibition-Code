@@ -2,5 +2,6 @@
 {
     public class ExhibitionRequest : Request
     {
+        public ExhibitionRequestType RequestType { get; set; }
     }
 }

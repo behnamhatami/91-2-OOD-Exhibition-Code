@@ -15,7 +15,7 @@
 
         public override string ToString()
         {
-            return Content;
+            return Content + " [" + Hit + "]"; 
         }
 
         public override int GetHashCode()

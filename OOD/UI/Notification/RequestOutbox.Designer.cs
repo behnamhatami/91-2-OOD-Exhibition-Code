@@ -31,6 +31,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.exhibitionRequestTabPage = new System.Windows.Forms.TabPage();
+            this.exhibitionRequestTypeTextBox = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.exhibitionRequestContentTextBox = new System.Windows.Forms.TextBox();
             this.exhibitionRequestTitleTextBox = new System.Windows.Forms.TextBox();
             this.exhibitionCancelButton = new System.Windows.Forms.Button();
@@ -53,6 +55,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.boothRequestTabPage = new System.Windows.Forms.TabPage();
+            this.boothRequestCountTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.boothRequestOperatorTextBox = new System.Windows.Forms.TextBox();
             this.boothRequestContentTextBox = new System.Windows.Forms.TextBox();
             this.boothRequestTitleTextBox = new System.Windows.Forms.TextBox();
@@ -81,6 +85,16 @@
             this.inspectionRequestSaloonComboBox = new System.Windows.Forms.ComboBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
+            this.pollRequestTabPage = new System.Windows.Forms.TabPage();
+            this.pollRequestPollsComboBox = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.pollRequestCancelButton = new System.Windows.Forms.Button();
+            this.pollRequestButton = new System.Windows.Forms.Button();
+            this.pollRequestContentTextBox = new System.Windows.Forms.TextBox();
+            this.pollRrequestTitleTextBox = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.listRequestTabPage = new System.Windows.Forms.TabPage();
             this.requestListComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -92,14 +106,13 @@
             this.label21 = new System.Windows.Forms.Label();
             this.requestListShowButton = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.boothRequestCountTextBox = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.exhibitionRequestTabPage.SuspendLayout();
             this.saloonRequestTabPage.SuspendLayout();
             this.boothRequestTabPage.SuspendLayout();
             this.InspectionRequestTabPage.SuspendLayout();
+            this.pollRequestTabPage.SuspendLayout();
             this.listRequestTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -119,6 +132,8 @@
             this.TabControl.Controls.Add(this.saloonRequestTabPage);
             this.TabControl.Controls.Add(this.boothRequestTabPage);
             this.TabControl.Controls.Add(this.InspectionRequestTabPage);
+            this.TabControl.Controls.Add(this.pollRequestTabPage);
+            this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Controls.Add(this.listRequestTabPage);
             this.TabControl.Location = new System.Drawing.Point(3, 3);
             this.TabControl.Name = "TabControl";
@@ -129,6 +144,8 @@
             // 
             // exhibitionRequestTabPage
             // 
+            this.exhibitionRequestTabPage.Controls.Add(this.exhibitionRequestTypeTextBox);
+            this.exhibitionRequestTabPage.Controls.Add(this.label31);
             this.exhibitionRequestTabPage.Controls.Add(this.exhibitionRequestContentTextBox);
             this.exhibitionRequestTabPage.Controls.Add(this.exhibitionRequestTitleTextBox);
             this.exhibitionRequestTabPage.Controls.Add(this.exhibitionCancelButton);
@@ -142,6 +159,23 @@
             this.exhibitionRequestTabPage.TabIndex = 0;
             this.exhibitionRequestTabPage.Text = "درخواست نمایشگاه";
             this.exhibitionRequestTabPage.UseVisualStyleBackColor = true;
+            // 
+            // exhibitionRequestTypeTextBox
+            // 
+            this.exhibitionRequestTypeTextBox.Location = new System.Drawing.Point(52, 118);
+            this.exhibitionRequestTypeTextBox.Name = "exhibitionRequestTypeTextBox";
+            this.exhibitionRequestTypeTextBox.ReadOnly = true;
+            this.exhibitionRequestTypeTextBox.Size = new System.Drawing.Size(294, 22);
+            this.exhibitionRequestTypeTextBox.TabIndex = 22;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(395, 121);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(75, 14);
+            this.label31.TabIndex = 21;
+            this.label31.Text = "نوع درخواست";
             // 
             // exhibitionRequestContentTextBox
             // 
@@ -160,7 +194,7 @@
             // 
             // exhibitionCancelButton
             // 
-            this.exhibitionCancelButton.Location = new System.Drawing.Point(129, 118);
+            this.exhibitionCancelButton.Location = new System.Drawing.Point(140, 154);
             this.exhibitionCancelButton.Name = "exhibitionCancelButton";
             this.exhibitionCancelButton.Size = new System.Drawing.Size(71, 24);
             this.exhibitionCancelButton.TabIndex = 7;
@@ -170,7 +204,7 @@
             // 
             // exhibitionRequestButton
             // 
-            this.exhibitionRequestButton.Location = new System.Drawing.Point(52, 118);
+            this.exhibitionRequestButton.Location = new System.Drawing.Point(52, 154);
             this.exhibitionRequestButton.Name = "exhibitionRequestButton";
             this.exhibitionRequestButton.Size = new System.Drawing.Size(71, 24);
             this.exhibitionRequestButton.TabIndex = 6;
@@ -190,7 +224,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(391, 18);
+            this.label5.Location = new System.Drawing.Point(390, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 14);
             this.label5.TabIndex = 2;
@@ -365,6 +399,22 @@
             this.boothRequestTabPage.TabIndex = 2;
             this.boothRequestTabPage.Text = "درخواست غرفه";
             this.boothRequestTabPage.UseVisualStyleBackColor = true;
+            // 
+            // boothRequestCountTextBox
+            // 
+            this.boothRequestCountTextBox.Location = new System.Drawing.Point(234, 232);
+            this.boothRequestCountTextBox.Name = "boothRequestCountTextBox";
+            this.boothRequestCountTextBox.Size = new System.Drawing.Size(120, 22);
+            this.boothRequestCountTextBox.TabIndex = 28;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(389, 235);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 14);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "تعداد غرفه:";
             // 
             // boothRequestOperatorTextBox
             // 
@@ -628,6 +678,104 @@
             this.label33.TabIndex = 2;
             this.label33.Text = "سالن: ";
             // 
+            // pollRequestTabPage
+            // 
+            this.pollRequestTabPage.Controls.Add(this.pollRequestPollsComboBox);
+            this.pollRequestTabPage.Controls.Add(this.label27);
+            this.pollRequestTabPage.Controls.Add(this.pollRequestCancelButton);
+            this.pollRequestTabPage.Controls.Add(this.pollRequestButton);
+            this.pollRequestTabPage.Controls.Add(this.pollRequestContentTextBox);
+            this.pollRequestTabPage.Controls.Add(this.pollRrequestTitleTextBox);
+            this.pollRequestTabPage.Controls.Add(this.label25);
+            this.pollRequestTabPage.Controls.Add(this.label26);
+            this.pollRequestTabPage.Location = new System.Drawing.Point(4, 23);
+            this.pollRequestTabPage.Name = "pollRequestTabPage";
+            this.pollRequestTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.pollRequestTabPage.Size = new System.Drawing.Size(486, 345);
+            this.pollRequestTabPage.TabIndex = 6;
+            this.pollRequestTabPage.Text = "درخواست نظرسنجی";
+            this.pollRequestTabPage.UseVisualStyleBackColor = true;
+            // 
+            // pollRequestPollsComboBox
+            // 
+            this.pollRequestPollsComboBox.FormattingEnabled = true;
+            this.pollRequestPollsComboBox.Location = new System.Drawing.Point(40, 121);
+            this.pollRequestPollsComboBox.Name = "pollRequestPollsComboBox";
+            this.pollRequestPollsComboBox.Size = new System.Drawing.Size(320, 22);
+            this.pollRequestPollsComboBox.TabIndex = 36;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(400, 124);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(59, 14);
+            this.label27.TabIndex = 35;
+            this.label27.Text = "نظرسنجی";
+            // 
+            // pollRequestCancelButton
+            // 
+            this.pollRequestCancelButton.Location = new System.Drawing.Point(117, 168);
+            this.pollRequestCancelButton.Name = "pollRequestCancelButton";
+            this.pollRequestCancelButton.Size = new System.Drawing.Size(71, 24);
+            this.pollRequestCancelButton.TabIndex = 34;
+            this.pollRequestCancelButton.Text = "انصراف";
+            this.pollRequestCancelButton.UseVisualStyleBackColor = true;
+            this.pollRequestCancelButton.Click += new System.EventHandler(this.pollRequestCancelButton_Click);
+            // 
+            // pollRequestButton
+            // 
+            this.pollRequestButton.Location = new System.Drawing.Point(40, 168);
+            this.pollRequestButton.Name = "pollRequestButton";
+            this.pollRequestButton.Size = new System.Drawing.Size(71, 24);
+            this.pollRequestButton.TabIndex = 33;
+            this.pollRequestButton.Text = "ثبت";
+            this.pollRequestButton.UseVisualStyleBackColor = true;
+            this.pollRequestButton.Click += new System.EventHandler(this.pollRequestButton_Click);
+            // 
+            // pollRequestContentTextBox
+            // 
+            this.pollRequestContentTextBox.Location = new System.Drawing.Point(40, 48);
+            this.pollRequestContentTextBox.Multiline = true;
+            this.pollRequestContentTextBox.Name = "pollRequestContentTextBox";
+            this.pollRequestContentTextBox.Size = new System.Drawing.Size(320, 67);
+            this.pollRequestContentTextBox.TabIndex = 32;
+            // 
+            // pollRrequestTitleTextBox
+            // 
+            this.pollRrequestTitleTextBox.Location = new System.Drawing.Point(40, 21);
+            this.pollRrequestTitleTextBox.Name = "pollRrequestTitleTextBox";
+            this.pollRrequestTitleTextBox.Size = new System.Drawing.Size(320, 22);
+            this.pollRrequestTitleTextBox.TabIndex = 31;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(422, 48);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(37, 14);
+            this.label25.TabIndex = 30;
+            this.label25.Text = "محتوا:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(379, 21);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(80, 14);
+            this.label26.TabIndex = 29;
+            this.label26.Text = "تیتر درخواست:";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(486, 345);
+            this.tabPage2.TabIndex = 8;
+            this.tabPage2.Text = "درخواست اصلاحی غرفه";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // listRequestTabPage
             // 
             this.listRequestTabPage.Controls.Add(this.requestListComboBox);
@@ -638,7 +786,7 @@
             this.listRequestTabPage.Name = "listRequestTabPage";
             this.listRequestTabPage.Padding = new System.Windows.Forms.Padding(3);
             this.listRequestTabPage.Size = new System.Drawing.Size(486, 345);
-            this.listRequestTabPage.TabIndex = 5;
+            this.listRequestTabPage.TabIndex = 9;
             this.listRequestTabPage.Text = "لیست درخواست ها";
             this.listRequestTabPage.UseVisualStyleBackColor = true;
             // 
@@ -726,7 +874,6 @@
             this.requestListShowButton.TabIndex = 2;
             this.requestListShowButton.Text = "مشاهده";
             this.requestListShowButton.UseVisualStyleBackColor = true;
-            this.requestListShowButton.Click += new System.EventHandler(this.requestListShowButton_Click);
             // 
             // label19
             // 
@@ -736,22 +883,6 @@
             this.label19.Size = new System.Drawing.Size(111, 14);
             this.label19.TabIndex = 0;
             this.label19.Text = "لیست درخواست ها:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(389, 235);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 14);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "تعداد غرفه:";
-            // 
-            // boothRequestCountTextBox
-            // 
-            this.boothRequestCountTextBox.Location = new System.Drawing.Point(234, 232);
-            this.boothRequestCountTextBox.Name = "boothRequestCountTextBox";
-            this.boothRequestCountTextBox.Size = new System.Drawing.Size(120, 22);
-            this.boothRequestCountTextBox.TabIndex = 28;
             // 
             // RequestOutbox
             // 
@@ -772,6 +903,8 @@
             this.boothRequestTabPage.PerformLayout();
             this.InspectionRequestTabPage.ResumeLayout(false);
             this.InspectionRequestTabPage.PerformLayout();
+            this.pollRequestTabPage.ResumeLayout(false);
+            this.pollRequestTabPage.PerformLayout();
             this.listRequestTabPage.ResumeLayout(false);
             this.listRequestTabPage.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -826,16 +959,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage InspectionRequestTabPage;
-        private System.Windows.Forms.TabPage listRequestTabPage;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox requestResponseTextBox;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox requestContentTextBox;
-        private System.Windows.Forms.TextBox requestTitleTextBox;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button requestListShowButton;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox inspectionRequestBoothComboBox;
         private System.Windows.Forms.ComboBox inspectionRequestSaloonComboBox;
         private System.Windows.Forms.Label label34;
@@ -846,9 +969,31 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button inspectionCancelButton;
         private System.Windows.Forms.Button inspectionRequestButton;
-        private System.Windows.Forms.ComboBox requestListComboBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox boothRequestCountTextBox;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TextBox exhibitionRequestTypeTextBox;
+        private System.Windows.Forms.TabPage pollRequestTabPage;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage listRequestTabPage;
+        private System.Windows.Forms.ComboBox requestListComboBox;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox requestResponseTextBox;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox requestContentTextBox;
+        private System.Windows.Forms.TextBox requestTitleTextBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button requestListShowButton;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button pollRequestCancelButton;
+        private System.Windows.Forms.Button pollRequestButton;
+        private System.Windows.Forms.TextBox pollRequestContentTextBox;
+        private System.Windows.Forms.TextBox pollRrequestTitleTextBox;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox pollRequestPollsComboBox;
 
     }
 }

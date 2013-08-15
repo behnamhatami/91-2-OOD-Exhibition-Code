@@ -84,8 +84,10 @@
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseItem.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\BoothRequest.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\ExhibitionRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\ExhibitionRequestType.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\InspectionRequest.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\JudgeType.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\PollRequest.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\Request.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\SaloonRequest.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\BoothManagerRole.cs" />

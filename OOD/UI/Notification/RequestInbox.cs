@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
@@ -48,6 +47,13 @@ namespace OOD.UI.Notification
                 BoothRequestReset();
             }
 
+            if (HasPollRequestPreCondition())
+            {
+                tabControl1.Controls.Add(pollRequestTabPage);
+                PollRequestReset();
+            }
+
+
             if (HasInspectionRequestPreCondition())
             {
                 tabControl1.Controls.Add(InspectionRequestTabPage);
@@ -61,7 +67,6 @@ namespace OOD.UI.Notification
         {
             return true;
         }
-
 
         public override bool NeedExhibition()
         {
@@ -129,7 +134,7 @@ namespace OOD.UI.Notification
         private void ExhibitionRequestReset()
         {
             ResetHelper.Empty(exhibitionRequestTitleTextBox, exhibitionRequestContentTextBox,
-                exhibitionRequestResponseTextBox);
+                exhibitionRequestResponseTextBox, exhibitionRequestTypeTextBox);
 
             ResetHelper.Refresh(exhibitionRequestListComboBox,
                 Program.Exhibition.GetSpecialRequests<ExhibitionRequest>());
@@ -146,6 +151,8 @@ namespace OOD.UI.Notification
             exhibitionRequestTitleTextBox.Text = request.Title;
             exhibitionRequestContentTextBox.Text = request.Content;
             exhibitionRequestResponseTextBox.Text = request.Response;
+            exhibitionRequestTypeTextBox.Text = ExhibitionRequestTypeWrapper.GetWrapper(request.RequestType).ToString();
+
             exhibitionRequestResponseButton.Enabled = !request.Responsed;
             exhibitionRequestResponseTextBox.ReadOnly = request.Responsed;
             exhibitionAgreeButton.Enabled = !request.Agreed;
@@ -167,14 +174,22 @@ namespace OOD.UI.Notification
             var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
             var user = request.User;
             var exhibition = request.Exhibition;
-            var userExhibitionRole = new UserExhibitionRole
+            if (!exhibition.HasRole<ECustomerRole>(user))
             {
-                Exhibition = exhibition,
-                ExhibitionRole = new ECustomerRole(),
-                User = user
-            };
-            DataManager.DataContext.UserExhibitionRoles.Add(userExhibitionRole);
-            userExhibitionRole.NotifyAdd();
+                var userExhibitionRole = new UserExhibitionRole
+                {
+                    Exhibition = exhibition,
+                    ExhibitionRole = new ECustomerRole(),
+                    User = user
+                };
+                DataManager.DataContext.UserExhibitionRoles.Add(userExhibitionRole);
+                userExhibitionRole.NotifyAdd();
+            }
+            else
+            {
+                exhibition.ExitUser(user);
+            }
+
             AgreeResponse(request);
             ExhibitionRequestReset();
         }
@@ -338,6 +353,7 @@ namespace OOD.UI.Notification
             ResetHelper.Refresh(inspectionRequestJudgeTypeComboBox, JudgeTypeWrapper.JudgeTypes);
 
             inspectionRequestResponseButton.Enabled = false;
+            inspectionRequestJudgeResponseButton.Enabled = false;
         }
 
         private void inspectionShowButton_Click(object sender, EventArgs e)
@@ -348,16 +364,26 @@ namespace OOD.UI.Notification
 
             inspectionRequestSaloonTextBox.Text = request.Booth.Map.Saloon.ToString();
             inspectionRequestBoothTextBox.Text = request.Booth.ToString();
-
             inspectionRequestJudgeTypeComboBox.Text = JudgeTypeWrapper.GetWrapper(request.JudgeType).ToString();
-            inspectionRequestJudgeTypeComboBox.Enabled = !request.Responsed;
-            inspectionRequestFineTextBox.Visible = request.JudgeType == JudgeType.Fine;
             inspectionRequestFineTextBox.Text = request.Fine + "";
-            label28.Visible = request.JudgeType == JudgeType.Fine;
-            inspectionRequestFineTextBox.Enabled = !request.Responsed;
-            inspectionRequestResponseButton.Enabled = !request.Responsed;
-            inspectionRequestResponseTextBox.ReadOnly = request.Responsed;
             inspectionRequestResponseTextBox.Text = request.Response;
+
+            var inspectionPhase = !request.Responsed;
+            var judgePhase = request.Responsed && !request.Agreed;
+            var finishPhase = request.Responsed && request.Agreed;
+
+            inspectionRequestJudgeTypeComboBox.Enabled = judgePhase;
+            inspectionRequestJudgeTypeComboBox.Visible = judgePhase || finishPhase;
+            label27.Visible = judgePhase || finishPhase;
+
+
+            inspectionRequestFineTextBox.Enabled = judgePhase && request.JudgeType == JudgeType.Fine;
+            inspectionRequestFineTextBox.Visible = (judgePhase || finishPhase) && request.JudgeType == JudgeType.Fine;
+            label28.Visible = (judgePhase || finishPhase) && request.JudgeType == JudgeType.Fine;
+
+            inspectionRequestResponseTextBox.ReadOnly = !inspectionPhase;
+            inspectionRequestResponseButton.Enabled = inspectionPhase;
+            inspectionRequestJudgeResponseButton.Enabled = judgePhase;
         }
 
         private void inspectionRequestJudgeTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -374,19 +400,27 @@ namespace OOD.UI.Notification
         {
             var request = inspectionRequestsComboBox.SelectedItem as InspectionRequest;
             var response = inspectionRequestResponseTextBox.Text;
+
+            if (GeneralErrors.IsEmptyField(response, "پاسخ"))
+                return;
+
+            SendResponse(request, response);
+            InspectionRequestReset();
+        }
+
+        private void inspectionRequestJudgeResponseButton_Click(object sender, EventArgs e)
+        {
+            var request = inspectionRequestsComboBox.SelectedItem as InspectionRequest;
             var fine = inspectionRequestFineTextBox.Text;
             var judgeType = inspectionRequestJudgeTypeComboBox.SelectedItem as JudgeTypeWrapper;
 
-            if (GeneralErrors.IsEmptyField(response, "پاسخ")
-                || GeneralErrors.IsNull(judgeType, "نوع قضاوت")
+            if (GeneralErrors.IsNull(judgeType, "نوع قضاوت")
                 || (judgeType.Type == JudgeType.Fine && GeneralErrors.IsNotValidInt(fine, 0, "هیزان جریمه")))
                 return;
 
             request.JudgeType = judgeType.Type;
             if (request.JudgeType == JudgeType.Fine)
                 request.Fine = int.Parse(fine);
-            SendResponse(request, response);
-            InspectionRequestReset();
 
             switch (request.JudgeType)
             {
@@ -397,24 +431,67 @@ namespace OOD.UI.Notification
                     DataManager.DataContext.SaveChanges();
                     return;
                 case JudgeType.Deposal:
-                    var db = DataManager.DataContext;
                     var exhibition = request.Exhibition;
                     var user = request.User;
-                    var userExhibitionRole = db.UserExhibitionRoles
-                        .Where(role => role.Exhibition.Id == exhibition.Id)
-                        .Where(role => role.User.Id == user.Id)
-                        .First(role => role.ExhibitionRole is ECustomerRole);
-                    userExhibitionRole.NotifyRemove();
-                    db.UserExhibitionRoles.Remove(userExhibitionRole);
-                    var booths = db.Booths
-                        .Where(booth => booth.Map.Saloon.Exhibition.Id == exhibition.Id)
-                        .Where(booth => booth.Request != null && booth.Request.User.Id == user.Id);
-
-                    foreach (var booth in booths)
-                        booth.Request = null;
-                    db.SaveChanges();
+                    exhibition.ExitUser(user);
                     return;
             }
+
+            AgreeResponse(request);
+            InspectionRequestReset();
+        }
+
+        // Poll Request
+
+
+        public bool HasPollRequestPreCondition()
+        {
+            return true;
+        }
+
+        public void PollRequestReset()
+        {
+            ResetHelper.Empty(pollRequestTitleTextBox, pollRequestContentTextBox, pollRequestPollTextBox,
+                pollRequestResponseTextBox, pollRequestsComboBox);
+            ResetHelper.Refresh(pollRequestsComboBox, Program.Exhibition.GetSpecialRequests<PollRequest>());
+            pollRequestResponseButton.Enabled = false;
+            pollRequestAgreeButton.Enabled = false;
+        }
+
+        private void pollRequestShowButton_Click(object sender, EventArgs e)
+        {
+            var request = pollRequestsComboBox.SelectedItem as PollRequest;
+            if (GeneralErrors.IsNull(request, "درخواست نظرسنجی"))
+                return;
+
+            pollRequestTitleTextBox.Text = request.Title;
+            pollRequestContentTextBox.Text = request.Content;
+            pollRequestPollTextBox.Text = request.Poll.ToString();
+            pollRequestResponseTextBox.Text = request.Response;
+
+            pollRequestResponseTextBox.ReadOnly = request.Responsed;
+            pollRequestAgreeButton.Enabled = !request.Agreed;
+            pollRequestResponseButton.Enabled = !request.Responsed;
+        }
+
+        private void pollRequestAgreeButton_Click(object sender, EventArgs e)
+        {
+            var request = pollRequestsComboBox.SelectedItem as PollRequest;
+            request.Poll.Started = true;
+            AgreeResponse(request);
+            PollRequestReset();
+        }
+
+
+        private void pollRequestResponseButton_Click(object sender, EventArgs e)
+        {
+            var request = pollRequestsComboBox.SelectedItem as PollRequest;
+            var response = pollRequestResponseTextBox.Text;
+            if (GeneralErrors.IsEmptyField(response, "پاسخ درخواست"))
+                return;
+
+            SendResponse(request, response);
+            PollRequestReset();
         }
     }
 }

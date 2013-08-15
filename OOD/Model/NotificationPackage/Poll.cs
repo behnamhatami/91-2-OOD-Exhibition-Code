@@ -16,10 +16,12 @@ namespace OOD.Model.NotificationPackage
         public int Id { get; set; }
         public string Question { get; set; }
         public bool Closed { get; set; }
+        public bool Started { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime FinishDate { get; set; }
         public bool FinishByDate { get; set; }
         public virtual Exhibition Exhibition { get; set; }
+        public virtual User CreatorUser { get; set; }
 
         [NotMapped]
         public IQueryable<PollChoice> PollChoices

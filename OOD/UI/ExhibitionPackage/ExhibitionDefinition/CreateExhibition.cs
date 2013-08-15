@@ -130,7 +130,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinition
                 Exhibition = exhibition,
                 FinishDate = DateTime.Now,
                 FinishByDate = false,
-                Closed = true
+                Closed = true,
+                Started = true
             };
 
             var pollChoice1 = new PollChoice

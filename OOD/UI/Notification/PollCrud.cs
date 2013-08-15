@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
@@ -52,7 +53,7 @@ namespace OOD.UI.Notification
 
             var user = Program.User;
             var exhibition = Program.Exhibition;
-            if (exhibition.HasRole<ExecutionRole>(user))
+            if (exhibition.HasRole<ExecutionRole>(user) || exhibition.HasRole<ECustomerRole>(user))
             {
                 if (exhibition.State == ExhibitionState.Started)
                     return true;
@@ -133,10 +134,12 @@ namespace OOD.UI.Notification
             {
                 Closed = false,
                 CreationDate = creationDate,
+                CreatorUser = Program.User,
                 FinishDate = finishDate,
                 Exhibition = Program.Exhibition,
                 FinishByDate = finishByDate,
-                Question = question
+                Question = question,
+                Started = false
             };
 
             var db = DataManager.DataContext;
@@ -159,9 +162,20 @@ namespace OOD.UI.Notification
         {
             ResetHelper.Empty(listPollQuestionTextBox, listPollStateTextBox, listPollFinishDateTextBox,
                 listPollPollChoiceListBox);
-            ResetHelper.Refresh(listPollListComboBox, Program.Exhibition.Polls);
+            var user = Program.User;
+            var exhibition = Program.Exhibition;
+            var fullAccess = exhibition.HasRole<ExecutionRole>(user);
+
+            if (fullAccess)
+                ResetHelper.Refresh(listPollListComboBox,
+                    Program.Exhibition.Polls);
+            else
+                ResetHelper.Refresh(listPollListComboBox,
+                    Program.Exhibition.Polls.Where(poll => poll.CreatorUser.Id == Program.User.Id));
+
             listPollPollChoiceListBox.Items.Clear();
             listPollFinishButton.Enabled = false;
+            listPollStartButton.Enabled = false;
         }
 
         private void listPollShowButton_Click(object sender, EventArgs e)
@@ -169,10 +183,14 @@ namespace OOD.UI.Notification
             var poll = listPollListComboBox.SelectedItem as Poll;
             if (GeneralErrors.IsNull(poll, "نظرسنجی"))
                 return;
+
             listPollQuestionTextBox.Text = poll.Question;
             listPollFinishDateTextBox.Text = poll.FinishDate.ToString();
             listPollStateTextBox.Text = poll.Closed ? "بسته شده" : "باز";
-            listPollFinishButton.Enabled = poll.FinishByDate == false && poll.Closed == false;
+
+            var fullAccess = Program.Exhibition.HasRole<ExecutionRole>(Program.User);
+            listPollStartButton.Enabled = !poll.Started && fullAccess;
+            listPollFinishButton.Enabled = poll.Started && poll.FinishByDate == false && poll.Closed == false;
             ResetHelper.Refresh(listPollPollChoiceListBox, poll.PollChoices);
         }
 
@@ -182,6 +200,15 @@ namespace OOD.UI.Notification
             poll.Closed = true;
             poll.FinishDate = DateTime.Today;
             PopUp.ShowSuccess("نظرسنجی اتمام یافت.");
+            DataManager.DataContext.SaveChanges();
+            Reset();
+        }
+
+        private void listPollStartButton_Click(object sender, EventArgs e)
+        {
+            var poll = listPollListComboBox.SelectedItem as Poll;
+            poll.Started = true;
+            PopUp.ShowSuccess("نظرسنجی آغاز شد.");
             DataManager.DataContext.SaveChanges();
             Reset();
         }

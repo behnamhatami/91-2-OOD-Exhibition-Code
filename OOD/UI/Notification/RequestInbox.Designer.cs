@@ -32,6 +32,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.exhibitionRequestTabPage = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.exhibitionRequestTypeTextBox = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
             this.exhibitionAgreeButton = new System.Windows.Forms.Button();
             this.exhibitionRequestResponseButton = new System.Windows.Forms.Button();
             this.exhibitionRequestResponseTextBox = new System.Windows.Forms.TextBox();
@@ -69,6 +71,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.boothRequestComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.boothRequestCountTextBox = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.boothAgreeButton = new System.Windows.Forms.Button();
             this.boothRequestQualityTextBox = new System.Windows.Forms.TextBox();
             this.boothResponseButton = new System.Windows.Forms.Button();
@@ -90,6 +94,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.InspectionRequestTabPage = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.inspectionRequestJudgeResponseButton = new System.Windows.Forms.Button();
             this.inspectionRequestResponseButton = new System.Windows.Forms.Button();
             this.inspectionRequestResponseTextBox = new System.Windows.Forms.TextBox();
             this.inspectionRequestFineTextBox = new System.Windows.Forms.TextBox();
@@ -104,8 +109,22 @@
             this.inspectionShowButton = new System.Windows.Forms.Button();
             this.inspectionRequestsComboBox = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.boothRequestCountTextBox = new System.Windows.Forms.TextBox();
+            this.pollRequestTabPage = new System.Windows.Forms.TabPage();
+            this.pollRequestShowButton = new System.Windows.Forms.Button();
+            this.pollRequestsComboBox = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.pollRequestPollTextBox = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.pollRequestContentTextBox = new System.Windows.Forms.TextBox();
+            this.pollRequestTitleTextBox = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pollRequestResponseTextBox = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.pollRequestAgreeButton = new System.Windows.Forms.Button();
+            this.pollRequestResponseButton = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.exhibitionRequestTabPage.SuspendLayout();
@@ -116,6 +135,8 @@
             this.groupBox2.SuspendLayout();
             this.InspectionRequestTabPage.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.pollRequestTabPage.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -133,6 +154,8 @@
             this.tabControl1.Controls.Add(this.saloonRequestTabPage);
             this.tabControl1.Controls.Add(this.boothRequestTabPage);
             this.tabControl1.Controls.Add(this.InspectionRequestTabPage);
+            this.tabControl1.Controls.Add(this.pollRequestTabPage);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
@@ -156,6 +179,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.exhibitionRequestTypeTextBox);
+            this.groupBox1.Controls.Add(this.label31);
             this.groupBox1.Controls.Add(this.exhibitionAgreeButton);
             this.groupBox1.Controls.Add(this.exhibitionRequestResponseButton);
             this.groupBox1.Controls.Add(this.exhibitionRequestResponseTextBox);
@@ -164,16 +189,33 @@
             this.groupBox1.Controls.Add(this.exhibitionRequestTitleTextBox);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(32, 73);
+            this.groupBox1.Location = new System.Drawing.Point(32, 64);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(435, 268);
+            this.groupBox1.Size = new System.Drawing.Size(435, 277);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "درخواست";
             // 
+            // exhibitionRequestTypeTextBox
+            // 
+            this.exhibitionRequestTypeTextBox.Location = new System.Drawing.Point(4, 120);
+            this.exhibitionRequestTypeTextBox.Name = "exhibitionRequestTypeTextBox";
+            this.exhibitionRequestTypeTextBox.ReadOnly = true;
+            this.exhibitionRequestTypeTextBox.Size = new System.Drawing.Size(294, 22);
+            this.exhibitionRequestTypeTextBox.TabIndex = 25;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(347, 123);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(75, 14);
+            this.label31.TabIndex = 24;
+            this.label31.Text = "نوع درخواست";
+            // 
             // exhibitionAgreeButton
             // 
-            this.exhibitionAgreeButton.Location = new System.Drawing.Point(83, 233);
+            this.exhibitionAgreeButton.Location = new System.Drawing.Point(81, 245);
             this.exhibitionAgreeButton.Name = "exhibitionAgreeButton";
             this.exhibitionAgreeButton.Size = new System.Drawing.Size(71, 24);
             this.exhibitionAgreeButton.TabIndex = 23;
@@ -183,7 +225,7 @@
             // 
             // exhibitionRequestResponseButton
             // 
-            this.exhibitionRequestResponseButton.Location = new System.Drawing.Point(6, 233);
+            this.exhibitionRequestResponseButton.Location = new System.Drawing.Point(4, 245);
             this.exhibitionRequestResponseButton.Name = "exhibitionRequestResponseButton";
             this.exhibitionRequestResponseButton.Size = new System.Drawing.Size(71, 24);
             this.exhibitionRequestResponseButton.TabIndex = 22;
@@ -193,16 +235,16 @@
             // 
             // exhibitionRequestResponseTextBox
             // 
-            this.exhibitionRequestResponseTextBox.Location = new System.Drawing.Point(4, 121);
+            this.exhibitionRequestResponseTextBox.Location = new System.Drawing.Point(4, 148);
             this.exhibitionRequestResponseTextBox.Multiline = true;
             this.exhibitionRequestResponseTextBox.Name = "exhibitionRequestResponseTextBox";
-            this.exhibitionRequestResponseTextBox.Size = new System.Drawing.Size(294, 108);
+            this.exhibitionRequestResponseTextBox.Size = new System.Drawing.Size(294, 91);
             this.exhibitionRequestResponseTextBox.TabIndex = 21;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(384, 121);
+            this.label7.Location = new System.Drawing.Point(384, 151);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 14);
             this.label7.TabIndex = 20;
@@ -246,7 +288,7 @@
             // exhibitionRequestListComboBox
             // 
             this.exhibitionRequestListComboBox.FormattingEnabled = true;
-            this.exhibitionRequestListComboBox.Location = new System.Drawing.Point(32, 12);
+            this.exhibitionRequestListComboBox.Location = new System.Drawing.Point(32, 6);
             this.exhibitionRequestListComboBox.Name = "exhibitionRequestListComboBox";
             this.exhibitionRequestListComboBox.Size = new System.Drawing.Size(298, 22);
             this.exhibitionRequestListComboBox.TabIndex = 15;
@@ -254,7 +296,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(359, 15);
+            this.label4.Location = new System.Drawing.Point(359, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 14);
             this.label4.TabIndex = 14;
@@ -262,7 +304,7 @@
             // 
             // exhibitionShowButton
             // 
-            this.exhibitionShowButton.Location = new System.Drawing.Point(32, 43);
+            this.exhibitionShowButton.Location = new System.Drawing.Point(32, 34);
             this.exhibitionShowButton.Name = "exhibitionShowButton";
             this.exhibitionShowButton.Size = new System.Drawing.Size(71, 24);
             this.exhibitionShowButton.TabIndex = 13;
@@ -547,6 +589,23 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "درخواست";
             // 
+            // boothRequestCountTextBox
+            // 
+            this.boothRequestCountTextBox.Location = new System.Drawing.Point(10, 149);
+            this.boothRequestCountTextBox.Name = "boothRequestCountTextBox";
+            this.boothRequestCountTextBox.ReadOnly = true;
+            this.boothRequestCountTextBox.Size = new System.Drawing.Size(39, 22);
+            this.boothRequestCountTextBox.TabIndex = 39;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(55, 155);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(36, 14);
+            this.label30.TabIndex = 38;
+            this.label30.Text = "تعداد:";
+            // 
             // boothAgreeButton
             // 
             this.boothAgreeButton.Location = new System.Drawing.Point(87, 241);
@@ -742,6 +801,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.inspectionRequestJudgeResponseButton);
             this.groupBox5.Controls.Add(this.inspectionRequestResponseButton);
             this.groupBox5.Controls.Add(this.inspectionRequestResponseTextBox);
             this.groupBox5.Controls.Add(this.inspectionRequestFineTextBox);
@@ -760,13 +820,23 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "درخواست";
             // 
+            // inspectionRequestJudgeResponseButton
+            // 
+            this.inspectionRequestJudgeResponseButton.Location = new System.Drawing.Point(129, 219);
+            this.inspectionRequestJudgeResponseButton.Name = "inspectionRequestJudgeResponseButton";
+            this.inspectionRequestJudgeResponseButton.Size = new System.Drawing.Size(83, 24);
+            this.inspectionRequestJudgeResponseButton.TabIndex = 38;
+            this.inspectionRequestJudgeResponseButton.Text = "ارسال قضاوت";
+            this.inspectionRequestJudgeResponseButton.UseVisualStyleBackColor = true;
+            this.inspectionRequestJudgeResponseButton.Click += new System.EventHandler(this.inspectionRequestJudgeResponseButton_Click);
+            // 
             // inspectionRequestResponseButton
             // 
             this.inspectionRequestResponseButton.Location = new System.Drawing.Point(32, 219);
             this.inspectionRequestResponseButton.Name = "inspectionRequestResponseButton";
-            this.inspectionRequestResponseButton.Size = new System.Drawing.Size(71, 24);
+            this.inspectionRequestResponseButton.Size = new System.Drawing.Size(91, 24);
             this.inspectionRequestResponseButton.TabIndex = 37;
-            this.inspectionRequestResponseButton.Text = "ارسال";
+            this.inspectionRequestResponseButton.Text = "ارسال بازرسی";
             this.inspectionRequestResponseButton.UseVisualStyleBackColor = true;
             this.inspectionRequestResponseButton.Click += new System.EventHandler(this.inspectionRequestResponseButton_Click);
             // 
@@ -882,22 +952,164 @@
             this.label24.TabIndex = 38;
             this.label24.Text = "لیست درخواست ها:";
             // 
-            // label30
+            // pollRequestTabPage
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(55, 155);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(36, 14);
-            this.label30.TabIndex = 38;
-            this.label30.Text = "تعداد:";
+            this.pollRequestTabPage.Controls.Add(this.groupBox3);
+            this.pollRequestTabPage.Controls.Add(this.pollRequestShowButton);
+            this.pollRequestTabPage.Controls.Add(this.pollRequestsComboBox);
+            this.pollRequestTabPage.Controls.Add(this.label35);
+            this.pollRequestTabPage.Location = new System.Drawing.Point(4, 23);
+            this.pollRequestTabPage.Name = "pollRequestTabPage";
+            this.pollRequestTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.pollRequestTabPage.Size = new System.Drawing.Size(486, 345);
+            this.pollRequestTabPage.TabIndex = 4;
+            this.pollRequestTabPage.Text = "درخواست نظرسنجی";
+            this.pollRequestTabPage.UseVisualStyleBackColor = true;
             // 
-            // boothRequestCountTextBox
+            // pollRequestShowButton
             // 
-            this.boothRequestCountTextBox.Location = new System.Drawing.Point(10, 149);
-            this.boothRequestCountTextBox.Name = "boothRequestCountTextBox";
-            this.boothRequestCountTextBox.ReadOnly = true;
-            this.boothRequestCountTextBox.Size = new System.Drawing.Size(39, 22);
-            this.boothRequestCountTextBox.TabIndex = 39;
+            this.pollRequestShowButton.Location = new System.Drawing.Point(36, 49);
+            this.pollRequestShowButton.Name = "pollRequestShowButton";
+            this.pollRequestShowButton.Size = new System.Drawing.Size(71, 24);
+            this.pollRequestShowButton.TabIndex = 45;
+            this.pollRequestShowButton.Text = "مشاهده";
+            this.pollRequestShowButton.UseVisualStyleBackColor = true;
+            this.pollRequestShowButton.Click += new System.EventHandler(this.pollRequestShowButton_Click);
+            // 
+            // pollRequestsComboBox
+            // 
+            this.pollRequestsComboBox.FormattingEnabled = true;
+            this.pollRequestsComboBox.Location = new System.Drawing.Point(36, 21);
+            this.pollRequestsComboBox.Name = "pollRequestsComboBox";
+            this.pollRequestsComboBox.Size = new System.Drawing.Size(300, 22);
+            this.pollRequestsComboBox.TabIndex = 44;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(356, 24);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(111, 14);
+            this.label35.TabIndex = 43;
+            this.label35.Text = "لیست درخواست ها:";
+            // 
+            // pollRequestPollTextBox
+            // 
+            this.pollRequestPollTextBox.Location = new System.Drawing.Point(5, 115);
+            this.pollRequestPollTextBox.Name = "pollRequestPollTextBox";
+            this.pollRequestPollTextBox.ReadOnly = true;
+            this.pollRequestPollTextBox.Size = new System.Drawing.Size(320, 22);
+            this.pollRequestPollTextBox.TabIndex = 42;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(365, 118);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(59, 14);
+            this.label32.TabIndex = 41;
+            this.label32.Text = "نظرسنجی";
+            // 
+            // pollRequestContentTextBox
+            // 
+            this.pollRequestContentTextBox.Location = new System.Drawing.Point(5, 42);
+            this.pollRequestContentTextBox.Multiline = true;
+            this.pollRequestContentTextBox.Name = "pollRequestContentTextBox";
+            this.pollRequestContentTextBox.ReadOnly = true;
+            this.pollRequestContentTextBox.Size = new System.Drawing.Size(320, 67);
+            this.pollRequestContentTextBox.TabIndex = 40;
+            // 
+            // pollRequestTitleTextBox
+            // 
+            this.pollRequestTitleTextBox.Location = new System.Drawing.Point(5, 15);
+            this.pollRequestTitleTextBox.Name = "pollRequestTitleTextBox";
+            this.pollRequestTitleTextBox.ReadOnly = true;
+            this.pollRequestTitleTextBox.Size = new System.Drawing.Size(320, 22);
+            this.pollRequestTitleTextBox.TabIndex = 39;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(387, 42);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(37, 14);
+            this.label33.TabIndex = 38;
+            this.label33.Text = "محتوا:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(344, 15);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(80, 14);
+            this.label34.TabIndex = 37;
+            this.label34.Text = "تیتر درخواست:";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(486, 345);
+            this.tabPage2.TabIndex = 5;
+            this.tabPage2.Text = "درخواست اصلاحی غرفه ها";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pollRequestResponseTextBox
+            // 
+            this.pollRequestResponseTextBox.Location = new System.Drawing.Point(5, 142);
+            this.pollRequestResponseTextBox.Multiline = true;
+            this.pollRequestResponseTextBox.Name = "pollRequestResponseTextBox";
+            this.pollRequestResponseTextBox.Size = new System.Drawing.Size(320, 74);
+            this.pollRequestResponseTextBox.TabIndex = 47;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(386, 145);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(38, 14);
+            this.label36.TabIndex = 46;
+            this.label36.Text = "پاسخ:";
+            // 
+            // pollRequestAgreeButton
+            // 
+            this.pollRequestAgreeButton.Location = new System.Drawing.Point(82, 222);
+            this.pollRequestAgreeButton.Name = "pollRequestAgreeButton";
+            this.pollRequestAgreeButton.Size = new System.Drawing.Size(71, 24);
+            this.pollRequestAgreeButton.TabIndex = 49;
+            this.pollRequestAgreeButton.Text = "موافقت";
+            this.pollRequestAgreeButton.UseVisualStyleBackColor = true;
+            this.pollRequestAgreeButton.Click += new System.EventHandler(this.pollRequestAgreeButton_Click);
+            // 
+            // pollRequestResponseButton
+            // 
+            this.pollRequestResponseButton.Location = new System.Drawing.Point(5, 222);
+            this.pollRequestResponseButton.Name = "pollRequestResponseButton";
+            this.pollRequestResponseButton.Size = new System.Drawing.Size(71, 24);
+            this.pollRequestResponseButton.TabIndex = 48;
+            this.pollRequestResponseButton.Text = "ارسال";
+            this.pollRequestResponseButton.UseVisualStyleBackColor = true;
+            this.pollRequestResponseButton.Click += new System.EventHandler(this.pollRequestResponseButton_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.pollRequestAgreeButton);
+            this.groupBox3.Controls.Add(this.pollRequestResponseButton);
+            this.groupBox3.Controls.Add(this.pollRequestResponseTextBox);
+            this.groupBox3.Controls.Add(this.label36);
+            this.groupBox3.Controls.Add(this.pollRequestPollTextBox);
+            this.groupBox3.Controls.Add(this.label32);
+            this.groupBox3.Controls.Add(this.pollRequestContentTextBox);
+            this.groupBox3.Controls.Add(this.pollRequestTitleTextBox);
+            this.groupBox3.Controls.Add(this.label33);
+            this.groupBox3.Controls.Add(this.label34);
+            this.groupBox3.Location = new System.Drawing.Point(36, 81);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(427, 254);
+            this.groupBox3.TabIndex = 50;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "درخواست";
             // 
             // RequestInbox
             // 
@@ -926,6 +1138,10 @@
             this.InspectionRequestTabPage.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.pollRequestTabPage.ResumeLayout(false);
+            this.pollRequestTabPage.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -939,9 +1155,6 @@
         private System.Windows.Forms.TabPage saloonRequestTabPage;
         private System.Windows.Forms.TabPage boothRequestTabPage;
         private System.Windows.Forms.TabPage InspectionRequestTabPage;
-        private System.Windows.Forms.ComboBox exhibitionRequestListComboBox;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button exhibitionShowButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button exhibitionAgreeButton;
         private System.Windows.Forms.Button exhibitionRequestResponseButton;
@@ -1011,6 +1224,28 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox boothRequestCountTextBox;
+        private System.Windows.Forms.Button inspectionRequestJudgeResponseButton;
+        private System.Windows.Forms.ComboBox exhibitionRequestListComboBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button exhibitionShowButton;
+        private System.Windows.Forms.TextBox exhibitionRequestTypeTextBox;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.TabPage pollRequestTabPage;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TextBox pollRequestPollTextBox;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox pollRequestContentTextBox;
+        private System.Windows.Forms.TextBox pollRequestTitleTextBox;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button pollRequestShowButton;
+        private System.Windows.Forms.ComboBox pollRequestsComboBox;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox pollRequestResponseTextBox;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button pollRequestAgreeButton;
+        private System.Windows.Forms.Button pollRequestResponseButton;
 
 
     }

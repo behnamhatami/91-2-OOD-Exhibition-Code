@@ -59,6 +59,7 @@
             this.listPollShowButton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.listPollListComboBox = new System.Windows.Forms.ComboBox();
+            this.listPollStartButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.createPollTabPage.SuspendLayout();
@@ -254,6 +255,7 @@
             // 
             // listPollGroupBox
             // 
+            this.listPollGroupBox.Controls.Add(this.listPollStartButton);
             this.listPollGroupBox.Controls.Add(this.listPollFinishButton);
             this.listPollGroupBox.Controls.Add(this.listPollPollChoiceListBox);
             this.listPollGroupBox.Controls.Add(this.label12);
@@ -377,6 +379,16 @@
             this.listPollListComboBox.Size = new System.Drawing.Size(217, 22);
             this.listPollListComboBox.TabIndex = 0;
             // 
+            // listPollStartButton
+            // 
+            this.listPollStartButton.Location = new System.Drawing.Point(92, 220);
+            this.listPollStartButton.Name = "listPollStartButton";
+            this.listPollStartButton.Size = new System.Drawing.Size(71, 24);
+            this.listPollStartButton.TabIndex = 13;
+            this.listPollStartButton.Text = "شروع";
+            this.listPollStartButton.UseVisualStyleBackColor = true;
+            this.listPollStartButton.Click += new System.EventHandler(this.listPollStartButton_Click);
+            // 
             // PollCrud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -434,5 +446,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListBox listPollPollChoiceListBox;
         private System.Windows.Forms.Button listPollFinishButton;
+        private System.Windows.Forms.Button listPollStartButton;
     }
 }

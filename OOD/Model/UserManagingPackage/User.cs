@@ -87,6 +87,12 @@ namespace OOD.Model.UserManagingPackage
             get { return DataManager.DataContext.Requests.Where(request => request.User.Id == Id); }
         }
 
+        [NotMapped]
+        public IQueryable<Poll> CreatorPolls
+        {
+            get { return DataManager.DataContext.Polls.Where(poll => poll.CreatorUser.Id == Id); }
+        }
+
         public void RecieveNotification(String title, String content, Exhibition exhibition)
         {
             DataManager.DataContext.Notifications.Add(new Notification

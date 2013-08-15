@@ -7,6 +7,8 @@ using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
 using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
+using OOD.Model.NotificationPackage;
+using OOD.Model.UserManagingPackage;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.Helper;
 using OOD.UI.Utility.PopUp;
@@ -45,6 +47,10 @@ namespace OOD.UI.Notification
             if (HasInspectionRequestPreCondition())
                 TabControl.Controls.Add(InspectionRequestTabPage);
 
+            PollRequestReset();
+            if (HasPollRequestPreCondition())
+                TabControl.Controls.Add(pollRequestTabPage);
+
             ListRequestReset();
             if (HasListRequestPreCondition())
                 TabControl.Controls.Add(listRequestTabPage);
@@ -71,8 +77,7 @@ namespace OOD.UI.Notification
             var user = Program.User;
             var exhibition = Program.Exhibition;
             if (exhibition.HasRole<ExecutionRole>(user)
-                || exhibition.HasRole<BoothManagerRole>(user)
-                || exhibition.HasRole<InspectorRole>(user))
+                || exhibition.HasRole<ECustomerRole>(user))
             {
                 if (exhibition.State == ExhibitionState.Started)
                     return true;
@@ -116,6 +121,9 @@ namespace OOD.UI.Notification
         private void ExhibitionRequestReset()
         {
             ResetHelper.Empty(exhibitionRequestTitleTextBox, exhibitionRequestContentTextBox);
+            exhibitionRequestTypeTextBox.Text = Program.Exhibition.HasRole<ECustomerRole>(Program.User)
+                ? ExhibitionRequestTypeWrapper.GetWrapper(ExhibitionRequestType.Exit).ToString()
+                : ExhibitionRequestTypeWrapper.GetWrapper(ExhibitionRequestType.Entrance).ToString();
         }
 
         private void exhibitionCancelButton_Click(object sender, EventArgs e)
@@ -127,10 +135,16 @@ namespace OOD.UI.Notification
         {
             var title = exhibitionRequestTitleTextBox.Text;
             var content = exhibitionRequestContentTextBox.Text;
-            var exhibition = Program.Exhibition;
+
             if (GeneralErrors.IsEmptyField(title, "تیتر درخواست")
                 || GeneralErrors.IsEmptyField(content, "محتوای درخواست"))
                 return;
+
+            var exhibition = Program.Exhibition;
+            var user = Program.User;
+            var type = exhibition.HasRole<ECustomerRole>(user)
+                ? ExhibitionRequestType.Exit
+                : ExhibitionRequestType.Entrance;
 
             var request = new ExhibitionRequest
             {
@@ -139,8 +153,9 @@ namespace OOD.UI.Notification
                 Content = content,
                 CreationDate = DateTime.Today,
                 Exhibition = exhibition,
+                RequestType = type,
                 Title = title,
-                User = Program.User
+                User = user
             };
             SendRequest(request);
             ExhibitionRequestReset();
@@ -203,7 +218,7 @@ namespace OOD.UI.Notification
 
         private bool HasBoothRequestPreCondition()
         {
-            return Program.Exhibition != null && Program.Exhibition.HasRole<ECustomerRole>(Program.User);
+            return Program.Exhibition.HasRole<ECustomerRole>(Program.User);
         }
 
         private void BoothRequestReset()
@@ -316,6 +331,53 @@ namespace OOD.UI.Notification
             };
             SendRequest(request);
             InspectionRequestReset();
+        }
+
+        // Poll Request
+
+        public bool HasPollRequestPreCondition()
+        {
+            return true;
+        }
+
+        public void PollRequestReset()
+        {
+            ResetHelper.Empty(pollRrequestTitleTextBox, pollRequestContentTextBox, pollRequestPollsComboBox);
+            ResetHelper.Refresh(pollRequestPollsComboBox, Program.User.CreatorPolls
+                .Where(poll => poll.Exhibition.Id == Program.Exhibition.Id));
+        }
+
+
+        private void pollRequestCancelButton_Click(object sender, EventArgs e)
+        {
+            PollRequestReset();
+        }
+
+        private void pollRequestButton_Click(object sender, EventArgs e)
+        {
+            var title = pollRrequestTitleTextBox.Text;
+            var content = pollRequestContentTextBox.Text;
+            var poll = pollRequestPollsComboBox.SelectedItem as Poll;
+
+            if (GeneralErrors.IsNull(poll, "نظرسنجی"))
+                return;
+
+            var request = new PollRequest
+            {
+                Agreed = false,
+                Content = content,
+                CreationDate = DateTime.Today,
+                Exhibition = Program.Exhibition,
+                Poll = poll,
+                Responsed = false,
+                Title = title,
+                User = Program.User
+            };
+            var db = DataManager.DataContext;
+            db.Requests.Add(request);
+            db.SaveChanges();
+            PollRequestReset();
+            PopUp.ShowSuccess("درخواست شما در سیستم ثبت گردید.");
         }
 
         // List Requests

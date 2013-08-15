@@ -92,6 +92,24 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
                 .ThenBy(request => request.CreationDate);
         }
 
+        public void ExitUser(User user)
+        {
+            var db = DataManager.DataContext;
+            var userExhibitionRole = db.UserExhibitionRoles
+                .Where(role => role.Exhibition.Id == Id)
+                .Where(role => role.User.Id == user.Id)
+                .First(role => role.ExhibitionRole is ECustomerRole);
+            userExhibitionRole.NotifyRemove();
+            db.UserExhibitionRoles.Remove(userExhibitionRole);
+            var booths = db.Booths
+                .Where(booth => booth.Map.Saloon.Exhibition.Id == Id)
+                .Where(booth => booth.Request != null && booth.Request.User.Id == user.Id);
+
+            foreach (var booth in booths)
+                booth.Request = null;
+            db.SaveChanges();
+        }
+
         public void RecieveNotification(String title, String content)
         {
             var db = DataManager.DataContext;
