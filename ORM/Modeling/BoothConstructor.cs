@@ -12,13 +12,12 @@ namespace Login.Modeling
     using System;
     using System.Collections.Generic;
     
-    public partial class Saloon
+    public partial class BoothConstructor
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Area { get; set; }
+        public int ReserverdDays { get; set; }
     
-        public virtual Map Map { get; set; }
-        public virtual Exhibition Exhibition { get; set; }
+        public virtual ConstructAbility ConstructAbility { get; set; }
     }
 }

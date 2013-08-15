@@ -19,7 +19,8 @@ namespace Login.Modeling
         public string Content { get; set; }
         public System.DateTime CreationDate { get; set; }
         public string Response { get; set; }
-        public bool Closed { get; set; }
+        public bool Responsed { get; set; }
+        public bool Agreed { get; set; }
     
         public virtual Exhibition Exhibition { get; set; }
         public virtual User User { get; set; }

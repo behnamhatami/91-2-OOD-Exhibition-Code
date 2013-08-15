@@ -17,6 +17,7 @@ namespace Login.Modeling
         public string Quality { get; set; }
         public int OperatorCount { get; set; }
         public bool ForSell { get; set; }
+        public int Area { get; set; }
         public bool ForVitrin { get; set; }
         public bool ForCommision { get; set; }
         public bool HasPhone { get; set; }

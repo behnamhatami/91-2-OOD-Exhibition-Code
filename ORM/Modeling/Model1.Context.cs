@@ -48,5 +48,7 @@ namespace Login.Modeling
         public DbSet<Map> Maps { get; set; }
         public DbSet<Booth> Booths { get; set; }
         public DbSet<Request> Requests { get; set; }
+        public DbSet<BoothConstructor> BoothConstructors { get; set; }
+        public DbSet<ConstructAbility> ConstructAbilities { get; set; }
     }
 }

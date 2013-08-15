@@ -20,6 +20,7 @@ namespace Login.Modeling
         }
     
         public int Id { get; set; }
+        public int Area { get; set; }
         public int Index { get; set; }
         public string Quality { get; set; }
         public int OperatorCount { get; set; }
@@ -28,9 +29,11 @@ namespace Login.Modeling
         public bool ForCommision { get; set; }
         public bool HasPhone { get; set; }
         public bool HasCardReader { get; set; }
+        public bool Enabled { get; set; }
     
         public virtual Map Map { get; set; }
-        public virtual User User { get; set; }
         public virtual ICollection<InspectionRequest> InspectionRequests { get; set; }
+        public virtual BoothRequest BoothRequest { get; set; }
+        public virtual BoothExtensionRequest BoothExtensionRequest { get; set; }
     }
 }

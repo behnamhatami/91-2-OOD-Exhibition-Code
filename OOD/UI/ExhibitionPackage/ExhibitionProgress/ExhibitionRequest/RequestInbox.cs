@@ -13,7 +13,7 @@ using OOD.UI.Utility.PopUp;
 
 #endregion
 
-namespace OOD.UI.Notification
+namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest
 {
     public partial class RequestInbox : MainWindow
     {
@@ -137,14 +137,14 @@ namespace OOD.UI.Notification
                 exhibitionRequestResponseTextBox, exhibitionRequestTypeTextBox);
 
             ResetHelper.Refresh(exhibitionRequestListComboBox,
-                Program.Exhibition.GetSpecialRequests<ExhibitionRequest>());
+                Program.Exhibition.GetSpecialRequests<Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest.ExhibitionRequest>());
             exhibitionRequestResponseButton.Enabled = false;
             exhibitionAgreeButton.Enabled = false;
         }
 
         private void exhibitionShowButton_Click(object sender, EventArgs e)
         {
-            var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
+            var request = exhibitionRequestListComboBox.SelectedItem as Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest.ExhibitionRequest;
             if (GeneralErrors.IsNull(request, "درخواست"))
                 return;
 
@@ -160,7 +160,7 @@ namespace OOD.UI.Notification
 
         private void exhibitionRequestResponseButton_Click(object sender, EventArgs e)
         {
-            var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
+            var request = exhibitionRequestListComboBox.SelectedItem as Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest.ExhibitionRequest;
             var response = exhibitionRequestResponseTextBox.Text;
             if (GeneralErrors.IsEmptyField(response, "پاسخ"))
                 return;
@@ -171,7 +171,7 @@ namespace OOD.UI.Notification
 
         private void exhibitionAgreeButton_Click(object sender, EventArgs e)
         {
-            var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
+            var request = exhibitionRequestListComboBox.SelectedItem as Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest.ExhibitionRequest;
             var user = request.User;
             var exhibition = request.Exhibition;
             if (!exhibition.HasRole<ECustomerRole>(user))
@@ -265,8 +265,6 @@ namespace OOD.UI.Notification
                     Enabled = true,
                     Index = i,
                     Map = saloon.Map,
-                    Quality = BoothQuality.High,
-                    OperatorCount = 1,
                 });
             }
             db.Saloons.Add(saloon);

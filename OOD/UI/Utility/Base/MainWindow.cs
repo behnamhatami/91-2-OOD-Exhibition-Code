@@ -4,6 +4,7 @@ using System;
 using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
 using OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
 using OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
+using OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
 using OOD.UI.Notification;
 using OOD.UI.UserManagingPackage;
 

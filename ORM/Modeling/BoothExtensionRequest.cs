@@ -12,13 +12,16 @@ namespace Login.Modeling
     using System;
     using System.Collections.Generic;
     
-    public partial class Saloon
+    public partial class BoothExtensionRequest : Request
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public BoothExtensionRequest()
+        {
+            this.ConstructAbilities = new HashSet<ConstructAbility>();
+        }
+    
         public int Area { get; set; }
     
-        public virtual Map Map { get; set; }
-        public virtual Exhibition Exhibition { get; set; }
+        public virtual Booth Booth { get; set; }
+        public virtual ICollection<ConstructAbility> ConstructAbilities { get; set; }
     }
 }

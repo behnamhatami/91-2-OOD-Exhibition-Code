@@ -75,13 +75,18 @@
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ProcessType.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Booth.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothQuality.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\ConstructAbility.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Map.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\ProfesionQuality.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Profession.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Saloon.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\Payment.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostItem.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOffice.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouse.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseItem.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothConstructor.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\BoothExtensionRequest.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\BoothRequest.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\ExhibitionRequest.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\ExhibitionRequestType.cs" />
@@ -202,16 +207,16 @@
     <Compile Include="UI\Notification\PollCrud.Designer.cs">
       <DependentUpon>PollCrud.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Notification\RequestInbox.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestInbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Notification\RequestInbox.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestInbox.Designer.cs">
       <DependentUpon>RequestInbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Notification\RequestOutbox.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestOutbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Notification\RequestOutbox.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestOutbox.Designer.cs">
       <DependentUpon>RequestOutbox.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Utility\Base\BaseForm.cs">
@@ -315,10 +320,10 @@
     <EmbeddedResource Include="UI\Notification\PollCrud.resx">
       <DependentUpon>PollCrud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\RequestInbox.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestInbox.resx">
       <DependentUpon>RequestInbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\RequestOutbox.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestOutbox.resx">
       <DependentUpon>RequestOutbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Utility\Base\BaseForm.resx">

@@ -14,5 +14,6 @@ namespace Login.Modeling
     
     public partial class ExhibitionRequest : Request
     {
+        public string RequestType { get; set; }
     }
 }

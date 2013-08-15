@@ -45,6 +45,8 @@ namespace OOD.Model.ModelContext
         public DbSet<Map> Maps { get; set; }
         public DbSet<Booth> Booths { get; set; }
         public DbSet<Request> Requests { get; set; }
+        public DbSet<BoothConstructor> Constructors { get; set; }
+        public DbSet<ConstructAbility> Abilities { get; set; }
 
         public static string ConnectionString
         {

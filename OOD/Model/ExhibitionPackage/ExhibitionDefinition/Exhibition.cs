@@ -85,6 +85,12 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinition
             get { return DataManager.DataContext.Requests.Where(request => request.Exhibition.Id == Id); }
         }
 
+        [NotMapped]
+        public IQueryable<BoothConstructor> Constructors
+        {
+            get { return DataManager.DataContext.Constructors.Where(constructor => constructor.Exhibition.Id == Id); }
+        }
+
         public IQueryable<Request> GetSpecialRequests<T>()
         {
             return Requests.Where(request => request is T)

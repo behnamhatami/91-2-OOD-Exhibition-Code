@@ -8,14 +8,13 @@ using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
 using OOD.Model.ExhibitionPackage.ExhibitionRoles;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
-using OOD.Model.UserManagingPackage;
 using OOD.UI.Utility.Base;
 using OOD.UI.Utility.Helper;
 using OOD.UI.Utility.PopUp;
 
 #endregion
 
-namespace OOD.UI.Notification
+namespace OOD.UI.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest
 {
     public partial class RequestOutbox : MainWindow
     {
@@ -146,7 +145,7 @@ namespace OOD.UI.Notification
                 ? ExhibitionRequestType.Exit
                 : ExhibitionRequestType.Entrance;
 
-            var request = new ExhibitionRequest
+            var request = new Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest.ExhibitionRequest
             {
                 Agreed = false,
                 Responsed = false,
@@ -226,7 +225,7 @@ namespace OOD.UI.Notification
             ResetHelper.Empty(boothRequestTitleTextBox, boothRequestContentTextBox, boothRequestOperatorTextBox,
                 boothRequestQualityComboBox, boothRequestForSellCheckBox, boothRequestForVitrinCheckBox,
                 boothRequestForCommisionCheckBox, boothRequestPhoneCheckBox, boothRequestCardReaderCheckBox,
-                boothRequestCountTextBox);
+                boothRequestCountTextBox, boothRequestAreaTextBox);
             ResetHelper.Refresh(boothRequestQualityComboBox, BoothQualityWrapper.BoothQualities);
         }
 
@@ -242,17 +241,20 @@ namespace OOD.UI.Notification
             var operatorCount = boothRequestOperatorTextBox.Text;
             var quality = boothRequestQualityComboBox.SelectedItem as BoothQualityWrapper;
             var count = boothRequestCountTextBox.Text;
+            var area = boothRequestAreaTextBox.Text;
 
             if (GeneralErrors.IsEmptyField(title, "تیتر درخواست")
                 || GeneralErrors.IsEmptyField(content, "محتوای درخواست")
                 || GeneralErrors.IsNotValidInt(operatorCount, 1, "تعداد متصدیان")
                 || GeneralErrors.IsNull(quality, "کیفیت")
-                || GeneralErrors.IsNotValidInt(count, 1, "تعداد غرفه"))
+                || GeneralErrors.IsNotValidInt(count, 1, "تعداد غرفه")
+                || GeneralErrors.IsNotValidInt(area, 1, "مساحت غرفه"))
                 return;
 
             var request = new BoothRequest
             {
                 Agreed = false,
+                Area = int.Parse(area),
                 Responsed = false,
                 Count = int.Parse(count),
                 Content = content,

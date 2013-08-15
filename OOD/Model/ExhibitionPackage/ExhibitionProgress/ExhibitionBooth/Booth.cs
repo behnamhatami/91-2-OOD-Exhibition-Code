@@ -14,15 +14,9 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth
         public int Id { get; set; }
         public int Index { get; set; }
         public bool Enabled { get; set; }
-        public BoothQuality Quality { get; set; }
-        public int OperatorCount { get; set; }
-        public bool ForSell { get; set; }
-        public bool ForVitrin { get; set; }
-        public bool ForCommision { get; set; }
-        public bool HasPhone { get; set; }
-        public bool HasCardReader { get; set; }
 
-        public virtual Request Request { get; set; }
+        public virtual BoothRequest Request { get; set; }
+        public virtual BoothExtensionRequest ExtensionRequest { get; set; }
         public virtual Map Map { get; set; }
 
         [NotMapped]
@@ -55,13 +49,6 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth
                 if (request.Count == 0)
                     return;
 
-                Quality = request.Quality;
-                OperatorCount = request.OperatorCount;
-                ForCommision = request.ForCommision;
-                ForSell = request.ForSell;
-                ForVitrin = request.ForVitrin;
-                HasCardReader = request.HasCardReader;
-                HasPhone = request.HasPhone;
                 Request = request;
                 request.Count--;
 

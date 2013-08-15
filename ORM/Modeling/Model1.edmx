@@ -315,7 +315,33 @@
             <End Role="InspectionRequest" EntitySet="Requests" />
             <End Role="Booth" EntitySet="Booths" />
           </AssociationSet>
-        </EntityContainer>
+          <AssociationSet Name="PollUser1" Association="Model1.PollUser1">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Poll" EntitySet="Polls" />
+          </AssociationSet>
+          <AssociationSet Name="PollRequestPoll" Association="Model1.PollRequestPoll">
+            <End Role="PollRequest" EntitySet="Requests" />
+            <End Role="Poll" EntitySet="Polls" />
+          </AssociationSet>
+          <AssociationSet Name="BoothRequestBooth" Association="Model1.BoothRequestBooth">
+            <End Role="BoothRequest" EntitySet="Requests" />
+            <End Role="Booth" EntitySet="Booths" />
+          </AssociationSet>
+          <AssociationSet Name="BoothExtensionRequestBooth" Association="Model1.BoothExtensionRequestBooth">
+            <End Role="BoothExtensionRequest" EntitySet="Requests" />
+            <End Role="Booth" EntitySet="Booths" />
+          </AssociationSet>
+          <EntitySet Name="BoothConstructors" EntityType="Model1.BoothConstructor" />
+          <EntitySet Name="ConstructAbilities" EntityType="Model1.ConstructAbility" />
+          <AssociationSet Name="ConstructAbilityBoothExtensionRequest" Association="Model1.ConstructAbilityBoothExtensionRequest">
+            <End Role="ConstructAbility" EntitySet="ConstructAbilities" />
+            <End Role="BoothExtensionRequest" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="ConstructAbilityBoothConstructor" Association="Model1.ConstructAbilityBoothConstructor">
+            <End Role="ConstructAbility" EntitySet="ConstructAbilities" />
+            <End Role="BoothConstructor" EntitySet="BoothConstructors" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
@@ -334,8 +360,8 @@
           <NavigationProperty Name="WareHouseItems" Relationship="Model1.WareHouseItemUser" FromRole="User" ToRole="WareHouseItem" />
           <NavigationProperty Name="PostItems" Relationship="Model1.PostItemUser" FromRole="User" ToRole="PostItem" />
           <NavigationProperty Name="Payments" Relationship="Model1.UserPayment" FromRole="User" ToRole="Payment" />
-          <NavigationProperty Name="Booths" Relationship="Model1.BoothUser" FromRole="User" ToRole="Booth" />
           <NavigationProperty Name="Requests" Relationship="Model1.UserRequest" FromRole="User" ToRole="Request" />
+          <NavigationProperty Name="CreatorPolls" Relationship="Model1.PollUser1" FromRole="User" ToRole="Poll" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -482,6 +508,8 @@
           <Property Type="DateTime" Name="FinishDate" Nullable="false" />
           <Property Type="Boolean" Name="Closed" Nullable="false" />
           <Property Type="Boolean" Name="FinishByDate" Nullable="false" />
+          <Property Type="Boolean" Name="Started" Nullable="false" />
+          <NavigationProperty Name="CreatorUser" Relationship="Model1.PollUser1" FromRole="Poll" ToRole="User" />
         </EntityType>
         <EntityType Name="PollChoice">
           <Key>
@@ -678,7 +706,7 @@
           <NavigationProperty Name="Map" Relationship="Model1.SaloonMap" FromRole="Saloon" ToRole="Map" />
           <Property Type="String" Name="Name" Nullable="false" />
           <NavigationProperty Name="Exhibition" Relationship="Model1.ExhibitionSaloon" FromRole="Saloon" ToRole="Exhibition" />
-          <Property Type="Int32" Name="Size" Nullable="false" />
+          <Property Type="Int32" Name="Area" Nullable="false" />
         </EntityType>
         <EntityType Name="Map">
           <Key>
@@ -695,8 +723,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Area" Nullable="false" />
           <NavigationProperty Name="Map" Relationship="Model1.BoothMap" FromRole="Booth" ToRole="Map" />
-          <NavigationProperty Name="User" Relationship="Model1.BoothUser" FromRole="Booth" ToRole="User" />
           <Property Type="Int32" Name="Index" Nullable="false" cg:SetterAccess="Public" />
           <Property Type="String" Name="Quality" Nullable="false" />
           <Property Type="Int32" Name="OperatorCount" Nullable="false" />
@@ -706,6 +734,9 @@
           <Property Type="Boolean" Name="HasPhone" Nullable="false" />
           <Property Type="Boolean" Name="HasCardReader" Nullable="false" />
           <NavigationProperty Name="InspectionRequests" Relationship="Model1.InspectionRequestBooth" FromRole="Booth" ToRole="InspectionRequest" />
+          <Property Type="Boolean" Name="Enabled" Nullable="false" />
+          <NavigationProperty Name="BoothRequest" Relationship="Model1.BoothRequestBooth" FromRole="Booth" ToRole="BoothRequest" />
+          <NavigationProperty Name="BoothExtensionRequest" Relationship="Model1.BoothExtensionRequestBooth" FromRole="Booth" ToRole="BoothExtensionRequest" />
         </EntityType>
         <Association Name="SaloonMap">
           <End Type="Model1.Saloon" Role="Saloon" Multiplicity="1" />
@@ -726,19 +757,21 @@
         <EntityType Name="SaloonRequest" BaseType="Model1.Request">
           <Property Type="Int32" Name="Area" Nullable="false" />
           <Property Type="Int32" Name="Width" Nullable="false" />
-          <Property Type="Int32" Name="Length" Nullable="false" />
+          <Property Type="Int32" Name="Height" Nullable="false" />
           <Property Type="String" Name="Name" Nullable="false" />
         </EntityType>
         <EntityType Name="BoothRequest" BaseType="Model1.Request">
           <Property Type="String" Name="Quality" Nullable="false" />
           <Property Type="Int32" Name="OperatorCount" Nullable="false" />
           <Property Type="Boolean" Name="ForSell" Nullable="false" />
+          <Property Type="Int32" Name="Area" Nullable="false" />
           <Property Type="Boolean" Name="ForVitrin" Nullable="false" />
           <Property Type="Boolean" Name="ForCommision" Nullable="false" />
           <Property Type="Boolean" Name="HasPhone" Nullable="false" />
           <Property Type="Boolean" Name="HasCardReader" Nullable="false" />
         </EntityType>
         <EntityType Name="ExhibitionRequest" BaseType="Model1.Request">
+          <Property Type="String" Name="RequestType" Nullable="false" />
         </EntityType>
         <EntityType Name="Request">
           <Key>
@@ -751,7 +784,8 @@
           <NavigationProperty Name="Exhibition" Relationship="Model1.RequestExhibition" FromRole="Request" ToRole="Exhibition" />
           <NavigationProperty Name="User" Relationship="Model1.UserRequest" FromRole="Request" ToRole="User" />
           <Property Type="String" Name="Response" Nullable="false" />
-          <Property Type="Boolean" Name="Closed" Nullable="false" />
+          <Property Type="Boolean" Name="Responsed" Nullable="false" />
+          <Property Type="Boolean" Name="Agreed" Nullable="false" />
         </EntityType>
         <Association Name="ExhibitionRequestExhibition">
           <End Type="Model1.ExhibitionRequest" Role="ExhibitionRequest" Multiplicity="*" />
@@ -768,11 +802,67 @@
         <EntityType Name="InspectionRequest" BaseType="Model1.Request" >
           <NavigationProperty Name="Booth" Relationship="Model1.InspectionRequestBooth" FromRole="InspectionRequest" ToRole="Booth" />
           <Property Type="Int32" Name="Fine" Nullable="false" />
-          <Property Type="String" Name="ResponseType" Nullable="false" />
+          <Property Type="String" Name="JudgeType" Nullable="false" />
         </EntityType>
         <Association Name="InspectionRequestBooth">
           <End Type="Model1.InspectionRequest" Role="InspectionRequest" Multiplicity="*" />
           <End Type="Model1.Booth" Role="Booth" Multiplicity="1" />
+        </Association>
+        <EntityType Name="ECustommerRole" BaseType="Model1.ExhibitionRole">
+          </EntityType>
+        <Association Name="PollUser1">
+          <End Type="Model1.User" Role="User" Multiplicity="1" />
+          <End Type="Model1.Poll" Role="Poll" Multiplicity="*" />
+        </Association>
+        <EntityType Name="PollRequest" BaseType="Model1.Request">
+          <NavigationProperty Name="Poll" Relationship="Model1.PollRequestPoll" FromRole="PollRequest" ToRole="Poll" />
+        </EntityType>
+        <Association Name="PollRequestPoll">
+          <End Type="Model1.PollRequest" Role="PollRequest" Multiplicity="*" />
+          <End Type="Model1.Poll" Role="Poll" Multiplicity="1" />
+        </Association>
+        <Association Name="BoothRequestBooth">
+          <End Type="Model1.BoothRequest" Role="BoothRequest" Multiplicity="1" />
+          <End Type="Model1.Booth" Role="Booth" Multiplicity="1" />
+        </Association>
+        <EntityType Name="BoothExtensionRequest" BaseType="Model1.Request">
+          <Property Type="Int32" Name="Area" Nullable="false" />
+          <NavigationProperty Name="Booth" Relationship="Model1.BoothExtensionRequestBooth" FromRole="BoothExtensionRequest" ToRole="Booth" />
+          <NavigationProperty Name="ConstructAbilities" Relationship="Model1.ConstructAbilityBoothExtensionRequest" FromRole="BoothExtensionRequest" ToRole="ConstructAbility" />
+        </EntityType>
+        <Association Name="BoothExtensionRequestBooth">
+          <End Type="Model1.BoothExtensionRequest" Role="BoothExtensionRequest" Multiplicity="1" />
+          <End Type="Model1.Booth" Role="Booth" Multiplicity="1" />
+        </Association>
+        <EntityType Name="BoothConstructor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <NavigationProperty Name="ConstructAbility" Relationship="Model1.ConstructAbilityBoothConstructor" FromRole="BoothConstructor" ToRole="ConstructAbility" />
+          <Property Type="Int32" Name="ReserverdDays" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConstructAbility">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Cost" Nullable="false" />
+          <Property Type="String" Name="Profession" Nullable="false" />
+          <Property Type="String" Name="Quality" Nullable="false" />
+          <NavigationProperty Name="BoothExtensionRequest" Relationship="Model1.ConstructAbilityBoothExtensionRequest" FromRole="ConstructAbility" ToRole="BoothExtensionRequest" />
+          <Property Type="Int32" Name="Duration" Nullable="false" />
+          <NavigationProperty Name="BoothConstructor" Relationship="Model1.ConstructAbilityBoothConstructor" FromRole="ConstructAbility" ToRole="BoothConstructor" />
+          <Property Type="Boolean" Name="Done" Nullable="false" />
+        </EntityType>
+        <Association Name="ConstructAbilityBoothExtensionRequest">
+          <End Type="Model1.ConstructAbility" Role="ConstructAbility" Multiplicity="*" />
+          <End Type="Model1.BoothExtensionRequest" Role="BoothExtensionRequest" Multiplicity="0..1" />
+        </Association>
+        <Association Name="ConstructAbilityBoothConstructor">
+          <End Type="Model1.ConstructAbility" Role="ConstructAbility" Multiplicity="1" />
+          <End Type="Model1.BoothConstructor" Role="BoothConstructor" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -827,6 +917,7 @@
               <ScalarProperty Name="Id" ColumnName="Id" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Requests" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

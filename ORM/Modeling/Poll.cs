@@ -26,9 +26,11 @@ namespace Login.Modeling
         public System.DateTime FinishDate { get; set; }
         public bool Closed { get; set; }
         public bool FinishByDate { get; set; }
+        public bool Started { get; set; }
     
         public virtual ICollection<PollChoice> PollChoices { get; set; }
         public virtual ICollection<PollUser> PollUsers { get; set; }
         public virtual Exhibition Exhibition { get; set; }
+        public virtual User CreatorUser { get; set; }
     }
 }

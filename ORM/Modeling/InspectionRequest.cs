@@ -15,7 +15,7 @@ namespace Login.Modeling
     public partial class InspectionRequest : Request
     {
         public int Fine { get; set; }
-        public string ResponseType { get; set; }
+        public string JudgeType { get; set; }
     
         public virtual Booth Booth { get; set; }
     }
