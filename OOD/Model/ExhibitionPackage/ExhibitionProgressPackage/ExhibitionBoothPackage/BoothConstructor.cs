@@ -18,6 +18,17 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothP
         public virtual Exhibition Exhibition { get; set; }
         public virtual ConstructAbility Ability { get; set; }
 
+        [NotMapped]
+        public IQueryable<ProfessionAssignment> Assignments
+        {
+            get
+            {
+                return
+                    DataManager.DataContext.ProfessionAssignments.Where(
+                        assignment => assignment.Constructor != null && assignment.Constructor.Id == Id);
+            }
+        }
+
         public override string ToString()
         {
             return Name;

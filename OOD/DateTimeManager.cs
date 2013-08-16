@@ -27,9 +27,5 @@ namespace OOD
         {
             get { return DateTime.Now; }
         }
-
-        public static void GoNextDay()
-        {
-        }
     }
 }

@@ -23,7 +23,6 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             InitializeComponent();
         }
 
-
         // IResetAble
 
         public override void Reset()
@@ -53,7 +52,6 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 tabControl1.Controls.Add(pollRequestTabPage);
                 PollRequestReset();
             }
-
 
             if (HasInspectionRequestPreCondition())
             {
@@ -136,7 +134,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         private bool HasExhibitionRequestPreCondition()
         {
             return Program.Exhibition.HasRole<ExecutionRole>(Program.User)
-                   && Program.Exhibition.GetSpecialRequests<ExhibitionRequest>().Any();
+                   && Program.Exhibition.GetSpecialRequests<ExhibitionRequest>().Any()
+                   && Program.ProcessManager.IsProcessRunning(ProcessType.ExhibitionRegistration);
         }
 
         private void ExhibitionRequestReset()
@@ -207,7 +206,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         private bool HasSaloonRequestPreCondition()
         {
             return Program.Exhibition.HasRole<BoothManagerRole>(Program.User)
-                   && Program.Exhibition.GetSpecialRequests<SaloonRequest>().Any();
+                   && Program.Exhibition.GetSpecialRequests<SaloonRequest>().Any()
+                   && Program.ProcessManager.IsProcessRunning(ProcessType.BoothAssignment);
         }
 
         private void SaloonRequestReset()
@@ -286,7 +286,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         private bool HasBoothRequestPreCondition()
         {
             return Program.Exhibition.HasRole<BoothManagerRole>(Program.User)
-                   && Program.Exhibition.GetSpecialRequests<BoothRequest>().Any();
+                   && Program.Exhibition.GetSpecialRequests<BoothRequest>().Any()
+                   && Program.ProcessManager.IsProcessRunning(ProcessType.BoothAssignment);
         }
 
         private void BoothRequestReset()
@@ -349,7 +350,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         private bool HasInspectionRequestPreCondition()
         {
             return Program.Exhibition.HasRole<InspectorRole>(Program.User)
-                   && Program.Exhibition.GetSpecialRequests<InspectionRequest>().Any();
+                   && Program.Exhibition.GetSpecialRequests<InspectionRequest>().Any()
+                   && (Program.ProcessManager.IsProcessRunning(ProcessType.BoothInspection)
+                       || Program.ProcessManager.IsProcessRunning(ProcessType.BoothJudge));
         }
 
         private void InspectionRequestReset()
@@ -378,7 +381,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             inspectionRequestResponseTextBox.Text = request.Response;
 
             var inspectionPhase = !request.Responsed;
-            var judgePhase = request.Responsed && !request.Agreed;
+            var judgePhase = request.Responsed && !request.Agreed &&
+                             Program.ProcessManager.IsProcessRunning(ProcessType.BoothJudge);
             var finishPhase = request.Responsed && request.Agreed;
 
             inspectionRequestJudgeTypeComboBox.Enabled = judgePhase;
@@ -449,11 +453,11 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         }
 
         // Poll Request
-
-
         public bool HasPollRequestPreCondition()
         {
-            return Program.Exhibition.GetSpecialRequests<PollRequest>().Any();
+            return Program.Exhibition.GetSpecialRequests<PollRequest>().Any()
+                   && (Program.ProcessManager.IsProcessRunning(ProcessType.Poll)
+                       || Program.ProcessManager.IsProcessRunning(ProcessType.CustommerRequest));
         }
 
         public void PollRequestReset()
@@ -504,7 +508,10 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         // Booth Extension Request
         private bool HasBoothExtensionRequestPreCondition()
         {
-            return Program.Exhibition.GetSpecialRequests<BoothExtensionRequest>().Any();
+            return Program.Exhibition.HasRole<BoothManagerRole>(Program.User)
+                   && Program.Exhibition.GetSpecialRequests<BoothExtensionRequest>().Any()
+                   && (Program.ProcessManager.IsProcessRunning(ProcessType.BoothAssignment)
+                       || Program.ProcessManager.IsProcessRunning(ProcessType.CustommerRequest));
         }
 
         private void BoothExtensionRequestReset()

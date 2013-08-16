@@ -56,9 +56,11 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
 
             var user = Program.User;
             var exhibition = Program.Exhibition;
+            var processManager = Program.ProcessManager;
             if (exhibition.HasRole<BoothManagerRole>(user))
             {
-                if (exhibition.State == ExhibitionState.Started)
+                if (exhibition.State == ExhibitionState.Started
+                    && processManager.IsProcessRunning(ProcessType.BoothAssignment))
                     return true;
                 GeneralErrors.Closed("مدیریت غرفه");
                 return false;

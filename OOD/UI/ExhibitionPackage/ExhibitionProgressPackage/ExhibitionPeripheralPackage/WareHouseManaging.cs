@@ -49,6 +49,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeriphera
 
             var user = Program.User;
             var exhibition = Program.Exhibition;
+            var processManager = Program.ProcessManager;
+
             if (exhibition.Feature.HasWareHouse == false)
             {
                 PopUp.ShowError("نمایشگاه دارای انبار نمی باشد.");
@@ -57,7 +59,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeriphera
 
             if (exhibition.HasRole<WareHouseKeeperRole>(user))
             {
-                if (exhibition.State == ExhibitionState.Started)
+                if (exhibition.State == ExhibitionState.Started
+                    && processManager.IsProcessRunning(ProcessType.WareHouseKeeping))
                     return true;
                 GeneralErrors.Closed("انبار");
                 return false;

@@ -70,7 +70,9 @@ namespace OOD.UI.NotificationPackage
 
             var user = Program.User;
             var exhibition = Program.Exhibition;
-            if (exhibition.HasRole<ExecutionRole>(user))
+            var processManager = Program.ProcessManager;
+            if (exhibition.HasRole<ExecutionRole>(user) 
+                && processManager.IsProcessRunning(ProcessType.Informing))
             {
                 if (exhibition.State == ExhibitionState.Started)
                     return true;

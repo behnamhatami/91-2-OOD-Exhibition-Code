@@ -63,6 +63,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
 
         public static void EnterExhibition(Exhibition exhibition)
         {
+            Program.ProcessManager = new ProcessManager(Program.Exhibition);
             PopUp.ShowSuccess(String.Format("شما وارد نمایشگاه {0} شدید.", exhibition));
         }
 
@@ -71,6 +72,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
             var exhibition = Program.Exhibition;
             PopUp.ShowSuccess(String.Format("شما از نمایشگاه {0} خارج شدید.", exhibition));
             Program.Exhibition = null;
+            Program.ProcessManager = null;
         }
     }
 }

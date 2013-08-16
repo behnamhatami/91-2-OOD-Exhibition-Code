@@ -16,6 +16,7 @@ namespace OOD
     {
         public static User User { get; set; }
         public static Exhibition Exhibition { get; set; }
+        public static ProcessManager ProcessManager { get; set; }
 
         public static User System
         {

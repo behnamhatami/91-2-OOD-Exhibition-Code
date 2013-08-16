@@ -49,7 +49,9 @@ namespace OOD.UI.NotificationPackage
                 return false;
 
             var exhibition = Program.Exhibition;
-            if (exhibition.State == ExhibitionState.Started)
+            var processManager = Program.ProcessManager;
+            if (exhibition.State == ExhibitionState.Started
+                && processManager.IsProcessRunning(ProcessType.Poll))
                 return true;
             GeneralErrors.Closed("رای دهی");
             return false;

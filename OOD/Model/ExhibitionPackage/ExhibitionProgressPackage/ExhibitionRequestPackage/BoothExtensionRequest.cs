@@ -12,6 +12,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionReques
     public class BoothExtensionRequest : Request
     {
         public int Area { get; set; }
+        public bool IsCustomerRequest { get; set; }
 
         public virtual Booth Booth { get; set; }
         

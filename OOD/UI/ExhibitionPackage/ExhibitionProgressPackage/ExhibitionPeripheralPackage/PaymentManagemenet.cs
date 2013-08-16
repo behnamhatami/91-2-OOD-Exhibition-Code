@@ -21,7 +21,6 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeriphera
             InitializeComponent();
         }
 
-
         // IResetAble
 
         public override void Reset()
@@ -50,10 +49,11 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeriphera
 
             var user = Program.User;
             var exhibition = Program.Exhibition;
-
+            var processManager = Program.ProcessManager;
             if (exhibition.HasRole<ECustomerRole>(user))
             {
-                if (exhibition.State == ExhibitionState.Started)
+                if (exhibition.State == ExhibitionState.Started
+                    && processManager.IsProcessRunning(ProcessType.Payment))
                     return true;
                 GeneralErrors.Closed("مالی");
                 return false;

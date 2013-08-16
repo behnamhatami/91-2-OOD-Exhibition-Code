@@ -25,9 +25,21 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
 
         public override void Reset()
         {
+            TabControl1.Controls.Clear();
+
+            var secondPhase = Program.Exhibition.State == ExhibitionState.Freezed;
+
+            TabControl1.Controls.Add(featurePage);
             FeaturePageReset();
+
+            TabControl1.Controls.Add(processPage);
             RolePageReset();
-            ProcessPageReset();
+
+            if (secondPhase)
+            {
+                ProcessPageReset();
+                TabControl1.Controls.Add(rolePage);
+            }
         }
 
         // IPrecondition
@@ -53,7 +65,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
             if (exhibition.HasRole<ChairRole>(user))
             {
                 if (exhibition.State == ExhibitionState.Created
-                    || exhibition.State == ExhibitionState.Configuration)
+                    || exhibition.State == ExhibitionState.Configuration
+                    || exhibition.State == ExhibitionState.FreezeStarted
+                    || exhibition.State == ExhibitionState.Freezed)
                     return true;
                 GeneralErrors.Closed("پیکربندی");
                 return false;
@@ -84,21 +98,16 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
             var db = DataManager.DataContext;
             ResetHelper.Refresh(featureInitialConfigurationComboBox, db.Exhibitions);
 
-            if (exhibition != null)
-            {
-                var feature = exhibition.Feature;
-                featurePostOfficeCheckBox.Checked = feature.HasPostOffice;
-                featureWareHouseCheckBox.Checked = feature.HasWareHouse;
-                featureSellRadioButton.Checked = feature.HasSell;
-                featureNoSellRadioButton.Checked = !feature.HasSell;
-                featureDifferentBoothCheckBox.Checked = feature.HasDifferentBooth;
-            }
-            else
-            {
-                ResetHelper.Empty(featurePostOfficeCheckBox, featureWareHouseCheckBox, featureSellRadioButton,
-                    featureDifferentBoothCheckBox);
-                featureNoSellRadioButton.Checked = true;
-            }
+            var firstPhase = exhibition.State == ExhibitionState.Created ||
+                             exhibition.State == ExhibitionState.Configuration;
+
+            var feature = exhibition.Feature;
+            featurePostOfficeCheckBox.Checked = feature.HasPostOffice;
+            featureWareHouseCheckBox.Checked = feature.HasWareHouse;
+            featureSellRadioButton.Checked = feature.HasSell;
+            featureNoSellRadioButton.Checked = !feature.HasSell;
+            featureDifferentBoothCheckBox.Checked = feature.HasDifferentBooth;
+            featureOkeyButton.Enabled = firstPhase;
         }
 
         private void featureCancelButton_Click(object sender, EventArgs e)
@@ -185,9 +194,15 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
         {
             var exhibition = Program.Exhibition;
             ResetHelper.Empty(processMaxLengthTextBox, processMinLengthTextBox, processStartNodeTextBox,
-                processFinishNodeTextBox);
+                processFinishNodeTextBox, processMileStoneCheckBox, processMileStoneTextBox);
             ResetHelper.Refresh(processProcessComboBox, ProcessTypeWrapper.ProcessTypes);
             ResetHelper.Refresh(processCheckedListBox, exhibition.Configuration.Processes);
+
+            var firstPhase = exhibition.State == ExhibitionState.Created ||
+                             exhibition.State == ExhibitionState.Configuration;
+            processRemoveButton.Enabled = firstPhase;
+            processAddButton.Enabled = firstPhase;
+            processMileStoneTextBox.Visible = false;
         }
 
         private void processAddButton_Click(object sender, EventArgs e)
@@ -197,11 +212,15 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
             var maxLengthText = processMaxLengthTextBox.Text;
             var startNodeText = processStartNodeTextBox.Text;
             var finishNodeText = processFinishNodeTextBox.Text;
+            var isMileStone = processMileStoneCheckBox.Checked;
+            var mileStone = processMileStoneTextBox.Text;
+
             if (GeneralErrors.IsNull(processType, "نوع فرآیند")
                 || GeneralErrors.IsEmptyField(minLengthText, "کمینه زمان اجرا")
                 || GeneralErrors.IsEmptyField(maxLengthText, "بیشینه زمان اجرا")
                 || GeneralErrors.IsEmptyField(startNodeText, "نقطه ی شروع")
-                || GeneralErrors.IsEmptyField(finishNodeText, "نقطه ی پایان"))
+                || GeneralErrors.IsEmptyField(finishNodeText, "نقطه ی پایان")
+                || (isMileStone && GeneralErrors.IsEmptyField(mileStone, "پیغام نقطه عطف")))
                 return;
 
             if (GeneralErrors.IsNotValidInt(minLengthText, 0, "کمینه زمان اجرا")
@@ -209,6 +228,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
                 || GeneralErrors.IsNotValidInt(startNodeText, 0, "نقطه ی شروع")
                 || GeneralErrors.IsNotValidInt(finishNodeText, int.Parse(startNodeText) + 1, "نقطه ی پایان"))
                 return;
+
 
             var exhibition = Program.Exhibition;
             var process = new Process
@@ -218,7 +238,12 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
                 MinLength = int.Parse(minLengthText),
                 MaxLength = int.Parse(maxLengthText),
                 StartNode = int.Parse(startNodeText),
-                FinishNode = int.Parse(finishNodeText)
+                FinishNode = int.Parse(finishNodeText),
+                Finished = false,
+                Started = false,
+                StartDate = DateTimeManager.Today,
+                IsMileStone = isMileStone,
+                MileStoneMessage = mileStone
             };
             exhibition.State = ExhibitionState.Configuration;
             var db = DataManager.DataContext;
@@ -236,14 +261,16 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
 
             var db = DataManager.DataContext;
             foreach (var process in processCheckedListBox.CheckedItems.Cast<Process>())
-            {
-//                Program.Exhibition.Configuration.Processes.Remove(process);
                 db.Processes.Remove(process);
-            }
 
             db.SaveChanges();
             ProcessPageReset();
             PopUp.ShowSuccess("نقش های انتخاب شده حذف گردید.");
+        }
+
+        private void processMileStoneCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            processMileStoneTextBox.Visible = processMileStoneCheckBox.Checked;
         }
     }
 }

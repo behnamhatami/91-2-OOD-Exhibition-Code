@@ -23,6 +23,10 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionReques
         public virtual Exhibition Exhibition { get; set; }
         public virtual User User { get; set; }
 
+        public bool NotMentioned()
+        {
+            return !Responsed && !Agreed;
+        }
 
         public void NotifyResponse()
         {

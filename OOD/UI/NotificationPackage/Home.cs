@@ -1,8 +1,12 @@
 ﻿#region
 
+using System;
 using System.Linq;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
+using OOD.Model.ExhibitionPackage.ExhibitionRolePackage;
 using OOD.UI.UtilityPackage.Base;
 using OOD.UI.UtilityPackage.Helper;
+using OOD.UI.UtilityPackage.PopUp;
 
 #endregion
 
@@ -14,7 +18,6 @@ namespace OOD.UI.NotificationPackage
         {
             InitializeComponent();
         }
-
 
         // IResetAble
 
@@ -98,6 +101,50 @@ namespace OOD.UI.NotificationPackage
             ResetHelper.Refresh(exhibitionChairMansListBox, exhibition.ChairUsers);
             ResetHelper.Refresh(exhibitionUserRolesListBox,
                 exhibition.UserExhibitionRoles.Where(role => role.User.Id == user.Id));
+        }
+
+        // Process Running Information
+
+        private bool HasProcessRunningInformationPreCondition()
+        {
+            return Program.Exhibition != null && Program.Exhibition.State == ExhibitionState.Started;
+        }
+
+        private void ProcessRunningInformationReset()
+        {
+            ResetHelper.Empty(processNameTextBox, processStartDateTextBox);
+            processProgressBar.Value = 0;
+            processFinishButton.Visible = false;
+
+            ResetHelper.Refresh(processesComboBox, Program.ProcessManager.RunningProcesses());
+        }
+
+        private void processShowButton_Click(object sender, EventArgs e)
+        {
+            var process = processesComboBox.SelectedItem as Process;
+            if (GeneralErrors.IsNull(process, "فرآیند"))
+                return;
+
+            processNameTextBox.Text = ProcessTypeWrapper.GetWrapper(process.Type).ToString();
+            processStartDateTextBox.Text = process.StartDate.ToString();
+            processProgressBar.Value = (DateTimeManager.Today.Subtract(process.StartDate).Days + 1)/process.MaxLength;
+            processFinishButton.Visible = Program.Exhibition.HasRole<ExecutionRole>(Program.User)
+                                          && !process.AnyFinishProblem();
+        }
+
+        private void processFinishButton_Click(object sender, EventArgs e)
+        {
+            var process = processesComboBox.SelectedItem as Process;
+            process.ForceFinsih();
+            PopUp.ShowSuccess("فرآیند اتمام یافت.");
+            ProcessRunningInformationReset();
+        }
+
+        private void nextDayButton_Click(object sender, EventArgs e)
+        {
+            Program.ProcessManager.Tomorrow();
+            PopUp.ShowSuccess("یک روز به جلو رفتیم.");
+            Reset();
         }
     }
 }

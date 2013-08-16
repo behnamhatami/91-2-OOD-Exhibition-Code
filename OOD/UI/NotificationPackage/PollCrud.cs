@@ -189,8 +189,9 @@ namespace OOD.UI.NotificationPackage
             listPollStateTextBox.Text = poll.Closed ? "بسته شده" : "باز";
 
             var fullAccess = Program.Exhibition.HasRole<ExecutionRole>(Program.User);
-            listPollStartButton.Enabled = !poll.Started && fullAccess;
-            listPollFinishButton.Enabled = poll.Started && poll.FinishByDate == false && poll.Closed == false;
+            var inPolling = Program.ProcessManager.IsProcessRunning(ProcessType.Poll);
+            listPollStartButton.Enabled = !poll.Started && fullAccess && inPolling;
+            listPollFinishButton.Enabled = poll.Started && poll.FinishByDate == false && poll.Closed == false && inPolling;
             ResetHelper.Refresh(listPollPollChoiceListBox, poll.PollChoices);
         }
 

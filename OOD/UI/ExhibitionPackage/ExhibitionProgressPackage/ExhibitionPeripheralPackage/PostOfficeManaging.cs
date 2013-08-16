@@ -49,6 +49,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeriphera
 
             var user = Program.User;
             var exhibition = Program.Exhibition;
+            var processManager = Program.ProcessManager;
             if (exhibition.Feature.HasPostOffice == false)
             {
                 PopUp.ShowError("نمایشگاه دارای پست نمی باشد.");
@@ -57,7 +58,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeriphera
 
             if (exhibition.HasRole<PostKeeperRole>(user))
             {
-                if (exhibition.State == ExhibitionState.Started)
+                if (exhibition.State == ExhibitionState.Started
+                    && processManager.IsProcessRunning(ProcessType.PostKeeping))
                     return true;
                 GeneralErrors.Closed("پست");
                 return false;

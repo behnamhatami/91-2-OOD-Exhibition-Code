@@ -2,13 +2,13 @@
 
 using System;
 using System.Linq;
-using System.Windows.Forms;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionRolePackage;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
+using OOD.Model.UserManagingPackage;
 using OOD.UI.UtilityPackage.Base;
 using OOD.UI.UtilityPackage.Helper;
 using OOD.UI.UtilityPackage.PopUp;
@@ -97,7 +97,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             var user = Program.User;
             var exhibition = Program.Exhibition;
             if (exhibition.HasRole<ExecutionRole>(user)
-                || exhibition.HasRole<ECustomerRole>(user))
+                || exhibition.HasRole<ECustomerRole>(user)
+                || Program.User.UserRole is CustomerRole)
             {
                 if (exhibition.State == ExhibitionState.Started)
                     return true;
@@ -135,7 +136,14 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         private bool HasExhibitionRequestPreCondition()
         {
-            return true;
+            var processManager = Program.ProcessManager;
+            var user = Program.User;
+            var exhibition = Program.Exhibition;
+            return (user.UserRole is CustomerRole && !exhibition.HasRole<ECustomerRole>(user) &&
+                    processManager.IsProcessRunning(ProcessType.ExhibitionRegistration))
+                   ||
+                   (exhibition.HasRole<ECustomerRole>(user)
+                    || processManager.IsProcessRunning(ProcessType.CustommerRequest));
         }
 
         private void ExhibitionRequestReset()
@@ -184,8 +192,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         // Saloon Request
         private bool HasSaloonRequestPreCondition()
         {
-            return Program.Exhibition.HasRole<ECustomerRole>(Program.User) ||
-                   Program.Exhibition.HasRole<ExecutionRole>(Program.User);
+            return (Program.Exhibition.HasRole<ECustomerRole>(Program.User)
+                    || Program.Exhibition.HasRole<ExecutionRole>(Program.User))
+                   && Program.ProcessManager.IsProcessRunning(ProcessType.RequestForBooth);
         }
 
         private void SaloonRequestReset()
@@ -238,7 +247,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         private bool HasBoothRequestPreCondition()
         {
-            return Program.Exhibition.HasRole<ECustomerRole>(Program.User);
+            return Program.Exhibition.HasRole<ECustomerRole>(Program.User)
+                   && Program.ProcessManager.IsProcessRunning(ProcessType.RequestForBooth);
         }
 
         private void BoothRequestReset()
@@ -298,7 +308,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         // Inspection Request
         private bool HasInspectionRequestPreCondition()
         {
-            return true;
+            return (Program.Exhibition.HasRole<ECustomerRole>(Program.User)
+                    || Program.Exhibition.HasRole<ExecutionRole>(Program.User)) &&
+                   Program.ProcessManager.IsProcessRunning(ProcessType.BoothInspection);
         }
 
         private void InspectionRequestReset()
@@ -360,7 +372,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         public bool HasPollRequestPreCondition()
         {
-            return true;
+            return Program.Exhibition.HasRole<ECustomerRole>(Program.User)
+                   && Program.ProcessManager.IsProcessRunning(ProcessType.CustommerRequest);
         }
 
         public void PollRequestReset()
@@ -434,7 +447,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         private bool HasBoothExtensionPreCondition()
         {
             return Program.Exhibition.HasRole<ECustomerRole>(Program.User)
-                   && Program.User.GetAssignedBooths(Program.Exhibition).Any();
+                   && Program.User.GetAssignedBooths(Program.Exhibition).Any()
+                   && (Program.ProcessManager.IsProcessRunning(ProcessType.CustommerRequest)
+                       || Program.ProcessManager.IsProcessRunning(ProcessType.BoothAssignment));
         }
 
         private void BoothExtensionReset()
@@ -447,7 +462,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 Exhibition = exhibition,
                 User = user,
                 Agreed = false,
-                Responsed = false
+                Responsed = false,
+                IsCustomerRequest = Program.ProcessManager.IsProcessRunning(ProcessType.CustommerRequest)
             };
 
             ResetHelper.Empty(boothExtensionTitleTextBox, boothExtensionContentTextBox, boothExtensionAbilityListListBox,
@@ -456,6 +472,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
             ResetHelper.Refresh(boothExtensionQualityComboBox, ProfessionQualityWrapper.Types);
             ResetHelper.Refresh(boothExtensionProfessionComboBox, ProfessionTypeWrapper.Types);
+
+            groupBox2.Visible = !Program.ProcessManager.IsProcessRunning(ProcessType.CustommerRequest);
         }
 
         private void boothExtensionAbilityAddButton_Click(object sender, EventArgs e)

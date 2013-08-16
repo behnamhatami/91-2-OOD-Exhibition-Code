@@ -64,6 +64,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.processMileStoneCheckBox = new System.Windows.Forms.CheckBox();
+            this.processMileStoneTextBox = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.TabControl1.SuspendLayout();
             this.featurePage.SuspendLayout();
@@ -223,6 +225,8 @@
             // processPage
             // 
             this.processPage.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.processPage.Controls.Add(this.processMileStoneTextBox);
+            this.processPage.Controls.Add(this.processMileStoneCheckBox);
             this.processPage.Controls.Add(this.processCheckedListBox);
             this.processPage.Controls.Add(this.processFinishNodeTextBox);
             this.processPage.Controls.Add(this.processStartNodeTextBox);
@@ -246,21 +250,21 @@
             // processCheckedListBox
             // 
             this.processCheckedListBox.FormattingEnabled = true;
-            this.processCheckedListBox.Location = new System.Drawing.Point(36, 199);
+            this.processCheckedListBox.Location = new System.Drawing.Point(36, 217);
             this.processCheckedListBox.Name = "processCheckedListBox";
             this.processCheckedListBox.Size = new System.Drawing.Size(425, 89);
             this.processCheckedListBox.TabIndex = 13;
             // 
             // processFinishNodeTextBox
             // 
-            this.processFinishNodeTextBox.Location = new System.Drawing.Point(36, 110);
+            this.processFinishNodeTextBox.Location = new System.Drawing.Point(36, 76);
             this.processFinishNodeTextBox.Name = "processFinishNodeTextBox";
             this.processFinishNodeTextBox.Size = new System.Drawing.Size(100, 22);
             this.processFinishNodeTextBox.TabIndex = 12;
             // 
             // processStartNodeTextBox
             // 
-            this.processStartNodeTextBox.Location = new System.Drawing.Point(270, 110);
+            this.processStartNodeTextBox.Location = new System.Drawing.Point(270, 76);
             this.processStartNodeTextBox.Name = "processStartNodeTextBox";
             this.processStartNodeTextBox.Size = new System.Drawing.Size(100, 22);
             this.processStartNodeTextBox.TabIndex = 11;
@@ -268,7 +272,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(162, 113);
+            this.label13.Location = new System.Drawing.Point(162, 79);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(75, 14);
             this.label13.TabIndex = 10;
@@ -277,7 +281,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(382, 113);
+            this.label12.Location = new System.Drawing.Point(382, 79);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(82, 14);
             this.label12.TabIndex = 9;
@@ -285,7 +289,7 @@
             // 
             // processMaxLengthTextBox
             // 
-            this.processMaxLengthTextBox.Location = new System.Drawing.Point(36, 67);
+            this.processMaxLengthTextBox.Location = new System.Drawing.Point(36, 45);
             this.processMaxLengthTextBox.Name = "processMaxLengthTextBox";
             this.processMaxLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.processMaxLengthTextBox.TabIndex = 8;
@@ -293,7 +297,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(142, 70);
+            this.label11.Location = new System.Drawing.Point(142, 48);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(95, 14);
             this.label11.TabIndex = 7;
@@ -301,7 +305,7 @@
             // 
             // processMinLengthTextBox
             // 
-            this.processMinLengthTextBox.Location = new System.Drawing.Point(270, 67);
+            this.processMinLengthTextBox.Location = new System.Drawing.Point(270, 45);
             this.processMinLengthTextBox.Name = "processMinLengthTextBox";
             this.processMinLengthTextBox.Size = new System.Drawing.Size(100, 22);
             this.processMinLengthTextBox.TabIndex = 6;
@@ -309,7 +313,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(376, 70);
+            this.label10.Location = new System.Drawing.Point(376, 48);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(88, 14);
             this.label10.TabIndex = 5;
@@ -317,7 +321,7 @@
             // 
             // processRemoveButton
             // 
-            this.processRemoveButton.Location = new System.Drawing.Point(36, 299);
+            this.processRemoveButton.Location = new System.Drawing.Point(36, 312);
             this.processRemoveButton.Name = "processRemoveButton";
             this.processRemoveButton.Size = new System.Drawing.Size(71, 24);
             this.processRemoveButton.TabIndex = 4;
@@ -327,7 +331,7 @@
             // 
             // processAddButton
             // 
-            this.processAddButton.Location = new System.Drawing.Point(36, 138);
+            this.processAddButton.Location = new System.Drawing.Point(36, 159);
             this.processAddButton.Name = "processAddButton";
             this.processAddButton.Size = new System.Drawing.Size(71, 24);
             this.processAddButton.TabIndex = 2;
@@ -348,7 +352,7 @@
             "فرآیند 2",
             "فرآیند 3",
             "فرآیند 4"});
-            this.processProcessComboBox.Location = new System.Drawing.Point(203, 20);
+            this.processProcessComboBox.Location = new System.Drawing.Point(203, 13);
             this.processProcessComboBox.Name = "processProcessComboBox";
             this.processProcessComboBox.Size = new System.Drawing.Size(203, 22);
             this.processProcessComboBox.TabIndex = 1;
@@ -356,7 +360,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(426, 23);
+            this.label7.Location = new System.Drawing.Point(426, 16);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 14);
             this.label7.TabIndex = 0;
@@ -465,6 +469,25 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "تعیین ویژگی‌ها و نقش‌ها و فرآیند نمایشگاه";
             // 
+            // processMileStoneCheckBox
+            // 
+            this.processMileStoneCheckBox.AutoSize = true;
+            this.processMileStoneCheckBox.Location = new System.Drawing.Point(382, 110);
+            this.processMileStoneCheckBox.Name = "processMileStoneCheckBox";
+            this.processMileStoneCheckBox.Size = new System.Drawing.Size(94, 18);
+            this.processMileStoneCheckBox.TabIndex = 14;
+            this.processMileStoneCheckBox.Text = "نقطه ی عطف";
+            this.processMileStoneCheckBox.UseVisualStyleBackColor = true;
+            this.processMileStoneCheckBox.CheckedChanged += new System.EventHandler(this.processMileStoneCheckBox_CheckedChanged);
+            // 
+            // processMileStoneTextBox
+            // 
+            this.processMileStoneTextBox.Location = new System.Drawing.Point(36, 108);
+            this.processMileStoneTextBox.Multiline = true;
+            this.processMileStoneTextBox.Name = "processMileStoneTextBox";
+            this.processMileStoneTextBox.Size = new System.Drawing.Size(334, 45);
+            this.processMileStoneTextBox.TabIndex = 15;
+            // 
             // Configuration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -525,5 +548,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckedListBox processCheckedListBox;
+        private System.Windows.Forms.CheckBox processMileStoneCheckBox;
+        private System.Windows.Forms.TextBox processMileStoneTextBox;
     }
 }

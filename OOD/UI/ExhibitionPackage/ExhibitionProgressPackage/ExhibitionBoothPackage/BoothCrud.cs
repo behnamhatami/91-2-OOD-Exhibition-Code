@@ -106,7 +106,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
 
         private bool HasEditSaloonPreCondition()
         {
-            return true;
+            return Program.ProcessManager.IsProcessRunning(ProcessType.SaloonCrud);
         }
 
         private void EditSaloonReset()
@@ -130,7 +130,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
 
         private bool HasBoothConstuctorCreationPreCondition()
         {
-            return true;
+            return Program.ProcessManager.IsProcessRunning(ProcessType.BoothConstruction);
         }
 
         private void BoothConstructorCreationReset()
@@ -189,7 +189,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
         // Booth Construction
         private bool HasBoothConstructorAssignmentPreCondition()
         {
-            return true;
+            return Program.ProcessManager.IsProcessRunning(ProcessType.BoothConstruction);
         }
 
         private void BoothConstructorAssignmentReset()
@@ -235,7 +235,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             var assignment = boothConstructorAssignmentProfessionsComboBox.SelectedItem as ProfessionAssignment;
             if (assignment != null)
             {
-                ResetHelper.Refresh(boothConstructorAssignmentConstructorsComboBox, Program.Exhibition.GetProperConstructors(assignment));
+                ResetHelper.Refresh(boothConstructorAssignmentConstructorsComboBox,
+                    Program.Exhibition.GetProperConstructors(assignment));
             }
             else
             {

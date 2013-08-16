@@ -21,6 +21,11 @@ namespace OOD.UI.UtilityPackage.Base
 
         //IResetAble
 
+        public override void Reset()
+        {
+            Reload();
+        }
+
 
         //IReloadAble
         public override void Reload()

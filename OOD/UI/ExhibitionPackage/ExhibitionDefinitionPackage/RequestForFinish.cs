@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionRolePackage;
 using OOD.Model.ModelContext;
@@ -40,10 +41,18 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
 
             var user = Program.User;
             var exhibition = Program.Exhibition;
+            var processManager = Program.ProcessManager;
             if (exhibition.HasRole<ChairRole>(user))
             {
+                if (processManager.RunningProcesses().Any())
+                {
+                    PopUp.ShowError("نمایشگاه هنوز در حال اجرای تعدادی زیر فرآیند است.");
+                    return false;
+                }
+
                 if (exhibition.State == ExhibitionState.Started)
                     return true;
+
                 GeneralErrors.Closed("درخواست اتمام نمایشگاه");
                 return false;
             }

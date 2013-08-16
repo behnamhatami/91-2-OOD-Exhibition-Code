@@ -92,11 +92,12 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage
             get { return DataManager.DataContext.Constructors.Where(constructor => constructor.Exhibition.Id == Id); }
         }
 
-        public IQueryable<Request> GetSpecialRequests<T>()
+        public IQueryable<T> GetSpecialRequests<T>()
         {
             return Requests.Where(request => request is T)
                 .OrderBy(request => request.Responsed)
-                .ThenBy(request => request.CreationDate);
+                .ThenBy(request => request.CreationDate)
+                .Cast<T>();
         }
 
         public IQueryable<BoothConstructor> GetProperConstructors(ProfessionAssignment assignment)
