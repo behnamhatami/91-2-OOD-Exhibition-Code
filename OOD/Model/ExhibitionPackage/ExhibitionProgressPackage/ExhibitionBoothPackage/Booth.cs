@@ -16,7 +16,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothP
         public bool Enabled { get; set; }
 
         public virtual BoothRequest Request { get; set; }
-        public virtual BoothExtensionRequest ExtensionRequest { get; set; }
+        public virtual Request ExtensionRequest { get; set; }
         public virtual Map Map { get; set; }
 
         [NotMapped]

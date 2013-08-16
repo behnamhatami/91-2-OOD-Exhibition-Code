@@ -11,9 +11,10 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionReques
 {
     public class BoothExtensionRequest : Request
     {
-        public Booth Booth { get; set; }
         public int Area { get; set; }
 
+        public virtual Booth Booth { get; set; }
+        
         [NotMapped]
         public IQueryable<ConstructAbility> Abilities
         {

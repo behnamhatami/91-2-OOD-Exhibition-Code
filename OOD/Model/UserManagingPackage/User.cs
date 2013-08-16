@@ -93,6 +93,18 @@ namespace OOD.Model.UserManagingPackage
             get { return DataManager.DataContext.Polls.Where(poll => poll.CreatorUser.Id == Id); }
         }
 
+        [NotMapped]
+        public IQueryable<Exhibition> Exhibitions
+        {
+            get
+            {
+                return DataManager.DataContext.UserExhibitionRoles
+                    .Where(role => role.User.Id == Id)
+                    .Select(role => role.Exhibition)
+                    .Distinct();
+            }
+        }
+
         public void RecieveNotification(String title, String content, Exhibition exhibition)
         {
             DataManager.DataContext.Notifications.Add(new Notification

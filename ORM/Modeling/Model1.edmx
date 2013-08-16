@@ -831,7 +831,7 @@
           <NavigationProperty Name="ConstructAbilities" Relationship="Model1.ConstructAbilityBoothExtensionRequest" FromRole="BoothExtensionRequest" ToRole="ConstructAbility" />
         </EntityType>
         <Association Name="BoothExtensionRequestBooth">
-          <End Type="Model1.BoothExtensionRequest" Role="BoothExtensionRequest" Multiplicity="1" />
+          <End Type="Model1.BoothExtensionRequest" Role="BoothExtensionRequest" Multiplicity="0..1" />
           <End Type="Model1.Booth" Role="Booth" Multiplicity="1" />
         </Association>
         <EntityType Name="BoothConstructor">

@@ -308,6 +308,9 @@
     <EmbeddedResource Include="UI\NotificationPackage\CallCreation.resx">
       <DependentUpon>CallCreation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\NotificationPackage\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\NotificationPackage\NotificationCenter.resx">
       <DependentUpon>NotificationCenter.cs</DependentUpon>
     </EmbeddedResource>
