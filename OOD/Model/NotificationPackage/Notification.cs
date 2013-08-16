@@ -1,7 +1,7 @@
 ﻿#region
 
 using System;
-using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
 using OOD.Model.UserManagingPackage;
 
 #endregion

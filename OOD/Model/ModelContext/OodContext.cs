@@ -3,11 +3,11 @@
 using System;
 using System.Data.Entity;
 using System.Reflection;
-using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
-using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionBooth;
-using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
-using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
-using OOD.Model.ExhibitionPackage.ExhibitionRoles;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
+using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPackage;
+using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeripheralPackage;
+using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage;
+using OOD.Model.ExhibitionPackage.ExhibitionRolePackage;
 using OOD.Model.NotificationPackage;
 using OOD.Model.UserManagingPackage;
 

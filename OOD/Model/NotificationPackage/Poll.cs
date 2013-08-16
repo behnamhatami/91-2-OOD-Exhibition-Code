@@ -3,7 +3,7 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
 using OOD.Model.ModelContext;
 using OOD.Model.UserManagingPackage;
 

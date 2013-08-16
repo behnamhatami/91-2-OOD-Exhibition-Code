@@ -6,10 +6,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
-using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionPeripheral;
-using OOD.Model.ExhibitionPackage.ExhibitionProgress.ExhibitionRequest;
-using OOD.Model.ExhibitionPackage.ExhibitionRoles;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
+using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeripheralPackage;
+using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage;
+using OOD.Model.ExhibitionPackage.ExhibitionRolePackage;
 using OOD.Model.ModelContext;
 using OOD.Model.NotificationPackage;
 

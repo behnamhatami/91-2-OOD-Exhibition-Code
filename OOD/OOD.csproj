@@ -48,7 +48,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -67,58 +67,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Configuration.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ExhibitionState.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Exhibition.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Feature.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\Process.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinition\ProcessType.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Booth.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothQuality.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\ConstructAbility.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Map.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\ProfesionQuality.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Profession.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\Saloon.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\Payment.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostItem.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOffice.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouse.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseItem.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothConstructor.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\BoothExtensionRequest.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\BoothRequest.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\ExhibitionRequest.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\ExhibitionRequestType.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\InspectionRequest.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\JudgeType.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\PollRequest.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\Request.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\SaloonRequest.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\BoothManagerRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ChairRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ECustomerRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ExecutionRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\ExhibitionRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\InspectorRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\PostKeeperRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\UserExhibitionRole.cs" />
-    <Compile Include="Model\ExhibitionPackage\ExhibitionRoles\WareHouseKeeperRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinitionPackage\Configuration.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinitionPackage\ExhibitionState.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinitionPackage\Exhibition.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinitionPackage\Feature.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinitionPackage\Process.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionDefinitionPackage\ProcessType.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\Booth.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothQuality.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\ConstructAbility.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\Map.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\ProfesionQuality.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\Profession.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\Saloon.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\Payment.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\PostItem.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\PostOffice.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\WareHouse.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\WareHouseItem.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothConstructor.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\BoothExtensionRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\BoothRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\ExhibitionRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\ExhibitionRequestType.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\InspectionRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\JudgeType.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\PollRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\Request.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\SaloonRequest.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRolePackage\BoothManagerRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRolePackage\ChairRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRolePackage\ECustomerRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRolePackage\ExecutionRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRolePackage\ExhibitionRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRolePackage\InspectorRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRolePackage\PostKeeperRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRolePackage\UserExhibitionRole.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionRolePackage\WareHouseKeeperRole.cs" />
     <Compile Include="Model\NotificationPackage\Attachment.cs" />
     <Compile Include="Model\NotificationPackage\News.cs" />
     <Compile Include="Model\NotificationPackage\Notification.cs" />
     <Compile Include="Model\NotificationPackage\PhoneInformation.cs" />
     <Compile Include="Model\NotificationPackage\PhoneNews.cs" />
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFinish.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForFinish.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFinish.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForFinish.Designer.cs">
       <DependentUpon>RequestForFinish.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForStart.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForStart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForStart.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForStart.Designer.cs">
       <DependentUpon>RequestForStart.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ModelContext\DatabaseInitializer.cs" />
@@ -135,128 +135,128 @@
     <Compile Include="Model\UserManagingPackage\UserRole.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\PollForFreeze.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\PollForFreeze.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\PollForFreeze.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\PollForFreeze.Designer.cs">
       <DependentUpon>PollForFreeze.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForFreeze.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForFreeze.Designer.cs">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothCrud.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothCrud.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothCrud.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothCrud.Designer.cs">
       <DependentUpon>BoothCrud.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothSelector.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothSelector.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothSelector.Designer.cs">
       <DependentUpon>BoothSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\PaymentManagemenet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\PaymentManagemenet.Designer.cs">
       <DependentUpon>PaymentManagemenet.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOfficeManaging.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\PostOfficeManaging.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOfficeManaging.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\PostOfficeManaging.Designer.cs">
       <DependentUpon>PostOfficeManaging.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseManaging.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\WareHouseManaging.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseManaging.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\WareHouseManaging.Designer.cs">
       <DependentUpon>WareHouseManaging.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Notification\CallCreation.cs">
+    <Compile Include="UI\NotificationPackage\CallCreation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Notification\CallCreation.Designer.cs">
+    <Compile Include="UI\NotificationPackage\CallCreation.Designer.cs">
       <DependentUpon>CallCreation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Notification\Polling.cs">
+    <Compile Include="UI\NotificationPackage\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Notification\Polling.Designer.cs">
-      <DependentUpon>Polling.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Notification\Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Notification\Home.Designer.cs">
+    <Compile Include="UI\NotificationPackage\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Notification\NotificationCenter.cs">
+    <Compile Include="UI\NotificationPackage\Polling.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Notification\NotificationCenter.Designer.cs">
+    <Compile Include="UI\NotificationPackage\Polling.Designer.cs">
+      <DependentUpon>Polling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NotificationPackage\NotificationCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NotificationPackage\NotificationCenter.Designer.cs">
       <DependentUpon>NotificationCenter.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Notification\PollCrud.cs">
+    <Compile Include="UI\NotificationPackage\PollCrud.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Notification\PollCrud.Designer.cs">
+    <Compile Include="UI\NotificationPackage\PollCrud.Designer.cs">
       <DependentUpon>PollCrud.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestInbox.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\RequestInbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestInbox.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\RequestInbox.Designer.cs">
       <DependentUpon>RequestInbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestOutbox.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\RequestOutbox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestOutbox.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\RequestOutbox.Designer.cs">
       <DependentUpon>RequestOutbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Utility\Base\BaseForm.cs">
+    <Compile Include="UI\UtilityPackage\Base\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Utility\Base\BaseForm.Designer.cs">
+    <Compile Include="UI\UtilityPackage\Base\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\Configuration.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\Configuration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\Configuration.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\Configuration.Designer.cs">
       <DependentUpon>Configuration.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\CreateExhibition.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\CreateExhibition.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\CreateExhibition.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\CreateExhibition.Designer.cs">
       <DependentUpon>CreateExhibition.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\ExhibitionSelector.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\ExhibitionSelector.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinition\ExhibitionSelector.Designer.cs">
+    <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\ExhibitionSelector.Designer.cs">
       <DependentUpon>ExhibitionSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Utility\Helper\NotificationFactory.cs" />
-    <Compile Include="UI\Utility\Interface\IReloadable.cs" />
-    <Compile Include="UI\Utility\Helper\ResetHelper.cs" />
-    <Compile Include="UI\Utility\Interface\IPreCondition.cs" />
-    <Compile Include="UI\Utility\Interface\IResetAble.cs" />
-    <Compile Include="UI\Utility\PopUp\GeneralErrors.cs" />
-    <Compile Include="UI\Utility\PopUp\PopUp.cs" />
-    <Compile Include="UI\Utility\Base\MainWindow.cs">
+    <Compile Include="UI\UtilityPackage\Helper\NotificationFactory.cs" />
+    <Compile Include="UI\UtilityPackage\Interface\IReloadable.cs" />
+    <Compile Include="UI\UtilityPackage\Helper\ResetHelper.cs" />
+    <Compile Include="UI\UtilityPackage\Interface\IPreCondition.cs" />
+    <Compile Include="UI\UtilityPackage\Interface\IResetAble.cs" />
+    <Compile Include="UI\UtilityPackage\PopUp\GeneralErrors.cs" />
+    <Compile Include="UI\UtilityPackage\PopUp\PopUp.cs" />
+    <Compile Include="UI\UtilityPackage\Base\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Utility\Base\MainWindow.Designer.cs">
+    <Compile Include="UI\UtilityPackage\Base\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Utility\PopUp\UserErrors.cs" />
+    <Compile Include="UI\UtilityPackage\PopUp\UserErrors.cs" />
     <Compile Include="UI\UserManagingPackage\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,10 +269,10 @@
     <Compile Include="UI\UserManagingPackage\UserCrud.Designer.cs">
       <DependentUpon>UserCrud.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFinish.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForFinish.resx">
       <DependentUpon>RequestForFinish.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForStart.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForStart.resx">
       <DependentUpon>RequestForStart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -284,61 +284,58 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\PollForFreeze.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\PollForFreeze.resx">
       <DependentUpon>PollForFreeze.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\RequestForFreeze.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForFreeze.resx">
       <DependentUpon>RequestForFreeze.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothCrud.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothCrud.resx">
       <DependentUpon>BoothCrud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionBooth\BoothSelector.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothSelector.resx">
       <DependentUpon>BoothSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PaymentManagemenet.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\PaymentManagemenet.resx">
       <DependentUpon>PaymentManagemenet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\PostOfficeManaging.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\PostOfficeManaging.resx">
       <DependentUpon>PostOfficeManaging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionPeripheral\WareHouseManaging.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\WareHouseManaging.resx">
       <DependentUpon>WareHouseManaging.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\CallCreation.resx">
+    <EmbeddedResource Include="UI\NotificationPackage\CallCreation.resx">
       <DependentUpon>CallCreation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\NotificationCenter.resx">
+    <EmbeddedResource Include="UI\NotificationPackage\NotificationCenter.resx">
       <DependentUpon>NotificationCenter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\Polling.resx">
+    <EmbeddedResource Include="UI\NotificationPackage\Polling.resx">
       <DependentUpon>Polling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Notification\PollCrud.resx">
+    <EmbeddedResource Include="UI\NotificationPackage\PollCrud.resx">
       <DependentUpon>PollCrud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestInbox.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\RequestInbox.resx">
       <DependentUpon>RequestInbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgress\ExhibitionRequest\RequestOutbox.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionRequestPackage\RequestOutbox.resx">
       <DependentUpon>RequestOutbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Utility\Base\BaseForm.resx">
+    <EmbeddedResource Include="UI\UtilityPackage\Base\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\Configuration.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\Configuration.resx">
       <DependentUpon>Configuration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\CreateExhibition.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\CreateExhibition.resx">
       <DependentUpon>CreateExhibition.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinition\ExhibitionSelector.resx">
+    <EmbeddedResource Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\ExhibitionSelector.resx">
       <DependentUpon>ExhibitionSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Utility\Base\MainWindow.resx">
+    <EmbeddedResource Include="UI\UtilityPackage\Base\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserManagingPackage\Login.resx">
@@ -347,6 +344,7 @@
     <EmbeddedResource Include="UI\UserManagingPackage\UserCrud.resx">
       <DependentUpon>UserCrud.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -384,8 +382,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\ExhibitionPackage\ExhibitionConsistency\" />
-    <Folder Include="UI\ReportPackage\" />
+    <Folder Include="Model\ExhibitionPackage\ExhibitionConsistencyPackage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

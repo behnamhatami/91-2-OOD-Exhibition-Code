@@ -1,10 +1,10 @@
 ﻿#region
 
 using System;
-using OOD.UI.ExhibitionPackage.ExhibitionDefinition;
-using OOD.UI.Notification;
-using OOD.UI.Utility.Base;
-using OOD.UI.Utility.PopUp;
+using OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage;
+using OOD.UI.NotificationPackage;
+using OOD.UI.UtilityPackage.Base;
+using OOD.UI.UtilityPackage.PopUp;
 
 #endregion
 

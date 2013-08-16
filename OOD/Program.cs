@@ -3,7 +3,7 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
-using OOD.Model.ExhibitionPackage.ExhibitionDefinition;
+using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
 using OOD.Model.ModelContext;
 using OOD.Model.UserManagingPackage;
 using OOD.UI.UserManagingPackage;
