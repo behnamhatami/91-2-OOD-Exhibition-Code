@@ -105,7 +105,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
             if (poll.Voters.Count() == exhibition.ChairUsers.Count())
             {
                 PopUp.ShowSuccess("رای گیری به اتمام رسید.");
-                poll.FinishDate = DateTime.Now;
+                poll.FinishDate = DateTimeManager.Today;
                 poll.Closed = true;
 
                 if (poll.Voters.Count() == poll.PollChoices.First(pollChoice => pollChoice.Content == "بلی").Hit)

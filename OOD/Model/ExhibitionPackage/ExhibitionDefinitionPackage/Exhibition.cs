@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPackage;
@@ -24,7 +25,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage
         public string Owner { get; set; }
         public ExhibitionState State { get; set; }
         public DateTime CreationDate { get; set; }
-        public DateTime LastEnter { get; set; }
+        public DateTime ExhibitionDateTime { get; set; }
 
         public virtual Feature Feature { get; set; }
         public virtual Configuration Configuration { get; set; }
@@ -98,7 +99,17 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage
                 .ThenBy(request => request.CreationDate);
         }
 
-        public void ExitUser(User user)
+        public IQueryable<BoothConstructor> GetProperConstructors(ProfessionAssignment assignment)
+        {
+            return
+                Constructors.Where(
+                    constructor =>
+                        constructor.Ability.Profession.ProfessionType == assignment.Profession.ProfessionType &&
+                        constructor.Ability.Profession.Quality == assignment.Profession.Quality)
+            ;
+        }
+
+        public void DisposeUser(User user)
         {
             var db = DataManager.DataContext;
             var userExhibitionRole = db.UserExhibitionRoles
@@ -123,7 +134,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage
             {
                 Content = content,
                 Title = title,
-                CreationDate = DateTime.Now,
+                CreationDate = DateTimeManager.SystemNow,
                 Exhibition = this,
                 User = Program.System
             });

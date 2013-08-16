@@ -1090,6 +1090,7 @@
             this.requestListShowButton.TabIndex = 2;
             this.requestListShowButton.Text = "مشاهده";
             this.requestListShowButton.UseVisualStyleBackColor = true;
+            this.requestListShowButton.Click += new System.EventHandler(this.requestListShowButton_Click);
             // 
             // label19
             // 

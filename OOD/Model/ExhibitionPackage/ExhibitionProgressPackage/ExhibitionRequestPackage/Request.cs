@@ -29,8 +29,8 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionReques
             DataManager.DataContext.Notifications.Add(new Notification
             {
                 Title = "به درخواست شما پاسخ داده شد",
-                Content = Content + "\n" + Response,
-                CreationDate = DateTime.Today,
+                Content = Content + "\r\n" + Response,
+                CreationDate = DateTimeManager.SystemNow,
                 Exhibition = Exhibition,
                 User = User
             });
@@ -41,7 +41,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionReques
             DataManager.DataContext.Notifications.Add(new Notification
             {
                 Content = "درخواست شما: " + Content,
-                CreationDate = DateTime.Today,
+                CreationDate = DateTimeManager.SystemNow,
                 Exhibition = Exhibition,
                 Title = "با درخواست شما موافقت شد",
                 User = User

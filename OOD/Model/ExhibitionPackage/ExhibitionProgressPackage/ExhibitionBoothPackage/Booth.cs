@@ -32,6 +32,16 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothP
             }
         }
 
+        [NotMapped]
+        public IQueryable<ProfessionAssignment> Assignments
+        {
+            get
+            {
+                var request = ExtensionRequest as BoothExtensionRequest;
+                return request.ProfessionsAssignments.Where(assignment => assignment.Constructor == null);
+            }
+        }
+
         public void SwitchState()
         {
             if (Request != null)

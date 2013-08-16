@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTimeManager.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinitionPackage\Configuration.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinitionPackage\ExhibitionState.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionDefinitionPackage\Exhibition.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Model\NotificationPackage\Notification.cs" />
     <Compile Include="Model\NotificationPackage\PhoneInformation.cs" />
     <Compile Include="Model\NotificationPackage\PhoneNews.cs" />
+    <Compile Include="ProcessManager.cs" />
     <Compile Include="UI\ExhibitionPackage\ExhibitionDefinitionPackage\RequestForFinish.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +157,7 @@
     <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothCrud.Designer.cs">
       <DependentUpon>BoothCrud.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothDrawerHelper.cs" />
     <Compile Include="UI\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\BoothSelector.cs">
       <SubType>Form</SubType>
     </Compile>

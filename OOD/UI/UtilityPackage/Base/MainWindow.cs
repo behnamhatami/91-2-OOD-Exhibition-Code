@@ -33,7 +33,7 @@ namespace OOD.UI.UtilityPackage.Base
             else
                 label0.Text = "";
 
-            label3.Text = String.Format("{0:yyyy MMMM dd}", DateTime.Today);
+            label3.Text = String.Format("{0:yyyy MMMM dd}", DateTimeManager.Today);
 
             if (Program.Exhibition == null)
                 ExhibitionExitToolStripMenuItem.Enabled = false;

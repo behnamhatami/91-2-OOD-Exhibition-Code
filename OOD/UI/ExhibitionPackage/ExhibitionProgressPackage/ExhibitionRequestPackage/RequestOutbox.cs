@@ -2,6 +2,7 @@
 
 using System;
 using System.Linq;
+using System.Windows.Forms;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage;
@@ -170,7 +171,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 Agreed = false,
                 Responsed = false,
                 Content = content,
-                CreationDate = DateTime.Today,
+                CreationDate = DateTimeManager.Today,
                 Exhibition = exhibition,
                 RequestType = type,
                 Title = title,
@@ -221,7 +222,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 Area = int.Parse(area),
                 Responsed = false,
                 Content = content,
-                CreationDate = DateTime.Today,
+                CreationDate = DateTimeManager.Today,
                 Exhibition = Program.Exhibition,
                 Height = int.Parse(height),
                 Name = name,
@@ -278,7 +279,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 Responsed = false,
                 Count = int.Parse(count),
                 Content = content,
-                CreationDate = DateTime.Today,
+                CreationDate = DateTimeManager.Today,
                 Exhibition = Program.Exhibition,
                 ForCommision = boothRequestForCommisionCheckBox.Checked,
                 ForSell = boothRequestForSellCheckBox.Checked,
@@ -344,7 +345,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 Booth = booth,
                 Responsed = false,
                 Content = content,
-                CreationDate = DateTime.Today,
+                CreationDate = DateTimeManager.Today,
                 Exhibition = Program.Exhibition,
                 Fine = 0,
                 JudgeType = JudgeType.NothingImportant,
@@ -388,7 +389,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             {
                 Agreed = false,
                 Content = content,
-                CreationDate = DateTime.Today,
+                CreationDate = DateTimeManager.Today,
                 Exhibition = Program.Exhibition,
                 Poll = poll,
                 Responsed = false,
@@ -442,9 +443,11 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             var exhibition = Program.Exhibition;
             _boothExtensionRequest = new BoothExtensionRequest
             {
-                CreationDate = DateTime.Today,
+                CreationDate = DateTimeManager.Today,
                 Exhibition = exhibition,
-                User = user
+                User = user,
+                Agreed = false,
+                Responsed = false
             };
 
             ResetHelper.Empty(boothExtensionTitleTextBox, boothExtensionContentTextBox, boothExtensionAbilityListListBox,
@@ -514,6 +517,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             foreach (var item in boothExtensionAbilityListListBox.Items)
                 DataManager.DataContext.ProfessionAssignments.Add(item as ProfessionAssignment);
 
+            ResetHelper.RemoveItems(boothExtensionAbilityListListBox);
             SendRequest(_boothExtensionRequest);
             BoothExtensionReset();
         }

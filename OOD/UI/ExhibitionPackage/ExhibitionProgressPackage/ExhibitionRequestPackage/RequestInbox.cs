@@ -195,7 +195,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             }
             else
             {
-                exhibition.ExitUser(user);
+                exhibition.DisposeUser(user);
             }
 
             AgreeRequest(request);
@@ -385,8 +385,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             inspectionRequestJudgeTypeComboBox.Visible = judgePhase || finishPhase;
             label27.Visible = judgePhase || finishPhase;
 
-
-            inspectionRequestFineTextBox.Enabled = judgePhase && request.JudgeType == JudgeType.Fine;
+            inspectionRequestFineTextBox.ReadOnly = !judgePhase;
             inspectionRequestFineTextBox.Visible = (judgePhase || finishPhase) && request.JudgeType == JudgeType.Fine;
             label28.Visible = (judgePhase || finishPhase) && request.JudgeType == JudgeType.Fine;
 
@@ -434,16 +433,15 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             switch (request.JudgeType)
             {
                 case JudgeType.NothingImportant:
-                    return;
+                    break;
                 case JudgeType.Fine:
                     request.User.Fine(request);
-                    DataManager.DataContext.SaveChanges();
-                    return;
+                    break;
                 case JudgeType.Deposal:
                     var exhibition = request.Exhibition;
                     var user = request.User;
-                    exhibition.ExitUser(user);
-                    return;
+                    exhibition.DisposeUser(user);
+                    break;
             }
 
             AgreeRequest(request);
@@ -512,11 +510,13 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         private void BoothExtensionRequestReset()
         {
             ResetHelper.Empty(boothExtensionRequestTitleTextBox, boothExtensionRequestContentTextBox,
-                boothExtensionRequestBoothTextBox, boothExtensionRequestAreaTextBox, boothExtensionRequestResponseButton,
+                boothExtensionRequestBoothTextBox, boothExtensionRequestAreaTextBox, boothExtensionResponseTextBox,
                 boothExtensionAbilityListListBox);
             boothExtensionAbilityListListBox.Items.Clear();
             ResetHelper.Refresh(boothExtensionRequestsComboBox,
                 Program.Exhibition.GetSpecialRequests<BoothExtensionRequest>());
+            boothExtensionRequestAgreeButton.Enabled = false;
+            boothExtensionRequestResponseButton.Enabled = false;
         }
 
         private void boothExtensionRequestAgreeButton_Click(object sender, EventArgs e)

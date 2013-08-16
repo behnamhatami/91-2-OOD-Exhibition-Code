@@ -96,14 +96,14 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
                 Feature = new Feature(),
                 PostOffice = new PostOffice
                 {
-                    CreationDate = DateTime.Now
+                    CreationDate = DateTimeManager.SystemToday
                 },
                 WareHouse = new WareHouse
                 {
-                    CreationDate = DateTime.Now
+                    CreationDate = DateTimeManager.SystemToday
                 },
-                LastEnter = DateTime.Now,
-                CreationDate = DateTime.Now,
+                ExhibitionDateTime = DateTimeManager.SystemToday,
+                CreationDate = DateTimeManager.SystemToday,
                 State = ExhibitionState.Created,
                 Configuration = new Model.ExhibitionPackage.ExhibitionDefinitionPackage.Configuration()
             };
@@ -126,9 +126,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
             var poll = new Poll
             {
                 Question = "آیا شما با پیکربندی موجود موافق هستید؟",
-                CreationDate = DateTime.Now,
+                CreationDate = DateTimeManager.SystemToday,
                 Exhibition = exhibition,
-                FinishDate = DateTime.Now,
+                FinishDate = DateTimeManager.SystemToday,
                 FinishByDate = false,
                 Closed = true,
                 Started = true

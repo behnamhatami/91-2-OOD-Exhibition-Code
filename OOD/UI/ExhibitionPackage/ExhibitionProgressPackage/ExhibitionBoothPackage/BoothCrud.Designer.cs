@@ -41,6 +41,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             this.editSaloonListComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.boothConstructorCreationTabPage = new System.Windows.Forms.TabPage();
+            this.boothConstructorsListBox = new System.Windows.Forms.ListBox();
             this.boothConstructorCancelButton = new System.Windows.Forms.Button();
             this.boothConstructorCreateButton = new System.Windows.Forms.Button();
             this.boothConstructorCostTextBox = new System.Windows.Forms.TextBox();
@@ -54,14 +55,16 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             this.boothConstructorNameTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.boothConstructorAssignmentTabPage = new System.Windows.Forms.TabPage();
-            this.boothConstructionAssignemtConstuctorsComboBox = new System.Windows.Forms.ComboBox();
+            this.boothConstructorAssignmentProfessionsComboBox = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.boothConstructorAssignemtCancelButton = new System.Windows.Forms.Button();
+            this.boothConstructorAssignemtAssignButton = new System.Windows.Forms.Button();
+            this.boothConstructorAssignmentConstructorsComboBox = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.boothConstructionAssignemtBoothsComboBox = new System.Windows.Forms.ComboBox();
-            this.boothConstructionAssignemtSaloonsComboBox = new System.Windows.Forms.ComboBox();
+            this.boothConstructorAssignmentBoothsComboBox = new System.Windows.Forms.ComboBox();
+            this.boothConstructorAssignmentSaloonsComboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.boothConstructionAssignemtCancelButton = new System.Windows.Forms.Button();
-            this.boothConstructionAssignemtAssignButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.editSaloonTabPage.SuspendLayout();
@@ -152,6 +155,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             // 
             // boothConstructorCreationTabPage
             // 
+            this.boothConstructorCreationTabPage.Controls.Add(this.boothConstructorsListBox);
             this.boothConstructorCreationTabPage.Controls.Add(this.boothConstructorCancelButton);
             this.boothConstructorCreationTabPage.Controls.Add(this.boothConstructorCreateButton);
             this.boothConstructorCreationTabPage.Controls.Add(this.boothConstructorCostTextBox);
@@ -172,6 +176,15 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             this.boothConstructorCreationTabPage.Text = "سازندگان غرفه ها";
             this.boothConstructorCreationTabPage.UseVisualStyleBackColor = true;
             // 
+            // boothConstructorsListBox
+            // 
+            this.boothConstructorsListBox.FormattingEnabled = true;
+            this.boothConstructorsListBox.ItemHeight = 14;
+            this.boothConstructorsListBox.Location = new System.Drawing.Point(40, 174);
+            this.boothConstructorsListBox.Name = "boothConstructorsListBox";
+            this.boothConstructorsListBox.Size = new System.Drawing.Size(412, 144);
+            this.boothConstructorsListBox.TabIndex = 12;
+            // 
             // boothConstructorCancelButton
             // 
             this.boothConstructorCancelButton.Location = new System.Drawing.Point(117, 140);
@@ -180,6 +193,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             this.boothConstructorCancelButton.TabIndex = 11;
             this.boothConstructorCancelButton.Text = "انصراف";
             this.boothConstructorCancelButton.UseVisualStyleBackColor = true;
+            this.boothConstructorCancelButton.Click += new System.EventHandler(this.boothConstructorCancelButton_Click);
             // 
             // boothConstructorCreateButton
             // 
@@ -189,6 +203,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             this.boothConstructorCreateButton.TabIndex = 10;
             this.boothConstructorCreateButton.Text = "ثبت";
             this.boothConstructorCreateButton.UseVisualStyleBackColor = true;
+            this.boothConstructorCreateButton.Click += new System.EventHandler(this.boothConstructorCreateButton_Click);
             // 
             // boothConstructorCostTextBox
             // 
@@ -274,12 +289,14 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             // 
             // boothConstructorAssignmentTabPage
             // 
-            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructionAssignemtCancelButton);
-            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructionAssignemtAssignButton);
-            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructionAssignemtConstuctorsComboBox);
+            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructorAssignmentProfessionsComboBox);
+            this.boothConstructorAssignmentTabPage.Controls.Add(this.label13);
+            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructorAssignemtCancelButton);
+            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructorAssignemtAssignButton);
+            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructorAssignmentConstructorsComboBox);
             this.boothConstructorAssignmentTabPage.Controls.Add(this.label11);
-            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructionAssignemtBoothsComboBox);
-            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructionAssignemtSaloonsComboBox);
+            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructorAssignmentBoothsComboBox);
+            this.boothConstructorAssignmentTabPage.Controls.Add(this.boothConstructorAssignmentSaloonsComboBox);
             this.boothConstructorAssignmentTabPage.Controls.Add(this.label12);
             this.boothConstructorAssignmentTabPage.Controls.Add(this.label10);
             this.boothConstructorAssignmentTabPage.Location = new System.Drawing.Point(4, 23);
@@ -290,38 +307,78 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             this.boothConstructorAssignmentTabPage.Text = "تخصیص سازنده ی غرفه";
             this.boothConstructorAssignmentTabPage.UseVisualStyleBackColor = true;
             // 
-            // boothConstructionAssignemtConstuctorsComboBox
+            // boothConstructorAssignmentProfessionsComboBox
             // 
-            this.boothConstructionAssignemtConstuctorsComboBox.FormattingEnabled = true;
-            this.boothConstructionAssignemtConstuctorsComboBox.Location = new System.Drawing.Point(48, 63);
-            this.boothConstructionAssignemtConstuctorsComboBox.Name = "boothConstructionAssignemtConstuctorsComboBox";
-            this.boothConstructionAssignemtConstuctorsComboBox.Size = new System.Drawing.Size(339, 22);
-            this.boothConstructionAssignemtConstuctorsComboBox.TabIndex = 6;
+            this.boothConstructorAssignmentProfessionsComboBox.FormattingEnabled = true;
+            this.boothConstructorAssignmentProfessionsComboBox.Location = new System.Drawing.Point(48, 58);
+            this.boothConstructorAssignmentProfessionsComboBox.Name = "boothConstructorAssignmentProfessionsComboBox";
+            this.boothConstructorAssignmentProfessionsComboBox.Size = new System.Drawing.Size(339, 22);
+            this.boothConstructorAssignmentProfessionsComboBox.TabIndex = 16;
+            this.boothConstructorAssignmentProfessionsComboBox.SelectedIndexChanged += new System.EventHandler(this.boothConstructorAssignmentProfessionsComboBox_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(410, 61);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(46, 14);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "خدمات:";
+            // 
+            // boothConstructorAssignemtCancelButton
+            // 
+            this.boothConstructorAssignemtCancelButton.Location = new System.Drawing.Point(125, 125);
+            this.boothConstructorAssignemtCancelButton.Name = "boothConstructorAssignemtCancelButton";
+            this.boothConstructorAssignemtCancelButton.Size = new System.Drawing.Size(71, 24);
+            this.boothConstructorAssignemtCancelButton.TabIndex = 13;
+            this.boothConstructorAssignemtCancelButton.Text = "انصراف";
+            this.boothConstructorAssignemtCancelButton.UseVisualStyleBackColor = true;
+            this.boothConstructorAssignemtCancelButton.Click += new System.EventHandler(this.boothConstructorAssignemtCancelButton_Click);
+            // 
+            // boothConstructorAssignemtAssignButton
+            // 
+            this.boothConstructorAssignemtAssignButton.Location = new System.Drawing.Point(48, 125);
+            this.boothConstructorAssignemtAssignButton.Name = "boothConstructorAssignemtAssignButton";
+            this.boothConstructorAssignemtAssignButton.Size = new System.Drawing.Size(71, 24);
+            this.boothConstructorAssignemtAssignButton.TabIndex = 12;
+            this.boothConstructorAssignemtAssignButton.Text = "ثبت";
+            this.boothConstructorAssignemtAssignButton.UseVisualStyleBackColor = true;
+            this.boothConstructorAssignemtAssignButton.Click += new System.EventHandler(this.boothConstructorAssignemtAssignButton_Click);
+            // 
+            // boothConstructorAssignmentConstructorsComboBox
+            // 
+            this.boothConstructorAssignmentConstructorsComboBox.FormattingEnabled = true;
+            this.boothConstructorAssignmentConstructorsComboBox.Location = new System.Drawing.Point(48, 86);
+            this.boothConstructorAssignmentConstructorsComboBox.Name = "boothConstructorAssignmentConstructorsComboBox";
+            this.boothConstructorAssignmentConstructorsComboBox.Size = new System.Drawing.Size(339, 22);
+            this.boothConstructorAssignmentConstructorsComboBox.TabIndex = 6;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(384, 66);
+            this.label11.Location = new System.Drawing.Point(393, 89);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 14);
             this.label11.TabIndex = 5;
             this.label11.Text = "سازندگان: ";
             // 
-            // boothConstructionAssignemtBoothsComboBox
+            // boothConstructorAssignmentBoothsComboBox
             // 
-            this.boothConstructionAssignemtBoothsComboBox.FormattingEnabled = true;
-            this.boothConstructionAssignemtBoothsComboBox.Location = new System.Drawing.Point(48, 26);
-            this.boothConstructionAssignemtBoothsComboBox.Name = "boothConstructionAssignemtBoothsComboBox";
-            this.boothConstructionAssignemtBoothsComboBox.Size = new System.Drawing.Size(140, 22);
-            this.boothConstructionAssignemtBoothsComboBox.TabIndex = 4;
+            this.boothConstructorAssignmentBoothsComboBox.FormattingEnabled = true;
+            this.boothConstructorAssignmentBoothsComboBox.Location = new System.Drawing.Point(48, 26);
+            this.boothConstructorAssignmentBoothsComboBox.Name = "boothConstructorAssignmentBoothsComboBox";
+            this.boothConstructorAssignmentBoothsComboBox.Size = new System.Drawing.Size(140, 22);
+            this.boothConstructorAssignmentBoothsComboBox.TabIndex = 4;
+            this.boothConstructorAssignmentBoothsComboBox.SelectedIndexChanged += new System.EventHandler(this.boothConstructorAssignmentBoothsComboBox_SelectedIndexChanged);
             // 
-            // boothConstructionAssignemtSaloonsComboBox
+            // boothConstructorAssignmentSaloonsComboBox
             // 
-            this.boothConstructionAssignemtSaloonsComboBox.FormattingEnabled = true;
-            this.boothConstructionAssignemtSaloonsComboBox.Location = new System.Drawing.Point(247, 26);
-            this.boothConstructionAssignemtSaloonsComboBox.Name = "boothConstructionAssignemtSaloonsComboBox";
-            this.boothConstructionAssignemtSaloonsComboBox.Size = new System.Drawing.Size(140, 22);
-            this.boothConstructionAssignemtSaloonsComboBox.TabIndex = 3;
+            this.boothConstructorAssignmentSaloonsComboBox.FormattingEnabled = true;
+            this.boothConstructorAssignmentSaloonsComboBox.Location = new System.Drawing.Point(247, 26);
+            this.boothConstructorAssignmentSaloonsComboBox.Name = "boothConstructorAssignmentSaloonsComboBox";
+            this.boothConstructorAssignmentSaloonsComboBox.Size = new System.Drawing.Size(140, 22);
+            this.boothConstructorAssignmentSaloonsComboBox.TabIndex = 3;
+            this.boothConstructorAssignmentSaloonsComboBox.SelectedIndexChanged += new System.EventHandler(this.boothConstructorAssignmentSaloonsComboBox_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -335,29 +392,11 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(408, 29);
+            this.label10.Location = new System.Drawing.Point(417, 29);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 14);
             this.label10.TabIndex = 0;
             this.label10.Text = "سالن:";
-            // 
-            // boothConstructionAssignemtCancelButton
-            // 
-            this.boothConstructionAssignemtCancelButton.Location = new System.Drawing.Point(125, 102);
-            this.boothConstructionAssignemtCancelButton.Name = "boothConstructionAssignemtCancelButton";
-            this.boothConstructionAssignemtCancelButton.Size = new System.Drawing.Size(71, 24);
-            this.boothConstructionAssignemtCancelButton.TabIndex = 13;
-            this.boothConstructionAssignemtCancelButton.Text = "انصراف";
-            this.boothConstructionAssignemtCancelButton.UseVisualStyleBackColor = true;
-            // 
-            // boothConstructionAssignemtAssignButton
-            // 
-            this.boothConstructionAssignemtAssignButton.Location = new System.Drawing.Point(48, 102);
-            this.boothConstructionAssignemtAssignButton.Name = "boothConstructionAssignemtAssignButton";
-            this.boothConstructionAssignemtAssignButton.Size = new System.Drawing.Size(71, 24);
-            this.boothConstructionAssignemtAssignButton.TabIndex = 12;
-            this.boothConstructionAssignemtAssignButton.Text = "ثبت";
-            this.boothConstructionAssignemtAssignButton.UseVisualStyleBackColor = true;
             // 
             // BoothCrud
             // 
@@ -384,50 +423,6 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
 
         #endregion
 
-        public static void DrawSaloon(Saloon saloon, FlowLayoutPanel panel)
-        {
-            var width = saloon.Map.Width;
-            var height = saloon.Map.Height;
-            var buttonWidth = 30 + 6;
-            var buttonHeight = 25 + 6;
-            var count = width*height;
-            panel.Size = new System.Drawing.Size(width * buttonWidth, height * buttonHeight);
-      
-            panel.Controls.Clear();
-            foreach (var booth in saloon.Map.Booths.OrderBy(booth => booth.Index))
-                panel.Controls.Add(CreateButton(booth));
-        }
-
-
-        public static Button CreateButton(Booth booth)
-        {
-            var button = new Button();
-            button.Size = new System.Drawing.Size(30, 25);
-            button.TabIndex = booth.Index;
-            button.Text = booth.Index + "";
-            button.UseVisualStyleBackColor = true;
-            ButtonReDraw(booth, button);
-            return button;
-        }
-
-        public static Booth GetBooth(Button button, Saloon saloon)
-        {
-            var index = int.Parse(button.Text);
-            return saloon.Map.Booths.First(booth1 => booth1.Index == index);
-        }
-
-        public static void ButtonReDraw(Booth booth, Button button)
-        {
-            if (!booth.Enabled)
-                button.BackColor = System.Drawing.Color.LightCoral;
-            else
-            {
-                if (booth.Request != null)
-                    button.BackColor = System.Drawing.Color.LightGreen;
-                else button.BackColor = System.Drawing.Color.LemonChiffon;
-            }
-        }
-
         private System.Windows.Forms.Panel panel2;
         private TabControl tabControl1;
         private TabPage editSaloonTabPage;
@@ -452,12 +447,15 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
         private Button boothConstructorCreateButton;
         private Label label12;
         private Label label10;
-        private ComboBox boothConstructionAssignemtBoothsComboBox;
-        private ComboBox boothConstructionAssignemtSaloonsComboBox;
+        private ComboBox boothConstructorAssignmentBoothsComboBox;
+        private ComboBox boothConstructorAssignmentSaloonsComboBox;
         private Label label11;
-        private ComboBox boothConstructionAssignemtConstuctorsComboBox;
-        private Button boothConstructionAssignemtCancelButton;
-        private Button boothConstructionAssignemtAssignButton;
+        private ComboBox boothConstructorAssignmentConstructorsComboBox;
+        private Button boothConstructorAssignemtCancelButton;
+        private Button boothConstructorAssignemtAssignButton;
+        private ListBox boothConstructorsListBox;
+        private ComboBox boothConstructorAssignmentProfessionsComboBox;
+        private Label label13;
 
     }
 }

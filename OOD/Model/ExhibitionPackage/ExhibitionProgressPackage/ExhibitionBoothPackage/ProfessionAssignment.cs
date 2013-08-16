@@ -10,6 +10,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothP
     {
         public int Id { get; set; }
 
+        public bool Done { get; set; }
         public virtual Profession Profession { get; set; }
         public virtual BoothConstructor Constructor { get; set; }
         public virtual BoothExtensionRequest Request { get; set; }

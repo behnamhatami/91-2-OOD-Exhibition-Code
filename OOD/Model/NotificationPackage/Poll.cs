@@ -51,12 +51,6 @@ namespace OOD.Model.NotificationPackage
             get { return Enumerable.Sum(PollChoices, pollChoice => pollChoice.Hit); }
         }
 
-        public void CheckClosed()
-        {
-            if (FinishByDate && DateTime.Now > FinishDate)
-                Closed = true;
-        }
-
         public void Reset()
         {
             var db = DataManager.DataContext;

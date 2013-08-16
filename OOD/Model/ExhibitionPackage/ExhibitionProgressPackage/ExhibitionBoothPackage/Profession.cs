@@ -23,9 +23,6 @@
             if (profession == null)
                 return false;
 
-            if (Id != 0 || profession.Id != 0)
-                return Id == profession.Id;
-
             if (profession.ProfessionType != ProfessionType
                 || profession.Quality != Quality)
                 return false;

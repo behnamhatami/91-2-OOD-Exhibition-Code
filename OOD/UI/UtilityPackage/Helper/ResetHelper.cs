@@ -80,7 +80,7 @@ namespace OOD.UI.UtilityPackage.Helper
         private static void EmptyDateTimePicker(DateTimePicker dateTimePicker)
         {
             dateTimePicker.Checked = false;
-            dateTimePicker.Value = DateTime.Now;
+            dateTimePicker.Value = DateTimeManager.Today;
         }
 
         public static void Refresh(ListBox listBox, Object[] init)
@@ -129,6 +129,20 @@ namespace OOD.UI.UtilityPackage.Helper
         {
             Empty(timePicker);
             timePicker.Value = dateTime;
+        }
+
+        public static void RemoveItems(params ComboBox[] comboBoxes)
+        {
+            Empty(comboBoxes);
+            foreach (var comboBox in comboBoxes)
+                comboBox.Items.Clear();
+        }
+
+        public static void RemoveItems(params ListBox[] listBoxes)
+        {
+            Empty(listBoxes);
+            foreach (var listBox in listBoxes)
+                listBox.Items.Clear();
         }
     }
 }

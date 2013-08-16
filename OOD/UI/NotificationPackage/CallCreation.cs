@@ -152,7 +152,7 @@ namespace OOD.UI.NotificationPackage
                 {
                     Title = title,
                     Content = content,
-                    CreationDate = DateTime.Today,
+                    CreationDate = DateTimeManager.SystemNow,
                     Image = imagePath,
                     Exhibition = Program.Exhibition,
                     User = Program.System
@@ -172,7 +172,7 @@ namespace OOD.UI.NotificationPackage
                 {
                     Title = title,
                     Content = content,
-                    CreationDate = DateTime.Today,
+                    CreationDate = DateTimeManager.Today,
                     Exhibition = Program.Exhibition,
                     User = Program.System
                 };

@@ -122,8 +122,8 @@ namespace OOD.UI.NotificationPackage
         {
             var question = createPollQuestionTextBox.Text;
             var finishByDate = createPollFinishByDateCheckBox.Checked;
-            var creationDate = DateTime.Today;
-            var finishDate = DateTime.Today;
+            var creationDate = DateTimeManager.Today;
+            var finishDate = DateTimeManager.Today;
             if (finishByDate)
                 finishDate = createPollDateTimePicker.Value;
             if (GeneralErrors.IsEmptyField(question, "سوال نظرسنجی")
@@ -198,7 +198,7 @@ namespace OOD.UI.NotificationPackage
         {
             var poll = listPollListComboBox.SelectedItem as Poll;
             poll.Closed = true;
-            poll.FinishDate = DateTime.Today;
+            poll.FinishDate = DateTimeManager.Today;
             PopUp.ShowSuccess("نظرسنجی اتمام یافت.");
             DataManager.DataContext.SaveChanges();
             Reset();

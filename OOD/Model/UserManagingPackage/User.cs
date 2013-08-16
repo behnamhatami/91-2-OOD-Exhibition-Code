@@ -119,7 +119,7 @@ namespace OOD.Model.UserManagingPackage
             {
                 Content = content,
                 Title = title,
-                CreationDate = DateTime.Now,
+                CreationDate = DateTimeManager.SystemNow,
                 Exhibition = exhibition,
                 User = this
             });

@@ -82,9 +82,9 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
         private void boothActionButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
-            var booth = BoothCrud.GetBooth(button, saloonListComboBox.SelectedItem as Saloon);
+            var booth = BoothDrawerHelper.GetBooth(button, saloonListComboBox.SelectedItem as Saloon);
             booth.Register(_request);
-            BoothCrud.ButtonReDraw(booth, button);
+            BoothDrawerHelper.ButtonReDraw(booth, button);
             DataManager.DataContext.SaveChanges();
         }
 
@@ -96,7 +96,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
             if (GeneralErrors.IsNull(saloon, "سالن"))
                 return;
 
-            BoothCrud.DrawSaloon(saloon, flowLayoutPanel1);
+            BoothDrawerHelper.DrawSaloon(saloon, flowLayoutPanel1);
             foreach (var control in flowLayoutPanel1.Controls)
                 (control as Button).Click += boothActionButton_Click;
         }

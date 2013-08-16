@@ -31,12 +31,12 @@ namespace OOD.UI.NotificationPackage
                 ResetHelper.Refresh(userNotificationListBox,
                     user.Notifications
                         .Where(notification => notification.Exhibition.Id == exhibition.Id)
-                        .OrderByDescending(notification => notification.CreationDate));
+                        .OrderBy(notification => notification.CreationDate));
 
                 ResetHelper.Refresh(exhibitionNotificationListBox,
                     exhibition.Notifications
                         .Where(notification => notification.User.Id == Program.System.Id)
-                        .OrderByDescending(notification => notification.CreationDate));
+                        .OrderBy(notification => notification.CreationDate));
 
                 tabControl1.Controls.Add(exhibitionNotificationPage);
             }

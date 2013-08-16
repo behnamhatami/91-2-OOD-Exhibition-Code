@@ -2,5 +2,9 @@
 {
     public class ExecutionRole : ExhibitionRole
     {
+        public override string ToString()
+        {
+            return "مدیر اجرایی";
+        }
     }
 }

@@ -63,9 +63,6 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
 
         public static void EnterExhibition(Exhibition exhibition)
         {
-            Program.Exhibition = exhibition;
-            exhibition.LastEnter = DateTime.Now;
-            DataManager.DataContext.SaveChanges();
             PopUp.ShowSuccess(String.Format("شما وارد نمایشگاه {0} شدید.", exhibition));
         }
 
