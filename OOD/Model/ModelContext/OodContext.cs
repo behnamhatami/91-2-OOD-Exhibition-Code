@@ -47,6 +47,8 @@ namespace OOD.Model.ModelContext
         public DbSet<Request> Requests { get; set; }
         public DbSet<BoothConstructor> Constructors { get; set; }
         public DbSet<ConstructAbility> Abilities { get; set; }
+        public DbSet<Profession> Professions { get; set; }
+        public DbSet<ProfessionAssignment> ProfessionAssignments { get; set; }
 
         public static string ConnectionString
         {

@@ -16,13 +16,12 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionReques
         public virtual Booth Booth { get; set; }
         
         [NotMapped]
-        public IQueryable<ConstructAbility> Abilities
+        public IQueryable<ProfessionAssignment> ProfessionsAssignments
         {
             get
             {
                 return
-                    DataManager.DataContext.Abilities.Where(
-                        ability => ability.Request != null && ability.Request.Id == Id);
+                    DataManager.DataContext.ProfessionAssignments.Where(assignment => assignment.Request.Id == Id);
             }
         }
     }

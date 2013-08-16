@@ -16,18 +16,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothP
         public int ReserverdDays { get; set; }
 
         public virtual Exhibition Exhibition { get; set; }
-
-        [NotMapped]
-        public ConstructAbility Ability
-        {
-            get
-            {
-                return
-                    DataManager.DataContext.Abilities.First(
-                        ability =>
-                            ability.Request == null && ability.Constructor != null && ability.Constructor.Id == Id);
-            }
-        }
+        public virtual ConstructAbility Ability { get; set; }
 
         public override string ToString()
         {

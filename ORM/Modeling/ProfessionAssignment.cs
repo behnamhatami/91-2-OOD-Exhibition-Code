@@ -12,16 +12,11 @@ namespace Login.Modeling
     using System;
     using System.Collections.Generic;
     
-    public partial class BoothExtensionRequest : Request
+    public partial class ProfessionAssignment
     {
-        public BoothExtensionRequest()
-        {
-            this.ProfessionAssignments = new HashSet<ProfessionAssignment>();
-        }
+        public int Id { get; set; }
     
-        public int Area { get; set; }
-    
-        public virtual Booth Booth { get; set; }
-        public virtual ICollection<ProfessionAssignment> ProfessionAssignments { get; set; }
+        public virtual BoothExtensionRequest BoothExtensionRequest { get; set; }
+        public virtual Profession Profession { get; set; }
     }
 }

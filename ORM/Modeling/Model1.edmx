@@ -341,6 +341,20 @@
             <End Role="ConstructAbility" EntitySet="ConstructAbilities" />
             <End Role="BoothConstructor" EntitySet="BoothConstructors" />
           </AssociationSet>
+          <EntitySet Name="Professions" EntityType="Model1.Profession" />
+          <EntitySet Name="ProfessionAssignments" EntityType="Model1.ProfessionAssignment" />
+          <AssociationSet Name="BoothExtensionRequestProfessionAssignment" Association="Model1.BoothExtensionRequestProfessionAssignment">
+            <End Role="BoothExtensionRequest" EntitySet="Requests" />
+            <End Role="ProfessionAssignment" EntitySet="ProfessionAssignments" />
+          </AssociationSet>
+          <AssociationSet Name="ProfessionAssignmentProfession" Association="Model1.ProfessionAssignmentProfession">
+            <End Role="ProfessionAssignment" EntitySet="ProfessionAssignments" />
+            <End Role="Profession" EntitySet="Professions" />
+          </AssociationSet>
+          <AssociationSet Name="ConstructAbilityProfession" Association="Model1.ConstructAbilityProfession">
+            <End Role="ConstructAbility" EntitySet="ConstructAbilities" />
+            <End Role="Profession" EntitySet="Professions" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -828,7 +842,7 @@
         <EntityType Name="BoothExtensionRequest" BaseType="Model1.Request">
           <Property Type="Int32" Name="Area" Nullable="false" />
           <NavigationProperty Name="Booth" Relationship="Model1.BoothExtensionRequestBooth" FromRole="BoothExtensionRequest" ToRole="Booth" />
-          <NavigationProperty Name="ConstructAbilities" Relationship="Model1.ConstructAbilityBoothExtensionRequest" FromRole="BoothExtensionRequest" ToRole="ConstructAbility" />
+          <NavigationProperty Name="ProfessionAssignments" Relationship="Model1.BoothExtensionRequestProfessionAssignment" FromRole="BoothExtensionRequest" ToRole="ProfessionAssignment" />
         </EntityType>
         <Association Name="BoothExtensionRequestBooth">
           <End Type="Model1.BoothExtensionRequest" Role="BoothExtensionRequest" Multiplicity="0..1" />
@@ -849,12 +863,11 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="Cost" Nullable="false" />
-          <Property Type="String" Name="Profession" Nullable="false" />
           <Property Type="String" Name="Quality" Nullable="false" />
-          <NavigationProperty Name="BoothExtensionRequest" Relationship="Model1.ConstructAbilityBoothExtensionRequest" FromRole="ConstructAbility" ToRole="BoothExtensionRequest" />
           <Property Type="Int32" Name="Duration" Nullable="false" />
           <NavigationProperty Name="BoothConstructor" Relationship="Model1.ConstructAbilityBoothConstructor" FromRole="ConstructAbility" ToRole="BoothConstructor" />
           <Property Type="Boolean" Name="Done" Nullable="false" />
+          <NavigationProperty Name="Profession" Relationship="Model1.ConstructAbilityProfession" FromRole="ConstructAbility" ToRole="Profession" />
         </EntityType>
         <Association Name="ConstructAbilityBoothExtensionRequest">
           <End Type="Model1.ConstructAbility" Role="ConstructAbility" Multiplicity="*" />
@@ -863,6 +876,34 @@
         <Association Name="ConstructAbilityBoothConstructor">
           <End Type="Model1.ConstructAbility" Role="ConstructAbility" Multiplicity="1" />
           <End Type="Model1.BoothConstructor" Role="BoothConstructor" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Profession">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Quality" Nullable="false" />
+          <Property Type="String" Name="ProfessionType" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfessionAssignment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="BoothExtensionRequest" Relationship="Model1.BoothExtensionRequestProfessionAssignment" FromRole="ProfessionAssignment" ToRole="BoothExtensionRequest" />
+          <NavigationProperty Name="Profession" Relationship="Model1.ProfessionAssignmentProfession" FromRole="ProfessionAssignment" ToRole="Profession" />
+        </EntityType>
+        <Association Name="BoothExtensionRequestProfessionAssignment">
+          <End Type="Model1.BoothExtensionRequest" Role="BoothExtensionRequest" Multiplicity="1" />
+          <End Type="Model1.ProfessionAssignment" Role="ProfessionAssignment" Multiplicity="*" />
+        </Association>
+        <Association Name="ProfessionAssignmentProfession">
+          <End Type="Model1.ProfessionAssignment" Role="ProfessionAssignment" Multiplicity="0..1" />
+          <End Type="Model1.Profession" Role="Profession" Multiplicity="1" />
+        </Association>
+        <Association Name="ConstructAbilityProfession">
+          <End Type="Model1.ConstructAbility" Role="ConstructAbility" Multiplicity="0..1" />
+          <End Type="Model1.Profession" Role="Profession" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

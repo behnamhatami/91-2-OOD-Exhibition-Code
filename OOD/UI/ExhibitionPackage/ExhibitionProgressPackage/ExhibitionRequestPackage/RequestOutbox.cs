@@ -18,6 +18,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 {
     public partial class RequestOutbox : MainWindow
     {
+        private BoothExtensionRequest _boothExtensionRequest;
+
         public RequestOutbox()
         {
             InitializeComponent();
@@ -30,29 +32,47 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             base.Reset();
             TabControl.Controls.Clear();
 
-            ExhibitionRequestReset();
             if (HasExhibitionRequestPreCondition())
+            {
+                ExhibitionRequestReset();
                 TabControl.Controls.Add(exhibitionRequestTabPage);
+            }
 
-            SaloonRequestReset();
             if (HasSaloonRequestPreCondition())
+            {
+                SaloonRequestReset();
                 TabControl.Controls.Add(saloonRequestTabPage);
+            }
 
-            BoothRequestReset();
             if (HasBoothRequestPreCondition())
+            {
+                BoothRequestReset();
                 TabControl.Controls.Add(boothRequestTabPage);
+            }
 
-            InspectionRequestReset();
             if (HasInspectionRequestPreCondition())
+            {
+                InspectionRequestReset();
                 TabControl.Controls.Add(InspectionRequestTabPage);
+            }
 
-            PollRequestReset();
             if (HasPollRequestPreCondition())
+            {
+                PollRequestReset();
                 TabControl.Controls.Add(pollRequestTabPage);
+            }
 
-            ListRequestReset();
+            if (HasBoothExtensionPreCondition())
+            {
+                BoothExtensionReset();
+                TabControl.Controls.Add(boothExtensionRequestTabPage);
+            }
+
             if (HasListRequestPreCondition())
+            {
+                ListRequestReset();
                 TabControl.Controls.Add(listRequestTabPage);
+            }
         }
 
         // IPrecondition
@@ -145,7 +165,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 ? ExhibitionRequestType.Exit
                 : ExhibitionRequestType.Entrance;
 
-            var request = new Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage.ExhibitionRequest
+            var request = new ExhibitionRequest
             {
                 Agreed = false,
                 Responsed = false,
@@ -406,6 +426,96 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             requestTitleTextBox.Text = request.Title;
             requestContentTextBox.Text = request.Content;
             requestResponseTextBox.Text = request.Response;
+        }
+
+        // Booth Extension Request
+
+        private bool HasBoothExtensionPreCondition()
+        {
+            return Program.Exhibition.HasRole<ECustomerRole>(Program.User)
+                   && Program.User.GetAssignedBooths(Program.Exhibition).Any();
+        }
+
+        private void BoothExtensionReset()
+        {
+            var user = Program.User;
+            var exhibition = Program.Exhibition;
+            _boothExtensionRequest = new BoothExtensionRequest
+            {
+                CreationDate = DateTime.Today,
+                Exhibition = exhibition,
+                User = user
+            };
+
+            ResetHelper.Empty(boothExtensionTitleTextBox, boothExtensionContentTextBox, boothExtensionAbilityListListBox,
+                boothExtensionAreaTextBox);
+            ResetHelper.Refresh(boothExtensionBoothsComboBox, user.GetAssignedBooths(exhibition));
+
+            ResetHelper.Refresh(boothExtensionQualityComboBox, ProfessionQualityWrapper.Types);
+            ResetHelper.Refresh(boothExtensionProfessionComboBox, ProfessionTypeWrapper.Types);
+        }
+
+        private void boothExtensionAbilityAddButton_Click(object sender, EventArgs e)
+        {
+            var professionType = boothExtensionProfessionComboBox.SelectedItem as ProfessionTypeWrapper;
+            var quality = boothExtensionQualityComboBox.SelectedItem as ProfessionQualityWrapper;
+
+            if (GeneralErrors.IsNull(professionType, "خدمت")
+                || GeneralErrors.IsNull(quality, "کیفیت خدمت"))
+                return;
+
+            var assignment = new ProfessionAssignment
+            {
+                Profession = new Profession
+                {
+                    ProfessionType = professionType.Profession,
+                    Quality = quality.Quality
+                },
+                Request = _boothExtensionRequest
+            };
+            if (boothExtensionAbilityListListBox.Items.Contains(assignment))
+            {
+                PopUp.ShowError("مورد انتخابی تکراری است.");
+                return;
+            }
+            boothExtensionAbilityListListBox.Items.Add(assignment);
+        }
+
+        private void boothExtensionAbilityRemoveButton_Click(object sender, EventArgs e)
+        {
+            var assignment = boothExtensionAbilityListListBox.SelectedItem as ProfessionAssignment;
+            if (GeneralErrors.IsNull(assignment, "خدمت"))
+                return;
+            boothExtensionAbilityListListBox.Items.Remove(assignment);
+        }
+
+        private void boothExtensionCancelButton_Click(object sender, EventArgs e)
+        {
+            BoothExtensionReset();
+        }
+
+        private void boothExtensionButton_Click(object sender, EventArgs e)
+        {
+            var title = boothExtensionTitleTextBox.Text;
+            var content = boothExtensionContentTextBox.Text;
+            var booth = boothExtensionBoothsComboBox.SelectedItem as Booth;
+            var area = boothExtensionAreaTextBox.Text;
+            if (GeneralErrors.IsEmptyField(title, "تیتر درخواست")
+                || GeneralErrors.IsEmptyField(content, "محتوای درخواست")
+                || GeneralErrors.IsNull(booth, "غرفه مد نظر")
+                || GeneralErrors.IsNotValidInt(area, 1, "مساحت غرفه"))
+                return;
+
+            _boothExtensionRequest.Area = int.Parse(area);
+            _boothExtensionRequest.Content = content;
+            _boothExtensionRequest.Title = title;
+            _boothExtensionRequest.Booth = booth;
+
+            foreach (var item in boothExtensionAbilityListListBox.Items)
+                DataManager.DataContext.ProfessionAssignments.Add(item as ProfessionAssignment);
+
+            SendRequest(_boothExtensionRequest);
+            BoothExtensionReset();
         }
     }
 }

@@ -16,12 +16,11 @@ namespace Login.Modeling
     {
         public int Id { get; set; }
         public int Cost { get; set; }
-        public string Profession { get; set; }
         public string Quality { get; set; }
         public int Duration { get; set; }
         public bool Done { get; set; }
     
-        public virtual BoothExtensionRequest BoothExtensionRequest { get; set; }
         public virtual BoothConstructor BoothConstructor { get; set; }
+        public virtual Profession Profession { get; set; }
     }
 }

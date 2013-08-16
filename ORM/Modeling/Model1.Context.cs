@@ -50,5 +50,7 @@ namespace Login.Modeling
         public DbSet<Request> Requests { get; set; }
         public DbSet<BoothConstructor> BoothConstructors { get; set; }
         public DbSet<ConstructAbility> ConstructAbilities { get; set; }
+        public DbSet<Profession> Professions { get; set; }
+        public DbSet<ProfessionAssignment> ProfessionAssignments { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage;
@@ -59,6 +60,12 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 tabControl1.Controls.Add(InspectionRequestTabPage);
                 InspectionRequestReset();
             }
+
+            if (HasBoothExtensionRequestPreCondition())
+            {
+                tabControl1.Controls.Add(boothExtensionRequestTabPage);
+                BoothExtensionRequestReset();
+            }
         }
 
         // IPrecondition
@@ -116,7 +123,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             PopUp.ShowSuccess("پاسخ ارسال گردید.");
         }
 
-        private void AgreeResponse(Request request)
+        private void AgreeRequest(Request request)
         {
             request.Agreed = true;
             request.NotifyAgree();
@@ -128,7 +135,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         private bool HasExhibitionRequestPreCondition()
         {
-            return Program.Exhibition.HasRole<ExecutionRole>(Program.User);
+            return Program.Exhibition.HasRole<ExecutionRole>(Program.User)
+                   && Program.Exhibition.GetSpecialRequests<ExhibitionRequest>().Any();
         }
 
         private void ExhibitionRequestReset()
@@ -137,14 +145,14 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 exhibitionRequestResponseTextBox, exhibitionRequestTypeTextBox);
 
             ResetHelper.Refresh(exhibitionRequestListComboBox,
-                Program.Exhibition.GetSpecialRequests<Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage.ExhibitionRequest>());
+                Program.Exhibition.GetSpecialRequests<ExhibitionRequest>());
             exhibitionRequestResponseButton.Enabled = false;
             exhibitionAgreeButton.Enabled = false;
         }
 
         private void exhibitionShowButton_Click(object sender, EventArgs e)
         {
-            var request = exhibitionRequestListComboBox.SelectedItem as Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage.ExhibitionRequest;
+            var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
             if (GeneralErrors.IsNull(request, "درخواست"))
                 return;
 
@@ -160,7 +168,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         private void exhibitionRequestResponseButton_Click(object sender, EventArgs e)
         {
-            var request = exhibitionRequestListComboBox.SelectedItem as Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage.ExhibitionRequest;
+            var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
             var response = exhibitionRequestResponseTextBox.Text;
             if (GeneralErrors.IsEmptyField(response, "پاسخ"))
                 return;
@@ -171,7 +179,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         private void exhibitionAgreeButton_Click(object sender, EventArgs e)
         {
-            var request = exhibitionRequestListComboBox.SelectedItem as Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage.ExhibitionRequest;
+            var request = exhibitionRequestListComboBox.SelectedItem as ExhibitionRequest;
             var user = request.User;
             var exhibition = request.Exhibition;
             if (!exhibition.HasRole<ECustomerRole>(user))
@@ -190,7 +198,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 exhibition.ExitUser(user);
             }
 
-            AgreeResponse(request);
+            AgreeRequest(request);
             ExhibitionRequestReset();
         }
 
@@ -198,7 +206,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         private bool HasSaloonRequestPreCondition()
         {
-            return Program.Exhibition.HasRole<BoothManagerRole>(Program.User);
+            return Program.Exhibition.HasRole<BoothManagerRole>(Program.User)
+                   && Program.Exhibition.GetSpecialRequests<SaloonRequest>().Any();
         }
 
         private void SaloonRequestReset()
@@ -268,7 +277,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 });
             }
             db.Saloons.Add(saloon);
-            AgreeResponse(request);
+            AgreeRequest(request);
             SaloonRequestReset();
         }
 
@@ -276,7 +285,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         private bool HasBoothRequestPreCondition()
         {
-            return Program.Exhibition.HasRole<BoothManagerRole>(Program.User);
+            return Program.Exhibition.HasRole<BoothManagerRole>(Program.User)
+                   && Program.Exhibition.GetSpecialRequests<BoothRequest>().Any();
         }
 
         private void BoothRequestReset()
@@ -330,7 +340,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
             var request = boothRequestComboBox.SelectedItem as BoothRequest;
             GoNext(new BoothSelector(request));
             if (request.Agreed)
-                AgreeResponse(request);
+                AgreeRequest(request);
             DataManager.DataContext.SaveChanges();
             BoothRequestReset();
         }
@@ -338,7 +348,8 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         // Inspection Request
         private bool HasInspectionRequestPreCondition()
         {
-            return Program.Exhibition.HasRole<InspectorRole>(Program.User);
+            return Program.Exhibition.HasRole<InspectorRole>(Program.User)
+                   && Program.Exhibition.GetSpecialRequests<InspectionRequest>().Any();
         }
 
         private void InspectionRequestReset()
@@ -435,7 +446,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                     return;
             }
 
-            AgreeResponse(request);
+            AgreeRequest(request);
             InspectionRequestReset();
         }
 
@@ -444,7 +455,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         public bool HasPollRequestPreCondition()
         {
-            return true;
+            return Program.Exhibition.GetSpecialRequests<PollRequest>().Any();
         }
 
         public void PollRequestReset()
@@ -476,7 +487,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         {
             var request = pollRequestsComboBox.SelectedItem as PollRequest;
             request.Poll.Started = true;
-            AgreeResponse(request);
+            AgreeRequest(request);
             PollRequestReset();
         }
 
@@ -490,6 +501,59 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
             SendResponse(request, response);
             PollRequestReset();
+        }
+
+        // Booth Extension Request
+        private bool HasBoothExtensionRequestPreCondition()
+        {
+            return Program.Exhibition.GetSpecialRequests<BoothExtensionRequest>().Any();
+        }
+
+        private void BoothExtensionRequestReset()
+        {
+            ResetHelper.Empty(boothExtensionRequestTitleTextBox, boothExtensionRequestContentTextBox,
+                boothExtensionRequestBoothTextBox, boothExtensionRequestAreaTextBox, boothExtensionRequestResponseButton,
+                boothExtensionAbilityListListBox);
+            boothExtensionAbilityListListBox.Items.Clear();
+            ResetHelper.Refresh(boothExtensionRequestsComboBox,
+                Program.Exhibition.GetSpecialRequests<BoothExtensionRequest>());
+        }
+
+        private void boothExtensionRequestAgreeButton_Click(object sender, EventArgs e)
+        {
+            var request = boothExtensionRequestsComboBox.SelectedItem as BoothExtensionRequest;
+            var booth = request.Booth;
+            booth.ExtensionRequest = request;
+            AgreeRequest(request);
+            BoothExtensionRequestReset();
+        }
+
+        private void boothExtensionRequestResponseButton_Click(object sender, EventArgs e)
+        {
+            var request = boothExtensionRequestsComboBox.SelectedItem as BoothExtensionRequest;
+            var response = boothExtensionResponseTextBox.Text;
+            if (GeneralErrors.IsEmptyField(response, "پاسخ درخواست"))
+                return;
+            SendResponse(request, response);
+            BoothExtensionRequestReset();
+        }
+
+        private void boothExtensionRequestShowButton_Click(object sender, EventArgs e)
+        {
+            var request = boothExtensionRequestsComboBox.SelectedItem as BoothExtensionRequest;
+            if (GeneralErrors.IsNull(request, "درخواست"))
+                return;
+
+            boothExtensionRequestTitleTextBox.Text = request.Title;
+            boothExtensionRequestContentTextBox.Text = request.Content;
+            boothExtensionRequestBoothTextBox.Text = request.Booth.ToString();
+            boothExtensionRequestAreaTextBox.Text = request.Area + "";
+            boothExtensionResponseTextBox.Text = request.Response;
+            ResetHelper.Refresh(boothExtensionAbilityListListBox, request.ProfessionsAssignments);
+
+            boothExtensionRequestAgreeButton.Enabled = !request.Agreed;
+            boothExtensionRequestResponseButton.Enabled = !request.Responsed;
+            boothExtensionResponseTextBox.ReadOnly = request.Responsed;
         }
     }
 }

@@ -126,9 +126,12 @@
             this.label35 = new System.Windows.Forms.Label();
             this.boothExtensionRequestTabPage = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.boothExtensionRequestShowButton = new System.Windows.Forms.Button();
-            this.boothExtensionRequestsComboBox = new System.Windows.Forms.ComboBox();
-            this.label37 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.boothExtensionAbilityListListBox = new System.Windows.Forms.ListBox();
+            this.boothExtensionRequestBoothTextBox = new System.Windows.Forms.TextBox();
+            this.boothExtensionRequestAreaTextBox = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.boothExtensionRequestAgreeButton = new System.Windows.Forms.Button();
             this.boothExtensionRequestResponseButton = new System.Windows.Forms.Button();
             this.boothExtensionResponseTextBox = new System.Windows.Forms.TextBox();
@@ -137,12 +140,9 @@
             this.boothExtensionRequestTitleTextBox = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
-            this.boothExtensionRequestAreaTextBox = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.boothExtensionRequestBoothsTextBox = new System.Windows.Forms.TextBox();
-            this.boothExtensionAbilityListListBox = new System.Windows.Forms.ListBox();
-            this.label43 = new System.Windows.Forms.Label();
+            this.boothExtensionRequestShowButton = new System.Windows.Forms.Button();
+            this.boothExtensionRequestsComboBox = new System.Windows.Forms.ComboBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.exhibitionRequestTabPage.SuspendLayout();
@@ -1139,7 +1139,7 @@
             // 
             this.groupBox6.Controls.Add(this.label43);
             this.groupBox6.Controls.Add(this.boothExtensionAbilityListListBox);
-            this.groupBox6.Controls.Add(this.boothExtensionRequestBoothsTextBox);
+            this.groupBox6.Controls.Add(this.boothExtensionRequestBoothTextBox);
             this.groupBox6.Controls.Add(this.boothExtensionRequestAreaTextBox);
             this.groupBox6.Controls.Add(this.label41);
             this.groupBox6.Controls.Add(this.label42);
@@ -1158,31 +1158,59 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "درخواست";
             // 
-            // boothExtensionRequestShowButton
+            // label43
             // 
-            this.boothExtensionRequestShowButton.Location = new System.Drawing.Point(28, 37);
-            this.boothExtensionRequestShowButton.Name = "boothExtensionRequestShowButton";
-            this.boothExtensionRequestShowButton.Size = new System.Drawing.Size(71, 24);
-            this.boothExtensionRequestShowButton.TabIndex = 48;
-            this.boothExtensionRequestShowButton.Text = "مشاهده";
-            this.boothExtensionRequestShowButton.UseVisualStyleBackColor = true;
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(348, 128);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(76, 14);
+            this.label43.TabIndex = 64;
+            this.label43.Text = "درخواست ها:";
             // 
-            // boothExtensionRequestsComboBox
+            // boothExtensionAbilityListListBox
             // 
-            this.boothExtensionRequestsComboBox.FormattingEnabled = true;
-            this.boothExtensionRequestsComboBox.Location = new System.Drawing.Point(28, 9);
-            this.boothExtensionRequestsComboBox.Name = "boothExtensionRequestsComboBox";
-            this.boothExtensionRequestsComboBox.Size = new System.Drawing.Size(300, 22);
-            this.boothExtensionRequestsComboBox.TabIndex = 47;
+            this.boothExtensionAbilityListListBox.Enabled = false;
+            this.boothExtensionAbilityListListBox.FormattingEnabled = true;
+            this.boothExtensionAbilityListListBox.ItemHeight = 14;
+            this.boothExtensionAbilityListListBox.Location = new System.Drawing.Point(6, 119);
+            this.boothExtensionAbilityListListBox.Name = "boothExtensionAbilityListListBox";
+            this.boothExtensionAbilityListListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.boothExtensionAbilityListListBox.Size = new System.Drawing.Size(327, 60);
+            this.boothExtensionAbilityListListBox.TabIndex = 63;
             // 
-            // label37
+            // boothExtensionRequestBoothTextBox
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(348, 12);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(111, 14);
-            this.label37.TabIndex = 46;
-            this.label37.Text = "لیست درخواست ها:";
+            this.boothExtensionRequestBoothTextBox.Location = new System.Drawing.Point(216, 94);
+            this.boothExtensionRequestBoothTextBox.Name = "boothExtensionRequestBoothTextBox";
+            this.boothExtensionRequestBoothTextBox.ReadOnly = true;
+            this.boothExtensionRequestBoothTextBox.Size = new System.Drawing.Size(117, 22);
+            this.boothExtensionRequestBoothTextBox.TabIndex = 62;
+            // 
+            // boothExtensionRequestAreaTextBox
+            // 
+            this.boothExtensionRequestAreaTextBox.Location = new System.Drawing.Point(6, 94);
+            this.boothExtensionRequestAreaTextBox.Name = "boothExtensionRequestAreaTextBox";
+            this.boothExtensionRequestAreaTextBox.ReadOnly = true;
+            this.boothExtensionRequestAreaTextBox.Size = new System.Drawing.Size(117, 22);
+            this.boothExtensionRequestAreaTextBox.TabIndex = 61;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(129, 97);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(81, 14);
+            this.label41.TabIndex = 60;
+            this.label41.Text = "مساحت غرفه:";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(389, 94);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(35, 14);
+            this.label42.TabIndex = 58;
+            this.label42.Text = "غرفه:";
             // 
             // boothExtensionRequestAgreeButton
             // 
@@ -1192,6 +1220,7 @@
             this.boothExtensionRequestAgreeButton.TabIndex = 57;
             this.boothExtensionRequestAgreeButton.Text = "موافقت";
             this.boothExtensionRequestAgreeButton.UseVisualStyleBackColor = true;
+            this.boothExtensionRequestAgreeButton.Click += new System.EventHandler(this.boothExtensionRequestAgreeButton_Click);
             // 
             // boothExtensionRequestResponseButton
             // 
@@ -1201,6 +1230,7 @@
             this.boothExtensionRequestResponseButton.TabIndex = 56;
             this.boothExtensionRequestResponseButton.Text = "ارسال";
             this.boothExtensionRequestResponseButton.UseVisualStyleBackColor = true;
+            this.boothExtensionRequestResponseButton.Click += new System.EventHandler(this.boothExtensionRequestResponseButton_Click);
             // 
             // boothExtensionResponseTextBox
             // 
@@ -1254,59 +1284,32 @@
             this.label40.TabIndex = 50;
             this.label40.Text = "تیتر درخواست:";
             // 
-            // boothExtensionRequestAreaTextBox
+            // boothExtensionRequestShowButton
             // 
-            this.boothExtensionRequestAreaTextBox.Location = new System.Drawing.Point(6, 94);
-            this.boothExtensionRequestAreaTextBox.Name = "boothExtensionRequestAreaTextBox";
-            this.boothExtensionRequestAreaTextBox.ReadOnly = true;
-            this.boothExtensionRequestAreaTextBox.Size = new System.Drawing.Size(117, 22);
-            this.boothExtensionRequestAreaTextBox.TabIndex = 61;
+            this.boothExtensionRequestShowButton.Location = new System.Drawing.Point(28, 37);
+            this.boothExtensionRequestShowButton.Name = "boothExtensionRequestShowButton";
+            this.boothExtensionRequestShowButton.Size = new System.Drawing.Size(71, 24);
+            this.boothExtensionRequestShowButton.TabIndex = 48;
+            this.boothExtensionRequestShowButton.Text = "مشاهده";
+            this.boothExtensionRequestShowButton.UseVisualStyleBackColor = true;
+            this.boothExtensionRequestShowButton.Click += new System.EventHandler(this.boothExtensionRequestShowButton_Click);
             // 
-            // label41
+            // boothExtensionRequestsComboBox
             // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(129, 97);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(81, 14);
-            this.label41.TabIndex = 60;
-            this.label41.Text = "مساحت غرفه:";
+            this.boothExtensionRequestsComboBox.FormattingEnabled = true;
+            this.boothExtensionRequestsComboBox.Location = new System.Drawing.Point(28, 9);
+            this.boothExtensionRequestsComboBox.Name = "boothExtensionRequestsComboBox";
+            this.boothExtensionRequestsComboBox.Size = new System.Drawing.Size(300, 22);
+            this.boothExtensionRequestsComboBox.TabIndex = 47;
             // 
-            // label42
+            // label37
             // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(389, 94);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(35, 14);
-            this.label42.TabIndex = 58;
-            this.label42.Text = "غرفه:";
-            // 
-            // boothExtensionRequestBoothsTextBox
-            // 
-            this.boothExtensionRequestBoothsTextBox.Location = new System.Drawing.Point(216, 94);
-            this.boothExtensionRequestBoothsTextBox.Name = "boothExtensionRequestBoothsTextBox";
-            this.boothExtensionRequestBoothsTextBox.ReadOnly = true;
-            this.boothExtensionRequestBoothsTextBox.Size = new System.Drawing.Size(117, 22);
-            this.boothExtensionRequestBoothsTextBox.TabIndex = 62;
-            // 
-            // boothExtensionAbilityListListBox
-            // 
-            this.boothExtensionAbilityListListBox.Enabled = false;
-            this.boothExtensionAbilityListListBox.FormattingEnabled = true;
-            this.boothExtensionAbilityListListBox.ItemHeight = 14;
-            this.boothExtensionAbilityListListBox.Location = new System.Drawing.Point(6, 119);
-            this.boothExtensionAbilityListListBox.Name = "boothExtensionAbilityListListBox";
-            this.boothExtensionAbilityListListBox.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.boothExtensionAbilityListListBox.Size = new System.Drawing.Size(327, 60);
-            this.boothExtensionAbilityListListBox.TabIndex = 63;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(348, 128);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(76, 14);
-            this.label43.TabIndex = 64;
-            this.label43.Text = "درخواست ها:";
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(348, 12);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(111, 14);
+            this.label37.TabIndex = 46;
+            this.label37.Text = "لیست درخواست ها:";
             // 
             // RequestInbox
             // 
@@ -1459,7 +1462,7 @@
         private System.Windows.Forms.TextBox boothExtensionRequestTitleTextBox;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.TextBox boothExtensionRequestBoothsTextBox;
+        private System.Windows.Forms.TextBox boothExtensionRequestBoothTextBox;
         private System.Windows.Forms.TextBox boothExtensionRequestAreaTextBox;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;

@@ -134,7 +134,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage
         {
             return UserExhibitionRoles
                 .Where(role1 => role1.User.Id == user.Id)
-                .Count(role1 => role1.ExhibitionRole is T) > 0;
+                .Any(role1 => role1.ExhibitionRole is T);
         }
 
 

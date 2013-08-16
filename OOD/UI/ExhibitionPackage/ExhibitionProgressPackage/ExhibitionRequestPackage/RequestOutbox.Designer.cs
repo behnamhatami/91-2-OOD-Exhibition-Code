@@ -97,17 +97,22 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.boothExtensionRequestTabPage = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.boothExtensionAbilityRemoveButton = new System.Windows.Forms.Button();
+            this.boothExtensionAbilityAddButton = new System.Windows.Forms.Button();
             this.boothExtensionQualityComboBox = new System.Windows.Forms.ComboBox();
             this.boothExtensionProfessionComboBox = new System.Windows.Forms.ComboBox();
             this.boothExtensionAbilityListListBox = new System.Windows.Forms.ListBox();
-            this.boothExtensionRequestCancelButton = new System.Windows.Forms.Button();
-            this.boothExtensionRequestButton = new System.Windows.Forms.Button();
-            this.boothExtensionRequestAreaTextBox = new System.Windows.Forms.TextBox();
+            this.boothExtensionCancelButton = new System.Windows.Forms.Button();
+            this.boothExtensionButton = new System.Windows.Forms.Button();
+            this.boothExtensionAreaTextBox = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
-            this.boothExtensionRequestBoothsComboBox = new System.Windows.Forms.ComboBox();
+            this.boothExtensionBoothsComboBox = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.boothExtensionRequestContentTextBox = new System.Windows.Forms.TextBox();
-            this.boothExtensionRequestTitleTextBox = new System.Windows.Forms.TextBox();
+            this.boothExtensionContentTextBox = new System.Windows.Forms.TextBox();
+            this.boothExtensionTitleTextBox = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.listRequestTabPage = new System.Windows.Forms.TabPage();
@@ -121,11 +126,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.requestListShowButton = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.boothExtensionRequestAbilityAddButton = new System.Windows.Forms.Button();
-            this.boothExtensionRequestAbilityRemoveButton = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.exhibitionRequestTabPage.SuspendLayout();
@@ -134,9 +134,9 @@
             this.InspectionRequestTabPage.SuspendLayout();
             this.pollRequestTabPage.SuspendLayout();
             this.boothExtensionRequestTabPage.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.listRequestTabPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -809,14 +809,14 @@
             // boothExtensionRequestTabPage
             // 
             this.boothExtensionRequestTabPage.Controls.Add(this.groupBox2);
-            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionRequestCancelButton);
-            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionRequestButton);
-            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionRequestAreaTextBox);
+            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionCancelButton);
+            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionButton);
+            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionAreaTextBox);
             this.boothExtensionRequestTabPage.Controls.Add(this.label32);
-            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionRequestBoothsComboBox);
+            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionBoothsComboBox);
             this.boothExtensionRequestTabPage.Controls.Add(this.label30);
-            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionRequestContentTextBox);
-            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionRequestTitleTextBox);
+            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionContentTextBox);
+            this.boothExtensionRequestTabPage.Controls.Add(this.boothExtensionTitleTextBox);
             this.boothExtensionRequestTabPage.Controls.Add(this.label28);
             this.boothExtensionRequestTabPage.Controls.Add(this.label29);
             this.boothExtensionRequestTabPage.Location = new System.Drawing.Point(4, 23);
@@ -826,6 +826,60 @@
             this.boothExtensionRequestTabPage.TabIndex = 8;
             this.boothExtensionRequestTabPage.Text = "درخواست اصلاحی غرفه";
             this.boothExtensionRequestTabPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label37);
+            this.groupBox2.Controls.Add(this.label36);
+            this.groupBox2.Controls.Add(this.boothExtensionAbilityRemoveButton);
+            this.groupBox2.Controls.Add(this.boothExtensionAbilityAddButton);
+            this.groupBox2.Controls.Add(this.boothExtensionQualityComboBox);
+            this.groupBox2.Controls.Add(this.boothExtensionProfessionComboBox);
+            this.groupBox2.Controls.Add(this.boothExtensionAbilityListListBox);
+            this.groupBox2.Location = new System.Drawing.Point(40, 142);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(343, 168);
+            this.groupBox2.TabIndex = 49;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "خدمات درخواستی";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(123, 24);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(42, 14);
+            this.label37.TabIndex = 50;
+            this.label37.Text = "کیفیت:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(294, 24);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(43, 14);
+            this.label36.TabIndex = 49;
+            this.label36.Text = "خدمت:";
+            // 
+            // boothExtensionAbilityRemoveButton
+            // 
+            this.boothExtensionAbilityRemoveButton.Location = new System.Drawing.Point(6, 137);
+            this.boothExtensionAbilityRemoveButton.Name = "boothExtensionAbilityRemoveButton";
+            this.boothExtensionAbilityRemoveButton.Size = new System.Drawing.Size(71, 24);
+            this.boothExtensionAbilityRemoveButton.TabIndex = 48;
+            this.boothExtensionAbilityRemoveButton.Text = "حذف";
+            this.boothExtensionAbilityRemoveButton.UseVisualStyleBackColor = true;
+            this.boothExtensionAbilityRemoveButton.Click += new System.EventHandler(this.boothExtensionAbilityRemoveButton_Click);
+            // 
+            // boothExtensionAbilityAddButton
+            // 
+            this.boothExtensionAbilityAddButton.Location = new System.Drawing.Point(6, 60);
+            this.boothExtensionAbilityAddButton.Name = "boothExtensionAbilityAddButton";
+            this.boothExtensionAbilityAddButton.Size = new System.Drawing.Size(71, 24);
+            this.boothExtensionAbilityAddButton.TabIndex = 47;
+            this.boothExtensionAbilityAddButton.Text = "اضافه";
+            this.boothExtensionAbilityAddButton.UseVisualStyleBackColor = true;
+            this.boothExtensionAbilityAddButton.Click += new System.EventHandler(this.boothExtensionAbilityAddButton_Click);
             // 
             // boothExtensionQualityComboBox
             // 
@@ -852,30 +906,32 @@
             this.boothExtensionAbilityListListBox.Size = new System.Drawing.Size(244, 102);
             this.boothExtensionAbilityListListBox.TabIndex = 43;
             // 
-            // boothExtensionRequestCancelButton
+            // boothExtensionCancelButton
             // 
-            this.boothExtensionRequestCancelButton.Location = new System.Drawing.Point(117, 312);
-            this.boothExtensionRequestCancelButton.Name = "boothExtensionRequestCancelButton";
-            this.boothExtensionRequestCancelButton.Size = new System.Drawing.Size(71, 24);
-            this.boothExtensionRequestCancelButton.TabIndex = 42;
-            this.boothExtensionRequestCancelButton.Text = "انصراف";
-            this.boothExtensionRequestCancelButton.UseVisualStyleBackColor = true;
+            this.boothExtensionCancelButton.Location = new System.Drawing.Point(117, 312);
+            this.boothExtensionCancelButton.Name = "boothExtensionCancelButton";
+            this.boothExtensionCancelButton.Size = new System.Drawing.Size(71, 24);
+            this.boothExtensionCancelButton.TabIndex = 42;
+            this.boothExtensionCancelButton.Text = "انصراف";
+            this.boothExtensionCancelButton.UseVisualStyleBackColor = true;
+            this.boothExtensionCancelButton.Click += new System.EventHandler(this.boothExtensionCancelButton_Click);
             // 
-            // boothExtensionRequestButton
+            // boothExtensionButton
             // 
-            this.boothExtensionRequestButton.Location = new System.Drawing.Point(40, 312);
-            this.boothExtensionRequestButton.Name = "boothExtensionRequestButton";
-            this.boothExtensionRequestButton.Size = new System.Drawing.Size(71, 24);
-            this.boothExtensionRequestButton.TabIndex = 41;
-            this.boothExtensionRequestButton.Text = "ثبت";
-            this.boothExtensionRequestButton.UseVisualStyleBackColor = true;
+            this.boothExtensionButton.Location = new System.Drawing.Point(40, 312);
+            this.boothExtensionButton.Name = "boothExtensionButton";
+            this.boothExtensionButton.Size = new System.Drawing.Size(71, 24);
+            this.boothExtensionButton.TabIndex = 41;
+            this.boothExtensionButton.Text = "ثبت";
+            this.boothExtensionButton.UseVisualStyleBackColor = true;
+            this.boothExtensionButton.Click += new System.EventHandler(this.boothExtensionButton_Click);
             // 
-            // boothExtensionRequestAreaTextBox
+            // boothExtensionAreaTextBox
             // 
-            this.boothExtensionRequestAreaTextBox.Location = new System.Drawing.Point(40, 114);
-            this.boothExtensionRequestAreaTextBox.Name = "boothExtensionRequestAreaTextBox";
-            this.boothExtensionRequestAreaTextBox.Size = new System.Drawing.Size(117, 22);
-            this.boothExtensionRequestAreaTextBox.TabIndex = 40;
+            this.boothExtensionAreaTextBox.Location = new System.Drawing.Point(40, 114);
+            this.boothExtensionAreaTextBox.Name = "boothExtensionAreaTextBox";
+            this.boothExtensionAreaTextBox.Size = new System.Drawing.Size(117, 22);
+            this.boothExtensionAreaTextBox.TabIndex = 40;
             // 
             // label32
             // 
@@ -886,13 +942,13 @@
             this.label32.TabIndex = 39;
             this.label32.Text = "مساحت غرفه:";
             // 
-            // boothExtensionRequestBoothsComboBox
+            // boothExtensionBoothsComboBox
             // 
-            this.boothExtensionRequestBoothsComboBox.FormattingEnabled = true;
-            this.boothExtensionRequestBoothsComboBox.Location = new System.Drawing.Point(250, 114);
-            this.boothExtensionRequestBoothsComboBox.Name = "boothExtensionRequestBoothsComboBox";
-            this.boothExtensionRequestBoothsComboBox.Size = new System.Drawing.Size(133, 22);
-            this.boothExtensionRequestBoothsComboBox.TabIndex = 38;
+            this.boothExtensionBoothsComboBox.FormattingEnabled = true;
+            this.boothExtensionBoothsComboBox.Location = new System.Drawing.Point(250, 114);
+            this.boothExtensionBoothsComboBox.Name = "boothExtensionBoothsComboBox";
+            this.boothExtensionBoothsComboBox.Size = new System.Drawing.Size(133, 22);
+            this.boothExtensionBoothsComboBox.TabIndex = 38;
             // 
             // label30
             // 
@@ -903,20 +959,20 @@
             this.label30.TabIndex = 37;
             this.label30.Text = "غرفه:";
             // 
-            // boothExtensionRequestContentTextBox
+            // boothExtensionContentTextBox
             // 
-            this.boothExtensionRequestContentTextBox.Location = new System.Drawing.Point(40, 41);
-            this.boothExtensionRequestContentTextBox.Multiline = true;
-            this.boothExtensionRequestContentTextBox.Name = "boothExtensionRequestContentTextBox";
-            this.boothExtensionRequestContentTextBox.Size = new System.Drawing.Size(343, 67);
-            this.boothExtensionRequestContentTextBox.TabIndex = 36;
+            this.boothExtensionContentTextBox.Location = new System.Drawing.Point(40, 41);
+            this.boothExtensionContentTextBox.Multiline = true;
+            this.boothExtensionContentTextBox.Name = "boothExtensionContentTextBox";
+            this.boothExtensionContentTextBox.Size = new System.Drawing.Size(343, 67);
+            this.boothExtensionContentTextBox.TabIndex = 36;
             // 
-            // boothExtensionRequestTitleTextBox
+            // boothExtensionTitleTextBox
             // 
-            this.boothExtensionRequestTitleTextBox.Location = new System.Drawing.Point(40, 14);
-            this.boothExtensionRequestTitleTextBox.Name = "boothExtensionRequestTitleTextBox";
-            this.boothExtensionRequestTitleTextBox.Size = new System.Drawing.Size(343, 22);
-            this.boothExtensionRequestTitleTextBox.TabIndex = 35;
+            this.boothExtensionTitleTextBox.Location = new System.Drawing.Point(40, 14);
+            this.boothExtensionTitleTextBox.Name = "boothExtensionTitleTextBox";
+            this.boothExtensionTitleTextBox.Size = new System.Drawing.Size(343, 22);
+            this.boothExtensionTitleTextBox.TabIndex = 35;
             // 
             // label28
             // 
@@ -1044,58 +1100,6 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "لیست درخواست ها:";
             // 
-            // boothExtensionRequestAbilityAddButton
-            // 
-            this.boothExtensionRequestAbilityAddButton.Location = new System.Drawing.Point(6, 60);
-            this.boothExtensionRequestAbilityAddButton.Name = "boothExtensionRequestAbilityAddButton";
-            this.boothExtensionRequestAbilityAddButton.Size = new System.Drawing.Size(71, 24);
-            this.boothExtensionRequestAbilityAddButton.TabIndex = 47;
-            this.boothExtensionRequestAbilityAddButton.Text = "اضافه";
-            this.boothExtensionRequestAbilityAddButton.UseVisualStyleBackColor = true;
-            // 
-            // boothExtensionRequestAbilityRemoveButton
-            // 
-            this.boothExtensionRequestAbilityRemoveButton.Location = new System.Drawing.Point(6, 137);
-            this.boothExtensionRequestAbilityRemoveButton.Name = "boothExtensionRequestAbilityRemoveButton";
-            this.boothExtensionRequestAbilityRemoveButton.Size = new System.Drawing.Size(71, 24);
-            this.boothExtensionRequestAbilityRemoveButton.TabIndex = 48;
-            this.boothExtensionRequestAbilityRemoveButton.Text = "حذف";
-            this.boothExtensionRequestAbilityRemoveButton.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label37);
-            this.groupBox2.Controls.Add(this.label36);
-            this.groupBox2.Controls.Add(this.boothExtensionRequestAbilityRemoveButton);
-            this.groupBox2.Controls.Add(this.boothExtensionRequestAbilityAddButton);
-            this.groupBox2.Controls.Add(this.boothExtensionQualityComboBox);
-            this.groupBox2.Controls.Add(this.boothExtensionProfessionComboBox);
-            this.groupBox2.Controls.Add(this.boothExtensionAbilityListListBox);
-            this.groupBox2.Location = new System.Drawing.Point(40, 142);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(343, 168);
-            this.groupBox2.TabIndex = 49;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "خدمات درخواستی";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(294, 24);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(43, 14);
-            this.label36.TabIndex = 49;
-            this.label36.Text = "خدمت:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(123, 24);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(42, 14);
-            this.label37.TabIndex = 50;
-            this.label37.Text = "کیفیت:";
-            // 
             // RequestOutbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1119,12 +1123,12 @@
             this.pollRequestTabPage.PerformLayout();
             this.boothExtensionRequestTabPage.ResumeLayout(false);
             this.boothExtensionRequestTabPage.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.listRequestTabPage.ResumeLayout(false);
             this.listRequestTabPage.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1210,23 +1214,23 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ComboBox pollRequestPollsComboBox;
-        private System.Windows.Forms.TextBox boothExtensionRequestContentTextBox;
-        private System.Windows.Forms.TextBox boothExtensionRequestTitleTextBox;
+        private System.Windows.Forms.TextBox boothExtensionContentTextBox;
+        private System.Windows.Forms.TextBox boothExtensionTitleTextBox;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.ComboBox boothExtensionRequestBoothsComboBox;
+        private System.Windows.Forms.ComboBox boothExtensionBoothsComboBox;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox boothRequestAreaTextBox;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox boothExtensionRequestAreaTextBox;
-        private System.Windows.Forms.Button boothExtensionRequestCancelButton;
-        private System.Windows.Forms.Button boothExtensionRequestButton;
+        private System.Windows.Forms.TextBox boothExtensionAreaTextBox;
+        private System.Windows.Forms.Button boothExtensionCancelButton;
+        private System.Windows.Forms.Button boothExtensionButton;
         private System.Windows.Forms.ListBox boothExtensionAbilityListListBox;
         private System.Windows.Forms.ComboBox boothExtensionQualityComboBox;
         private System.Windows.Forms.ComboBox boothExtensionProfessionComboBox;
-        private System.Windows.Forms.Button boothExtensionRequestAbilityAddButton;
-        private System.Windows.Forms.Button boothExtensionRequestAbilityRemoveButton;
+        private System.Windows.Forms.Button boothExtensionAbilityAddButton;
+        private System.Windows.Forms.Button boothExtensionAbilityRemoveButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;

@@ -1,44 +1,35 @@
-﻿#region
-
-using System;
-
-#endregion
-
-namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPackage
+﻿namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPackage
 {
-    public enum Profession
+    public class Profession
     {
-        Welder,
-        Carpenter,
-        Decorator,
-    }
-
-    public class ProfessionWrapper
-    {
-        public static ProfessionWrapper[] Types =
-        {
-            new ProfessionWrapper(Profession.Welder, "جوشکار"),
-            new ProfessionWrapper(Profession.Carpenter, "نجار"),
-            new ProfessionWrapper(Profession.Decorator, "دکوراسیون")
-        };
-
-        public ProfessionWrapper(Profession profession, String name)
-        {
-            Profession = profession;
-            Name = name;
-        }
-
-        public Profession Profession { get; set; }
-        private string Name { get; set; }
-
-        public static ProfessionWrapper GetWrapper(Profession profession)
-        {
-            return Types[(int) profession];
-        }
+        public int Id { get; set; }
+        public ProfessionType ProfessionType { get; set; }
+        public ProfessionQuality Quality { get; set; }
 
         public override string ToString()
         {
-            return Name;
+            return ProfessionTypeWrapper.GetWrapper(ProfessionType) + ", " +
+                   ProfessionQualityWrapper.GetwWrapper(Quality);
+        }
+
+        public override int GetHashCode()
+        {
+            return Id;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var profession = obj as Profession;
+            if (profession == null)
+                return false;
+
+            if (Id != 0 || profession.Id != 0)
+                return Id == profession.Id;
+
+            if (profession.ProfessionType != ProfessionType
+                || profession.Quality != Quality)
+                return false;
+            return true;
         }
     }
 }

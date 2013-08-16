@@ -1,25 +1,24 @@
-﻿using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPackage
 {
     public class ConstructAbility
     {
+        [Key, ForeignKey("BoothConstructor")]
         public int Id { get; set; }
         public int Cost { get; set; }
         public int Duration { get; set; }
         public bool Done { get; set; }
-        public ProfessionQuality Quality { get; set; }
-
+        
         public virtual Profession Profession { get; set; }
-        public virtual BoothConstructor Constructor { get; set; }
-        public virtual BoothExtensionRequest Request { get; set; }
+        public virtual BoothConstructor BoothConstructor { get; set; }
 
 
         public override string ToString()
         {
-            return Constructor + ": " +
-                   ProfessionWrapper.GetWrapper(Profession) + ", "
-                   + ProfessionQualityWrapper.GetwWrapper(Quality) + ", "
+            return BoothConstructor + ": " +
+                   Profession.ToString() + ", "
                    + Cost;
         }
 

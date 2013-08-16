@@ -79,6 +79,8 @@
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\Map.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\ProfesionQuality.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\Profession.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\ProfessionAssignment.cs" />
+    <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\ProfessionType.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionBoothPackage\Saloon.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\Payment.cs" />
     <Compile Include="Model\ExhibitionPackage\ExhibitionProgressPackage\ExhibitionPeripheralPackage\PostItem.cs" />

@@ -88,6 +88,10 @@
         <EntityTypeShape EntityType="Model1.BoothConstructor" Width="1.5" PointX="1.125" PointY="3.5" />
         <EntityTypeShape EntityType="Model1.ConstructAbility" Width="1.5" PointX="1.125" PointY="5.75" />
         <AssociationConnector Association="Model1.ConstructAbilityBoothConstructor" />
+        <EntityTypeShape EntityType="Model1.Profession" Width="1.5" PointX="1.125" PointY="9" />
+        <EntityTypeShape EntityType="Model1.ProfessionAssignment" Width="1.5" PointX="4.625" PointY="9" />
+        <AssociationConnector Association="Model1.ProfessionAssignmentProfession" />
+        <AssociationConnector Association="Model1.ConstructAbilityProfession" />
       </Diagram>
       <Diagram DiagramId="04057abbcfb64b6488caa1ee4f69d2c4" Name="Request" ZoomLevel="95" >
         <EntityTypeShape EntityType="Model1.SaloonRequest" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />

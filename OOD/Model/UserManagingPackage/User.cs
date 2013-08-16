@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
+using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeripheralPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage;
 using OOD.Model.ExhibitionPackage.ExhibitionRolePackage;
@@ -103,6 +104,13 @@ namespace OOD.Model.UserManagingPackage
                     .Select(role => role.Exhibition)
                     .Distinct();
             }
+        }
+
+        public IQueryable<Booth> GetAssignedBooths(Exhibition exhibition)
+        {
+            return DataManager.DataContext.Booths
+                .Where(booth => booth.Map.Saloon.Exhibition.Id == exhibition.Id)
+                .Where(booth => booth.Request != null && booth.Request.User.Id == Id);
         }
 
         public void RecieveNotification(String title, String content, Exhibition exhibition)
