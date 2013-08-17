@@ -61,9 +61,12 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
             Close();
         }
 
+
         public static void EnterExhibition(Exhibition exhibition)
         {
-            Program.ProcessManager = new ProcessManager(Program.Exhibition);
+            Program.Exhibition = exhibition;
+            if(exhibition.State >= ExhibitionState.Freezed)
+                Program.ProcessManager = new ProcessManager(Program.Exhibition);
             PopUp.ShowSuccess(String.Format("شما وارد نمایشگاه {0} شدید.", exhibition));
         }
 

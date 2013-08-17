@@ -105,7 +105,6 @@ namespace OOD.UI.UtilityPackage.Base
             }
 
             form.Reset();
-            form.Reload();
             form.ShowDialog();
             form.Dispose();
 

@@ -130,13 +130,14 @@
             // MeetingToolStripMenuItem
             // 
             this.MeetingToolStripMenuItem.Name = "MeetingToolStripMenuItem";
-            this.MeetingToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
-            this.MeetingToolStripMenuItem.Text = "مدیریت ارتباط بین مسئولین نمایشگاه ";
+            this.MeetingToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.MeetingToolStripMenuItem.Text = "گزارش مردمی";
+            this.MeetingToolStripMenuItem.Click += new System.EventHandler(this.MeetingToolStripMenuItem_Click);
             // 
             // CallToolStripMenuItem
             // 
             this.CallToolStripMenuItem.Name = "CallToolStripMenuItem";
-            this.CallToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
+            this.CallToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.CallToolStripMenuItem.Text = "فراخوان و اطلاع رسانی ";
             this.CallToolStripMenuItem.Click += new System.EventHandler(this.CallToolStripMenuItem_Click);
             // 
@@ -146,7 +147,7 @@
             this.RequestInboxToolStripMenuItem,
             this.RequestOutboxToolStripMenuItem});
             this.RequestToolStripMenuItem.Name = "RequestToolStripMenuItem";
-            this.RequestToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
+            this.RequestToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.RequestToolStripMenuItem.Text = "درخواست ها";
             // 
             // RequestInboxToolStripMenuItem
@@ -166,14 +167,14 @@
             // NewsCreationToolStripMenuItem
             // 
             this.NewsCreationToolStripMenuItem.Name = "NewsCreationToolStripMenuItem";
-            this.NewsCreationToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
+            this.NewsCreationToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.NewsCreationToolStripMenuItem.Text = "ارسال خبر و رخداد ";
             this.NewsCreationToolStripMenuItem.Click += new System.EventHandler(this.NewsCreationToolStripMenuItem_Click);
             // 
             // NotifcationCenterToolStripMenuItem
             // 
             this.NotifcationCenterToolStripMenuItem.Name = "NotifcationCenterToolStripMenuItem";
-            this.NotifcationCenterToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
+            this.NotifcationCenterToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.NotifcationCenterToolStripMenuItem.Text = "سیستم مرکزی رخدادها";
             this.NotifcationCenterToolStripMenuItem.Click += new System.EventHandler(this.NotifcationCenterToolStripMenuItem_Click);
             // 
@@ -183,7 +184,7 @@
             this.PollingToolStripMenuItem,
             this.PollCreationToolStripMenuItem});
             this.PollToolStripMenuItem.Name = "PollToolStripMenuItem";
-            this.PollToolStripMenuItem.Size = new System.Drawing.Size(304, 22);
+            this.PollToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.PollToolStripMenuItem.Text = "نظرسنجی";
             // 
             // PollingToolStripMenuItem

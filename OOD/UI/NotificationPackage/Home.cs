@@ -37,6 +37,14 @@ namespace OOD.UI.NotificationPackage
                 tabControl1.Controls.Add(userInformationTabPage);
                 UserInformationReset();
             }
+
+            if (HasProcessRunningInformationPreCondition())
+            {
+                tabControl1.Controls.Add(processTabPage);
+                ProcessRunningInformationReset();
+            }
+
+            nextDayButton.Visible = Program.Exhibition != null;
         }
 
         // IPrecondition
@@ -117,6 +125,7 @@ namespace OOD.UI.NotificationPackage
             processFinishButton.Visible = false;
 
             ResetHelper.Refresh(processesComboBox, Program.ProcessManager.RunningProcesses());
+            ResetHelper.Refresh(processRemainingListBox, Program.ProcessManager.RemainingProcesses());
         }
 
         private void processShowButton_Click(object sender, EventArgs e)
@@ -127,7 +136,9 @@ namespace OOD.UI.NotificationPackage
 
             processNameTextBox.Text = ProcessTypeWrapper.GetWrapper(process.Type).ToString();
             processStartDateTextBox.Text = process.StartDate.ToString();
-            processProgressBar.Value = (DateTimeManager.Today.Subtract(process.StartDate).Days + 1)/process.MaxLength;
+            processProgressBar.Value = ((DateTimeManager.Today.Subtract(process.StartDate).Days + 1)*100)/
+                                       process.MaxLength;
+
             processFinishButton.Visible = Program.Exhibition.HasRole<ExecutionRole>(Program.User)
                                           && !process.AnyFinishProblem();
         }
@@ -142,7 +153,7 @@ namespace OOD.UI.NotificationPackage
 
         private void nextDayButton_Click(object sender, EventArgs e)
         {
-            Program.ProcessManager.Tomorrow();
+            DateTimeManager.Tomorrow();
             PopUp.ShowSuccess("یک روز به جلو رفتیم.");
             Reset();
         }

@@ -26,6 +26,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
 
         public override void Reset()
         {
+            base.Reset();
             ResetHelper.Empty(ExhibitionDescriptionTextBox, ExhibitionFullDescriptionTextBox, ExhibitionNameTextBox,
                 ExhibitionCreatorTextBox);
             var db = DataManager.DataContext;

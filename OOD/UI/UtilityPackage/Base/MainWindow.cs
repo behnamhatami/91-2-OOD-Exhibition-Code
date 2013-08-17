@@ -23,13 +23,6 @@ namespace OOD.UI.UtilityPackage.Base
 
         public override void Reset()
         {
-            Reload();
-        }
-
-
-        //IReloadAble
-        public override void Reload()
-        {
             if (Program.User != null)
                 label2.Text = String.Format("شما با نام کاربری \"{0}\" وارد سیستم شده‌اید.", Program.User.FirstName);
 
@@ -43,6 +36,13 @@ namespace OOD.UI.UtilityPackage.Base
             if (Program.Exhibition == null)
                 ExhibitionExitToolStripMenuItem.Enabled = false;
             else ExhibitionExitToolStripMenuItem.Enabled = true;
+        }
+
+
+        //IReloadAble
+        public override void Reload()
+        {
+            Reset();
         }
 
 
@@ -180,6 +180,11 @@ namespace OOD.UI.UtilityPackage.Base
         private void BoothManagementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GoNext(new BoothCrud());
+        }
+
+        private void MeetingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GoNext(new VisitorReportCreation());
         }
     }
 }

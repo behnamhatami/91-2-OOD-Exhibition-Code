@@ -25,6 +25,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionPeriphera
 
         public override void Reset()
         {
+            base.Reset();
             CreatePageReset();
             ListPageReset();
         }

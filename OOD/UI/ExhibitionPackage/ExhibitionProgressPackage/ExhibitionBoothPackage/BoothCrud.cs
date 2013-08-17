@@ -27,6 +27,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
 
         public override void Reset()
         {
+            base.Reset();
             tabControl1.Controls.Clear();
 
             if (HasEditSaloonPreCondition())

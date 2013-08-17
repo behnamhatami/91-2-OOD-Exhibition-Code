@@ -51,7 +51,7 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage
 
         public bool AnyFinishProblem()
         {
-            if (!(DateTimeManager.Today > StartDate.AddDays(MinLength)))
+            if (!(DateTimeManager.Today >= StartDate.AddDays(MinLength)))
                 return true;
 
             var exhibition = Configuration.Exhibition;
@@ -62,7 +62,10 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage
                         .Any(request => request.NotMentioned())
                            ||
                            exhibition.GetSpecialRequests<SaloonRequest>()
-                               .Any(request => request.NotMentioned());
+                               .Any(request => request.NotMentioned())
+                           ||
+                           exhibition.GetSpecialRequests<BoothExtensionRequest>()
+                               .Any(request => !request.IsCustomerRequest && request.NotMentioned());
 
                 case ProcessType.BoothConstruction:
                     return DataManager.DataContext.ProfessionAssignments
@@ -103,6 +106,34 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage
         {
             Finished = true;
             var db = DataManager.DataContext;
+
+            if (AnyFinishProblem())
+            {
+                switch (Type)
+                {
+                    case ProcessType.Poll:
+                        db.Notifications.Add(new Notification
+                        {
+                            Content = "هنوز تعدادی از رای گیری ها باز می باشد.",
+                            CreationDate = DateTimeManager.SystemNow,
+                            Exhibition = Configuration.Exhibition,
+                            Title = "فرآیند هشدار در اتمام",
+                            User = Program.System
+                        });
+                        break;
+                    case ProcessType.BoothConstruction:
+                        db.Notifications.Add(new Notification
+                        {
+                            Content = "هنوز تعدادی از غرفه ها ساخته نشده است.",
+                            CreationDate = DateTimeManager.SystemNow,
+                            Exhibition = Configuration.Exhibition,
+                            Title = "فرآیند هشدار در اتمام",
+                            User = Program.System
+                        });
+                        break;
+                }
+            }
+
             if (IsMileStone)
             {
                 db.Notifications.Add(new Notification
@@ -115,6 +146,32 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage
                 });
             }
             db.SaveChanges();
+        }
+
+        public void Run()
+        {
+            var exhibition = Configuration.Exhibition;
+            var today = DateTimeManager.Today;
+            switch (Type)
+            {
+                case ProcessType.Poll:
+                    foreach (var poll in exhibition.Polls)
+
+                        if (!poll.Closed && poll.Started && poll.CanFinish())
+                            poll.Finish();
+                    return;
+                case ProcessType.BoothConstruction:
+                    foreach (var constructor in exhibition.Constructors)
+                    {
+                        var passed = today.Subtract(StartDate).Days + 1;
+                        if (passed <= constructor.ReserverdDays && passed%constructor.Ability.Duration == 0)
+                        {
+                            var assignemnt = constructor.Assignments.First(assignment => !assignment.Done);
+                            assignemnt.NotifyDone();
+                        }
+                    }
+                    return;
+            }
         }
 
         public void Start()

@@ -51,6 +51,37 @@ namespace OOD.Model.NotificationPackage
             get { return Enumerable.Sum(PollChoices, pollChoice => pollChoice.Hit); }
         }
 
+        public void Start()
+        {
+            Started = true;
+            FinishDate = FinishDate.AddDays(DateTimeManager.Today.Subtract(CreationDate).Days);
+            DataManager.DataContext.SaveChanges();
+        }
+
+        public bool CanFinish()
+        {
+            if (!FinishByDate)
+                return false;
+            return DateTimeManager.Today > FinishDate;
+        }
+
+        public void Finish()
+        {
+            Closed = true;
+            FinishDate = DateTimeManager.Today;
+            var db = DataManager.DataContext;
+            db.Notifications.Add(new Notification
+            {
+                Title = "رای گیری به اتمام رسید",
+                Exhibition = Exhibition,
+                CreationDate = DateTimeManager.SystemNow,
+                Content = String.Format("رای گیری {0} به اتمام رسید.", Question),
+                User = CreatorUser
+            });
+
+            DataManager.DataContext.SaveChanges();
+        }
+
         public void Reset()
         {
             var db = DataManager.DataContext;

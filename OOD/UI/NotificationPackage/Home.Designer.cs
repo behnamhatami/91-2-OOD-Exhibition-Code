@@ -56,23 +56,29 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.runningProcessTabPage = new System.Windows.Forms.TabPage();
+            this.processTabPage = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.processRemainingListBox = new System.Windows.Forms.ListBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.processStartDateTextBox = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.processNameTextBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.processFinishButton = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.processProgressBar = new System.Windows.Forms.ProgressBar();
             this.processesComboBox = new System.Windows.Forms.ComboBox();
             this.processShowButton = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
             this.nextDayButton = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.userInformationTabPage.SuspendLayout();
             this.exhibitionInformationTabPage.SuspendLayout();
-            this.runningProcessTabPage.SuspendLayout();
+            this.processTabPage.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -88,7 +94,7 @@
             // 
             this.tabControl1.Controls.Add(this.userInformationTabPage);
             this.tabControl1.Controls.Add(this.exhibitionInformationTabPage);
-            this.tabControl1.Controls.Add(this.runningProcessTabPage);
+            this.tabControl1.Controls.Add(this.processTabPage);
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
@@ -360,38 +366,96 @@
             this.label14.TabIndex = 14;
             this.label14.Text = "توضیح:";
             // 
-            // runningProcessTabPage
+            // processTabPage
             // 
-            this.runningProcessTabPage.Controls.Add(this.processStartDateTextBox);
-            this.runningProcessTabPage.Controls.Add(this.label19);
-            this.runningProcessTabPage.Controls.Add(this.processNameTextBox);
-            this.runningProcessTabPage.Controls.Add(this.label18);
-            this.runningProcessTabPage.Controls.Add(this.processFinishButton);
-            this.runningProcessTabPage.Controls.Add(this.label17);
-            this.runningProcessTabPage.Controls.Add(this.processProgressBar);
-            this.runningProcessTabPage.Controls.Add(this.processesComboBox);
-            this.runningProcessTabPage.Controls.Add(this.processShowButton);
-            this.runningProcessTabPage.Controls.Add(this.label16);
-            this.runningProcessTabPage.Location = new System.Drawing.Point(4, 23);
-            this.runningProcessTabPage.Name = "runningProcessTabPage";
-            this.runningProcessTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.runningProcessTabPage.Size = new System.Drawing.Size(482, 345);
-            this.runningProcessTabPage.TabIndex = 3;
-            this.runningProcessTabPage.Text = "روندهای در حال اجرای نمایشگاه";
-            this.runningProcessTabPage.UseVisualStyleBackColor = true;
+            this.processTabPage.Controls.Add(this.groupBox2);
+            this.processTabPage.Controls.Add(this.groupBox1);
+            this.processTabPage.Location = new System.Drawing.Point(4, 23);
+            this.processTabPage.Name = "processTabPage";
+            this.processTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.processTabPage.Size = new System.Drawing.Size(482, 345);
+            this.processTabPage.TabIndex = 3;
+            this.processTabPage.Text = "فرآیند های نمایشگاه";
+            this.processTabPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.processRemainingListBox);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Location = new System.Drawing.Point(20, 10);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(441, 105);
+            this.groupBox2.TabIndex = 22;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "فرآیندهای باقی مانده";
+            // 
+            // processRemainingListBox
+            // 
+            this.processRemainingListBox.FormattingEnabled = true;
+            this.processRemainingListBox.ItemHeight = 14;
+            this.processRemainingListBox.Location = new System.Drawing.Point(6, 18);
+            this.processRemainingListBox.Name = "processRemainingListBox";
+            this.processRemainingListBox.Size = new System.Drawing.Size(333, 74);
+            this.processRemainingListBox.TabIndex = 13;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(342, 27);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(93, 14);
+            this.label20.TabIndex = 12;
+            this.label20.Text = "لیست فرآیند ها: ";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.processStartDateTextBox);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.processNameTextBox);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.processFinishButton);
+            this.groupBox1.Controls.Add(this.processProgressBar);
+            this.groupBox1.Controls.Add(this.processesComboBox);
+            this.groupBox1.Controls.Add(this.processShowButton);
+            this.groupBox1.Location = new System.Drawing.Point(20, 125);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(442, 214);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "فرآیند های درحال اجرا";
             // 
             // processStartDateTextBox
             // 
-            this.processStartDateTextBox.Location = new System.Drawing.Point(21, 151);
+            this.processStartDateTextBox.Location = new System.Drawing.Point(6, 122);
             this.processStartDateTextBox.Name = "processStartDateTextBox";
             this.processStartDateTextBox.ReadOnly = true;
             this.processStartDateTextBox.Size = new System.Drawing.Size(334, 22);
             this.processStartDateTextBox.TabIndex = 20;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(342, 24);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(93, 14);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "لیست فرآیند ها: ";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(352, 152);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(82, 14);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "درصد پیشرفت:";
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(395, 154);
+            this.label19.Location = new System.Drawing.Point(369, 125);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(66, 14);
             this.label19.TabIndex = 19;
@@ -399,7 +463,7 @@
             // 
             // processNameTextBox
             // 
-            this.processNameTextBox.Location = new System.Drawing.Point(20, 122);
+            this.processNameTextBox.Location = new System.Drawing.Point(5, 93);
             this.processNameTextBox.Name = "processNameTextBox";
             this.processNameTextBox.ReadOnly = true;
             this.processNameTextBox.Size = new System.Drawing.Size(334, 22);
@@ -408,7 +472,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(405, 125);
+            this.label18.Location = new System.Drawing.Point(376, 96);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(56, 14);
             this.label18.TabIndex = 17;
@@ -416,7 +480,7 @@
             // 
             // processFinishButton
             // 
-            this.processFinishButton.Location = new System.Drawing.Point(20, 210);
+            this.processFinishButton.Location = new System.Drawing.Point(5, 181);
             this.processFinishButton.Name = "processFinishButton";
             this.processFinishButton.Size = new System.Drawing.Size(71, 24);
             this.processFinishButton.TabIndex = 16;
@@ -424,48 +488,31 @@
             this.processFinishButton.UseVisualStyleBackColor = true;
             this.processFinishButton.Click += new System.EventHandler(this.processFinishButton_Click);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(379, 181);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(82, 14);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "درصد پیشرفت:";
-            // 
             // processProgressBar
             // 
-            this.processProgressBar.Location = new System.Drawing.Point(20, 181);
+            this.processProgressBar.Location = new System.Drawing.Point(5, 152);
             this.processProgressBar.Name = "processProgressBar";
             this.processProgressBar.Size = new System.Drawing.Size(334, 23);
             this.processProgressBar.TabIndex = 14;
+            this.processProgressBar.Value = 32;
             // 
             // processesComboBox
             // 
             this.processesComboBox.FormattingEnabled = true;
-            this.processesComboBox.Location = new System.Drawing.Point(20, 12);
+            this.processesComboBox.Location = new System.Drawing.Point(6, 21);
             this.processesComboBox.Name = "processesComboBox";
             this.processesComboBox.Size = new System.Drawing.Size(334, 22);
             this.processesComboBox.TabIndex = 13;
             // 
             // processShowButton
             // 
-            this.processShowButton.Location = new System.Drawing.Point(20, 40);
+            this.processShowButton.Location = new System.Drawing.Point(5, 49);
             this.processShowButton.Name = "processShowButton";
             this.processShowButton.Size = new System.Drawing.Size(71, 24);
             this.processShowButton.TabIndex = 12;
             this.processShowButton.Text = "نمایش";
             this.processShowButton.UseVisualStyleBackColor = true;
             this.processShowButton.Click += new System.EventHandler(this.processShowButton_Click);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(368, 15);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(93, 14);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "لیست فرآیند ها: ";
             // 
             // nextDayButton
             // 
@@ -494,8 +541,11 @@
             this.userInformationTabPage.PerformLayout();
             this.exhibitionInformationTabPage.ResumeLayout(false);
             this.exhibitionInformationTabPage.PerformLayout();
-            this.runningProcessTabPage.ResumeLayout(false);
-            this.runningProcessTabPage.PerformLayout();
+            this.processTabPage.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -531,7 +581,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TabPage runningProcessTabPage;
+        private System.Windows.Forms.TabPage processTabPage;
         private System.Windows.Forms.ComboBox processesComboBox;
         private System.Windows.Forms.Button processShowButton;
         private System.Windows.Forms.Label label16;
@@ -543,6 +593,10 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox processNameTextBox;
         private System.Windows.Forms.Button nextDayButton;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ListBox processRemainingListBox;
 
     }
 }

@@ -25,6 +25,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
 
         public override void Reset()
         {
+            base.Reset();
             TabControl1.Controls.Clear();
 
             var secondPhase = Program.Exhibition.State == ExhibitionState.Freezed;
@@ -33,11 +34,12 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
             FeaturePageReset();
 
             TabControl1.Controls.Add(processPage);
-            RolePageReset();
+            ProcessPageReset();
+
 
             if (secondPhase)
             {
-                ProcessPageReset();
+                RolePageReset();
                 TabControl1.Controls.Add(rolePage);
             }
         }

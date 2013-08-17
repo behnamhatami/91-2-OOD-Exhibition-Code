@@ -34,6 +34,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothPack
 
         public override void Reset()
         {
+            base.Reset();
             ResetHelper.Refresh(saloonListComboBox, Program.Exhibition.Saloons);
         }
 

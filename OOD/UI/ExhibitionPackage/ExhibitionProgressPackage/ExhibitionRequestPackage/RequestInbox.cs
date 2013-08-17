@@ -27,6 +27,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
 
         public override void Reset()
         {
+            base.Reset();
             tabControl1.Controls.Clear();
 
             if (HasExhibitionRequestPreCondition())
@@ -144,7 +145,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 exhibitionRequestResponseTextBox, exhibitionRequestTypeTextBox);
 
             ResetHelper.Refresh(exhibitionRequestListComboBox,
-                Program.Exhibition.GetSpecialRequests<ExhibitionRequest>());
+                Program.Exhibition.GetSpecialRequests<ExhibitionRequest>().ToArray().ToArray());
             exhibitionRequestResponseButton.Enabled = false;
             exhibitionAgreeButton.Enabled = false;
         }
@@ -207,7 +208,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         {
             return Program.Exhibition.HasRole<BoothManagerRole>(Program.User)
                    && Program.Exhibition.GetSpecialRequests<SaloonRequest>().Any()
-                   && Program.ProcessManager.IsProcessRunning(ProcessType.BoothAssignment);
+                   && Program.ProcessManager.IsProcessRunning(ProcessType.SaloonCrud);
         }
 
         private void SaloonRequestReset()
@@ -216,7 +217,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 saloonRequestNameTextBox, saloonRequestAreaTextBox, saloonRequestHeightTextBox,
                 saloonRequestWidthTextBox, saloonRequestResponseTextBox);
             ResetHelper.Refresh(saloonRequestComboBox,
-                Program.Exhibition.GetSpecialRequests<SaloonRequest>());
+                Program.Exhibition.GetSpecialRequests<SaloonRequest>().ToArray());
 
             saloonAgreeButton.Enabled = false;
             saloonRequestResponseButton.Enabled = false;
@@ -297,7 +298,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 boothRequestForVitrinCheckBox, boothRequestForCommisionCheckBox, boothRequestHasPhoneCheckBox,
                 boothRequestHasCardReaderCheckBox, boothRequestResponseTextBox, boothRequestCountTextBox);
 
-            ResetHelper.Refresh(boothRequestComboBox, Program.Exhibition.GetSpecialRequests<BoothRequest>());
+            ResetHelper.Refresh(boothRequestComboBox, Program.Exhibition.GetSpecialRequests<BoothRequest>().ToArray());
 
             boothResponseButton.Enabled = false;
             boothAgreeButton.Enabled = false;
@@ -361,7 +362,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 inspectionRequestJudgeTypeComboBox, inspectionRequestFineTextBox, inspectionRequestResponseTextBox);
 
             ResetHelper.Refresh(inspectionRequestsComboBox,
-                Program.Exhibition.GetSpecialRequests<InspectionRequest>());
+                Program.Exhibition.GetSpecialRequests<InspectionRequest>().ToArray());
             ResetHelper.Refresh(inspectionRequestJudgeTypeComboBox, JudgeTypeWrapper.JudgeTypes);
 
             inspectionRequestResponseButton.Enabled = false;
@@ -464,7 +465,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         {
             ResetHelper.Empty(pollRequestTitleTextBox, pollRequestContentTextBox, pollRequestPollTextBox,
                 pollRequestResponseTextBox, pollRequestsComboBox);
-            ResetHelper.Refresh(pollRequestsComboBox, Program.Exhibition.GetSpecialRequests<PollRequest>());
+            ResetHelper.Refresh(pollRequestsComboBox, Program.Exhibition.GetSpecialRequests<PollRequest>().ToArray());
             pollRequestResponseButton.Enabled = false;
             pollRequestAgreeButton.Enabled = false;
         }
@@ -488,7 +489,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
         private void pollRequestAgreeButton_Click(object sender, EventArgs e)
         {
             var request = pollRequestsComboBox.SelectedItem as PollRequest;
-            request.Poll.Started = true;
+            request.Poll.Start();
             AgreeRequest(request);
             PollRequestReset();
         }
@@ -521,7 +522,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                 boothExtensionAbilityListListBox);
             boothExtensionAbilityListListBox.Items.Clear();
             ResetHelper.Refresh(boothExtensionRequestsComboBox,
-                Program.Exhibition.GetSpecialRequests<BoothExtensionRequest>());
+                Program.Exhibition.GetSpecialRequests<BoothExtensionRequest>().ToArray());
             boothExtensionRequestAgreeButton.Enabled = false;
             boothExtensionRequestResponseButton.Enabled = false;
         }

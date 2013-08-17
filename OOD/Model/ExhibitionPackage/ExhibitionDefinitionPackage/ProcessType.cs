@@ -27,7 +27,7 @@
     {
         public static ProcessTypeWrapper[] ProcessTypes =
         {
-            new ProcessTypeWrapper(ProcessType.BoothAssignment, "تخصیص غرفه/سالن"),
+            new ProcessTypeWrapper(ProcessType.BoothAssignment, "تخصیص غرفه"),
             new ProcessTypeWrapper(ProcessType.BoothConstruction, "ساخت غرفه"),
             new ProcessTypeWrapper(ProcessType.BoothInspection, "بازرسی غرفه"),
             new ProcessTypeWrapper(ProcessType.BoothJudge, "قضاوت غرفه"),
@@ -40,8 +40,8 @@
             new ProcessTypeWrapper(ProcessType.Poll, "نظرسنجی"),
             new ProcessTypeWrapper(ProcessType.PostKeeping, "پست داری"),
             new ProcessTypeWrapper(ProcessType.ReConfiguration, "بازپیکربندی"),
-            new ProcessTypeWrapper(ProcessType.RequestForBooth, "درخواست غرفه"),
-            new ProcessTypeWrapper(ProcessType.SaloonCrud, "عملیات کراد سالن"),
+            new ProcessTypeWrapper(ProcessType.RequestForBooth, "درخواست غرفه/سالن"),
+            new ProcessTypeWrapper(ProcessType.SaloonCrud, "عملیات ویرایش/تخصیص سالن"),
             new ProcessTypeWrapper(ProcessType.VisitorReport, "گزارش بازدیدکنندگان"),
             new ProcessTypeWrapper(ProcessType.Waiting, "انتظار"),
             new ProcessTypeWrapper(ProcessType.WareHouseKeeping, "انبار داری")

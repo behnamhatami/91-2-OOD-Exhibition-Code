@@ -44,7 +44,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
             var processManager = Program.ProcessManager;
             if (exhibition.HasRole<ChairRole>(user))
             {
-                if (processManager.RunningProcesses().Any())
+                if (processManager.RemainingProcesses().Any())
                 {
                     PopUp.ShowError("نمایشگاه هنوز در حال اجرای تعدادی زیر فرآیند است.");
                     return false;

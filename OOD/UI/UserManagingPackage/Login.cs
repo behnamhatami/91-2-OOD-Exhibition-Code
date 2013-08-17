@@ -21,6 +21,7 @@ namespace OOD.UI.UserManagingPackage
 
         public override void Reset()
         {
+            base.Reset();
             PasswordTextBox.Text = "";
         }
 

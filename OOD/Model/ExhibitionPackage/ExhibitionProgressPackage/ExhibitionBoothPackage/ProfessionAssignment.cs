@@ -1,6 +1,8 @@
 ﻿#region
 
 using OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPackage;
+using OOD.Model.ModelContext;
+using OOD.Model.NotificationPackage;
 
 #endregion
 
@@ -37,6 +39,24 @@ namespace OOD.Model.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionBoothP
 
             return Profession.Equals(assignment.Profession)
                    && Request.Equals(assignment.Request);
+        }
+
+        public void NotifyDone()
+        {
+            Done = true;
+            var db = DataManager.DataContext;
+            db.Notifications.Add(
+                new Notification
+                {
+                    Content =
+                        string.Format("خدمت {0} برای غرفه ی {1} توسط {2} اتمام یافت", Profession, Request.Booth,
+                            Constructor),
+                    CreationDate = DateTimeManager.SystemNow,
+                    Exhibition = Request.Exhibition,
+                    Title = "خدمت به پایان رسید",
+                    User = Request.User
+                });
+            db.SaveChanges();
         }
     }
 }

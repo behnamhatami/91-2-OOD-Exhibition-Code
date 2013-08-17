@@ -45,6 +45,7 @@ namespace OOD.UI.NotificationPackage
 
         public override void Reset()
         {
+            base.Reset();
             ResetHelper.Empty(newsTitleTextBox, newsContentTextBox, newsImageTextBox, newsAttachmentListBox);
             ResetHelper.Refresh(newsPublicNotificationCheckBox, true);
             RefreshList();

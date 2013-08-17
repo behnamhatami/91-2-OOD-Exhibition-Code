@@ -3,7 +3,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using OOD.Model.ExhibitionPackage.ExhibitionDefinitionPackage;
-using OOD.Model.ModelContext;
 
 #endregion
 
@@ -23,14 +22,6 @@ namespace OOD
                     if (process1.FinishNode == process.StartNode)
                         process.PreProcesses.Add(process1);
             }
-            DoDayWork();
-        }
-
-        public void Tomorrow()
-        {
-            Program.Exhibition.ExhibitionDateTime = Program.Exhibition.ExhibitionDateTime.AddDays(1);
-            DataManager.DataContext.SaveChanges();
-            DoDayWork();
         }
 
         public void DoDayWork()
@@ -40,6 +31,9 @@ namespace OOD
 
             foreach (var process in ToBeStarted())
                 process.Start();
+
+            foreach (var process in RunningProcesses())
+                process.Run();
         }
 
         public bool IsProcessRunning(ProcessType processType)
@@ -52,21 +46,30 @@ namespace OOD
             return _processes.Where(process => process.Started && !process.Finished);
         }
 
-        public IQueryable<Process> ToBeFinsihed()
+        public List<Process> ToBeFinsihed()
         {
             var today = DateTimeManager.Today;
-            return RunningProcesses().Where(process => process.StartDate.AddDays(process.MaxLength) < today);
+            return
+                RunningProcesses()
+                    .ToList()
+                    .Where(process => process.StartDate.AddDays(process.MaxLength) <= today)
+                    .ToList();
         }
 
-        public IQueryable<Process> CanBeFinished()
+        public List<Process> ToBeStarted()
         {
-            var today = DateTimeManager.Today;
-            return RunningProcesses().Where(process => process.StartDate.AddDays(process.MinLength) < today);
+            return
+                _processes.Where(process => !process.Started).ToList().Where(process => process.PreProcesses.All(process1 => process1.Finished)).ToList();
         }
 
-        public IQueryable<Process> ToBeStarted()
+        public IQueryable<Process> RemainingProcesses()
         {
-            return _processes.Where(process => process.PreProcesses.All(process1 => process1.Finished));
+            return _processes.Where(process => !process.Finished);
+        }
+
+        public IQueryable<Process> FinsihedProcesses()
+        {
+            return _processes.Where(process => process.Finished);
         }
     }
 }

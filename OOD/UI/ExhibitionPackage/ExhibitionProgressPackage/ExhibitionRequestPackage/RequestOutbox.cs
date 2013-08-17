@@ -143,7 +143,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionProgressPackage.ExhibitionRequestPa
                     processManager.IsProcessRunning(ProcessType.ExhibitionRegistration))
                    ||
                    (exhibition.HasRole<ECustomerRole>(user)
-                    || processManager.IsProcessRunning(ProcessType.CustommerRequest));
+                    && processManager.IsProcessRunning(ProcessType.CustommerRequest));
         }
 
         private void ExhibitionRequestReset()

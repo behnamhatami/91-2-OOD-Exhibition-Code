@@ -22,6 +22,7 @@ namespace OOD.UI.UserManagingPackage
 
         public override void Reset()
         {
+            base.Reset();
             CreateReset();
             EditReset();
             RemoveReset();

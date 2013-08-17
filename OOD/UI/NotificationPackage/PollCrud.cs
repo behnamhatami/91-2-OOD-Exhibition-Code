@@ -29,6 +29,7 @@ namespace OOD.UI.NotificationPackage
 
         public override void Reset()
         {
+            base.Reset();
             CreatePollTabPageReset();
             ListPollTabPageReset();
         }
@@ -198,8 +199,7 @@ namespace OOD.UI.NotificationPackage
         private void listPollFinishButton_Click(object sender, EventArgs e)
         {
             var poll = listPollListComboBox.SelectedItem as Poll;
-            poll.Closed = true;
-            poll.FinishDate = DateTimeManager.Today;
+            poll.Finish();
             PopUp.ShowSuccess("نظرسنجی اتمام یافت.");
             DataManager.DataContext.SaveChanges();
             Reset();
@@ -208,7 +208,7 @@ namespace OOD.UI.NotificationPackage
         private void listPollStartButton_Click(object sender, EventArgs e)
         {
             var poll = listPollListComboBox.SelectedItem as Poll;
-            poll.Started = true;
+            poll.Start();
             PopUp.ShowSuccess("نظرسنجی آغاز شد.");
             DataManager.DataContext.SaveChanges();
             Reset();

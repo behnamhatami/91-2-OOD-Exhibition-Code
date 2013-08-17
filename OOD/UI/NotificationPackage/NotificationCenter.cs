@@ -21,6 +21,7 @@ namespace OOD.UI.NotificationPackage
 
         public override void Reset()
         {
+            base.Reset();
             var user = Program.User;
             var exhibition = Program.Exhibition;
 

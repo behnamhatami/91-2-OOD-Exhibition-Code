@@ -111,6 +111,7 @@ namespace OOD.UI.ExhibitionPackage.ExhibitionDefinitionPackage
                 if (poll.Voters.Count() == poll.PollChoices.First(pollChoice => pollChoice.Content == "بلی").Hit)
                 {
                     exhibition.State = ExhibitionState.Freezed;
+                    Program.ProcessManager = new ProcessManager(Program.Exhibition);
                     PopUp.ShowSuccess("انجماد با تایید تمام اعضای هیات مدیره به اتمام رسید.");
                 }
                 else
